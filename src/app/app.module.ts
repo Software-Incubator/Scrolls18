@@ -3,10 +3,16 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { AppComponent } from './app.component';
+import { ScHomeComponent } from './sc-home/sc-home.component';
+import { ScRegisterComponent } from './sc-register/sc-register.component';
+import { ScDashboardComponent } from './sc-dashboard/sc-dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ScHomeComponent,
+    ScRegisterComponent,
+    ScDashboardComponent
   ],
   imports: [
     BrowserModule,
