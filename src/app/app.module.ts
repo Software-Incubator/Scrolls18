@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ScHomeComponent } from './sc-home/sc-home.component';
 import { ScRegisterComponent } from './sc-register/sc-register.component';
 import { ScDashboardComponent } from './sc-dashboard/sc-dashboard.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ScDashboardComponent } from './sc-dashboard/sc-dashboard.component';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     MDBBootstrapModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
