@@ -7,17 +7,21 @@ import { ScHomeComponent } from './sc-home/sc-home.component';
 import { ScRegisterComponent } from './sc-register/sc-register.component';
 import { ScDashboardComponent } from './sc-dashboard/sc-dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
+import { MnFullpageModule } from 'ngx-fullpage';
+import { ScNavbarComponent } from './sc-navbar/sc-navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ScHomeComponent,
     ScRegisterComponent,
-    ScDashboardComponent
+    ScDashboardComponent,
+    ScNavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MnFullpageModule.forRoot(),
     MDBBootstrapModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
