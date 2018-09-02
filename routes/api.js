@@ -1,9 +1,17 @@
 const express = require('express');
-const registerController = require('../controllers/register');
+const authController = require('../controllers/auth');
+let config = require('../config');
 const router = express.Router();
 
-router.post('/v2/register', registerController.register);
-router.post('/test', registerController.file);
-router.get('/test', registerController.test);
+router.post('/signUp', authController.signUp);
+router.get('/sendEmail', function(req, res){
+    config.transporter.sendMail(config.mailOptions, function (err, info) {
+        if(err)
+          console.log(err)
+        else
+          console.log("success", info);
+        res.end();
+     });
+})
 
 module.exports = router;
