@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { FormsModule } from '@angular/forms';
+import { RecaptchaModule } from 'ng-recaptcha';
+import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 
 import { AppComponent } from './app.component';
 import { ScHomeComponent } from './sc-home/sc-home.component';
@@ -22,7 +25,10 @@ import { ScLoginComponent } from './sc-login/sc-login.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
+    RecaptchaModule.forRoot(),
+    RecaptchaFormsModule,
     MnFullpageModule.forRoot(),
     MDBBootstrapModule.forRoot()
   ],

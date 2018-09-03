@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+export interface FormModel {
+  captcha?: string;
+}
+
 @Component({
   selector: 'app-sc-register',
   templateUrl: './sc-register.component.html',
@@ -11,5 +15,5 @@ export class ScRegisterComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  public formModel: FormModel = {};
 }

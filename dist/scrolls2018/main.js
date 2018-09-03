@@ -316,8 +316,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _sc_home_sc_home_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sc-home/sc-home.component */ "./src/app/sc-home/sc-home.component.ts");
-/* harmony import */ var _sc_register_sc_register_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sc-register/sc-register.component */ "./src/app/sc-register/sc-register.component.ts");
-/* harmony import */ var _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sc-dashboard/sc-dashboard.component */ "./src/app/sc-dashboard/sc-dashboard.component.ts");
+/* harmony import */ var _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sc-dashboard/sc-dashboard.component */ "./src/app/sc-dashboard/sc-dashboard.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -328,11 +327,9 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-
 var appRoutes = [
     { path: '', component: _sc_home_sc_home_component__WEBPACK_IMPORTED_MODULE_2__["ScHomeComponent"] },
-    { path: 'register', component: _sc_register_sc_register_component__WEBPACK_IMPORTED_MODULE_3__["ScRegisterComponent"] },
-    { path: 'dashboard', component: _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["ScDashboardComponent"] },
+    { path: 'dashboard', component: _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_3__["ScDashboardComponent"] },
     { path: '**', redirectTo: '/' }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -421,11 +418,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angular-bootstrap-md */ "./node_modules/angular-bootstrap-md/esm5/angular-bootstrap-md.es5.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _sc_home_sc_home_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sc-home/sc-home.component */ "./src/app/sc-home/sc-home.component.ts");
-/* harmony import */ var _sc_register_sc_register_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./sc-register/sc-register.component */ "./src/app/sc-register/sc-register.component.ts");
-/* harmony import */ var _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./sc-dashboard/sc-dashboard.component */ "./src/app/sc-dashboard/sc-dashboard.component.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var ng_recaptcha__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ng-recaptcha */ "./node_modules/ng-recaptcha/index.js");
+/* harmony import */ var ng_recaptcha__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(ng_recaptcha__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var ng_recaptcha_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ng-recaptcha/forms */ "./node_modules/ng-recaptcha/forms.js");
+/* harmony import */ var ng_recaptcha_forms__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(ng_recaptcha_forms__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _sc_home_sc_home_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./sc-home/sc-home.component */ "./src/app/sc-home/sc-home.component.ts");
+/* harmony import */ var _sc_register_sc_register_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./sc-register/sc-register.component */ "./src/app/sc-register/sc-register.component.ts");
+/* harmony import */ var _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./sc-dashboard/sc-dashboard.component */ "./src/app/sc-dashboard/sc-dashboard.component.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var ngx_fullpage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ngx-fullpage */ "./node_modules/ngx-fullpage/ngx-fullpage.js");
+/* harmony import */ var ngx_fullpage__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(ngx_fullpage__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _sc_navbar_sc_navbar_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./sc-navbar/sc-navbar.component */ "./src/app/sc-navbar/sc-navbar.component.ts");
+/* harmony import */ var _sc_login_sc_login_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./sc-login/sc-login.component */ "./src/app/sc-login/sc-login.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -440,25 +446,37 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
+
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-                _sc_home_sc_home_component__WEBPACK_IMPORTED_MODULE_4__["ScHomeComponent"],
-                _sc_register_sc_register_component__WEBPACK_IMPORTED_MODULE_5__["ScRegisterComponent"],
-                _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_6__["ScDashboardComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
+                _sc_home_sc_home_component__WEBPACK_IMPORTED_MODULE_7__["ScHomeComponent"],
+                _sc_register_sc_register_component__WEBPACK_IMPORTED_MODULE_8__["ScRegisterComponent"],
+                _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_9__["ScDashboardComponent"],
+                _sc_navbar_sc_navbar_component__WEBPACK_IMPORTED_MODULE_12__["ScNavbarComponent"],
+                _sc_login_sc_login_component__WEBPACK_IMPORTED_MODULE_13__["ScLoginComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"],
+                ng_recaptcha__WEBPACK_IMPORTED_MODULE_4__["RecaptchaModule"].forRoot(),
+                ng_recaptcha_forms__WEBPACK_IMPORTED_MODULE_5__["RecaptchaFormsModule"],
+                ngx_fullpage__WEBPACK_IMPORTED_MODULE_11__["MnFullpageModule"].forRoot(),
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["MDBBootstrapModule"].forRoot()
             ],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NO_ERRORS_SCHEMA"]],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -475,7 +493,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  sc-dashboard works!\n</p>\n"
+module.exports = "<app-sc-navbar></app-sc-navbar>"
 
 /***/ }),
 
@@ -538,7 +556,7 @@ var ScDashboardComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  sc-home works!\n</p>\n"
+module.exports = "<app-sc-navbar></app-sc-navbar>"
 
 /***/ }),
 
@@ -576,8 +594,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var ScHomeComponent = /** @class */ (function () {
     function ScHomeComponent() {
+        this.title = 'Look jQuery Animation working in action!';
     }
     ScHomeComponent.prototype.ngOnInit = function () {
+        /*$(document).ready(function(){
+          $("button").click(function(){
+              var div = $("div");
+              div.animate({left: '100px'}, "slow");
+              div.animate({fontSize: '5em'}, "slow");
+          });
+      });*/
     };
     ScHomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -594,6 +620,132 @@ var ScHomeComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/sc-login/sc-login.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/sc-login/sc-login.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<a class=\"btn btn-info btn-sm waves-effect waves-light\" (click)=\"basicModal.show()\" mdbWavesEffect>Login\n  <i class=\"fa fa-sign-in ml-2\"></i>\n</a>\n<div mdbModal #basicModal=\"mdbModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\"\n  aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"basicModal.hide()\">\n          <span aria-hidden=\"true\">×</span>\n        </button>\n        <h4 class=\"modal-title w-100\" id=\"myModalLabel\">Modal title2</h4>\n      </div>\n      <div class=\"modal-body\">\n        ...\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" mdbBtn color=\"secondary\" class=\"waves-light\" aria-label=\"Close\" (click)=\"basicModal.hide()\" mdbWavesEffect>Close</button>\n        <button type=\"button\" mdbBtn color=\"primary\" class=\"relative waves-light\" mdbWavesEffect>Save changes</button>\n      </div>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/sc-login/sc-login.component.scss":
+/*!**************************************************!*\
+  !*** ./src/app/sc-login/sc-login.component.scss ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/sc-login/sc-login.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/sc-login/sc-login.component.ts ***!
+  \************************************************/
+/*! exports provided: ScLoginComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScLoginComponent", function() { return ScLoginComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ScLoginComponent = /** @class */ (function () {
+    function ScLoginComponent() {
+    }
+    ScLoginComponent.prototype.ngOnInit = function () {
+    };
+    ScLoginComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-sc-login',
+            template: __webpack_require__(/*! ./sc-login.component.html */ "./src/app/sc-login/sc-login.component.html"),
+            styles: [__webpack_require__(/*! ./sc-login.component.scss */ "./src/app/sc-login/sc-login.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ScLoginComponent);
+    return ScLoginComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/sc-navbar/sc-navbar.component.html":
+/*!****************************************************!*\
+  !*** ./src/app/sc-navbar/sc-navbar.component.html ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!--Navbar-->\n<mdb-navbar SideClass=\"navbar navbar-expand-lg navbar-dark indigo\">\n\n    <!-- Navbar brand -->\n    <mdb-navbar-brand>\n        <a class=\"navbar-brand\" href=\"#\">\n            <img src=\"../../assets/akgec.png\" height=\"30\" alt=\"\">\n        </a>\n    </mdb-navbar-brand>\n\n    <!-- Collapsible content -->\n    <links>\n\n        <!-- Links -->\n        <ul class=\"navbar-nav mr-auto\">\n            <li class=\"nav-item active\">\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Home<span class=\"sr-only\">(current)</span></a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Features</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Pricing</a>\n            </li>\n        </ul>\n        <app-sc-login></app-sc-login>\n        <app-sc-register></app-sc-register>\n    </links>\n</mdb-navbar>\n<!--/.Navbar-->"
+
+/***/ }),
+
+/***/ "./src/app/sc-navbar/sc-navbar.component.scss":
+/*!****************************************************!*\
+  !*** ./src/app/sc-navbar/sc-navbar.component.scss ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/sc-navbar/sc-navbar.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/sc-navbar/sc-navbar.component.ts ***!
+  \**************************************************/
+/*! exports provided: ScNavbarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScNavbarComponent", function() { return ScNavbarComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ScNavbarComponent = /** @class */ (function () {
+    function ScNavbarComponent() {
+    }
+    ScNavbarComponent.prototype.ngOnInit = function () {
+    };
+    ScNavbarComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-sc-navbar',
+            template: __webpack_require__(/*! ./sc-navbar.component.html */ "./src/app/sc-navbar/sc-navbar.component.html"),
+            styles: [__webpack_require__(/*! ./sc-navbar.component.scss */ "./src/app/sc-navbar/sc-navbar.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ScNavbarComponent);
+    return ScNavbarComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/sc-register/sc-register.component.html":
 /*!********************************************************!*\
   !*** ./src/app/sc-register/sc-register.component.html ***!
@@ -601,7 +753,7 @@ var ScHomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  sc-register works!\n</p>\n"
+module.exports = "<a class=\"btn btn-info btn-sm waves-effect waves-light\" (click)=\"basicModal.show()\" mdbWavesEffect>Register\n  <i class=\"fa fa-sign-in ml-2\"></i>\n</a>\n<div mdbModal #basicModal=\"mdbModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\"\naria-hidden=\"true\">\n<div class=\"modal-dialog modal-lg\" role=\"document\">\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"basicModal.hide()\">\n        <span aria-hidden=\"true\">×</span>\n      </button>\n    </div>\n    <div class=\"modal-body\">\n      <div class=\"container-fluid\">\n        <div class=\"row\">\n          <div class=\"col-sm-12 col-md-6 col-lg-6\">\n            <h1 class=\"text-center Register_heading\">REGISTRATION</h1>\n            <img class=\"mt-3 w-100\" src=\"../../assets/akgec.png\" alt=\"\">\n          </div>\n          <div class=\"col-sm-12 col-md-6 col-lg-6\">\n              <h2 class=\"text-center Team_heading mt-2\">ENTER DETAILS</h2>\n              <div class=\"md-form mb-1\">\n                  <input type=\"text\" class=\"form-control\" mdbInputDirective>\n                  <label data-error=\"wrong\" data-success=\"right\" for=\"orangeForm-name\">Team name</label>\n                </div>\n                <div class=\"md-form mb-1\">\n                  <input type=\"email\" class=\"form-control\" mdbInputDirective>\n                  <label data-error=\"wrong\" data-success=\"right\" for=\"orangeForm-email\">Email ( Team Leader )</label>\n                </div>\n                <div class=\"md-form mb-1\">\n                  <input type=\"password\" class=\"form-control\" mdbInputDirective>\n                  <label data-error=\"wrong\" data-success=\"right\" for=\"orangeForm-pass\">Password ( atleat 6 characters )</label>\n                </div>\n                <div class=\"md-form mb-1\">\n                    <input type=\"password\" class=\"form-control\" mdbInputDirective>\n                    <label data-error=\"wrong\" data-success=\"right\" for=\"orangeForm-pass\">Confirm password</label>\n                </div>\n                <form #captchaProtectedForm=\"ngForm\">\n                    <re-captcha [(ngModel)]=\"formModel.captcha\" name=\"captcha\" required siteKey=\"6Led_G0UAAAAANMfYD_VxWMmmN0C1m1-w0rwYSw2\" #captchaControl=\"ngModel\"></re-captcha>\n                    <div [hidden]=\"captchaControl.valid || captchaControl.pristine\" class=\"error\">Captcha must be solved</div>\n                    <div [hidden]=\"!captchaControl.valid\" class=\"success\">Captcha is valid</div>\n                    <div [hidden]=\"captchaProtectedForm.form.valid\" class=\"error\">The form must be filled out</div>\n                    <div [hidden]=\"!captchaProtectedForm.form.valid\" class=\"success\">The form is valid</div>\n                    <button (click)=\"formModel.captcha = ''\">Reset Captcha</button>\n                  </form>\n              <div class=\"d-flex justify-content-center\">\n                <button mdbBtn class=\"btn signupbutton waves-effect waves-light\" mdbWavesEffect>Sign up</button>\n              </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n</div>"
 
 /***/ }),
 
@@ -612,7 +764,7 @@ module.exports = "<p>\n  sc-register works!\n</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".modal-header {\n  border-bottom: none; }\n\n.Register_heading {\n  color: #EC555A;\n  font-weight: 700; }\n\n.Team_heading {\n  color: #FFC973;\n  font-weight: 700; }\n\n.md-form input[type=text], .md-form input[type=password], .md-form input[type=email], .md-form input[type=url], .md-form input[type=time], .md-form input[type=date], .md-form input[type=datetime-local], .md-form input[type=tel], .md-form input[type=number], .md-form input[type=search-md], .md-form input[type=search], .md-form textarea.md-textarea {\n  background-color: #f0f0f0;\n  border-radius: 3px;\n  height: 25px !important;\n  font-weight: 400; }\n\n.md-form label {\n  font-weight: 700;\n  color: #808080; }\n\n.md-form label {\n  left: 5px; }\n\n.md-form label.active {\n  transform: translateY(-150%);\n  -webkit-transform: translateY(-150%); }\n\n.signupbutton {\n  width: 100%;\n  background-color: #59B8E8;\n  color: #fff;\n  font-weight: 700;\n  margin: 0px;\n  margin-top: 0.375rem;\n  padding: 0.54rem 2.14rem; }\n"
 
 /***/ }),
 
@@ -639,6 +791,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var ScRegisterComponent = /** @class */ (function () {
     function ScRegisterComponent() {
+        this.formModel = {};
     }
     ScRegisterComponent.prototype.ngOnInit = function () {
     };
