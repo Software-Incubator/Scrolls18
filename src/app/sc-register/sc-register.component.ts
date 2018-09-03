@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServerService } from '../services/server.service';
 
 @Component({
   selector: 'app-sc-register',
@@ -8,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class ScRegisterComponent implements OnInit {
 
   model: any = {};
-  constructor() { }
+  Loading: boolean = false;
+  constructor(private server: ServerService) { }
   ngOnInit() {
   }
   onSubmit() {
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
+    this.Loading = true;
+    console.log(this.model);
+    this.server.signup(this.model)
+    .subscribe(res => {
+      this.Loading = false;
+      console.log(res);
+    });
   }
 }
