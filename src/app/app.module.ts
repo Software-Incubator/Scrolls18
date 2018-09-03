@@ -9,6 +9,7 @@ import { ScDashboardComponent } from './sc-dashboard/sc-dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MnFullpageModule } from 'ngx-fullpage';
 import { ScNavbarComponent } from './sc-navbar/sc-navbar.component';
+import { ScLoginComponent } from './sc-login/sc-login.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ScNavbarComponent } from './sc-navbar/sc-navbar.component';
     ScHomeComponent,
     ScRegisterComponent,
     ScDashboardComponent,
-    ScNavbarComponent
+    ScNavbarComponent,
+    ScLoginComponent
   ],
   imports: [
     BrowserModule,
