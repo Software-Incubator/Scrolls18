@@ -11,5 +11,9 @@ export class ScLoginComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  model: any = {};
+ 
+  onSubmit() {
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
+  }
 }

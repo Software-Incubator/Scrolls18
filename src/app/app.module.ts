@@ -10,9 +10,10 @@ import { ScHomeComponent } from './sc-home/sc-home.component';
 import { ScRegisterComponent } from './sc-register/sc-register.component';
 import { ScDashboardComponent } from './sc-dashboard/sc-dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
-import { MnFullpageModule } from 'ngx-fullpage';
+import { MnFullpageModule } from 'ngx-fullpage/ngx-fullpage';
 import { ScNavbarComponent } from './sc-navbar/sc-navbar.component';
 import { ScLoginComponent } from './sc-login/sc-login.component';
+import { ConfirmEqualValidatorDirective } from './confirm-equal-validator.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ScLoginComponent } from './sc-login/sc-login.component';
     ScRegisterComponent,
     ScDashboardComponent,
     ScNavbarComponent,
-    ScLoginComponent
+    ScLoginComponent,
+    ConfirmEqualValidatorDirective
   ],
   imports: [
     BrowserModule,

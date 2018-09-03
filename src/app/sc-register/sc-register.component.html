@@ -15,41 +15,64 @@ aria-hidden="true">
         <div class="row">
           <div class="col-sm-12 col-md-6 col-lg-6">
             <h1 class="text-center Register_heading">REGISTRATION</h1>
-            <img class="mt-3 w-100" src="../../assets/akgec.png" alt="">
+            <img class="mt-3 w-100" src="../../assets/register.svg" alt="">
           </div>
           <div class="col-sm-12 col-md-6 col-lg-6">
-              <h2 class="text-center Team_heading mt-2">ENTER DETAILS</h2>
+            <h2 class="text-center Team_heading mt-2">ENTER DETAILS</h2>
+            
+            <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate >
               <div class="md-form mb-1">
-                  <input type="text" class="form-control" mdbInputDirective>
-                  <label data-error="wrong" data-success="right" for="orangeForm-name">Team name</label>
+                <label for="teamName">Team name</label>
+                <input style="color: #808080;" type="text" class="form-control" name="teamName" [(ngModel)]="model.teamName" #teamName="ngModel" [ngClass]="{ 'is-invalid': teamName.touched && teamName.invalid }" required>
+                <div *ngIf="teamName.touched && teamName.invalid " class="invalid-feedback">
+                  <div *ngIf="teamName.errors.required">Team Name is required</div>
                 </div>
-                <div class="md-form mb-1">
-                  <input type="email" class="form-control" mdbInputDirective>
-                  <label data-error="wrong" data-success="right" for="orangeForm-email">Email ( Team Leader )</label>
-                </div>
-                <div class="md-form mb-1">
-                  <input type="password" class="form-control" mdbInputDirective>
-                  <label data-error="wrong" data-success="right" for="orangeForm-pass">Password ( atleat 6 characters )</label>
-                </div>
-                <div class="md-form mb-1">
-                    <input type="password" class="form-control" mdbInputDirective>
-                    <label data-error="wrong" data-success="right" for="orangeForm-pass">Confirm password</label>
-                </div>
-                <form #captchaProtectedForm="ngForm">
-                    <re-captcha [(ngModel)]="formModel.captcha" name="captcha" required siteKey="6Led_G0UAAAAANMfYD_VxWMmmN0C1m1-w0rwYSw2" #captchaControl="ngModel"></re-captcha>
-                    <div [hidden]="captchaControl.valid || captchaControl.pristine" class="error">Captcha must be solved</div>
-                    <div [hidden]="!captchaControl.valid" class="success">Captcha is valid</div>
-                    <div [hidden]="captchaProtectedForm.form.valid" class="error">The form must be filled out</div>
-                    <div [hidden]="!captchaProtectedForm.form.valid" class="success">The form is valid</div>
-                    <button (click)="formModel.captcha = ''">Reset Captcha</button>
-                  </form>
-              <div class="d-flex justify-content-center">
-                <button mdbBtn class="btn signupbutton waves-effect waves-light" mdbWavesEffect>Sign up</button>
               </div>
-          </div>
+              <div class="md-form mb-1">
+                <label for="email">Email ( Team Leader )</label>
+                <input style="color: #808080;" type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': email.touched && email.invalid }" required email>
+                <div *ngIf="email.touched && email.invalid" class="invalid-feedback">
+                  <div *ngIf="email.errors.required">Email is required</div>
+                  <div *ngIf="email.errors.email">Email a valid email</div>
+                </div>
+              </div>
+              <div class="md-form mb-1">
+                <label for="password">Password ( atleat 6 characters )</label>
+                <input (ngModelChange)="confirmPassword.control.updateValueAndValidity()" style="color: #808080;" type="password" id="password" required  class="form-control"
+                name="password" [(ngModel)]="model.password"
+                #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" minlength="6">
+                <div class="help-block"
+                *ngIf="(password.touched && password.errors?.required) || password.errors?.minlength">
+                Invalid Password
+              </div>
+            </div>
+            <div class="md-form mb-1">
+              <label for="confirmPassword">Confirm Password</label>
+              <input style="color: #808080;" type="password" name="confirmPassword" appConfirmEqualValidator="password" required
+              id="confirmPassword" class="form-control"
+              [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel">
+              <span class="help-block"
+              *ngIf="confirmPassword.touched && confirmPassword.errors?.required">
+              Confirm Password is required
+            </span>
+            <span class="help-block"
+            *ngIf="confirmPassword.touched && confirmPassword.errors?.notEqual &&
+            !confirmPassword.errors?.required">
+            Does'nt match with Password 
+          </span>
         </div>
-      </div>
+        <div class="md-form mt-3">
+          <re-captcha [(ngModel)]="model.captcha" name="captcha" required siteKey="6Led_G0UAAAAANMfYD_VxWMmmN0C1m1-w0rwYSw2" #captcha="ngModel"></re-captcha>
+        </div>  
+        <div [hidden]="captcha.valid || captcha.pristine" class="error">Captcha must be solved</div>
+        <div class="d-flex justify-content-center">
+          <button [disabled]="!f.form.valid" mdbBtn class="btn signupbutton waves-effect waves-light" mdbWavesEffect>Sign up</button>
+        </div>
+      </form>
     </div>
   </div>
+</div>
+</div>
+</div>
 </div>
 </div>
