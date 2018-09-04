@@ -27,6 +27,11 @@ const memberSchema = new Schema({
         required: true
     },
 
+    email:{
+        type: String,
+        required: true
+    },
+
     mobno: {
         type: String,
         required: true

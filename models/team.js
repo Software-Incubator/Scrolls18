@@ -2,24 +2,21 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const teamSchema = new Schema({
-    name: {
+    teamName: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
 
-    numberOfMembers: {
-        type: Number,
-        required: true
+    teamId: {
+        type:String,
+        required: true,
+        unique: true
     },
 
-    domain: {
+    email: {
         type: String,
-        required: true
-    },
-
-    topic: {
-        type: String,
-        required: true
+        required: true,
     },
 
     password: {

@@ -1,4 +1,7 @@
 const nodeMailer = require('nodemailer');
+const emailTemplates = require('email-templates');
+const fs = require('fs');
+const ejs = require('ejs');
 //mail configurations
 const transporter = nodeMailer.createTransport({
     host: 'smtp.gmail.com',
@@ -9,15 +12,41 @@ const transporter = nodeMailer.createTransport({
         pass: 'hashakgec18'
     }
 }); 
-
+let readHTMLFile = function(path, callback) {
+    
+    fs.readFile(path, {encoding: 'utf-8'}, function(err, html) {
+        console.log('yes');
+        if(err) {
+            callback(err); 
+        } else {
+            
+            callback(null, html);
+        }
+    })
+}
 module.exports = {
     secret: "Qdhyi59BhPZsjRkg",
     connection: 'mongodb://scrolls-admin:5ky2n11@ds133762.mlab.com:33762/scrolls18',
-    transporter: transporter,
-    mailOptions: {
-        from: 'akgecscrolls18@gmail.com',
-        to: 'suyashsrv7@gmail.com',
-        subject: "Team registered",
-        html: "<p> Congratulations </p>"
-    } 
+    sendYourMail: function(templatePath, from, to, subject, templateVar, callback) {
+        readHTMLFile(templatePath, function(err, html) {
+            if (err) throw err;
+            let template = ejs.compile(html);
+            console.log('err');
+            let htmlToSend = template(templateVar);
+            let mailOptions = {
+                from: from,
+                to: to,
+                subject: subject,
+                html: htmlToSend
+            }
+            transporter.sendMail(mailOptions, function(error, response) {
+                if (error) {
+                    console.log(error);
+                    callback(error);
+                } else {
+                    callback(null, response);
+                }
+            })
+        });
+    }
 }
