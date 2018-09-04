@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServerService } from '../services/server.service';
 
 @Component({
   selector: 'app-sc-login',
@@ -6,14 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sc-login.component.scss']
 })
 export class ScLoginComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
   model: any = {};
- 
+  Loading: boolean = false;
+  constructor(private server: ServerService) { 
+
+  }
+  ngOnInit() {
+  } 
   onSubmit() {
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
+    this.Loading = true;
+    console.log(this.model);
+    this.server.login(this.model)
+    .subscribe(res => {
+      this.Loading = false;
+      console.log(res);
+    });
   }
 }
