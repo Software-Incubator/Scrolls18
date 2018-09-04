@@ -21,6 +21,7 @@ export class ScLoginComponent implements OnInit {
   onSubmit() {
     this.Loading = true;
     console.log(this.model);
+    console.log("hi");
     this.server.login(this.model)
     .subscribe(res => {
       this.Loading = false;
