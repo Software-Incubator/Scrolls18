@@ -1,0 +1,25 @@
+.heading{
+    width:100vw;
+    height: 50vh;
+    background-color: #ECAF46;
+
+    &_image{
+      width:40vw;
+      position: absolute;
+      top:40%;
+      left:50%;
+      transform: translate(-50%,-50%);
+    }
+
+    &_bottom{
+        height:50vh;
+        bottom:0;
+
+        &_image{
+            width:60vw;
+            position: absolute;
+            left:40%;
+            transform: translateX(-50%);
+        }
+    }
+}
