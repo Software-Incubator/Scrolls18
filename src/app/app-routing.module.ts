@@ -5,10 +5,11 @@ import { RouterModule } from '@angular/router';
 import { ScHomeComponent } from './sc-home/sc-home.component';
 import { ScRegisterComponent } from './sc-register/sc-register.component';
 import { ScDashboardComponent } from './sc-dashboard/sc-dashboard.component';
+import { AuthGuard } from './services/authguard.service';
 
 const appRoutes: Routes = [
    { path: '', component: ScHomeComponent },
-   { path: 'dashboard', component: ScDashboardComponent },
+   { path: 'dashboard', canActivate: [AuthGuard], component: ScDashboardComponent },
    { path: '**', redirectTo: '/' }
 ];
 @NgModule({

@@ -15,8 +15,9 @@ import { MnFullpageModule } from 'ngx-fullpage/ngx-fullpage';
 import { ScNavbarComponent } from './sc-navbar/sc-navbar.component';
 import { ScLoginComponent } from './sc-login/sc-login.component';
 import { ConfirmEqualValidatorDirective } from './confirm-equal-validator.directive';
-import { AuthService } from './services/auth.service';
 import { ServerService } from './services/server.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/authguard.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { ServerService } from './services/server.service';
     HttpClientModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [AuthService, ServerService],
+  providers: [AuthService, ServerService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
