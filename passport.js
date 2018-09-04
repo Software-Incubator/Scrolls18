@@ -4,18 +4,10 @@ const passport = require('passport');
 const config = require('./config');
 const Team = require('./models/team');
 let opts = {};
-opts.jwtFromRequest = function(req) {
-        let string = (req.headers.authorization).split(' ');
-        if(req && req.headers.authorization) {
-            return (string[1]);
-        }
-        return null;
-    }
+opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = config.secret;
 passport.use('jwt', new JwtStrategy(opts, function(jwt_payload, done) {
-    console.log(jwt_payload);
-    Team.findOne({teamId: jwt_payload._id}, function(err, team) {
-        
+    Team.findOne({_id: jwt_payload.sub}, function(err, team) {
         if (err) {
             return done(err, false);
         }

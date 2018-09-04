@@ -99,7 +99,7 @@ module.exports = {
                                     if (err)
                                         res.status(500).json({error: {status: true, errorInfo: "Could not send mail"},msg: "Team registered"});
                                     else {
-                                        console.log("success", info);
+                                        // console.log("success", info);
                                         res.status(200).json({error: {status: false, errorInfo: null},msg: "Team registered"})
                                     }
                                 }
@@ -115,9 +115,7 @@ module.exports = {
     },
 
     login: (req, res) => {
-        console.log(req.body.teamId);
         Teams.find({teamId: req.body.teamId}, function(err, regTeam) {
-            console.log(regTeam);
             if (err) {
                 res.status(500).json({error:{
                     status: true,
@@ -126,11 +124,12 @@ module.exports = {
             } else if (regTeam.length > 0) {
                 bcrypt.compare(req.body.password, regTeam[0].password).then( function(same) {
                     if(same) {
-                        const token = jwt.sign(regTeam[0], config.secret, {expiresIn: '24h'});
-                        res.status(200).json({error:{
-                            status: false,
-                            errorInfo: null
-                        }, token: token});
+                        jwt.sign({sub: regTeam[0]._id}, config.secret, {expiresIn: '24h'}, function(err, token){
+                            res.status(200).json({error:{
+                                status: false,
+                                errorInfo: null
+                            }, token: token});
+                        });
                     } else {
                         res.status(401).json({error:{
                             status: true,

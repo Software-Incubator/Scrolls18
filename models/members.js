@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const memberSchema = new Schema({
     teamId: {
-        type: Schema.Types.ObjectId,
+        type: String,
         required: true
     },
 

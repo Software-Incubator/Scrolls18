@@ -36,21 +36,6 @@ router.post('/login', authController.login);
 router.post('/verifyToken', authController.verifyToken);
 
 //protected routes
-router.post('/protectedDashboard', passport.authenticate('jwt', {session:false}), dashboardController.registerTeam);
+router.post('/dashboard', passport.authenticate('jwt', {session:false}), dashboardController.registerTeam);
+router.get('/dashboard/getAllDetails', passport.authenticate('jwt', {session: false}), dashboardController.getAllDetail);
 module.exports = router;
-
-//custom middleware
-function authenticate(req, res, next) {
-  let token = (req.headers.authorization).split(' ')[1];
-  verifyToken(token, function(response) {
-    if(response) {
-      next();
-    } else {
-      res.status(401).json({error: {
-        status: true,
-        errorInfo: "Unauthorized"
-      }});
-    }
-  })
-
-}

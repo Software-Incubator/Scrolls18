@@ -15,7 +15,6 @@ const transporter = nodeMailer.createTransport({
 let readHTMLFile = function(path, callback) {
     
     fs.readFile(path, {encoding: 'utf-8'}, function(err, html) {
-        console.log('yes');
         if(err) {
             callback(err); 
         } else {
@@ -31,7 +30,6 @@ module.exports = {
         readHTMLFile(templatePath, function(err, html) {
             if (err) throw err;
             let template = ejs.compile(html);
-            console.log('err');
             let htmlToSend = template(templateVar);
             let mailOptions = {
                 from: from,
