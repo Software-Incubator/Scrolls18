@@ -8,7 +8,6 @@ import { ScDashboardComponent } from './sc-dashboard/sc-dashboard.component';
 
 const appRoutes: Routes = [
    { path: '', component: ScHomeComponent },
-   { path: 'register', component: ScRegisterComponent },
    { path: 'dashboard', component: ScDashboardComponent },
    { path: '**', redirectTo: '/' }
 ];

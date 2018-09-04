@@ -1,10 +1,30 @@
-<!-- Image and text -->
-<mdb-navbar SideClass="navbar navbar-dark indigo">
-  <mdb-navbar-brand>
-      <a class="navbar-brand" href="#">
-          <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" class="d-inline-block align-top" alt="">
-          Bootstrap
-      </a>
-      <app-sc-register></app-sc-register>
-  </mdb-navbar-brand>
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand>
+        <a class="navbar-brand" href="#">
+            <img src="../../assets/akgec.png" height="30" alt="">
+        </a>
+    </mdb-navbar-brand>
+
+    <!-- Collapsible content -->
+    <links>
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect>Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect>Pricing</a>
+            </li>
+        </ul>
+        <app-sc-login></app-sc-login>
+        <app-sc-register></app-sc-register>
+    </links>
 </mdb-navbar>
+<!--/.Navbar-->
