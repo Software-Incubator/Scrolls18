@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sc-navbar',
@@ -9,13 +9,21 @@ import { Router } from '@angular/router';
 })
 export class ScNavbarComponent implements OnInit {
   loginStatus: boolean;
-  constructor(private auth: AuthService, private router: Router) {
+  homeStatus: boolean;
+  constructor(private auth: AuthService, private router: Router, private activatedRoute: ActivatedRoute) {
    }
 
   ngOnInit() {
     this.loginStatus = this.auth.isLoggedIn();
+    if (this.activatedRoute.snapshot.url.length !== 0) {
+      if (this.activatedRoute.snapshot.url[0].path === 'dashboard') {
+        this.homeStatus = false;
+      }
+    } else {
+      this.homeStatus = true;
+    }
   }
-  logout(){
+  logout() {
     this.auth.clearToken();
     this.loginStatus = false;
     this.router.navigate(['/']);
