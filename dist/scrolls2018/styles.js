@@ -662,10 +662,10 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\PROJECTS\Scrolls18\node_modules\font-awesome\scss\font-awesome.scss */"./node_modules/font-awesome/scss/font-awesome.scss");
-__webpack_require__(/*! E:\PROJECTS\Scrolls18\node_modules\angular-bootstrap-md\scss\bootstrap\bootstrap.scss */"./node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss");
-__webpack_require__(/*! E:\PROJECTS\Scrolls18\node_modules\angular-bootstrap-md\scss\mdb-free.scss */"./node_modules/angular-bootstrap-md/scss/mdb-free.scss");
-module.exports = __webpack_require__(/*! E:\PROJECTS\Scrolls18\src\styles.scss */"./src/styles.scss");
+__webpack_require__(/*! C:\Users\SDC\Scrolls18\node_modules\font-awesome\scss\font-awesome.scss */"./node_modules/font-awesome/scss/font-awesome.scss");
+__webpack_require__(/*! C:\Users\SDC\Scrolls18\node_modules\angular-bootstrap-md\scss\bootstrap\bootstrap.scss */"./node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss");
+__webpack_require__(/*! C:\Users\SDC\Scrolls18\node_modules\angular-bootstrap-md\scss\mdb-free.scss */"./node_modules/angular-bootstrap-md/scss/mdb-free.scss");
+module.exports = __webpack_require__(/*! C:\Users\SDC\Scrolls18\src\styles.scss */"./src/styles.scss");
 
 
 /***/ })

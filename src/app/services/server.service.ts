@@ -5,24 +5,23 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ServerService {
-  private URL = 'http://83668b71.ngrok.io';
+  private URL = 'http://localhost:3000';
   constructor(private http: HttpClient) { }
-  
-  signup(signup_details){
-    return this.http.post(`${this.URL}/api/signUp`,signup_details);
+
+  signup(signup_details) {
+    return this.http.post(`${this.URL}/api/signUp`, signup_details);
   }
 
-  login(login_details){
-    return this.http.post(`${this.URL}/api/login`,login_details);
+  login(login_details) {
+    return this.http.post(`${this.URL}/api/login`, login_details);
   }
 
-  getDashboardDetails(token: string){
-    token
+  getDashboardDetails(token: string) {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
       'Authorization': 'Bearer ' +  token
      });
 
-    return this.http.get(`${this.URL}/api/dashboard/getAllDetails`,{headers: headers});
+    return this.http.get(`${this.URL}/api/dashboard/getAllDetails`, {headers: headers});
   }
 }

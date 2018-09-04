@@ -317,6 +317,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _sc_home_sc_home_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sc-home/sc-home.component */ "./src/app/sc-home/sc-home.component.ts");
 /* harmony import */ var _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sc-dashboard/sc-dashboard.component */ "./src/app/sc-dashboard/sc-dashboard.component.ts");
+/* harmony import */ var _services_authguard_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services/authguard.service */ "./src/app/services/authguard.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -327,9 +328,10 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var appRoutes = [
     { path: '', component: _sc_home_sc_home_component__WEBPACK_IMPORTED_MODULE_2__["ScHomeComponent"] },
-    { path: 'dashboard', component: _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_3__["ScDashboardComponent"] },
+    { path: 'dashboard', canActivate: [_services_authguard_service__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]], component: _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_3__["ScDashboardComponent"] },
     { path: '**', redirectTo: '/' }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -355,7 +357,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet></router-outlet>\n"
+module.exports = "<router-outlet></router-outlet>\r\n"
 
 /***/ }),
 
@@ -434,14 +436,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sc_navbar_sc_navbar_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./sc-navbar/sc-navbar.component */ "./src/app/sc-navbar/sc-navbar.component.ts");
 /* harmony import */ var _sc_login_sc_login_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./sc-login/sc-login.component */ "./src/app/sc-login/sc-login.component.ts");
 /* harmony import */ var _confirm_equal_validator_directive__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./confirm-equal-validator.directive */ "./src/app/confirm-equal-validator.directive.ts");
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/services/auth.service.ts");
-/* harmony import */ var _services_server_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./services/server.service */ "./src/app/services/server.service.ts");
+/* harmony import */ var _services_server_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./services/server.service */ "./src/app/services/server.service.ts");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _services_authguard_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./services/authguard.service */ "./src/app/services/authguard.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -485,7 +489,7 @@ var AppModule = /** @class */ (function () {
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"]
             ],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NO_ERRORS_SCHEMA"]],
-            providers: [_services_auth_service__WEBPACK_IMPORTED_MODULE_16__["AuthService"], _services_server_service__WEBPACK_IMPORTED_MODULE_17__["ServerService"]],
+            providers: [_services_auth_service__WEBPACK_IMPORTED_MODULE_17__["AuthService"], _services_server_service__WEBPACK_IMPORTED_MODULE_16__["ServerService"], _services_authguard_service__WEBPACK_IMPORTED_MODULE_18__["AuthGuard"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
         })
     ], AppModule);
@@ -585,6 +589,8 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScDashboardComponent", function() { return ScDashboardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_server_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/server.service */ "./src/app/services/server.service.ts");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/auth.service */ "./src/app/services/auth.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -595,10 +601,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var ScDashboardComponent = /** @class */ (function () {
-    function ScDashboardComponent() {
+    function ScDashboardComponent(server, auth) {
+        this.server = server;
+        this.auth = auth;
     }
     ScDashboardComponent.prototype.ngOnInit = function () {
+        this.server.getDashboardDetails(this.auth.getToken())
+            .subscribe(function (data) {
+            console.log(data);
+        });
     };
     ScDashboardComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -606,7 +620,7 @@ var ScDashboardComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./sc-dashboard.component.html */ "./src/app/sc-dashboard/sc-dashboard.component.html"),
             styles: [__webpack_require__(/*! ./sc-dashboard.component.scss */ "./src/app/sc-dashboard/sc-dashboard.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_server_service__WEBPACK_IMPORTED_MODULE_1__["ServerService"], _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]])
     ], ScDashboardComponent);
     return ScDashboardComponent;
 }());
@@ -622,7 +636,7 @@ var ScDashboardComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-sc-navbar></app-sc-navbar>"
+module.exports = "<app-sc-navbar></app-sc-navbar>\r\n<div mnFullpage>\r\n    <div class=\"section welcome-section fp-section fp-table\">\r\n        <div class=\"fp-tableCell\">\r\n            <div class=\"heading\">\r\n                <img src=\"../../assets/scrolls_head.svg\" alt=\"Scrolls-2018\" class=\"heading_image\">\r\n            </div>\r\n            <div class=\"heading_bottom\">\r\n                <img src=\"../../assets/Header_svg.svg\" alt=\"Scrolss-2018\" class=\"heading_bottom_image\" > \r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"section welcome-section fp-section fp-table\">\r\n        <div class=\"fp-tableCell\">\r\n            2\r\n        </div>\r\n    </div>\r\n    <div class=\"section welcome-section fp-section fp-table\">\r\n        <div class=\"fp-tableCell\">\r\n            3\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -633,7 +647,7 @@ module.exports = "<app-sc-navbar></app-sc-navbar>"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".heading {\n  width: 100vw;\n  height: 50vh;\n  background-color: #ECAF46; }\n  .heading_image {\n    width: 40vw;\n    position: absolute;\n    top: 40%;\n    left: 50%;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%); }\n  .heading_bottom {\n    height: 50vh;\n    bottom: 0; }\n  .heading_bottom_image {\n      width: 60vw;\n      position: absolute;\n      left: 40%;\n      -webkit-transform: translateX(-50%);\n              transform: translateX(-50%); }\n"
 
 /***/ }),
 
@@ -693,7 +707,7 @@ var ScHomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"Loading\" class=\"overlay\">\n    <img src=\"../../assets/loader.svg\" class=\"loader image-responsive\" alt=\"Loader\">\n</div>\n<a class=\"btn btn-info btn-sm waves-effect waves-light\" (click)=\"basicModal.show()\" mdbWavesEffect>Login\n    <i class=\"fa fa-sign-in ml-2\"></i>\n</a>\n<div mdbModal #basicModal=\"mdbModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\"\naria-hidden=\"true\">\n<div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n        <div class=\"modal-header\">\n            <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"basicModal.hide()\">\n                <span aria-hidden=\"true\">×</span>\n            </button>\n        </div>\n        <div class=\"modal-body\">\n            <div class=\"container-fluid\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12 col-md-12 col-lg-12\">\n                        <div class=\"text-center\">\n                            <h1 class=\"Register_heading\">LOGIN</h1>\n                            <img style=\"width:25%;\" class=\"mt-3 image-responsive\" src=\"../../assets/login.svg\" alt=\"\">\n                        </div>\n                        <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\" #f=\"ngForm\" novalidate >\n                            <div class=\"md-form mb-1\">\n                                <label for=\"teamId\">Team Id</label>\n                                <input style=\"color: #808080;margin:0;\" type=\"text\" class=\"form-control\" name=\"teamId\" [(ngModel)]=\"model.teamId\" #teamId=\"ngModel\" [ngClass]=\"{ 'is-invalid': teamId.touched && teamId.invalid }\" required>\n                                <div *ngIf=\"teamId.touched && teamId.invalid \" class=\"invalid-feedback\">\n                                    <div *ngIf=\"teamId.errors.required\">Team Id is required</div>\n                                </div>\n                            </div>\n                            <div class=\"md-form mb-1\">\n                                <label for=\"password\">Password</label>\n                                <input style=\"color: #808080;margin:0;\" type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"model.password\" #password=\"ngModel\" [ngClass]=\"{ 'is-invalid': password.touched && password.invalid }\" required minlength=\"6\">\n                                <div *ngIf=\"password.touched && password.invalid\" class=\"invalid-feedback\">\n                                    <div *ngIf=\"password.errors.required\">password is required</div>\n                                    <div *ngIf=\"password.errors.minlength\">password a valid password</div>\n                                </div>\n                            </div>\n                <div class=\"d-flex justify-content-center\">\n                    <button [disabled]=\"!f.form.valid\" mdbBtn class=\"btn signupbutton waves-effect waves-light my-3\" mdbWavesEffect>Login</button>\n                </div>\n            </form>\n        </div>\n    </div>\n</div>\n</div>\n</div>\n</div>\n</div>"
+module.exports = "<div *ngIf=\"Loading\" class=\"overlay\">\r\n    <img src=\"../../assets/loader.svg\" class=\"loader image-responsive\" alt=\"Loader\">\r\n</div>\r\n<a class=\"btn btn-info btn-sm waves-effect waves-light\" (click)=\"basicModal.show()\" mdbWavesEffect>Login\r\n    <i class=\"fa fa-sign-in ml-2\"></i>\r\n</a>\r\n<div mdbModal #basicModal=\"mdbModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\"\r\naria-hidden=\"true\">\r\n<div class=\"modal-dialog\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n            <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"basicModal.hide()\">\r\n                <span aria-hidden=\"true\">×</span>\r\n            </button>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n            <div class=\"container-fluid\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-sm-12 col-md-12 col-lg-12\">\r\n                        <div class=\"text-center\">\r\n                            <h1 class=\"Register_heading\">LOGIN</h1>\r\n                            <img style=\"width:25%;\" class=\"mt-3 image-responsive\" src=\"../../assets/login.svg\" alt=\"\">\r\n                        </div>\r\n                        <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\" #f=\"ngForm\" novalidate >\r\n                            <div class=\"md-form mb-1\">\r\n                                <label for=\"teamId\">Team Id</label>\r\n                                <input style=\"color: #808080;margin:0;\" type=\"text\" class=\"form-control\" name=\"teamId\" [(ngModel)]=\"model.teamId\" #teamId=\"ngModel\" [ngClass]=\"{ 'is-invalid': teamId.touched && teamId.invalid }\" required>\r\n                                <div *ngIf=\"teamId.touched && teamId.invalid \" class=\"invalid-feedback\">\r\n                                    <div *ngIf=\"teamId.errors.required\">Team Id is required</div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"md-form mb-1\">\r\n                                <label for=\"password\">Password</label>\r\n                                <input style=\"color: #808080;margin:0;\" type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"model.password\" #password=\"ngModel\" [ngClass]=\"{ 'is-invalid': password.touched && password.invalid }\" required minlength=\"6\">\r\n                                <div *ngIf=\"password.touched && password.invalid\" class=\"invalid-feedback\">\r\n                                    <div *ngIf=\"password.errors.required\">password is required</div>\r\n                                    <div *ngIf=\"password.errors.minlength\">password a valid password</div>\r\n                                </div>\r\n                            </div>\r\n                <div class=\"d-flex justify-content-center\">\r\n                    <button [disabled]=\"!f.form.valid\" mdbBtn class=\"btn signupbutton waves-effect waves-light my-3\" mdbWavesEffect>Login</button>\r\n                </div>\r\n            </form>\r\n        </div>\r\n    </div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>"
 
 /***/ }),
 
@@ -749,6 +763,7 @@ var ScLoginComponent = /** @class */ (function () {
         var _this = this;
         this.Loading = true;
         console.log(this.model);
+        console.log("hi");
         this.server.login(this.model)
             .subscribe(function (res) {
             _this.Loading = false;
@@ -780,7 +795,7 @@ var ScLoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--Navbar-->\n<mdb-navbar SideClass=\"navbar navbar-expand-lg navbar-dark indigo\">\n\n    <!-- Navbar brand -->\n    <mdb-navbar-brand>\n        <a class=\"navbar-brand\" href=\"#\">\n            <img src=\"../../assets/akgec.png\" height=\"30\" alt=\"\">\n        </a>\n    </mdb-navbar-brand>\n\n    <!-- Collapsible content -->\n    <links>\n\n        <!-- Links -->\n        <ul class=\"navbar-nav mr-auto\">\n            <li class=\"nav-item active\">\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Home<span class=\"sr-only\">(current)</span></a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Features</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Pricing</a>\n            </li>\n        </ul>\n        <app-sc-login *ngIf=\"!loginStatus\"></app-sc-login>\n        <app-sc-register *ngIf=\"!loginStatus\"></app-sc-register>\n        <a *ngIf=\"loginStatus\" routerLink=\"dashboard\"  class=\"btn btn-info btn-sm waves-effect waves-light\" mdbWavesEffect>Dashboard\n            <i class=\"fa fa-sign-in ml-2\"></i>\n          </a>\n        <a *ngIf=\"loginStatus\" (click)=\"logout()\" class=\"btn btn-info btn-sm waves-effect waves-light\" mdbWavesEffect>Logout\n            <i class=\"fa fa-sign-in ml-2\"></i>\n        </a>\n    </links>\n</mdb-navbar>\n<!--/.Navbar-->"
+module.exports = "<!--Navbar-->\r\n<mdb-navbar SideClass=\"navbar navbar-expand-lg navbar-dark indigo\">\r\n\r\n    <!-- Navbar brand -->\r\n    <mdb-navbar-brand>\r\n        <a class=\"navbar-brand\" href=\"#\">\r\n            <img src=\"../../assets/akgec.png\" height=\"30\" alt=\"\">\r\n        </a>\r\n    </mdb-navbar-brand>\r\n\r\n    <!-- Collapsible content -->\r\n    <links>\r\n\r\n        <!-- Links -->\r\n        <ul class=\"navbar-nav mr-auto\">\r\n            <li class=\"nav-item active\">\r\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Home<span class=\"sr-only\">(current)</span></a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Features</a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Pricing</a>\r\n            </li>\r\n        </ul>\r\n        <app-sc-login *ngIf=\"!loginStatus\"></app-sc-login>\r\n        <app-sc-register *ngIf=\"!loginStatus\"></app-sc-register>\r\n        <a *ngIf=\"loginStatus\" routerLink=\"dashboard\"  class=\"btn btn-info btn-sm waves-effect waves-light\" mdbWavesEffect>Dashboard\r\n            <i class=\"fa fa-sign-in ml-2\"></i>\r\n          </a>\r\n        <a *ngIf=\"loginStatus\" (click)=\"logout()\" class=\"btn btn-info btn-sm waves-effect waves-light\" mdbWavesEffect>Logout\r\n            <i class=\"fa fa-sign-in ml-2\"></i>\r\n        </a>\r\n    </links>\r\n</mdb-navbar>\r\n<!--/.Navbar-->"
 
 /***/ }),
 
@@ -855,7 +870,7 @@ var ScNavbarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"Loading\" class=\"overlay\">\n  <img src=\"../../assets/loader.svg\" class=\"loader image-responsive\" alt=\"Loader\">\n</div>\n<a class=\"btn btn-info btn-sm waves-effect waves-light\" (click)=\"basicModal.show()\" mdbWavesEffect>Register\n  <i class=\"fa fa-sign-in ml-2\"></i>\n</a>\n<div mdbModal #basicModal=\"mdbModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\"\naria-hidden=\"true\">\n<div class=\"modal-dialog modal-lg\" role=\"document\">\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"basicModal.hide()\">\n        <span aria-hidden=\"true\">×</span>\n      </button>\n    </div>\n    <div class=\"modal-body\">\n      <div class=\"container-fluid\">\n        <div class=\"row\">\n          <div class=\"col-sm-12 col-md-6 col-lg-6\">\n            <h1 class=\"text-center Register_heading\">REGISTRATION</h1>\n            <img class=\"mt-3 w-100\" src=\"../../assets/register.svg\" alt=\"\">\n          </div>\n          <div class=\"col-sm-12 col-md-6 col-lg-6\">\n            <h2 class=\"text-center Team_heading mt-2\">ENTER DETAILS</h2>\n            \n            <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\" #f=\"ngForm\" novalidate >\n              <div class=\"md-form mb-1\">\n                <label for=\"teamName\">Team name</label>\n                <input style=\"color: #808080;\" type=\"text\" class=\"form-control\" name=\"teamName\" [(ngModel)]=\"model.teamName\" #teamName=\"ngModel\" [ngClass]=\"{ 'is-invalid': teamName.touched && teamName.invalid }\" required>\n                <div *ngIf=\"teamName.touched && teamName.invalid \" class=\"invalid-feedback\">\n                  <div *ngIf=\"teamName.errors.required\">Team Name is required</div>\n                </div>\n              </div>\n              <div class=\"md-form mb-1\">\n                <label for=\"email\">Email ( Team Leader )</label>\n                <input style=\"color: #808080;\" type=\"email\" class=\"form-control\" name=\"email\" [(ngModel)]=\"model.email\" #email=\"ngModel\" [ngClass]=\"{ 'is-invalid': email.touched && email.invalid }\" required email>\n                <div *ngIf=\"email.touched && email.invalid\" class=\"invalid-feedback\">\n                  <div *ngIf=\"email.errors.required\">Email is required</div>\n                  <div *ngIf=\"email.errors.email\">Email a valid email</div>\n                </div>\n              </div>\n              <div class=\"md-form mb-1\">\n                <label for=\"password\">Password ( atleat 6 characters )</label>\n                <input (ngModelChange)=\"confirmPassword.control.updateValueAndValidity()\" style=\"color: #808080;\" type=\"password\" id=\"password\" required  class=\"form-control\"\n                name=\"password\" [(ngModel)]=\"model.password\"\n                #password=\"ngModel\" [ngClass]=\"{ 'is-invalid': f.submitted && password.invalid }\" minlength=\"6\">\n                <div class=\"help-block\"\n                *ngIf=\"(password.touched && password.errors?.required) || password.errors?.minlength\">\n                Invalid Password\n              </div>\n            </div>\n            <div class=\"md-form mb-1\">\n              <label for=\"confirmPassword\">Confirm Password</label>\n              <input style=\"color: #808080;\" type=\"password\" name=\"confirmPassword\" appConfirmEqualValidator=\"password\" required\n              id=\"confirmPassword\" class=\"form-control\"\n              [(ngModel)]=\"model.confirmPassword\" #confirmPassword=\"ngModel\">\n              <span class=\"help-block\"\n              *ngIf=\"confirmPassword.touched && confirmPassword.errors?.required\">\n              Confirm Password is required\n            </span>\n            <span class=\"help-block\"\n            *ngIf=\"confirmPassword.touched && confirmPassword.errors?.notEqual &&\n            !confirmPassword.errors?.required\">\n            Does'nt match with Password \n          </span>\n        </div>\n        <div class=\"md-form mt-3\">\n          <re-captcha [(ngModel)]=\"model.captcha\" name=\"captcha\" required siteKey=\"6Led_G0UAAAAANMfYD_VxWMmmN0C1m1-w0rwYSw2\" #captcha=\"ngModel\"></re-captcha>\n        </div>  \n        <div [hidden]=\"captcha.valid || captcha.pristine\" class=\"error\">Captcha must be solved</div>\n        <div class=\"d-flex justify-content-center\">\n          <button [disabled]=\"!f.form.valid\" mdbBtn class=\"btn signupbutton waves-effect waves-light\" mdbWavesEffect>Sign up</button>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n</div>\n</div>\n</div>\n</div>"
+module.exports = "<div *ngIf=\"Loading\" class=\"overlay\">\r\n  <img src=\"../../assets/loader.svg\" class=\"loader image-responsive\" alt=\"Loader\">\r\n</div>\r\n<a class=\"btn btn-info btn-sm waves-effect waves-light\" (click)=\"basicModal.show()\" mdbWavesEffect>Register\r\n  <i class=\"fa fa-sign-in ml-2\"></i>\r\n</a>\r\n<div mdbModal #basicModal=\"mdbModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\"\r\naria-hidden=\"true\">\r\n<div class=\"modal-dialog modal-lg\" role=\"document\">\r\n  <div class=\"modal-content\">\r\n    <div class=\"modal-header\">\r\n      <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"basicModal.hide()\">\r\n        <span aria-hidden=\"true\">×</span>\r\n      </button>\r\n    </div>\r\n    <div class=\"modal-body\">\r\n      <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n          <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n            <h1 class=\"text-center Register_heading\">REGISTRATION</h1>\r\n            <img class=\"mt-3 w-100\" src=\"../../assets/register.svg\" alt=\"\">\r\n          </div>\r\n          <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n            <h2 class=\"text-center Team_heading mt-2\">ENTER DETAILS</h2>\r\n            \r\n            <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\" #f=\"ngForm\" novalidate >\r\n              <div class=\"md-form mb-1\">\r\n                <label for=\"teamName\">Team name</label>\r\n                <input style=\"color: #808080;\" type=\"text\" class=\"form-control\" name=\"teamName\" [(ngModel)]=\"model.teamName\" #teamName=\"ngModel\" [ngClass]=\"{ 'is-invalid': teamName.touched && teamName.invalid }\" required>\r\n                <div *ngIf=\"teamName.touched && teamName.invalid \" class=\"invalid-feedback\">\r\n                  <div *ngIf=\"teamName.errors.required\">Team Name is required</div>\r\n                </div>\r\n              </div>\r\n              <div class=\"md-form mb-1\">\r\n                <label for=\"email\">Email ( Team Leader )</label>\r\n                <input style=\"color: #808080;\" type=\"email\" class=\"form-control\" name=\"email\" [(ngModel)]=\"model.email\" #email=\"ngModel\" [ngClass]=\"{ 'is-invalid': email.touched && email.invalid }\" required email>\r\n                <div *ngIf=\"email.touched && email.invalid\" class=\"invalid-feedback\">\r\n                  <div *ngIf=\"email.errors.required\">Email is required</div>\r\n                  <div *ngIf=\"email.errors.email\">Email a valid email</div>\r\n                </div>\r\n              </div>\r\n              <div class=\"md-form mb-1\">\r\n                <label for=\"password\">Password ( atleat 6 characters )</label>\r\n                <input (ngModelChange)=\"confirmPassword.control.updateValueAndValidity()\" style=\"color: #808080;\" type=\"password\" id=\"password\" required  class=\"form-control\"\r\n                name=\"password\" [(ngModel)]=\"model.password\"\r\n                #password=\"ngModel\" [ngClass]=\"{ 'is-invalid': f.submitted && password.invalid }\" minlength=\"6\">\r\n                <div class=\"help-block\"\r\n                *ngIf=\"(password.touched && password.errors?.required) || password.errors?.minlength\">\r\n                Invalid Password\r\n              </div>\r\n            </div>\r\n            <div class=\"md-form mb-1\">\r\n              <label for=\"confirmPassword\">Confirm Password</label>\r\n              <input style=\"color: #808080;\" type=\"password\" name=\"confirmPassword\" appConfirmEqualValidator=\"password\" required\r\n              id=\"confirmPassword\" class=\"form-control\"\r\n              [(ngModel)]=\"model.confirmPassword\" #confirmPassword=\"ngModel\">\r\n              <span class=\"help-block\"\r\n              *ngIf=\"confirmPassword.touched && confirmPassword.errors?.required\">\r\n              Confirm Password is required\r\n            </span>\r\n            <span class=\"help-block\"\r\n            *ngIf=\"confirmPassword.touched && confirmPassword.errors?.notEqual &&\r\n            !confirmPassword.errors?.required\">\r\n            Does'nt match with Password \r\n          </span>\r\n        </div>\r\n        <div class=\"md-form mt-3\">\r\n          <re-captcha [(ngModel)]=\"model.captcha\" name=\"captcha\" required siteKey=\"6Led_G0UAAAAANMfYD_VxWMmmN0C1m1-w0rwYSw2\" #captcha=\"ngModel\"></re-captcha>\r\n        </div>  \r\n        <div [hidden]=\"captcha.valid || captcha.pristine\" class=\"error\">Captcha must be solved</div>\r\n        <div class=\"d-flex justify-content-center\">\r\n          <button [disabled]=\"!f.form.valid\" mdbBtn class=\"btn signupbutton waves-effect waves-light\" mdbWavesEffect>Sign up</button>\r\n        </div>\r\n      </form>\r\n    </div>\r\n  </div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>"
 
 /***/ }),
 
@@ -951,10 +966,13 @@ var AuthService = /** @class */ (function () {
     function AuthService() {
     }
     AuthService.prototype.storeToken = function (token) {
-        localStorage.setItem('currentUser', JSON.stringify(token));
+        localStorage.setItem('currentUser', token);
     };
     AuthService.prototype.clearToken = function () {
         localStorage.removeItem('currentUser');
+    };
+    AuthService.prototype.getToken = function () {
+        return localStorage.getItem('currentUser');
     };
     AuthService.prototype.isLoggedIn = function () {
         if (localStorage.getItem('currentUser')) {
@@ -969,6 +987,55 @@ var AuthService = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], AuthService);
     return AuthService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/authguard.service.ts":
+/*!***********************************************!*\
+  !*** ./src/app/services/authguard.service.ts ***!
+  \***********************************************/
+/*! exports provided: AuthGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth.service */ "./src/app/services/auth.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AuthGuard = /** @class */ (function () {
+    function AuthGuard(auth, router) {
+        this.auth = auth;
+        this.router = router;
+    }
+    AuthGuard.prototype.canActivate = function (route, state) {
+        if (this.auth.isLoggedIn() === true) {
+            return true;
+        }
+        else {
+            this.router.navigate(['/']);
+        }
+    };
+    AuthGuard = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        __metadata("design:paramtypes", [_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_0__["Router"]])
+    ], AuthGuard);
+    return AuthGuard;
 }());
 
 
@@ -1001,13 +1068,20 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var ServerService = /** @class */ (function () {
     function ServerService(http) {
         this.http = http;
-        this.URL = 'http://83668b71.ngrok.io';
+        this.URL = 'http://localhost:3000';
     }
     ServerService.prototype.signup = function (signup_details) {
         return this.http.post(this.URL + "/api/signUp", signup_details);
     };
     ServerService.prototype.login = function (login_details) {
         return this.http.post(this.URL + "/api/login", login_details);
+    };
+    ServerService.prototype.getDashboardDetails = function (token) {
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+            'Content-Type': 'application/json; charset=utf-8',
+            'Authorization': 'Bearer ' + token
+        });
+        return this.http.get(this.URL + "/api/dashboard/getAllDetails", { headers: headers });
     };
     ServerService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -1082,7 +1156,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\PROJECTS\Scrolls18\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\SDC\Scrolls18\src\main.ts */"./src/main.ts");
 
 
 /***/ })
