@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../services/server.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-sc-login',
@@ -9,7 +10,8 @@ import { ServerService } from '../services/server.service';
 export class ScLoginComponent implements OnInit {
   model: any = {};
   Loading: boolean = false;
-  constructor(private server: ServerService) { 
+  data: any;
+  constructor(private server: ServerService, private auth: AuthService) { 
 
   }
   ngOnInit() {
@@ -20,7 +22,9 @@ export class ScLoginComponent implements OnInit {
     this.server.login(this.model)
     .subscribe(res => {
       this.Loading = false;
-      console.log(res);
+      this.data = res;
+      console.log(this.data.token);
+      this.auth.storeToken(this.data.token);
     });
   }
 }

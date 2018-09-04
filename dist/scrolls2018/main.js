@@ -423,16 +423,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ng_recaptcha__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(ng_recaptcha__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var ng_recaptcha_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ng-recaptcha/forms */ "./node_modules/ng-recaptcha/forms.js");
 /* harmony import */ var ng_recaptcha_forms__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(ng_recaptcha_forms__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _sc_home_sc_home_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./sc-home/sc-home.component */ "./src/app/sc-home/sc-home.component.ts");
-/* harmony import */ var _sc_register_sc_register_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./sc-register/sc-register.component */ "./src/app/sc-register/sc-register.component.ts");
-/* harmony import */ var _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./sc-dashboard/sc-dashboard.component */ "./src/app/sc-dashboard/sc-dashboard.component.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var ngx_fullpage_ngx_fullpage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ngx-fullpage/ngx-fullpage */ "./node_modules/ngx-fullpage/ngx-fullpage.js");
-/* harmony import */ var ngx_fullpage_ngx_fullpage__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(ngx_fullpage_ngx_fullpage__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _sc_navbar_sc_navbar_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./sc-navbar/sc-navbar.component */ "./src/app/sc-navbar/sc-navbar.component.ts");
-/* harmony import */ var _sc_login_sc_login_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./sc-login/sc-login.component */ "./src/app/sc-login/sc-login.component.ts");
-/* harmony import */ var _confirm_equal_validator_directive__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./confirm-equal-validator.directive */ "./src/app/confirm-equal-validator.directive.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _sc_home_sc_home_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./sc-home/sc-home.component */ "./src/app/sc-home/sc-home.component.ts");
+/* harmony import */ var _sc_register_sc_register_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./sc-register/sc-register.component */ "./src/app/sc-register/sc-register.component.ts");
+/* harmony import */ var _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./sc-dashboard/sc-dashboard.component */ "./src/app/sc-dashboard/sc-dashboard.component.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var ngx_fullpage_ngx_fullpage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ngx-fullpage/ngx-fullpage */ "./node_modules/ngx-fullpage/ngx-fullpage.js");
+/* harmony import */ var ngx_fullpage_ngx_fullpage__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(ngx_fullpage_ngx_fullpage__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _sc_navbar_sc_navbar_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./sc-navbar/sc-navbar.component */ "./src/app/sc-navbar/sc-navbar.component.ts");
+/* harmony import */ var _sc_login_sc_login_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./sc-login/sc-login.component */ "./src/app/sc-login/sc-login.component.ts");
+/* harmony import */ var _confirm_equal_validator_directive__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./confirm-equal-validator.directive */ "./src/app/confirm-equal-validator.directive.ts");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _services_server_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./services/server.service */ "./src/app/services/server.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -454,32 +457,36 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
-                _sc_home_sc_home_component__WEBPACK_IMPORTED_MODULE_7__["ScHomeComponent"],
-                _sc_register_sc_register_component__WEBPACK_IMPORTED_MODULE_8__["ScRegisterComponent"],
-                _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_9__["ScDashboardComponent"],
-                _sc_navbar_sc_navbar_component__WEBPACK_IMPORTED_MODULE_12__["ScNavbarComponent"],
-                _sc_login_sc_login_component__WEBPACK_IMPORTED_MODULE_13__["ScLoginComponent"],
-                _confirm_equal_validator_directive__WEBPACK_IMPORTED_MODULE_14__["ConfirmEqualValidatorDirective"]
+                _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
+                _sc_home_sc_home_component__WEBPACK_IMPORTED_MODULE_8__["ScHomeComponent"],
+                _sc_register_sc_register_component__WEBPACK_IMPORTED_MODULE_9__["ScRegisterComponent"],
+                _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_10__["ScDashboardComponent"],
+                _sc_navbar_sc_navbar_component__WEBPACK_IMPORTED_MODULE_13__["ScNavbarComponent"],
+                _sc_login_sc_login_component__WEBPACK_IMPORTED_MODULE_14__["ScLoginComponent"],
+                _confirm_equal_validator_directive__WEBPACK_IMPORTED_MODULE_15__["ConfirmEqualValidatorDirective"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_11__["AppRoutingModule"],
                 ng_recaptcha__WEBPACK_IMPORTED_MODULE_4__["RecaptchaModule"].forRoot(),
                 ng_recaptcha_forms__WEBPACK_IMPORTED_MODULE_5__["RecaptchaFormsModule"],
-                ngx_fullpage_ngx_fullpage__WEBPACK_IMPORTED_MODULE_11__["MnFullpageModule"].forRoot(),
-                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["MDBBootstrapModule"].forRoot()
+                ngx_fullpage_ngx_fullpage__WEBPACK_IMPORTED_MODULE_12__["MnFullpageModule"].forRoot(),
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["MDBBootstrapModule"].forRoot(),
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"]
             ],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NO_ERRORS_SCHEMA"]],
-            providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
+            providers: [_services_auth_service__WEBPACK_IMPORTED_MODULE_16__["AuthService"], _services_server_service__WEBPACK_IMPORTED_MODULE_17__["ServerService"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -686,7 +693,7 @@ var ScHomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<a class=\"btn btn-info btn-sm waves-effect waves-light\" (click)=\"basicModal.show()\" mdbWavesEffect>Login\n  <i class=\"fa fa-sign-in ml-2\"></i>\n</a>\n<div mdbModal #basicModal=\"mdbModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\"\n  aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"basicModal.hide()\">\n          <span aria-hidden=\"true\">×</span>\n        </button>\n        <h4 class=\"modal-title w-100\" id=\"myModalLabel\">Modal title2</h4>\n      </div>\n      <div class=\"modal-body\">\n        <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\" #f=\"ngForm\" novalidate>\n          <div class=\"form-group\">\n              <label for=\"firstName\">First Name</label>\n              <input type=\"text\" class=\"form-control\" name=\"firstName\" [(ngModel)]=\"model.firstName\" #firstName=\"ngModel\" [ngClass]=\"{ 'is-invalid': f.submitted && firstName.invalid }\" required />\n              <div *ngIf=\"f.submitted && firstName.invalid\" class=\"invalid-feedback\">\n                  <div *ngIf=\"firstName.errors.required\">First Name is required</div>\n              </div>\n          </div>\n          <div class=\"form-group\">\n              <label for=\"lastName\">Last Name</label>\n              <input type=\"text\" class=\"form-control\" name=\"lastName\" [(ngModel)]=\"model.lastName\" #lastName=\"ngModel\" [ngClass]=\"{ 'is-invalid': f.submitted && lastName.invalid }\" required />\n              <div *ngIf=\"f.submitted && lastName.invalid\" class=\"invalid-feedback\">\n                  <div *ngIf=\"lastName.errors.required\">Last Name is required</div>\n              </div>\n          </div>\n          <div class=\"form-group\">\n              <label for=\"email\">Email</label>\n              <input type=\"text\" class=\"form-control\" name=\"email\" [(ngModel)]=\"model.email\" #email=\"ngModel\" [ngClass]=\"{ 'is-invalid': f.submitted && email.invalid }\" required email />\n              <div *ngIf=\"f.submitted && email.invalid\" class=\"invalid-feedback\">\n                  <div *ngIf=\"email.errors.required\">Email is required</div>\n                  <div *ngIf=\"email.errors.email\">Email must be a valid email address</div>\n              </div>\n          </div>\n          <div class=\"form-group\">\n              <label for=\"password\">Password</label>\n              <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"model.password\" #password=\"ngModel\" [ngClass]=\"{ 'is-invalid': f.submitted && password.invalid }\" required minlength=\"6\" />\n              <div *ngIf=\"f.submitted && password.invalid\" class=\"invalid-feedback\">\n                  <div *ngIf=\"password.errors.required\">Password is required</div>\n                  <div *ngIf=\"password.errors.minlength\">Password must be at least 6 characters</div>\n              </div>\n          </div>\n          <div class=\"form-group\">\n              <button class=\"btn btn-primary\">Register</button>\n          </div>\n      </form>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" mdbBtn color=\"secondary\" class=\"waves-light\" aria-label=\"Close\" (click)=\"basicModal.hide()\" mdbWavesEffect>Close</button>\n        <button type=\"button\" mdbBtn color=\"primary\" class=\"relative waves-light\" mdbWavesEffect>Save changes</button>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div *ngIf=\"Loading\" class=\"overlay\">\n    <img src=\"../../assets/loader.svg\" class=\"loader image-responsive\" alt=\"Loader\">\n</div>\n<a class=\"btn btn-info btn-sm waves-effect waves-light\" (click)=\"basicModal.show()\" mdbWavesEffect>Login\n    <i class=\"fa fa-sign-in ml-2\"></i>\n</a>\n<div mdbModal #basicModal=\"mdbModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\"\naria-hidden=\"true\">\n<div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n        <div class=\"modal-header\">\n            <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"basicModal.hide()\">\n                <span aria-hidden=\"true\">×</span>\n            </button>\n        </div>\n        <div class=\"modal-body\">\n            <div class=\"container-fluid\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12 col-md-12 col-lg-12\">\n                        <div class=\"text-center\">\n                            <h1 class=\"Register_heading\">LOGIN</h1>\n                            <img style=\"width:25%;\" class=\"mt-3 image-responsive\" src=\"../../assets/login.svg\" alt=\"\">\n                        </div>\n                        <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\" #f=\"ngForm\" novalidate >\n                            <div class=\"md-form mb-1\">\n                                <label for=\"teamId\">Team Id</label>\n                                <input style=\"color: #808080;margin:0;\" type=\"text\" class=\"form-control\" name=\"teamId\" [(ngModel)]=\"model.teamId\" #teamId=\"ngModel\" [ngClass]=\"{ 'is-invalid': teamId.touched && teamId.invalid }\" required>\n                                <div *ngIf=\"teamId.touched && teamId.invalid \" class=\"invalid-feedback\">\n                                    <div *ngIf=\"teamId.errors.required\">Team Id is required</div>\n                                </div>\n                            </div>\n                            <div class=\"md-form mb-1\">\n                                <label for=\"password\">Password</label>\n                                <input style=\"color: #808080;margin:0;\" type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"model.password\" #password=\"ngModel\" [ngClass]=\"{ 'is-invalid': password.touched && password.invalid }\" required minlength=\"6\">\n                                <div *ngIf=\"password.touched && password.invalid\" class=\"invalid-feedback\">\n                                    <div *ngIf=\"password.errors.required\">password is required</div>\n                                    <div *ngIf=\"password.errors.minlength\">password a valid password</div>\n                                </div>\n                            </div>\n                <div class=\"d-flex justify-content-center\">\n                    <button [disabled]=\"!f.form.valid\" mdbBtn class=\"btn signupbutton waves-effect waves-light my-3\" mdbWavesEffect>Login</button>\n                </div>\n            </form>\n        </div>\n    </div>\n</div>\n</div>\n</div>\n</div>\n</div>"
 
 /***/ }),
 
@@ -697,7 +704,7 @@ module.exports = "<a class=\"btn btn-info btn-sm waves-effect waves-light\" (cli
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".loader {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  z-index: 10001; }\n\n.overlay {\n  position: fixed;\n  /* Sit on top of the page content */\n  width: 100%;\n  /* Full width (cover the whole page) */\n  height: 100%;\n  /* Full height (cover the whole page) */\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #ffffff82;\n  /* Black background with opacity */\n  z-index: 10000;\n  /* Specify a stack order in case you're using a different order for other elements */\n  cursor: pointer;\n  /* Add a pointer on hover */ }\n\n.m\n.modal-header {\n  border-bottom: none; }\n\n.Register_heading {\n  color: #EC555A;\n  font-weight: 700; }\n\n.Team_heading {\n  color: #FFC973;\n  font-weight: 700; }\n\n.md-form input[type=text], .md-form input[type=password], .md-form input[type=email], .md-form input[type=url], .md-form input[type=time], .md-form input[type=date], .md-form input[type=datetime-local], .md-form input[type=tel], .md-form input[type=number], .md-form input[type=search-md], .md-form input[type=search], .md-form textarea.md-textarea {\n  background-color: #f0f0f0;\n  border-radius: 3px;\n  height: 25px !important;\n  font-weight: 400; }\n\n.md-form label {\n  font-weight: 700;\n  color: #808080; }\n\n.navbar.navbar-dark form .md-form .form-control {\n  color: #808080 !important; }\n\ninput {\n  color: #808080; }\n\n.md-form label {\n  left: 5px; }\n\n.md-form label.active {\n  transform: translateY(-150%);\n  -webkit-transform: translateY(-150%); }\n\n.signupbutton {\n  width: 100%;\n  background-color: #59B8E8;\n  color: #fff;\n  font-weight: 700;\n  margin: 0px;\n  margin-top: 0.375rem;\n  padding: 0.54rem 2.14rem; }\n\n.md-form label {\n  position: static; }\n\n.md-form {\n  margin-top: 0px; }\n\n.help-block {\n  font-size: 80%;\n  color: #dc3545;\n  font-weight: 700; }\n\n.invalid-feedback {\n  font-weight: 700; }\n"
 
 /***/ }),
 
@@ -712,6 +719,8 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScLoginComponent", function() { return ScLoginComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_server_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/server.service */ "./src/app/services/server.service.ts");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/auth.service */ "./src/app/services/auth.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -722,14 +731,28 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var ScLoginComponent = /** @class */ (function () {
-    function ScLoginComponent() {
+    function ScLoginComponent(server, auth) {
+        this.server = server;
+        this.auth = auth;
         this.model = {};
+        this.Loading = false;
     }
     ScLoginComponent.prototype.ngOnInit = function () {
     };
     ScLoginComponent.prototype.onSubmit = function () {
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
+        var _this = this;
+        this.Loading = true;
+        console.log(this.model);
+        this.server.login(this.model)
+            .subscribe(function (res) {
+            _this.Loading = false;
+            _this.data = res;
+            console.log(_this.data.token);
+            _this.auth.storeToken(_this.data.token);
+        });
     };
     ScLoginComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -737,7 +760,7 @@ var ScLoginComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./sc-login.component.html */ "./src/app/sc-login/sc-login.component.html"),
             styles: [__webpack_require__(/*! ./sc-login.component.scss */ "./src/app/sc-login/sc-login.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_server_service__WEBPACK_IMPORTED_MODULE_1__["ServerService"], _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]])
     ], ScLoginComponent);
     return ScLoginComponent;
 }());
@@ -816,7 +839,7 @@ var ScNavbarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<a class=\"btn btn-info btn-sm waves-effect waves-light\" (click)=\"basicModal.show()\" mdbWavesEffect>Register\n  <i class=\"fa fa-sign-in ml-2\"></i>\n</a>\n<div mdbModal #basicModal=\"mdbModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\"\naria-hidden=\"true\">\n<div class=\"modal-dialog modal-lg\" role=\"document\">\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"basicModal.hide()\">\n        <span aria-hidden=\"true\">×</span>\n      </button>\n    </div>\n    <div class=\"modal-body\">\n      <div class=\"container-fluid\">\n        <div class=\"row\">\n          <div class=\"col-sm-12 col-md-6 col-lg-6\">\n            <h1 class=\"text-center Register_heading\">REGISTRATION</h1>\n            <img class=\"mt-3 w-100\" src=\"../../assets/register.svg\" alt=\"\">\n          </div>\n          <div class=\"col-sm-12 col-md-6 col-lg-6\">\n            <h2 class=\"text-center Team_heading mt-2\">ENTER DETAILS</h2>\n            \n            <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\" #f=\"ngForm\" novalidate >\n              <div class=\"md-form mb-1\">\n                <label for=\"teamName\">Team name</label>\n                <input style=\"color: #808080;\" type=\"text\" class=\"form-control\" name=\"teamName\" [(ngModel)]=\"model.teamName\" #teamName=\"ngModel\" [ngClass]=\"{ 'is-invalid': teamName.touched && teamName.invalid }\" required>\n                <div *ngIf=\"teamName.touched && teamName.invalid \" class=\"invalid-feedback\">\n                  <div *ngIf=\"teamName.errors.required\">Team Name is required</div>\n                </div>\n              </div>\n              <div class=\"md-form mb-1\">\n                <label for=\"email\">Email ( Team Leader )</label>\n                <input style=\"color: #808080;\" type=\"email\" class=\"form-control\" name=\"email\" [(ngModel)]=\"model.email\" #email=\"ngModel\" [ngClass]=\"{ 'is-invalid': email.touched && email.invalid }\" required email>\n                <div *ngIf=\"email.touched && email.invalid\" class=\"invalid-feedback\">\n                  <div *ngIf=\"email.errors.required\">Email is required</div>\n                  <div *ngIf=\"email.errors.email\">Email a valid email</div>\n                </div>\n              </div>\n              <div class=\"md-form mb-1\">\n                <label for=\"password\">Password ( atleat 6 characters )</label>\n                <input (ngModelChange)=\"confirmPassword.control.updateValueAndValidity()\" style=\"color: #808080;\" type=\"password\" id=\"password\" required  class=\"form-control\"\n                name=\"password\" [(ngModel)]=\"model.password\"\n                #password=\"ngModel\" [ngClass]=\"{ 'is-invalid': f.submitted && password.invalid }\" minlength=\"6\">\n                <div class=\"help-block\"\n                *ngIf=\"(password.touched && password.errors?.required) || password.errors?.minlength\">\n                Invalid Password\n              </div>\n            </div>\n            <div class=\"md-form mb-1\">\n              <label for=\"confirmPassword\">Confirm Password</label>\n              <input style=\"color: #808080;\" type=\"password\" name=\"confirmPassword\" appConfirmEqualValidator=\"password\" required\n              id=\"confirmPassword\" class=\"form-control\"\n              [(ngModel)]=\"model.confirmPassword\" #confirmPassword=\"ngModel\">\n              <span class=\"help-block\"\n              *ngIf=\"confirmPassword.touched && confirmPassword.errors?.required\">\n              Confirm Password is required\n            </span>\n            <span class=\"help-block\"\n            *ngIf=\"confirmPassword.touched && confirmPassword.errors?.notEqual &&\n            !confirmPassword.errors?.required\">\n            Does'nt match with Password \n          </span>\n        </div>\n        <div class=\"md-form mt-3\">\n          <re-captcha [(ngModel)]=\"model.captcha\" name=\"captcha\" required siteKey=\"6Led_G0UAAAAANMfYD_VxWMmmN0C1m1-w0rwYSw2\" #captcha=\"ngModel\"></re-captcha>\n        </div>  \n        <div [hidden]=\"captcha.valid || captcha.pristine\" class=\"error\">Captcha must be solved</div>\n        <div class=\"d-flex justify-content-center\">\n          <button [disabled]=\"!f.form.valid\" mdbBtn class=\"btn signupbutton waves-effect waves-light\" mdbWavesEffect>Sign up</button>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n</div>\n</div>\n</div>\n</div>"
+module.exports = "<div *ngIf=\"Loading\" class=\"overlay\">\n  <img src=\"../../assets/loader.svg\" class=\"loader image-responsive\" alt=\"Loader\">\n</div>\n<a class=\"btn btn-info btn-sm waves-effect waves-light\" (click)=\"basicModal.show()\" mdbWavesEffect>Register\n  <i class=\"fa fa-sign-in ml-2\"></i>\n</a>\n<div mdbModal #basicModal=\"mdbModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\"\naria-hidden=\"true\">\n<div class=\"modal-dialog modal-lg\" role=\"document\">\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"basicModal.hide()\">\n        <span aria-hidden=\"true\">×</span>\n      </button>\n    </div>\n    <div class=\"modal-body\">\n      <div class=\"container-fluid\">\n        <div class=\"row\">\n          <div class=\"col-sm-12 col-md-6 col-lg-6\">\n            <h1 class=\"text-center Register_heading\">REGISTRATION</h1>\n            <img class=\"mt-3 w-100\" src=\"../../assets/register.svg\" alt=\"\">\n          </div>\n          <div class=\"col-sm-12 col-md-6 col-lg-6\">\n            <h2 class=\"text-center Team_heading mt-2\">ENTER DETAILS</h2>\n            \n            <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\" #f=\"ngForm\" novalidate >\n              <div class=\"md-form mb-1\">\n                <label for=\"teamName\">Team name</label>\n                <input style=\"color: #808080;\" type=\"text\" class=\"form-control\" name=\"teamName\" [(ngModel)]=\"model.teamName\" #teamName=\"ngModel\" [ngClass]=\"{ 'is-invalid': teamName.touched && teamName.invalid }\" required>\n                <div *ngIf=\"teamName.touched && teamName.invalid \" class=\"invalid-feedback\">\n                  <div *ngIf=\"teamName.errors.required\">Team Name is required</div>\n                </div>\n              </div>\n              <div class=\"md-form mb-1\">\n                <label for=\"email\">Email ( Team Leader )</label>\n                <input style=\"color: #808080;\" type=\"email\" class=\"form-control\" name=\"email\" [(ngModel)]=\"model.email\" #email=\"ngModel\" [ngClass]=\"{ 'is-invalid': email.touched && email.invalid }\" required email>\n                <div *ngIf=\"email.touched && email.invalid\" class=\"invalid-feedback\">\n                  <div *ngIf=\"email.errors.required\">Email is required</div>\n                  <div *ngIf=\"email.errors.email\">Email a valid email</div>\n                </div>\n              </div>\n              <div class=\"md-form mb-1\">\n                <label for=\"password\">Password ( atleat 6 characters )</label>\n                <input (ngModelChange)=\"confirmPassword.control.updateValueAndValidity()\" style=\"color: #808080;\" type=\"password\" id=\"password\" required  class=\"form-control\"\n                name=\"password\" [(ngModel)]=\"model.password\"\n                #password=\"ngModel\" [ngClass]=\"{ 'is-invalid': f.submitted && password.invalid }\" minlength=\"6\">\n                <div class=\"help-block\"\n                *ngIf=\"(password.touched && password.errors?.required) || password.errors?.minlength\">\n                Invalid Password\n              </div>\n            </div>\n            <div class=\"md-form mb-1\">\n              <label for=\"confirmPassword\">Confirm Password</label>\n              <input style=\"color: #808080;\" type=\"password\" name=\"confirmPassword\" appConfirmEqualValidator=\"password\" required\n              id=\"confirmPassword\" class=\"form-control\"\n              [(ngModel)]=\"model.confirmPassword\" #confirmPassword=\"ngModel\">\n              <span class=\"help-block\"\n              *ngIf=\"confirmPassword.touched && confirmPassword.errors?.required\">\n              Confirm Password is required\n            </span>\n            <span class=\"help-block\"\n            *ngIf=\"confirmPassword.touched && confirmPassword.errors?.notEqual &&\n            !confirmPassword.errors?.required\">\n            Does'nt match with Password \n          </span>\n        </div>\n        <div class=\"md-form mt-3\">\n          <re-captcha [(ngModel)]=\"model.captcha\" name=\"captcha\" required siteKey=\"6Led_G0UAAAAANMfYD_VxWMmmN0C1m1-w0rwYSw2\" #captcha=\"ngModel\"></re-captcha>\n        </div>  \n        <div [hidden]=\"captcha.valid || captcha.pristine\" class=\"error\">Captcha must be solved</div>\n        <div class=\"d-flex justify-content-center\">\n          <button [disabled]=\"!f.form.valid\" mdbBtn class=\"btn signupbutton waves-effect waves-light\" mdbWavesEffect>Sign up</button>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n</div>\n</div>\n</div>\n</div>"
 
 /***/ }),
 
@@ -827,7 +850,7 @@ module.exports = "<a class=\"btn btn-info btn-sm waves-effect waves-light\" (cli
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".modal-header {\n  border-bottom: none; }\n\n.Register_heading {\n  color: #EC555A;\n  font-weight: 700; }\n\n.Team_heading {\n  color: #FFC973;\n  font-weight: 700; }\n\n.md-form input[type=text], .md-form input[type=password], .md-form input[type=email], .md-form input[type=url], .md-form input[type=time], .md-form input[type=date], .md-form input[type=datetime-local], .md-form input[type=tel], .md-form input[type=number], .md-form input[type=search-md], .md-form input[type=search], .md-form textarea.md-textarea {\n  background-color: #f0f0f0;\n  border-radius: 3px;\n  height: 25px !important;\n  font-weight: 400; }\n\n.md-form label {\n  font-weight: 700;\n  color: #808080; }\n\n.navbar.navbar-dark form .md-form .form-control {\n  color: #808080 !important; }\n\ninput {\n  color: #808080; }\n\n.md-form label {\n  left: 5px; }\n\n.md-form label.active {\n  transform: translateY(-150%);\n  -webkit-transform: translateY(-150%); }\n\n.signupbutton {\n  width: 100%;\n  background-color: #59B8E8;\n  color: #fff;\n  font-weight: 700;\n  margin: 0px;\n  margin-top: 0.375rem;\n  padding: 0.54rem 2.14rem; }\n\n.md-form label {\n  position: static; }\n\n.md-form {\n  margin-top: 0px; }\n\n.help-block {\n  font-size: 80%;\n  color: #dc3545;\n  font-weight: 700; }\n\n.invalid-feedback {\n  font-weight: 700; }\n\n.navbar form .md-form input {\n  margin: 0; }\n"
+module.exports = ".loader {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  z-index: 10001; }\n\n.overlay {\n  position: fixed;\n  /* Sit on top of the page content */\n  width: 100%;\n  /* Full width (cover the whole page) */\n  height: 100%;\n  /* Full height (cover the whole page) */\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #ffffff82;\n  /* Black background with opacity */\n  z-index: 10000;\n  /* Specify a stack order in case you're using a different order for other elements */\n  cursor: pointer;\n  /* Add a pointer on hover */ }\n\n.modal-header {\n  border-bottom: none; }\n\n.Register_heading {\n  color: #EC555A;\n  font-weight: 700; }\n\n.Team_heading {\n  color: #FFC973;\n  font-weight: 700; }\n\n.md-form input[type=text], .md-form input[type=password], .md-form input[type=email], .md-form input[type=url], .md-form input[type=time], .md-form input[type=date], .md-form input[type=datetime-local], .md-form input[type=tel], .md-form input[type=number], .md-form input[type=search-md], .md-form input[type=search], .md-form textarea.md-textarea {\n  background-color: #f0f0f0;\n  border-radius: 3px;\n  height: 25px !important;\n  font-weight: 400; }\n\n.md-form label {\n  font-weight: 700;\n  color: #808080; }\n\n.navbar.navbar-dark form .md-form .form-control {\n  color: #808080 !important; }\n\ninput {\n  color: #808080; }\n\n.md-form label {\n  left: 5px; }\n\n.md-form label.active {\n  transform: translateY(-150%);\n  -webkit-transform: translateY(-150%); }\n\n.signupbutton {\n  width: 100%;\n  background-color: #59B8E8;\n  color: #fff;\n  font-weight: 700;\n  margin: 0px;\n  margin-top: 0.375rem;\n  padding: 0.54rem 2.14rem; }\n\n.md-form label {\n  position: static; }\n\n.md-form {\n  margin-top: 0px; }\n\n.help-block {\n  font-size: 80%;\n  color: #dc3545;\n  font-weight: 700; }\n\n.invalid-feedback {\n  font-weight: 700; }\n\n.navbar form .md-form input {\n  margin: 0; }\n"
 
 /***/ }),
 
@@ -842,6 +865,7 @@ module.exports = ".modal-header {\n  border-bottom: none; }\n\n.Register_heading
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScRegisterComponent", function() { return ScRegisterComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_server_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/server.service */ "./src/app/services/server.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -852,14 +876,24 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var ScRegisterComponent = /** @class */ (function () {
-    function ScRegisterComponent() {
+    function ScRegisterComponent(server) {
+        this.server = server;
         this.model = {};
+        this.Loading = false;
     }
     ScRegisterComponent.prototype.ngOnInit = function () {
     };
     ScRegisterComponent.prototype.onSubmit = function () {
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
+        var _this = this;
+        this.Loading = true;
+        console.log(this.model);
+        this.server.signup(this.model)
+            .subscribe(function (res) {
+            _this.Loading = false;
+            console.log(res);
+        });
     };
     ScRegisterComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -867,9 +901,96 @@ var ScRegisterComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./sc-register.component.html */ "./src/app/sc-register/sc-register.component.html"),
             styles: [__webpack_require__(/*! ./sc-register.component.scss */ "./src/app/sc-register/sc-register.component.scss")],
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_server_service__WEBPACK_IMPORTED_MODULE_1__["ServerService"]])
     ], ScRegisterComponent);
     return ScRegisterComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/auth.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/services/auth.service.ts ***!
+  \******************************************/
+/*! exports provided: AuthService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AuthService = /** @class */ (function () {
+    function AuthService() {
+    }
+    AuthService.prototype.storeToken = function (token) {
+        localStorage.setItem('currentUser', JSON.stringify(token));
+    };
+    AuthService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], AuthService);
+    return AuthService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/server.service.ts":
+/*!********************************************!*\
+  !*** ./src/app/services/server.service.ts ***!
+  \********************************************/
+/*! exports provided: ServerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ServerService", function() { return ServerService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ServerService = /** @class */ (function () {
+    function ServerService(http) {
+        this.http = http;
+        this.URL = 'http://83668b71.ngrok.io';
+    }
+    ServerService.prototype.signup = function (signup_details) {
+        return this.http.post(this.URL + "/api/signUp", signup_details);
+    };
+    ServerService.prototype.login = function (login_details) {
+        return this.http.post(this.URL + "/api/login", login_details);
+    };
+    ServerService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], ServerService);
+    return ServerService;
 }());
 
 
