@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../services/server.service';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-sc-login',
@@ -11,7 +13,7 @@ export class ScLoginComponent implements OnInit {
   model: any = {};
   Loading: boolean = false;
   data: any;
-  constructor(private server: ServerService, private auth: AuthService) { 
+  constructor(private server: ServerService, private auth: AuthService, private router: Router) { 
 
   }
   ngOnInit() {
@@ -25,6 +27,7 @@ export class ScLoginComponent implements OnInit {
       this.data = res;
       console.log(this.data.token);
       this.auth.storeToken(this.data.token);
+      this.router.navigate(['/dashboard']);
     });
   }
 }

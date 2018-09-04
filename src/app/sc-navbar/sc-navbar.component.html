@@ -23,8 +23,14 @@
                 <a class="nav-link waves-light" mdbWavesEffect>Pricing</a>
             </li>
         </ul>
-        <app-sc-login></app-sc-login>
-        <app-sc-register></app-sc-register>
+        <app-sc-login *ngIf="!loginStatus"></app-sc-login>
+        <app-sc-register *ngIf="!loginStatus"></app-sc-register>
+        <a *ngIf="loginStatus" routerLink="dashboard"  class="btn btn-info btn-sm waves-effect waves-light" mdbWavesEffect>Dashboard
+            <i class="fa fa-sign-in ml-2"></i>
+          </a>
+        <a *ngIf="loginStatus" (click)="logout()" class="btn btn-info btn-sm waves-effect waves-light" mdbWavesEffect>Logout
+            <i class="fa fa-sign-in ml-2"></i>
+        </a>
     </links>
 </mdb-navbar>
 <!--/.Navbar-->

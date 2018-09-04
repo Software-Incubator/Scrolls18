@@ -721,6 +721,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_server_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/server.service */ "./src/app/services/server.service.ts");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -733,10 +734,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ScLoginComponent = /** @class */ (function () {
-    function ScLoginComponent(server, auth) {
+    function ScLoginComponent(server, auth, router) {
         this.server = server;
         this.auth = auth;
+        this.router = router;
         this.model = {};
         this.Loading = false;
     }
@@ -752,6 +755,7 @@ var ScLoginComponent = /** @class */ (function () {
             _this.data = res;
             console.log(_this.data.token);
             _this.auth.storeToken(_this.data.token);
+            _this.router.navigate(['/dashboard']);
         });
     };
     ScLoginComponent = __decorate([
@@ -760,7 +764,7 @@ var ScLoginComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./sc-login.component.html */ "./src/app/sc-login/sc-login.component.html"),
             styles: [__webpack_require__(/*! ./sc-login.component.scss */ "./src/app/sc-login/sc-login.component.scss")]
         }),
-        __metadata("design:paramtypes", [_services_server_service__WEBPACK_IMPORTED_MODULE_1__["ServerService"], _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]])
+        __metadata("design:paramtypes", [_services_server_service__WEBPACK_IMPORTED_MODULE_1__["ServerService"], _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], ScLoginComponent);
     return ScLoginComponent;
 }());
@@ -776,7 +780,7 @@ var ScLoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--Navbar-->\n<mdb-navbar SideClass=\"navbar navbar-expand-lg navbar-dark indigo\">\n\n    <!-- Navbar brand -->\n    <mdb-navbar-brand>\n        <a class=\"navbar-brand\" href=\"#\">\n            <img src=\"../../assets/akgec.png\" height=\"30\" alt=\"\">\n        </a>\n    </mdb-navbar-brand>\n\n    <!-- Collapsible content -->\n    <links>\n\n        <!-- Links -->\n        <ul class=\"navbar-nav mr-auto\">\n            <li class=\"nav-item active\">\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Home<span class=\"sr-only\">(current)</span></a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Features</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Pricing</a>\n            </li>\n        </ul>\n        <app-sc-login></app-sc-login>\n        <app-sc-register></app-sc-register>\n    </links>\n</mdb-navbar>\n<!--/.Navbar-->"
+module.exports = "<!--Navbar-->\n<mdb-navbar SideClass=\"navbar navbar-expand-lg navbar-dark indigo\">\n\n    <!-- Navbar brand -->\n    <mdb-navbar-brand>\n        <a class=\"navbar-brand\" href=\"#\">\n            <img src=\"../../assets/akgec.png\" height=\"30\" alt=\"\">\n        </a>\n    </mdb-navbar-brand>\n\n    <!-- Collapsible content -->\n    <links>\n\n        <!-- Links -->\n        <ul class=\"navbar-nav mr-auto\">\n            <li class=\"nav-item active\">\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Home<span class=\"sr-only\">(current)</span></a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Features</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Pricing</a>\n            </li>\n        </ul>\n        <app-sc-login *ngIf=\"!loginStatus\"></app-sc-login>\n        <app-sc-register *ngIf=\"!loginStatus\"></app-sc-register>\n        <a *ngIf=\"loginStatus\" routerLink=\"dashboard\"  class=\"btn btn-info btn-sm waves-effect waves-light\" mdbWavesEffect>Dashboard\n            <i class=\"fa fa-sign-in ml-2\"></i>\n          </a>\n        <a *ngIf=\"loginStatus\" (click)=\"logout()\" class=\"btn btn-info btn-sm waves-effect waves-light\" mdbWavesEffect>Logout\n            <i class=\"fa fa-sign-in ml-2\"></i>\n        </a>\n    </links>\n</mdb-navbar>\n<!--/.Navbar-->"
 
 /***/ }),
 
@@ -802,6 +806,8 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScNavbarComponent", function() { return ScNavbarComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -812,10 +818,20 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var ScNavbarComponent = /** @class */ (function () {
-    function ScNavbarComponent() {
+    function ScNavbarComponent(auth, router) {
+        this.auth = auth;
+        this.router = router;
     }
     ScNavbarComponent.prototype.ngOnInit = function () {
+        this.loginStatus = this.auth.isLoggedIn();
+    };
+    ScNavbarComponent.prototype.logout = function () {
+        this.auth.clearToken();
+        this.loginStatus = false;
+        this.router.navigate(['/']);
     };
     ScNavbarComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -823,7 +839,7 @@ var ScNavbarComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./sc-navbar.component.html */ "./src/app/sc-navbar/sc-navbar.component.html"),
             styles: [__webpack_require__(/*! ./sc-navbar.component.scss */ "./src/app/sc-navbar/sc-navbar.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], ScNavbarComponent);
     return ScNavbarComponent;
 }());
@@ -936,6 +952,15 @@ var AuthService = /** @class */ (function () {
     }
     AuthService.prototype.storeToken = function (token) {
         localStorage.setItem('currentUser', JSON.stringify(token));
+    };
+    AuthService.prototype.clearToken = function () {
+        localStorage.removeItem('currentUser');
+    };
+    AuthService.prototype.isLoggedIn = function () {
+        if (localStorage.getItem('currentUser')) {
+            return true;
+        }
+        return false;
     };
     AuthService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
