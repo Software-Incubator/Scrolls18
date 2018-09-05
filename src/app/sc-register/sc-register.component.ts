@@ -28,7 +28,7 @@ export class ScRegisterComponent implements OnInit {
       this.gotError = false;
       document.getElementById("openModalButton").click();
       console.log(this.responseMessage.msg);
-    }
+    },
     err => {
       this.Loading = false;
       this.gotError = true;
@@ -38,8 +38,5 @@ export class ScRegisterComponent implements OnInit {
       console.log(this.responseMessage.error.msg);
     }
   );
-  }
-  closeModal(){
-    this.closeBtn.nativeElement.click();
   }
 }
