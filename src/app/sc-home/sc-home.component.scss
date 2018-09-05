@@ -1,7 +1,8 @@
-.heading{
+.landing{
     width:100vw;
     height: 50vh;
-    background-color: #ECAF46;
+    background-color: #fbc02d;
+    box-sizing: border-box;
 
     &_image{
       width:40vw;
@@ -16,10 +17,126 @@
         bottom:0;
 
         &_image{
-            width:60vw;
+            width:50vw;
             position: absolute;
             left:40%;
+            top:50%;
             transform: translateX(-50%);
         }
     }
+}
+.heading{
+        text-align: center;
+        margin:1em;
+        margin-bottom: .5em;
+        color:#fbc02d;
+
+        &_text{
+            font-weight: 700;
+        }
+     }
+.section{
+    height:100vh;
+}
+
+.about{
+  
+    &_heading{
+        text-align: center;
+        margin:1em;
+        color:#fbc02d;
+
+        &_text{
+            font-weight: 700;
+            padding:1em;
+        }
+     }
+     &_image{
+         margin-bottom: 10vh;
+     }
+     &_text{
+         font-size:.8em;
+         font-weight: 400;
+         padding: 1em;
+         padding-right:2em;
+         box-shadow: 2px 3px 18px #000; 
+
+     }
+}
+.rules{
+
+   line-height: 2em;
+   font-weight: 400;
+  
+}
+.rule_svg{
+    height:80vh;
+}
+.topic_carousel{
+    height:80vh;
+    overflow: hidden;
+}
+
+.topic_heading{
+    text-align: center;
+    color:#fbc02d;
+    padding: 1.5em;
+    font-weight:400;
+}
+.topics{
+    padding:1em;
+}
+// .container{
+//     box-shadow: 2px 2px 20px #000;
+// }
+// .dates{
+//     padding:1em;
+// }
+
+.event{
+    padding: 0.5em;
+}
+
+.date{
+    font-weight: 400;
+    font-size:1.5em;
+
+    &_detail{
+        padding:1em;
+        background-color: #fbc02d;
+        border-radius: 5px;
+    }
+}
+
+.member{
+    justify-content: center;
+    display: inline-block;
+    &_image{
+    
+        height:125px;
+        width: 125px;
+        overflow: hidden;
+        border-radius:50%;
+        // border:10px solid #222;
+        // box-sizing: content-box;
+    }
+    &_detail{
+        text-align: center;
+        padding:5px;
+        font-weight: 400;
+    }
+}
+
+.center{
+    display: inherit;
+}
+
+.team_heading{
+    padding: 0.5em;
+    font-weight: 800;
+    color: #fbc02d;
+}
+
+.team_row{
+    padding:0.5em;
 }

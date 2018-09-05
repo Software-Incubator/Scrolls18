@@ -15,7 +15,7 @@ export class ScNavbarComponent implements OnInit {
   ngOnInit() {
     this.loginStatus = this.auth.isLoggedIn();
   }
-  logout(){
+  logout() {
     this.auth.clearToken();
     this.loginStatus = false;
     this.router.navigate(['/']);
