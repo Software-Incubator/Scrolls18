@@ -13,22 +13,28 @@ export class ScLoginComponent implements OnInit {
   model: any = {};
   Loading: boolean = false;
   data: any;
-  constructor(private server: ServerService, private auth: AuthService, private router: Router) { 
+  responseError: any;
+  constructor(private server: ServerService, private auth: AuthService, private router: Router) {
 
   }
   ngOnInit() {
-  } 
+  }
   onSubmit() {
     this.Loading = true;
     console.log(this.model);
-    console.log("hi");
     this.server.login(this.model)
-    .subscribe(res => {
+    .subscribe(
+      res => {
       this.Loading = false;
       this.data = res;
       console.log(this.data.token);
       this.auth.storeToken(this.data.token);
       this.router.navigate(['/dashboard']);
-    });
+    },
+  err => {
+    this.Loading = false;
+    this.responseError = err;
+    console.log(err);
+  });
   }
 }

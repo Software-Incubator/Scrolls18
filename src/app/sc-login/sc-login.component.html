@@ -37,6 +37,7 @@ aria-hidden="true">
                                     <div *ngIf="password.errors.minlength">Enter a valid password</div>
                                 </div>
                             </div>
+                            <div class="text-center help-block">{{ responseError?.error.error.errorInfo }}</div>
                 <div class="d-flex justify-content-center">
                     <button [disabled]="!f.form.valid" mdbBtn class="btn signupbutton waves-effect waves-light my-3" mdbWavesEffect>Login</button>
                 </div>

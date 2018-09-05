@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ViewChild, ElementRef} from '@angular/core';
+
 import { ServerService } from '../services/server.service';
+
 
 @Component({
   selector: 'app-sc-register',
@@ -7,9 +10,10 @@ import { ServerService } from '../services/server.service';
   styleUrls: ['./sc-register.component.scss'],
 })
 export class ScRegisterComponent implements OnInit {
-
   model: any = {};
-  Loading: boolean = false;
+  Loading = false;
+  responseMessage: any;
+  gotError: boolean;
   constructor(private server: ServerService) { }
   ngOnInit() {
   }
@@ -17,9 +21,25 @@ export class ScRegisterComponent implements OnInit {
     this.Loading = true;
     console.log(this.model);
     this.server.signup(this.model)
-    .subscribe(res => {
+    .subscribe(
+      res => {
       this.Loading = false;
-      console.log(res);
-    });
+      this.responseMessage = res;
+      this.gotError = false;
+      document.getElementById("openModalButton").click();
+      console.log(this.responseMessage.msg);
+    }
+    err => {
+      this.Loading = false;
+      this.gotError = true;
+      this.responseMessage = err;
+      document.getElementById("openModalButton").click();
+      console.log(this.responseMessage);
+      console.log(this.responseMessage.error.msg);
+    }
+  );
+  }
+  closeModal(){
+    this.closeBtn.nativeElement.click();
   }
 }
