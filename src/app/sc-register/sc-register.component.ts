@@ -26,14 +26,14 @@ export class ScRegisterComponent implements OnInit {
       this.Loading = false;
       this.responseMessage = res;
       this.gotError = false;
-      document.getElementById("openModalButton").click();
+      document.getElementById('openModalButton').click();
       console.log(this.responseMessage.msg);
     },
     err => {
       this.Loading = false;
       this.gotError = true;
       this.responseMessage = err;
-      document.getElementById("openModalButton").click();
+      document.getElementById('openModalButton').click();
       console.log(this.responseMessage);
       console.log(this.responseMessage.error.msg);
     }
