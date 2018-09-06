@@ -42,9 +42,9 @@ module.exports = {
     },
 
     getImportantDates: (req, res) => {
-        ImpDate.find(function(err, res) {
+        ImpDate.find(function(err, response) {
             if (err) throw err;
-            else res.status(200).json({error:{status: false, errorInfo: null}, impDates: res});
+            else res.status(200).json({error:{status: false, errorInfo: null}, impDates: response});
         })
     }
 }

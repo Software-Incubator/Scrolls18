@@ -1,6 +1,11 @@
 const Teams = require('../models/team');
 const Members = require('../models/members');
 const TeamDetails = require('../models/team_details');
+const gapi = require('../googleapis');
+const fs = require('fs');
+const {google} = require('googleapis');
+const path = require('path');
+
 
 function resgitserTeamUtil(teamInfo, cb) {
     let newTeamDetails = new TeamDetails(teamInfo);
@@ -41,7 +46,7 @@ module.exports = {
         let details = {};
         TeamDetails.findOne({id: req.user._id}, function(err, teamDetailsDoc) {
             if (err) throw err;
-            if(teamDetailsDoc.length > 0){
+            if(teamDetailsDoc && teamDetails.length > 0){
                 details.teamDetails = {
                     teamName: req.user.teamName,
                     teamId: req.user.teamName,
@@ -56,15 +61,57 @@ module.exports = {
                             delete memberDetails[k].teamId;
                         }
                         details.memberDetails = memberDetails;
-                        req.status(200).json({error:{status:false, errorInfo:null }, details:details});
+                        req.status(200).json({error:{status:false, errorInfo:null }, details:details, filledStatus:'2'});
                     } else {
                         req.status(200).json({error:{status:true, errorInfo:"Members not found" }, details:details})
                     }
                 });
             } else {
-                req.status(404).json({error:{status:true, errorInfo:"Team details not found" }, details:null});
+                res.status(404).json({error:{status:true, errorInfo:"Team details not found" }, details:null, filledStatus:'0'});
             }
 
         });
+    },
+
+    uploadFile: function(req, res) {
+        let sampleFile = req.files.foo;
+        sampleFile.mv(path.join(__dirname, '../temp/file.txt'), function(err) {
+            if(err) throw err;
+            else {
+                var fileMetadata = {
+                    'name': 'newFileUpload.txt'
+                };
+                var media = {
+                    mimeType: 'application/octet-stream',
+                    body: fs.createReadStream(path.join(__dirname, '../temp/file.txt'))
+                };
+                fs.readFile('credentials.json', (err, content) => {
+                    if (err) return console.log('Error loading client secret file:', err);
+                    // Authorize a client with credentials, then call the Google Drive API.
+                    gapi.authorize(JSON.parse(content), function(auth) {
+                        const drive = google.drive({version: 'v3', auth});
+                        drive.files.create({
+                            resource: fileMetadata,
+                            media: media,
+                            fields: 'id'
+                          }, function (err, file) {
+                                if (err) {
+                                // Handle error
+                                console.error(err);
+                                } else {
+                                    res.send("success");
+                                    fs.unlink(path.join(__dirname, '../temp/file.txt'), (err) => {
+                                        if (err) throw err;
+                                        console.log('successfully deleted /tmp/hello');
+                                    });
+                                }
+                            }
+                        );
+                    });
+                });
+            }
+        });
+        // console.log(req.files);
+        
     }
 }
