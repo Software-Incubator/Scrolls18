@@ -40,7 +40,7 @@ aria-hidden="true">
                 </div>
               </div>
               <div class="md-form mb-1">
-                <label for="password">Password ( atleat 6 characters )</label>
+                <label for="password">Password ( at least 6 characters )</label>
                 <input (ngModelChange)="confirmPassword.control.updateValueAndValidity()" style="color: #808080;" type="password" id="password" required  class="form-control"
                 name="password" [(ngModel)]="model.password"
                 #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" minlength="6">

@@ -486,7 +486,8 @@ var AppModule = /** @class */ (function () {
                 ng_recaptcha_forms__WEBPACK_IMPORTED_MODULE_5__["RecaptchaFormsModule"],
                 ngx_fullpage_ngx_fullpage__WEBPACK_IMPORTED_MODULE_12__["MnFullpageModule"].forRoot(),
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["MDBBootstrapModule"].forRoot(),
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"]
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"]
             ],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NO_ERRORS_SCHEMA"]],
             providers: [_services_auth_service__WEBPACK_IMPORTED_MODULE_17__["AuthService"], _services_server_service__WEBPACK_IMPORTED_MODULE_16__["ServerService"], _services_authguard_service__WEBPACK_IMPORTED_MODULE_18__["AuthGuard"]],
@@ -563,7 +564,7 @@ var ConfirmEqualValidatorDirective = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-sc-navbar></app-sc-navbar>\r\n"
+module.exports = "<app-sc-navbar></app-sc-navbar>\r\n\r\n<div *ngIf=\"Loading\" class=\"overlay\">\r\n  <img src=\"../../assets/images/loader.svg\" class=\"loader image-responsive\" alt=\"Loader\">\r\n</div>\r\n<h1 class=\"dash_heading mt-1\">WELCOME TO DASHBOARD</h1>\r\n<div class=\"container-fluid\">\r\n  <div class=\"row\">\r\n    <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n      <div class=\"text-center my-auto\">\r\n        <h1 class=\"just_few_heading\">Just few more details</h1>\r\n      </div>\r\n    </div>\r\n    <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n      <div class=\"modal-dialog\" role=\"document\">\r\n        <div class=\"modal-content\">\r\n          <div class=\"modal-body\">\r\n            <div class=\"container-fluid\">\r\n              <div class=\"row\">\r\n                <div class=\"col-sm-12 col-md-12 col-lg-12\">\r\n                  <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\r\n                    <div *ngIf=\"track === 0\">\r\n                      <div class=\"md-form mb-1\">\r\n                        <label>Domain</label>\r\n                        <select class=\"custom-select\" formControlName=\"domain\" [ngClass]=\"{ 'is-invalid': (submitted || f.domain.touched) && f.domain.errors }\">\r\n                          <option selected>Open this select menu</option>\r\n                          <option value=\"1\">One</option>\r\n                          <option value=\"2\">Two</option>\r\n                          <option value=\"3\">Three</option>\r\n                        </select>\r\n                        <div *ngIf=\"(submitted || f.domain.touched) && f.domain.invalid \" class=\"invalid-feedback\">\r\n                          <div *ngIf=\"f.domain.errors.required\">Domain is invalid</div>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"md-form mb-1\">\r\n                        <label>Topic</label>\r\n                        <select class=\"custom-select\" formControlName=\"topic\" [ngClass]=\"{ 'is-invalid': (submitted || f.topic.touched) && f.topic.errors }\">\r\n                          <option selected>Open this select menu</option>\r\n                          <option value=\"1\">One</option>\r\n                          <option value=\"2\">Two</option>\r\n                          <option value=\"3\">Three</option>\r\n                        </select>\r\n                        <div *ngIf=\"(submitted || f.topic.touched) && f.topic.invalid \" class=\"invalid-feedback\">\r\n                          <div *ngIf=\"f.topic.errors.required\">Topic is invalid</div>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"md-form my-3\">\r\n                        <label>Number Of Team Members</label>\r\n                        <div class=\"row\">\r\n                          <label class=\"custom-control custom-radio\">\r\n                            <input type=\"radio\" value=\"2\" name=\"numberOfMembers\" formControlName=\"numberOfMembers\" (click)=\"getNumberOfMem(2)\">\r\n                            2\r\n                          </label>\r\n                          <label class=\"custom-control custom-radio\">\r\n                            <input type=\"radio\" value=\"3\" name=\"numberOfMembers\" formControlName=\"numberOfMembers\" (click)=\"getNumberOfMem(3)\">\r\n                            3\r\n                          </label>\r\n                        </div>\r\n                        <div *ngIf=\"(submitted || f.numberOfMembers.touched) && f.numberOfMembers.invalid \" class=\"invalid-feedback\">\r\n                          <div *ngIf=\"f.numberOfMembers.errors.required\">No. of Members is invalid</div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                    <div formArrayName=\"members\">\r\n                      <div *ngFor=\"let child of form.controls.members.controls; let i=index\">\r\n                        <div  *ngIf = \"track === (i+1)\" class=\"form-group\" formGroupName=\"{{i}}\">\r\n                          {{i+1}}\r\n                           <div class=\"md-form mb-1\">\r\n                              <lable>Name</lable>\r\n                              <input formControlName=\"name\" class=\"form-control\" type=\"text\" [ngClass]=\"{ 'is-invalid': (s.name.touched) && s.name.invalid }\">\r\n                              <div *ngIf=\"(s.name.touched) && s.name.invalid\" class=\"invalid-feedback\">\r\n                                <div *ngIf=\"s.name.errors\">Name is invalid</div>\r\n                              </div>\r\n                            </div>\r\n                          <div class=\"md-form mb-1\">\r\n                            <lable>Email</lable>\r\n                            <input formControlName=\"email\" class=\"form-control\" type=\"text\" [ngClass]=\"{ 'is-invalid': (s.email.touched) && s.email.invalid }\">\r\n                            <div *ngIf=\"(s.email.touched) && s.email.invalid\" class=\"invalid-feedback\">\r\n                              <div *ngIf=\"s.email.errors\">Email is invalid</div>\r\n                            </div>\r\n                          </div>\r\n                           <div class=\"md-form mb-1\">\r\n                              <label>Course</label>\r\n                              <select class=\"custom-select\" formControlName=\"course\" [ngClass]=\"{ 'is-invalid': (s.course.touched) && s.course.errors }\">\r\n                                <option selected>Open this select menu</option>\r\n                                <option value=\"1\">One</option>\r\n                                <option value=\"2\">Two</option>\r\n                                <option value=\"3\">Three</option>\r\n                              </select>\r\n                              <div *ngIf=\"(s.course.touched) && s.course.invalid \" class=\"invalid-feedback\">\r\n                                <div *ngIf=\"s.course.errors\">Course is invalid</div>\r\n                              </div>\r\n                            </div>\r\n\r\n                            <div class=\"md-form mb-1\">\r\n                                <label>Year</label>\r\n                                <select class=\"custom-select\" formControlName=\"year\" [ngClass]=\"{ 'is-invalid': (s.year.touched) && s.year.errors }\">\r\n                                  <option selected>Open this select menu</option>\r\n                                  <option value=\"1\">One</option>\r\n                                  <option value=\"2\">Two</option>\r\n                                  <option value=\"3\">Three</option>\r\n                                </select>\r\n                                <div *ngIf=\"(s.year.touched) && s.year.invalid \" class=\"invalid-feedback\">\r\n                                  <div *ngIf=\"s.year.errors\">Year is invalid</div>\r\n                                </div>\r\n                              </div>\r\n\r\n                            <div class=\"md-form mb-1\">\r\n                                <label>College</label>\r\n                                <select class=\"custom-select\" formControlName=\"college\" [ngClass]=\"{ 'is-invalid': (s.college.touched) && s.college.errors }\">\r\n                                  <option selected>Open this select menu</option>\r\n                                  <option value=\"1\">One</option>\r\n                                  <option value=\"2\">Two</option>\r\n                                  <option value=\"3\">Three</option>\r\n                                </select>\r\n                                <div *ngIf=\"(s.college.touched) && s.college.invalid \" class=\"invalid-feedback\">\r\n                                  <div *ngIf=\"s.college.errors\">College is invalid</div>\r\n                                </div>\r\n                              </div>\r\n\r\n                          <div class=\"md-form mb-1\">\r\n                              <lable>Student Number</lable>\r\n                              <input formControlName=\"studentNumber\" class=\"form-control\" type=\"text\" [ngClass]=\"{ 'is-invalid': (s.studentNumber.touched) && s.studentNumber.invalid }\">\r\n                              <div *ngIf=\"(s.studentNumber.touched) && s.studentNumber.invalid\" class=\"invalid-feedback\">\r\n                                <div *ngIf=\"s.studentNumber.errors\">Student Number is invalid</div>\r\n                              </div>\r\n                            </div>\r\n                            <div class=\"md-form mb-1\">\r\n                                <lable>Mobile Number</lable>\r\n                                <input formControlName=\"mobno\" class=\"form-control\" type=\"text\" [ngClass]=\"{ 'is-invalid': (s.mobno.touched) && s.mobno.invalid }\">\r\n                                <div *ngIf=\"(s.mobno.touched) && s.mobno.invalid\" class=\"invalid-feedback\">\r\n                                  <div *ngIf=\"s.mobno.errors\">Mobile Number is invalid</div>\r\n                                </div>\r\n                              </div>\r\n                              <div class=\"md-form my-3\">\r\n                                  <label>Needs Accomodation ?</label>\r\n                                  <div class=\"row\">\r\n                                    <label class=\"custom-control custom-radio\">\r\n                                      <input type=\"radio\" value=\"1\" name=\"accomodation\" formControlName=\"accomodation\">\r\n                                      Yes\r\n                                    </label>\r\n                                    <label class=\"custom-control custom-radio\">\r\n                                      <input type=\"radio\" value=\"0\" name=\"accomodation\" formControlName=\"accomodation\">\r\n                                      No\r\n                                    </label>\r\n                                  </div>\r\n                                  <div *ngIf=\"(s.accomodation.touched) && s.accomodation.invalid \" class=\"invalid-feedback\">\r\n                                    <div *ngIf=\"s.accomodation.errors\">No. of Members is invalid</div>\r\n                                  </div>\r\n                                </div>\r\n                        </div>\r\n                      </div>\r\n\r\n                    </div>\r\n\r\n                    <pre>{{form.value | json }}</pre>\r\n                    <div class=\"form-group\">\r\n                      <button [disabled]=\"!checkPre()\" (click)=\"previous()\" class=\"btn btn-primary\">Previous</button>\r\n                      <button [disabled]=\"!checkNext()\" (click)=\"next()\" class=\"btn btn-primary\">Next</button>\r\n                      <button [disabled]=\"checkFormValid()\" class=\"btn btn-primary\">Register</button>\r\n                    </div>\r\n                  </form>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -574,7 +575,7 @@ module.exports = "<app-sc-navbar></app-sc-navbar>\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".loader {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  z-index: 10001; }\n\n.overlay {\n  position: fixed;\n  /* Sit on top of the page content */\n  width: 100%;\n  /* Full width (cover the whole page) */\n  height: 100%;\n  /* Full height (cover the whole page) */\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #ffffff82;\n  /* Black background with opacity */\n  z-index: 10000;\n  /* Specify a stack order in case you're using a different order for other elements */\n  cursor: pointer;\n  /* Add a pointer on hover */ }\n\n.modal-header {\n  border-bottom: none; }\n\n.dash_heading {\n  text-align: center;\n  color: #FFC973;\n  font-weight: 700; }\n\n.just_few_heading {\n  color: #59B8E8;\n  font-weight: 400; }\n\n.Team_heading {\n  color: #FFC973;\n  font-weight: 700; }\n\n.md-form input[type=text], .md-form input[type=password], .md-form input[type=email], .md-form input[type=url], .md-form input[type=time], .md-form input[type=date], .md-form input[type=datetime-local], .md-form input[type=tel], .md-form input[type=number], .md-form input[type=search-md], .md-form input[type=search], .md-form textarea.md-textarea {\n  background-color: #f0f0f0;\n  border-radius: 3px;\n  height: 25px !important;\n  font-weight: 400; }\n\n.md-form label {\n  font-weight: 700;\n  color: #808080; }\n\n.navbar.navbar-dark form .md-form .form-control {\n  color: #808080 !important; }\n\ninput {\n  color: #808080; }\n\n.md-form label {\n  left: 5px; }\n\n.md-form label.active {\n  transform: translateY(-150%);\n  -webkit-transform: translateY(-150%); }\n\n.signupbutton {\n  width: 100%;\n  background-color: #59B8E8;\n  color: #fff;\n  font-weight: 700;\n  margin: 0px;\n  margin-top: 0.375rem;\n  padding: 0.54rem 2.14rem; }\n\n.md-form label {\n  position: static; }\n\n.md-form {\n  margin-top: 0px; }\n\n.invalid-feedback {\n  font-weight: 700; }\n\n.help-block {\n  font-size: 80%;\n  color: #dc3545;\n  font-weight: 700; }\n\n.modal-dialog .modal-content {\n  box-shadow: none;\n  border: none; }\n\n.modal-body {\n  padding: 0; }\n\n.custom-select {\n  border-radius: 0; }\n"
 
 /***/ }),
 
@@ -589,8 +590,7 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScDashboardComponent", function() { return ScDashboardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_server_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/server.service */ "./src/app/services/server.service.ts");
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -602,16 +602,117 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-
 var ScDashboardComponent = /** @class */ (function () {
-    function ScDashboardComponent(server, auth) {
-        this.server = server;
-        this.auth = auth;
+    function ScDashboardComponent(fb) {
+        this.fb = fb;
+        this.submitted = false;
+        this.track = 0;
     }
     ScDashboardComponent.prototype.ngOnInit = function () {
-        this.server.getDashboardDetails(this.auth.getToken())
-            .subscribe(function (data) {
-            console.log(data);
+        this.fb = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"];
+        this.form = this.fb.group({
+            domain: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            topic: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            numberOfMembers: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            members: this.fb.array([])
+        });
+        this.control = this.form.controls['members'];
+    };
+    Object.defineProperty(ScDashboardComponent.prototype, "f", {
+        get: function () {
+            return this.form.controls;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ScDashboardComponent.prototype, "s", {
+        get: function () {
+            this.submitted = false;
+            return this.form['controls'].members['controls'][this.track - 1]['controls'];
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ScDashboardComponent.prototype.onSubmit = function () {
+        console.log(this.form['controls'].members['controls']['0']['controls'].memberType.value = "a");
+        this.submitted = true;
+        // stop here if form is invalid
+        if (this.form.invalid) {
+            return;
+        }
+        console.log(this.form.value, this.form);
+    };
+    ScDashboardComponent.prototype.checkFormValid = function () {
+        if (this.form.invalid) {
+            return true;
+        }
+    };
+    ScDashboardComponent.prototype.checkNext = function () {
+        if (this.track === 0) {
+            if ((this.form.value.domain !== '')
+                && (this.form.value.topic !== '') && (this.form.value.numberOfMembers !== '')) {
+                return 1;
+            }
+            return 0;
+        }
+        else if (this.track === 2 && +this.form.value.numberOfMembers === 2) {
+            return 0;
+        }
+        else if (this.track === 1 || this.track === 2) {
+            if (this.form['controls'].members['controls'][this.track - 1]['controls'].name.valid
+                && this.form['controls'].members['controls'][this.track - 1]['controls'].course.valid
+                && this.form['controls'].members['controls'][this.track - 1]['controls'].email.valid
+                && this.form['controls'].members['controls'][this.track - 1]['controls'].college.valid
+                && this.form['controls'].members['controls'][this.track - 1]['controls'].studentNumber.valid
+                && this.form['controls'].members['controls'][this.track - 1]['controls'].mobno.valid
+                && this.form['controls'].members['controls'][this.track - 1]['controls'].accomodation.valid
+                && this.form['controls'].members['controls'][this.track - 1]['controls'].year.valid) {
+                return 1;
+            }
+            return 0;
+        }
+        else {
+            return 0;
+        }
+    };
+    ScDashboardComponent.prototype.checkPre = function () {
+        if (this.track === 0) {
+            return 0;
+        }
+        return 1;
+    };
+    ScDashboardComponent.prototype.next = function () {
+        this.track++;
+        console.log(this.track);
+    };
+    ScDashboardComponent.prototype.previous = function () {
+        this.track--;
+        console.log(this.track);
+    };
+    ScDashboardComponent.prototype.getNumberOfMem = function (n) {
+        for (var j = +this.form.value.members.length; j >= 0; j--) {
+            this.control.removeAt(j);
+        }
+        for (var j = 0; j < n; j++) {
+            if (j === 0) {
+                this.control.push(this.getmembersFormArr("leader"));
+            }
+            else {
+                this.control.push(this.getmembersFormArr("member"));
+            }
+        }
+    };
+    ScDashboardComponent.prototype.getmembersFormArr = function (mem) {
+        return this.fb.group({
+            name: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            course: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            year: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            college: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            studentNumber: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required,]],
+            email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]],
+            mobno: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+            accomodation: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            memberType: [mem, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]
         });
     };
     ScDashboardComponent = __decorate([
@@ -620,7 +721,7 @@ var ScDashboardComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./sc-dashboard.component.html */ "./src/app/sc-dashboard/sc-dashboard.component.html"),
             styles: [__webpack_require__(/*! ./sc-dashboard.component.scss */ "./src/app/sc-dashboard/sc-dashboard.component.scss")]
         }),
-        __metadata("design:paramtypes", [_services_server_service__WEBPACK_IMPORTED_MODULE_1__["ServerService"], _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]])
+        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]])
     ], ScDashboardComponent);
     return ScDashboardComponent;
 }());
@@ -882,7 +983,7 @@ var ScNavbarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"Loading\" class=\"overlay\">\r\n  <img src=\"../../assets/images/loader.svg\" class=\"loader image-responsive\" alt=\"Loader\">\r\n</div>\r\n<a class=\"btn btn-info btn-sm waves-effect waves-light\" (click)=\"basicModal.show()\" mdbWavesEffect>Register\r\n  <i class=\"fa fa-sign-in ml-2\"></i>\r\n</a>\r\n<div mdbModal #basicModal=\"mdbModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\"\r\naria-hidden=\"true\">\r\n<div class=\"modal-dialog modal-lg\" role=\"document\">\r\n  <div class=\"modal-content\">\r\n    <div class=\"modal-header\">\r\n      <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"basicModal.hide()\">\r\n        <span aria-hidden=\"true\">×</span>\r\n      </button>\r\n    </div>\r\n    <div class=\"modal-body\">\r\n      <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n          <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n            <h1 class=\"text-center Register_heading\">REGISTRATION</h1>\r\n            <img class=\"mt-3 w-100\" src=\"../../assets/images/register.svg\" alt=\"\">\r\n          </div>\r\n          <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n            <h2 class=\"text-center Team_heading mt-2\">ENTER DETAILS</h2>\r\n\r\n            <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\" #f=\"ngForm\" novalidate >\r\n              <div class=\"md-form mb-1\">\r\n                <label for=\"teamName\">Team name</label>\r\n                <input style=\"color: #808080;\" type=\"text\" class=\"form-control\" name=\"teamName\" [(ngModel)]=\"model.teamName\" #teamName=\"ngModel\" [ngClass]=\"{ 'is-invalid': teamName.touched && teamName.invalid }\" required>\r\n                <div *ngIf=\"teamName.touched && teamName.invalid \" class=\"invalid-feedback\">\r\n                  <div *ngIf=\"teamName.errors.required\">Team Name is required</div>\r\n                </div>\r\n              </div>\r\n              <div class=\"md-form mb-1\">\r\n                <label for=\"email\">Email ( Team Leader )</label>\r\n                <input style=\"color: #808080;\" type=\"email\" class=\"form-control\" name=\"email\" [(ngModel)]=\"model.email\" #email=\"ngModel\" [ngClass]=\"{ 'is-invalid': email.touched && email.invalid }\" required email>\r\n                <div *ngIf=\"email.touched && email.invalid\" class=\"invalid-feedback\">\r\n                  <div *ngIf=\"email.errors.required\">Email is required</div>\r\n                  <div *ngIf=\"email.errors.email\">Email a valid email</div>\r\n                </div>\r\n              </div>\r\n              <div class=\"md-form mb-1\">\r\n                <label for=\"password\">Password ( atleat 6 characters )</label>\r\n                <input (ngModelChange)=\"confirmPassword.control.updateValueAndValidity()\" style=\"color: #808080;\" type=\"password\" id=\"password\" required  class=\"form-control\"\r\n                name=\"password\" [(ngModel)]=\"model.password\"\r\n                #password=\"ngModel\" [ngClass]=\"{ 'is-invalid': f.submitted && password.invalid }\" minlength=\"6\">\r\n                <div class=\"help-block\"\r\n                *ngIf=\"(password.touched && password.errors?.required) || password.errors?.minlength\">\r\n                Invalid Password\r\n              </div>\r\n            </div>\r\n            <div class=\"md-form mb-1\">\r\n              <label for=\"confirmPassword\">Confirm Password</label>\r\n              <input style=\"color: #808080;\" type=\"password\" name=\"confirmPassword\" appConfirmEqualValidator=\"password\" required\r\n              id=\"confirmPassword\" class=\"form-control\"\r\n              [(ngModel)]=\"model.confirmPassword\" #confirmPassword=\"ngModel\">\r\n              <span class=\"help-block\"\r\n              *ngIf=\"confirmPassword.touched && confirmPassword.errors?.required\">\r\n              Confirm Password is required\r\n            </span>\r\n            <span class=\"help-block\"\r\n            *ngIf=\"confirmPassword.touched && confirmPassword.errors?.notEqual &&\r\n            !confirmPassword.errors?.required\">\r\n            Does'nt match with Password\r\n          </span>\r\n        </div>\r\n        <div class=\"md-form mt-3\">\r\n          <re-captcha [(ngModel)]=\"model.captcha\" name=\"captcha\" required siteKey=\"6Led_G0UAAAAANMfYD_VxWMmmN0C1m1-w0rwYSw2\" #captcha=\"ngModel\"></re-captcha>\r\n        </div>\r\n        <div [hidden]=\"captcha.valid || captcha.pristine\" class=\"error\">Captcha must be solved</div>\r\n        <div class=\"d-flex justify-content-center\">\r\n          <button [disabled]=\"!f.form.valid\" (click)=\"basicModal.hide()\" mdbBtn class=\"btn signupbutton waves-effect waves-light\" mdbWavesEffect>Sign up</button>\r\n        </div>\r\n      </form>\r\n    </div>\r\n  </div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n<!-- Response Modal !-->\r\n<button id=\"openModalButton\" [hidden]=\"true\" (click)=\"successModal.show()\">Open Modal</button>\r\n<div mdbModal #successModal=\"mdbModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\"\r\n  aria-hidden=\"true\">\r\n  <div class=\"modal-dialog\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title w-100\" id=\"myModalLabel\"></h4>\r\n      </div>\r\n      <div class=\"modal-body text-center\">\r\n        <div *ngIf=\"!gotError\">\r\n          <img style=\"width:20%;\" src=\"../../assets/images/success_animated.svg\">\r\n          <div class=\"successText\">{{responseMessage?.msg}}</div>\r\n      </div>\r\n      <div *ngIf=\"gotError\">\r\n          <img style=\"width:20%;\" src=\"../../assets/images/fail_animated.svg\">\r\n          <div class=\"errorText\">{{responseMessage?.error.msg}}</div>\r\n      </div>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" mdbBtn color=\"primary\" class=\"waves-light\" aria-label=\"Close\" (click)=\"successModal.hide()\" mdbWavesEffect>Close</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div *ngIf=\"Loading\" class=\"overlay\">\r\n  <img src=\"../../assets/images/loader.svg\" class=\"loader image-responsive\" alt=\"Loader\">\r\n</div>\r\n<a class=\"btn btn-info btn-sm waves-effect waves-light\" (click)=\"basicModal.show()\" mdbWavesEffect>Register\r\n  <i class=\"fa fa-sign-in ml-2\"></i>\r\n</a>\r\n<div mdbModal #basicModal=\"mdbModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\"\r\naria-hidden=\"true\">\r\n<div class=\"modal-dialog modal-lg\" role=\"document\">\r\n  <div class=\"modal-content\">\r\n    <div class=\"modal-header\">\r\n      <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"basicModal.hide()\">\r\n        <span aria-hidden=\"true\">×</span>\r\n      </button>\r\n    </div>\r\n    <div class=\"modal-body\">\r\n      <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n          <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n            <h1 class=\"text-center Register_heading\">REGISTRATION</h1>\r\n            <img class=\"mt-3 w-100\" src=\"../../assets/images/register.svg\" alt=\"\">\r\n          </div>\r\n          <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n            <h2 class=\"text-center Team_heading mt-2\">ENTER DETAILS</h2>\r\n\r\n            <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\" #f=\"ngForm\" novalidate >\r\n              <div class=\"md-form mb-1\">\r\n                <label for=\"teamName\">Team name</label>\r\n                <input style=\"color: #808080;\" type=\"text\" class=\"form-control\" name=\"teamName\" [(ngModel)]=\"model.teamName\" #teamName=\"ngModel\" [ngClass]=\"{ 'is-invalid': teamName.touched && teamName.invalid }\" required>\r\n                <div *ngIf=\"teamName.touched && teamName.invalid \" class=\"invalid-feedback\">\r\n                  <div *ngIf=\"teamName.errors.required\">Team Name is required</div>\r\n                </div>\r\n              </div>\r\n              <div class=\"md-form mb-1\">\r\n                <label for=\"email\">Email ( Team Leader )</label>\r\n                <input style=\"color: #808080;\" type=\"email\" class=\"form-control\" name=\"email\" [(ngModel)]=\"model.email\" #email=\"ngModel\" [ngClass]=\"{ 'is-invalid': email.touched && email.invalid }\" required email>\r\n                <div *ngIf=\"email.touched && email.invalid\" class=\"invalid-feedback\">\r\n                  <div *ngIf=\"email.errors.required\">Email is required</div>\r\n                  <div *ngIf=\"email.errors.email\">Email a valid email</div>\r\n                </div>\r\n              </div>\r\n              <div class=\"md-form mb-1\">\r\n                <label for=\"password\">Password ( at least 6 characters )</label>\r\n                <input (ngModelChange)=\"confirmPassword.control.updateValueAndValidity()\" style=\"color: #808080;\" type=\"password\" id=\"password\" required  class=\"form-control\"\r\n                name=\"password\" [(ngModel)]=\"model.password\"\r\n                #password=\"ngModel\" [ngClass]=\"{ 'is-invalid': f.submitted && password.invalid }\" minlength=\"6\">\r\n                <div class=\"help-block\"\r\n                *ngIf=\"(password.touched && password.errors?.required) || password.errors?.minlength\">\r\n                Invalid Password\r\n              </div>\r\n            </div>\r\n            <div class=\"md-form mb-1\">\r\n              <label for=\"confirmPassword\">Confirm Password</label>\r\n              <input style=\"color: #808080;\" type=\"password\" name=\"confirmPassword\" appConfirmEqualValidator=\"password\" required\r\n              id=\"confirmPassword\" class=\"form-control\"\r\n              [(ngModel)]=\"model.confirmPassword\" #confirmPassword=\"ngModel\">\r\n              <span class=\"help-block\"\r\n              *ngIf=\"confirmPassword.touched && confirmPassword.errors?.required\">\r\n              Confirm Password is required\r\n            </span>\r\n            <span class=\"help-block\"\r\n            *ngIf=\"confirmPassword.touched && confirmPassword.errors?.notEqual &&\r\n            !confirmPassword.errors?.required\">\r\n            Does'nt match with Password\r\n          </span>\r\n        </div>\r\n        <div class=\"md-form mt-3\">\r\n          <re-captcha [(ngModel)]=\"model.captcha\" name=\"captcha\" required siteKey=\"6Led_G0UAAAAANMfYD_VxWMmmN0C1m1-w0rwYSw2\" #captcha=\"ngModel\"></re-captcha>\r\n        </div>\r\n        <div [hidden]=\"captcha.valid || captcha.pristine\" class=\"error\">Captcha must be solved</div>\r\n        <div class=\"d-flex justify-content-center\">\r\n          <button [disabled]=\"!f.form.valid\" (click)=\"basicModal.hide()\" mdbBtn class=\"btn signupbutton waves-effect waves-light\" mdbWavesEffect>Sign up</button>\r\n        </div>\r\n      </form>\r\n    </div>\r\n  </div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n<!-- Response Modal !-->\r\n<button id=\"openModalButton\" [hidden]=\"true\" (click)=\"successModal.show()\">Open Modal</button>\r\n<div mdbModal #successModal=\"mdbModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\"\r\n  aria-hidden=\"true\">\r\n  <div class=\"modal-dialog\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title w-100\" id=\"myModalLabel\"></h4>\r\n      </div>\r\n      <div class=\"modal-body text-center\">\r\n        <div *ngIf=\"!gotError\">\r\n          <img style=\"width:20%;\" src=\"../../assets/images/success_animated.svg\">\r\n          <div class=\"successText\">{{responseMessage?.msg}}</div>\r\n      </div>\r\n      <div *ngIf=\"gotError\">\r\n          <img style=\"width:20%;\" src=\"../../assets/images/fail_animated.svg\">\r\n          <div class=\"errorText\">{{responseMessage?.error.msg}}</div>\r\n      </div>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" mdbBtn color=\"primary\" class=\"waves-light\" aria-label=\"Close\" (click)=\"successModal.hide()\" mdbWavesEffect>Close</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 

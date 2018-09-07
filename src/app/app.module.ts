@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA, enableProdMode } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -37,10 +37,12 @@ import { AuthGuard } from './services/authguard.service';
     RecaptchaFormsModule,
     MnFullpageModule.forRoot(),
     MDBBootstrapModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [AuthService, ServerService, AuthGuard],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
