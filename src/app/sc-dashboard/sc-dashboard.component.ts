@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../services/server.service';
 import { AuthService } from '../services/auth.service';
-import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-sc-dashboard',
@@ -9,13 +9,34 @@ import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
   styleUrls: ['./sc-dashboard.component.scss']
 })
 export class ScDashboardComponent implements OnInit {
+  reader2: FileReader;
+  fileContent: any;
+  contents: any;
+  reader: FileReader;
+  fileExtensionMessage: string;
+  fileExtensionError: boolean;
+  allowedExtensions: string[];
+  fileExtension: string;
+  fileName: string;
+  array2: {}[];
+  array: string[];
+  resData: any;
+  name: string;
+  data: any;
+  file: any;
+  frmData: FormData;
+  fileselected: boolean;
+  Loading = false;
   submitted = false;
   track = 0;
   public form: FormGroup;
   private control: FormArray;
-  constructor( private fb: FormBuilder) {
+
+  constructor( private fb: FormBuilder, private server: ServerService, private auth: AuthService) {
   }
+
   ngOnInit() {
+    this.fileselected = false;
     this.fb = new FormBuilder;
     this.form = this.fb.group({
       domain: ['', Validators.required],
@@ -33,12 +54,23 @@ export class ScDashboardComponent implements OnInit {
     return this.form['controls'].members['controls'][this.track - 1]['controls'];
   }
   onSubmit() {
-    console.log(this.form['controls'].members['controls']['0']['controls'].memberType.value = "a");
+    this.Loading = true;
     this.submitted = true;
     // stop here if form is invalid
     if (this.form.invalid) {
       return;
     }
+    this.server.postregisterDetails(this.auth.getToken(), this.form.value)
+    .subscribe(
+      res => {
+        this.Loading = false;
+        console.log(res);
+      },
+      err => {
+        this.Loading = false;
+        console.log(err);
+      }
+    );
     console.log(this.form.value, this.form);
   }
   checkFormValid() {
@@ -109,7 +141,63 @@ export class ScDashboardComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       mobno: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
       accomodation: ['', Validators.required],
-      memberType: [mem, Validators.required]
+      memberType: [mem, Validators.required],
+      id: ['']
     });
+  }
+
+
+
+
+
+
+  onSent(form: NgForm) {
+
+    this.Loading = true;
+    this.frmData = new FormData();
+    this.frmData.append('foo', this.file, this.file.name);
+    this.frmData.append('foo', this.name);
+    console.log(this.frmData);
+    this.server.sendFile(this.auth.getToken(), this.frmData)
+    .subscribe((data) => {
+      console.log(data);
+      this.Loading = false;
+      this.resData = data;
+      this.array = Object.keys(this.resData.anomalies_dict);
+      this.array2 = Object.values(this.resData.anomalies_dict);
+    });
+  }
+  fileEvent(event) {
+    this.file = event.target.files[0];
+    console.log(this.file);
+    this.fileName = this.file.name;
+    this.allowedExtensions =
+    ['pdf', 'jpg'];
+    this.fileExtension = this.fileName.split('.').pop();
+
+    if (this.isInArray(this.allowedExtensions, this.fileExtension)) {
+      this.fileExtensionError = false;
+      this.fileExtensionMessage = '';
+    } else {
+      this.fileExtensionMessage = 'Only pdf files allowed!!';
+      this.fileExtensionError = true;
+    }
+
+    if (this.file) {
+      this.reader = new FileReader();
+      this.reader.onloadend = (e: any) => {
+        this.contents = e.target.result;
+        this.fileContent = this.contents;
+      };
+      this.reader.readAsDataURL(this.file);
+    } else {
+      alert('Failed to load file');
+    }
+
+  }
+
+  /*- checks if word exists in array -*/
+  isInArray(array, word) {
+    return array.indexOf(word.toLowerCase()) > -1;
   }
 }

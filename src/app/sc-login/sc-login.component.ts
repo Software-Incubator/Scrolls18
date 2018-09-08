@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ScLoginComponent implements OnInit {
   model: any = {};
-  Loading: boolean = false;
+  Loading = false;
   data: any;
   responseError: any;
   constructor(private server: ServerService, private auth: AuthService, private router: Router) {

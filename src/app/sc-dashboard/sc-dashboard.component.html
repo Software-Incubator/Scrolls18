@@ -1,5 +1,4 @@
 <app-sc-navbar></app-sc-navbar>
-
 <div *ngIf="Loading" class="overlay">
   <img src="../../assets/images/loader.svg" class="loader image-responsive" alt="Loader">
 </div>
@@ -65,13 +64,13 @@
                       <div *ngFor="let child of form.controls.members.controls; let i=index">
                         <div  *ngIf = "track === (i+1)" class="form-group" formGroupName="{{i}}">
                           {{i+1}}
-                           <div class="md-form mb-1">
-                              <lable>Name</lable>
-                              <input formControlName="name" class="form-control" type="text" [ngClass]="{ 'is-invalid': (s.name.touched) && s.name.invalid }">
-                              <div *ngIf="(s.name.touched) && s.name.invalid" class="invalid-feedback">
-                                <div *ngIf="s.name.errors">Name is invalid</div>
-                              </div>
+                          <div class="md-form mb-1">
+                            <lable>Name</lable>
+                            <input formControlName="name" class="form-control" type="text" [ngClass]="{ 'is-invalid': (s.name.touched) && s.name.invalid }">
+                            <div *ngIf="(s.name.touched) && s.name.invalid" class="invalid-feedback">
+                              <div *ngIf="s.name.errors">Name is invalid</div>
                             </div>
+                          </div>
                           <div class="md-form mb-1">
                             <lable>Email</lable>
                             <input formControlName="email" class="form-control" type="text" [ngClass]="{ 'is-invalid': (s.email.touched) && s.email.invalid }">
@@ -79,86 +78,97 @@
                               <div *ngIf="s.email.errors">Email is invalid</div>
                             </div>
                           </div>
-                           <div class="md-form mb-1">
-                              <label>Course</label>
-                              <select class="custom-select" formControlName="course" [ngClass]="{ 'is-invalid': (s.course.touched) && s.course.errors }">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                              </select>
-                              <div *ngIf="(s.course.touched) && s.course.invalid " class="invalid-feedback">
-                                <div *ngIf="s.course.errors">Course is invalid</div>
-                              </div>
+                          <div class="md-form mb-1">
+                            <label>Course</label>
+                            <select class="custom-select" formControlName="course" [ngClass]="{ 'is-invalid': (s.course.touched) && s.course.errors }">
+                              <option selected>Open this select menu</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                            </select>
+                            <div *ngIf="(s.course.touched) && s.course.invalid " class="invalid-feedback">
+                              <div *ngIf="s.course.errors">Course is invalid</div>
                             </div>
-
-                            <div class="md-form mb-1">
-                                <label>Year</label>
-                                <select class="custom-select" formControlName="year" [ngClass]="{ 'is-invalid': (s.year.touched) && s.year.errors }">
-                                  <option selected>Open this select menu</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
-                                </select>
-                                <div *ngIf="(s.year.touched) && s.year.invalid " class="invalid-feedback">
-                                  <div *ngIf="s.year.errors">Year is invalid</div>
-                                </div>
-                              </div>
-
-                            <div class="md-form mb-1">
-                                <label>College</label>
-                                <select class="custom-select" formControlName="college" [ngClass]="{ 'is-invalid': (s.college.touched) && s.college.errors }">
-                                  <option selected>Open this select menu</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
-                                </select>
-                                <div *ngIf="(s.college.touched) && s.college.invalid " class="invalid-feedback">
-                                  <div *ngIf="s.college.errors">College is invalid</div>
-                                </div>
-                              </div>
+                          </div>
 
                           <div class="md-form mb-1">
-                              <lable>Student Number</lable>
-                              <input formControlName="studentNumber" class="form-control" type="text" [ngClass]="{ 'is-invalid': (s.studentNumber.touched) && s.studentNumber.invalid }">
-                              <div *ngIf="(s.studentNumber.touched) && s.studentNumber.invalid" class="invalid-feedback">
-                                <div *ngIf="s.studentNumber.errors">Student Number is invalid</div>
-                              </div>
+                            <label>Year</label>
+                            <select class="custom-select" formControlName="year" [ngClass]="{ 'is-invalid': (s.year.touched) && s.year.errors }">
+                              <option selected>Open this select menu</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                            </select>
+                            <div *ngIf="(s.year.touched) && s.year.invalid " class="invalid-feedback">
+                              <div *ngIf="s.year.errors">Year is invalid</div>
                             </div>
-                            <div class="md-form mb-1">
-                                <lable>Mobile Number</lable>
-                                <input formControlName="mobno" class="form-control" type="text" [ngClass]="{ 'is-invalid': (s.mobno.touched) && s.mobno.invalid }">
-                                <div *ngIf="(s.mobno.touched) && s.mobno.invalid" class="invalid-feedback">
-                                  <div *ngIf="s.mobno.errors">Mobile Number is invalid</div>
-                                </div>
-                              </div>
-                              <div class="md-form my-3">
-                                  <label>Needs Accomodation ?</label>
-                                  <div class="row">
-                                    <label class="custom-control custom-radio">
-                                      <input type="radio" value="1" name="accomodation" formControlName="accomodation">
-                                      Yes
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                      <input type="radio" value="0" name="accomodation" formControlName="accomodation">
-                                      No
-                                    </label>
-                                  </div>
-                                  <div *ngIf="(s.accomodation.touched) && s.accomodation.invalid " class="invalid-feedback">
-                                    <div *ngIf="s.accomodation.errors">No. of Members is invalid</div>
-                                  </div>
-                                </div>
+                          </div>
+
+                          <div class="md-form mb-1">
+                            <label>College</label>
+                            <select class="custom-select" formControlName="college" [ngClass]="{ 'is-invalid': (s.college.touched) && s.college.errors }">
+                              <option selected>Open this select menu</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                            </select>
+                            <div *ngIf="(s.college.touched) && s.college.invalid " class="invalid-feedback">
+                              <div *ngIf="s.college.errors">College is invalid</div>
+                            </div>
+                          </div>
+
+                          <div class="md-form mb-1">
+                            <lable>Student Number</lable>
+                            <input formControlName="studentNumber" class="form-control" type="text" [ngClass]="{ 'is-invalid': (s.studentNumber.touched) && s.studentNumber.invalid }">
+                            <div *ngIf="(s.studentNumber.touched) && s.studentNumber.invalid" class="invalid-feedback">
+                              <div *ngIf="s.studentNumber.errors">Student Number is invalid</div>
+                            </div>
+                          </div>
+                          <div class="md-form mb-1">
+                            <lable>Mobile Number</lable>
+                            <input formControlName="mobno" class="form-control" type="text" [ngClass]="{ 'is-invalid': (s.mobno.touched) && s.mobno.invalid }">
+                            <div *ngIf="(s.mobno.touched) && s.mobno.invalid" class="invalid-feedback">
+                              <div *ngIf="s.mobno.errors">Mobile Number is invalid</div>
+                            </div>
+                          </div>
+                          <div class="md-form my-3">
+                            <label>Needs Accomodation ?</label>
+                            <div class="row">
+                              <label class="custom-control custom-radio">
+                                <input type="radio" value="1" name="accomodation" formControlName="accomodation">
+                                Yes
+                              </label>
+                              <label class="custom-control custom-radio">
+                                <input type="radio" value="0" name="accomodation" formControlName="accomodation">
+                                No
+                              </label>
+                            </div>
+                            <div *ngIf="(s.accomodation.touched) && s.accomodation.invalid " class="invalid-feedback">
+                              <div *ngIf="s.accomodation.errors">No. of Members is invalid</div>
+                            </div>
+                          </div>
                         </div>
                       </div>
-
                     </div>
-
-                    <pre>{{form.value | json }}</pre>
                     <div class="form-group">
                       <button [disabled]="!checkPre()" (click)="previous()" class="btn btn-primary">Previous</button>
                       <button [disabled]="!checkNext()" (click)="next()" class="btn btn-primary">Next</button>
                       <button [disabled]="checkFormValid()" class="btn btn-primary">Register</button>
                     </div>
+                  </form>
+                  <form (ngSubmit)="onSent(fileForm)" #fileForm="ngForm">
+                      <div class="form-group">
+                        <label for="exampleFormControlFile1"><h3>Upload your File</h3></label>
+                        <input type="file" (change)="fileEvent($event)" id="filedata" name="filedata" required class="form-control-file"  ngModel>
+                      </div>
+                      <p class="warning">{{fileExtensionMessage}}</p>
+                      <div *ngIf="fileselected">
+                      <select class="custom-select" name="inputGroupSelect" [(ngModel)]="name">
+                          <option *ngFor="let list of dropdown;" [value]="list">{{list}}</option>
+                        </select>
+                        </div>
+                        <br />
+                      <input type="submit" [disabled]='fileExtensionError' class="btn btn-primary" value="SEND">
                   </form>
                 </div>
               </div>
