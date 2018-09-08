@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ServerService } from '../services/server.service';
 
 @Component({
   selector: 'app-sc-navbar',
@@ -10,7 +11,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ScNavbarComponent implements OnInit {
   loginStatus: boolean;
   homeStatus: boolean;
-  constructor(private auth: AuthService, private router: Router, private activatedRoute: ActivatedRoute) {
+  phaseName: any;
+  constructor(private auth: AuthService, private router: Router, private activatedRoute: ActivatedRoute, private server: ServerService) {
    }
 
   ngOnInit() {
@@ -22,6 +24,12 @@ export class ScNavbarComponent implements OnInit {
     } else {
       this.homeStatus = true;
     }
+    this.server.getPhase()
+    .subscribe(
+      res => {
+        this.phaseName = res;
+      }
+    );
   }
   logout() {
     this.auth.clearToken();

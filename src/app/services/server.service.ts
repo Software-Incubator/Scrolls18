@@ -36,4 +36,7 @@ export class ServerService {
      });
      return this.http.post(`${this.URL}/api/upload`, file, {headers: headers});
    }
+   getPhase() {
+     return this.http.get(`${this.URL}/api/getPhase`);
+   }
 }

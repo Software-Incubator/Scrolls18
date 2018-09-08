@@ -564,7 +564,7 @@ var ConfirmEqualValidatorDirective = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-sc-navbar></app-sc-navbar>\r\n\r\n<div *ngIf=\"Loading\" class=\"overlay\">\r\n  <img src=\"../../assets/images/loader.svg\" class=\"loader image-responsive\" alt=\"Loader\">\r\n</div>\r\n<h1 class=\"dash_heading mt-1\">WELCOME TO DASHBOARD</h1>\r\n<div class=\"container-fluid\">\r\n  <div class=\"row\">\r\n    <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n      <div class=\"text-center my-auto\">\r\n        <h1 class=\"just_few_heading\">Just few more details</h1>\r\n      </div>\r\n    </div>\r\n    <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n      <div class=\"modal-dialog\" role=\"document\">\r\n        <div class=\"modal-content\">\r\n          <div class=\"modal-body\">\r\n            <div class=\"container-fluid\">\r\n              <div class=\"row\">\r\n                <div class=\"col-sm-12 col-md-12 col-lg-12\">\r\n                  <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\r\n                    <div *ngIf=\"track === 0\">\r\n                      <div class=\"md-form mb-1\">\r\n                        <label>Domain</label>\r\n                        <select class=\"custom-select\" formControlName=\"domain\" [ngClass]=\"{ 'is-invalid': (submitted || f.domain.touched) && f.domain.errors }\">\r\n                          <option selected>Open this select menu</option>\r\n                          <option value=\"1\">One</option>\r\n                          <option value=\"2\">Two</option>\r\n                          <option value=\"3\">Three</option>\r\n                        </select>\r\n                        <div *ngIf=\"(submitted || f.domain.touched) && f.domain.invalid \" class=\"invalid-feedback\">\r\n                          <div *ngIf=\"f.domain.errors.required\">Domain is invalid</div>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"md-form mb-1\">\r\n                        <label>Topic</label>\r\n                        <select class=\"custom-select\" formControlName=\"topic\" [ngClass]=\"{ 'is-invalid': (submitted || f.topic.touched) && f.topic.errors }\">\r\n                          <option selected>Open this select menu</option>\r\n                          <option value=\"1\">One</option>\r\n                          <option value=\"2\">Two</option>\r\n                          <option value=\"3\">Three</option>\r\n                        </select>\r\n                        <div *ngIf=\"(submitted || f.topic.touched) && f.topic.invalid \" class=\"invalid-feedback\">\r\n                          <div *ngIf=\"f.topic.errors.required\">Topic is invalid</div>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"md-form my-3\">\r\n                        <label>Number Of Team Members</label>\r\n                        <div class=\"row\">\r\n                          <label class=\"custom-control custom-radio\">\r\n                            <input type=\"radio\" value=\"2\" name=\"numberOfMembers\" formControlName=\"numberOfMembers\" (click)=\"getNumberOfMem(2)\">\r\n                            2\r\n                          </label>\r\n                          <label class=\"custom-control custom-radio\">\r\n                            <input type=\"radio\" value=\"3\" name=\"numberOfMembers\" formControlName=\"numberOfMembers\" (click)=\"getNumberOfMem(3)\">\r\n                            3\r\n                          </label>\r\n                        </div>\r\n                        <div *ngIf=\"(submitted || f.numberOfMembers.touched) && f.numberOfMembers.invalid \" class=\"invalid-feedback\">\r\n                          <div *ngIf=\"f.numberOfMembers.errors.required\">No. of Members is invalid</div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                    <div formArrayName=\"members\">\r\n                      <div *ngFor=\"let child of form.controls.members.controls; let i=index\">\r\n                        <div  *ngIf = \"track === (i+1)\" class=\"form-group\" formGroupName=\"{{i}}\">\r\n                          {{i+1}}\r\n                           <div class=\"md-form mb-1\">\r\n                              <lable>Name</lable>\r\n                              <input formControlName=\"name\" class=\"form-control\" type=\"text\" [ngClass]=\"{ 'is-invalid': (s.name.touched) && s.name.invalid }\">\r\n                              <div *ngIf=\"(s.name.touched) && s.name.invalid\" class=\"invalid-feedback\">\r\n                                <div *ngIf=\"s.name.errors\">Name is invalid</div>\r\n                              </div>\r\n                            </div>\r\n                          <div class=\"md-form mb-1\">\r\n                            <lable>Email</lable>\r\n                            <input formControlName=\"email\" class=\"form-control\" type=\"text\" [ngClass]=\"{ 'is-invalid': (s.email.touched) && s.email.invalid }\">\r\n                            <div *ngIf=\"(s.email.touched) && s.email.invalid\" class=\"invalid-feedback\">\r\n                              <div *ngIf=\"s.email.errors\">Email is invalid</div>\r\n                            </div>\r\n                          </div>\r\n                           <div class=\"md-form mb-1\">\r\n                              <label>Course</label>\r\n                              <select class=\"custom-select\" formControlName=\"course\" [ngClass]=\"{ 'is-invalid': (s.course.touched) && s.course.errors }\">\r\n                                <option selected>Open this select menu</option>\r\n                                <option value=\"1\">One</option>\r\n                                <option value=\"2\">Two</option>\r\n                                <option value=\"3\">Three</option>\r\n                              </select>\r\n                              <div *ngIf=\"(s.course.touched) && s.course.invalid \" class=\"invalid-feedback\">\r\n                                <div *ngIf=\"s.course.errors\">Course is invalid</div>\r\n                              </div>\r\n                            </div>\r\n\r\n                            <div class=\"md-form mb-1\">\r\n                                <label>Year</label>\r\n                                <select class=\"custom-select\" formControlName=\"year\" [ngClass]=\"{ 'is-invalid': (s.year.touched) && s.year.errors }\">\r\n                                  <option selected>Open this select menu</option>\r\n                                  <option value=\"1\">One</option>\r\n                                  <option value=\"2\">Two</option>\r\n                                  <option value=\"3\">Three</option>\r\n                                </select>\r\n                                <div *ngIf=\"(s.year.touched) && s.year.invalid \" class=\"invalid-feedback\">\r\n                                  <div *ngIf=\"s.year.errors\">Year is invalid</div>\r\n                                </div>\r\n                              </div>\r\n\r\n                            <div class=\"md-form mb-1\">\r\n                                <label>College</label>\r\n                                <select class=\"custom-select\" formControlName=\"college\" [ngClass]=\"{ 'is-invalid': (s.college.touched) && s.college.errors }\">\r\n                                  <option selected>Open this select menu</option>\r\n                                  <option value=\"1\">One</option>\r\n                                  <option value=\"2\">Two</option>\r\n                                  <option value=\"3\">Three</option>\r\n                                </select>\r\n                                <div *ngIf=\"(s.college.touched) && s.college.invalid \" class=\"invalid-feedback\">\r\n                                  <div *ngIf=\"s.college.errors\">College is invalid</div>\r\n                                </div>\r\n                              </div>\r\n\r\n                          <div class=\"md-form mb-1\">\r\n                              <lable>Student Number</lable>\r\n                              <input formControlName=\"studentNumber\" class=\"form-control\" type=\"text\" [ngClass]=\"{ 'is-invalid': (s.studentNumber.touched) && s.studentNumber.invalid }\">\r\n                              <div *ngIf=\"(s.studentNumber.touched) && s.studentNumber.invalid\" class=\"invalid-feedback\">\r\n                                <div *ngIf=\"s.studentNumber.errors\">Student Number is invalid</div>\r\n                              </div>\r\n                            </div>\r\n                            <div class=\"md-form mb-1\">\r\n                                <lable>Mobile Number</lable>\r\n                                <input formControlName=\"mobno\" class=\"form-control\" type=\"text\" [ngClass]=\"{ 'is-invalid': (s.mobno.touched) && s.mobno.invalid }\">\r\n                                <div *ngIf=\"(s.mobno.touched) && s.mobno.invalid\" class=\"invalid-feedback\">\r\n                                  <div *ngIf=\"s.mobno.errors\">Mobile Number is invalid</div>\r\n                                </div>\r\n                              </div>\r\n                              <div class=\"md-form my-3\">\r\n                                  <label>Needs Accomodation ?</label>\r\n                                  <div class=\"row\">\r\n                                    <label class=\"custom-control custom-radio\">\r\n                                      <input type=\"radio\" value=\"1\" name=\"accomodation\" formControlName=\"accomodation\">\r\n                                      Yes\r\n                                    </label>\r\n                                    <label class=\"custom-control custom-radio\">\r\n                                      <input type=\"radio\" value=\"0\" name=\"accomodation\" formControlName=\"accomodation\">\r\n                                      No\r\n                                    </label>\r\n                                  </div>\r\n                                  <div *ngIf=\"(s.accomodation.touched) && s.accomodation.invalid \" class=\"invalid-feedback\">\r\n                                    <div *ngIf=\"s.accomodation.errors\">No. of Members is invalid</div>\r\n                                  </div>\r\n                                </div>\r\n                        </div>\r\n                      </div>\r\n\r\n                    </div>\r\n\r\n                    <pre>{{form.value | json }}</pre>\r\n                    <div class=\"form-group\">\r\n                      <button [disabled]=\"!checkPre()\" (click)=\"previous()\" class=\"btn btn-primary\">Previous</button>\r\n                      <button [disabled]=\"!checkNext()\" (click)=\"next()\" class=\"btn btn-primary\">Next</button>\r\n                      <button [disabled]=\"checkFormValid()\" class=\"btn btn-primary\">Register</button>\r\n                    </div>\r\n                  </form>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<app-sc-navbar></app-sc-navbar>\r\n<div *ngIf=\"Loading\" class=\"overlay\">\r\n  <img src=\"../../assets/images/loader.svg\" class=\"loader image-responsive\" alt=\"Loader\">\r\n</div>\r\n<h1 class=\"dash_heading mt-1\">WELCOME TO DASHBOARD</h1>\r\n<div class=\"container-fluid\">\r\n  <div class=\"row\">\r\n    <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n      <div class=\"text-center my-auto\">\r\n        <h1 class=\"just_few_heading\">Just few more details</h1>\r\n      </div>\r\n    </div>\r\n    <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n      <div class=\"modal-dialog\" role=\"document\">\r\n        <div class=\"modal-content\">\r\n          <div class=\"modal-body\">\r\n            <div class=\"container-fluid\">\r\n              <div class=\"row\">\r\n                <div class=\"col-sm-12 col-md-12 col-lg-12\">\r\n                  <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\r\n                    <div *ngIf=\"track === 0\">\r\n                      <div class=\"md-form mb-1\">\r\n                        <label>Domain</label>\r\n                        <select class=\"custom-select\" formControlName=\"domain\" [ngClass]=\"{ 'is-invalid': (submitted || f.domain.touched) && f.domain.errors }\">\r\n                          <option selected>Open this select menu</option>\r\n                          <option value=\"1\">One</option>\r\n                          <option value=\"2\">Two</option>\r\n                          <option value=\"3\">Three</option>\r\n                        </select>\r\n                        <div *ngIf=\"(submitted || f.domain.touched) && f.domain.invalid \" class=\"invalid-feedback\">\r\n                          <div *ngIf=\"f.domain.errors.required\">Domain is invalid</div>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"md-form mb-1\">\r\n                        <label>Topic</label>\r\n                        <select class=\"custom-select\" formControlName=\"topic\" [ngClass]=\"{ 'is-invalid': (submitted || f.topic.touched) && f.topic.errors }\">\r\n                          <option selected>Open this select menu</option>\r\n                          <option value=\"1\">One</option>\r\n                          <option value=\"2\">Two</option>\r\n                          <option value=\"3\">Three</option>\r\n                        </select>\r\n                        <div *ngIf=\"(submitted || f.topic.touched) && f.topic.invalid \" class=\"invalid-feedback\">\r\n                          <div *ngIf=\"f.topic.errors.required\">Topic is invalid</div>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"md-form my-3\">\r\n                        <label>Number Of Team Members</label>\r\n                        <div class=\"row\">\r\n                          <label class=\"custom-control custom-radio\">\r\n                            <input type=\"radio\" value=\"2\" name=\"numberOfMembers\" formControlName=\"numberOfMembers\" (click)=\"getNumberOfMem(2)\">\r\n                            2\r\n                          </label>\r\n                          <label class=\"custom-control custom-radio\">\r\n                            <input type=\"radio\" value=\"3\" name=\"numberOfMembers\" formControlName=\"numberOfMembers\" (click)=\"getNumberOfMem(3)\">\r\n                            3\r\n                          </label>\r\n                        </div>\r\n                        <div *ngIf=\"(submitted || f.numberOfMembers.touched) && f.numberOfMembers.invalid \" class=\"invalid-feedback\">\r\n                          <div *ngIf=\"f.numberOfMembers.errors.required\">No. of Members is invalid</div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                    <div formArrayName=\"members\">\r\n                      <div *ngFor=\"let child of form.controls.members.controls; let i=index\">\r\n                        <div  *ngIf = \"track === (i+1)\" class=\"form-group\" formGroupName=\"{{i}}\">\r\n                          {{i+1}}\r\n                          <div class=\"md-form mb-1\">\r\n                            <lable>Name</lable>\r\n                            <input formControlName=\"name\" class=\"form-control\" type=\"text\" [ngClass]=\"{ 'is-invalid': (s.name.touched) && s.name.invalid }\">\r\n                            <div *ngIf=\"(s.name.touched) && s.name.invalid\" class=\"invalid-feedback\">\r\n                              <div *ngIf=\"s.name.errors\">Name is invalid</div>\r\n                            </div>\r\n                          </div>\r\n                          <div class=\"md-form mb-1\">\r\n                            <lable>Email</lable>\r\n                            <input formControlName=\"email\" class=\"form-control\" type=\"text\" [ngClass]=\"{ 'is-invalid': (s.email.touched) && s.email.invalid }\">\r\n                            <div *ngIf=\"(s.email.touched) && s.email.invalid\" class=\"invalid-feedback\">\r\n                              <div *ngIf=\"s.email.errors\">Email is invalid</div>\r\n                            </div>\r\n                          </div>\r\n                          <div class=\"md-form mb-1\">\r\n                            <label>Course</label>\r\n                            <select class=\"custom-select\" formControlName=\"course\" [ngClass]=\"{ 'is-invalid': (s.course.touched) && s.course.errors }\">\r\n                              <option selected>Open this select menu</option>\r\n                              <option value=\"1\">One</option>\r\n                              <option value=\"2\">Two</option>\r\n                              <option value=\"3\">Three</option>\r\n                            </select>\r\n                            <div *ngIf=\"(s.course.touched) && s.course.invalid \" class=\"invalid-feedback\">\r\n                              <div *ngIf=\"s.course.errors\">Course is invalid</div>\r\n                            </div>\r\n                          </div>\r\n\r\n                          <div class=\"md-form mb-1\">\r\n                            <label>Year</label>\r\n                            <select class=\"custom-select\" formControlName=\"year\" [ngClass]=\"{ 'is-invalid': (s.year.touched) && s.year.errors }\">\r\n                              <option selected>Open this select menu</option>\r\n                              <option value=\"1\">One</option>\r\n                              <option value=\"2\">Two</option>\r\n                              <option value=\"3\">Three</option>\r\n                            </select>\r\n                            <div *ngIf=\"(s.year.touched) && s.year.invalid \" class=\"invalid-feedback\">\r\n                              <div *ngIf=\"s.year.errors\">Year is invalid</div>\r\n                            </div>\r\n                          </div>\r\n\r\n                          <div class=\"md-form mb-1\">\r\n                            <label>College</label>\r\n                            <select class=\"custom-select\" formControlName=\"college\" [ngClass]=\"{ 'is-invalid': (s.college.touched) && s.college.errors }\">\r\n                              <option selected>Open this select menu</option>\r\n                              <option value=\"1\">One</option>\r\n                              <option value=\"2\">Two</option>\r\n                              <option value=\"3\">Three</option>\r\n                            </select>\r\n                            <div *ngIf=\"(s.college.touched) && s.college.invalid \" class=\"invalid-feedback\">\r\n                              <div *ngIf=\"s.college.errors\">College is invalid</div>\r\n                            </div>\r\n                          </div>\r\n\r\n                          <div class=\"md-form mb-1\">\r\n                            <lable>Student Number</lable>\r\n                            <input formControlName=\"studentNumber\" class=\"form-control\" type=\"text\" [ngClass]=\"{ 'is-invalid': (s.studentNumber.touched) && s.studentNumber.invalid }\">\r\n                            <div *ngIf=\"(s.studentNumber.touched) && s.studentNumber.invalid\" class=\"invalid-feedback\">\r\n                              <div *ngIf=\"s.studentNumber.errors\">Student Number is invalid</div>\r\n                            </div>\r\n                          </div>\r\n                          <div class=\"md-form mb-1\">\r\n                            <lable>Mobile Number</lable>\r\n                            <input formControlName=\"mobno\" class=\"form-control\" type=\"text\" [ngClass]=\"{ 'is-invalid': (s.mobno.touched) && s.mobno.invalid }\">\r\n                            <div *ngIf=\"(s.mobno.touched) && s.mobno.invalid\" class=\"invalid-feedback\">\r\n                              <div *ngIf=\"s.mobno.errors\">Mobile Number is invalid</div>\r\n                            </div>\r\n                          </div>\r\n                          <div class=\"md-form my-3\">\r\n                            <label>Needs Accomodation ?</label>\r\n                            <div class=\"row\">\r\n                              <label class=\"custom-control custom-radio\">\r\n                                <input type=\"radio\" value=\"1\" name=\"accomodation\" formControlName=\"accomodation\">\r\n                                Yes\r\n                              </label>\r\n                              <label class=\"custom-control custom-radio\">\r\n                                <input type=\"radio\" value=\"0\" name=\"accomodation\" formControlName=\"accomodation\">\r\n                                No\r\n                              </label>\r\n                            </div>\r\n                            <div *ngIf=\"(s.accomodation.touched) && s.accomodation.invalid \" class=\"invalid-feedback\">\r\n                              <div *ngIf=\"s.accomodation.errors\">No. of Members is invalid</div>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                      <button [disabled]=\"!checkPre()\" (click)=\"previous()\" class=\"btn btn-primary\">Previous</button>\r\n                      <button [disabled]=\"!checkNext()\" (click)=\"next()\" class=\"btn btn-primary\">Next</button>\r\n                      <button [disabled]=\"checkFormValid()\" class=\"btn btn-primary\">Register</button>\r\n                    </div>\r\n                  </form>\r\n                  <form (ngSubmit)=\"onSent(fileForm)\" #fileForm=\"ngForm\">\r\n                      <div class=\"form-group\">\r\n                        <label for=\"exampleFormControlFile1\"><h3>Upload your File</h3></label>\r\n                        <input type=\"file\" (change)=\"fileEvent($event)\" id=\"filedata\" name=\"filedata\" required class=\"form-control-file\"  ngModel>\r\n                      </div>\r\n                      <p class=\"warning\">{{fileExtensionMessage}}</p>\r\n                      <div *ngIf=\"fileselected\">\r\n                      <select class=\"custom-select\" name=\"inputGroupSelect\" [(ngModel)]=\"name\">\r\n                          <option *ngFor=\"let list of dropdown;\" [value]=\"list\">{{list}}</option>\r\n                        </select>\r\n                        </div>\r\n                        <br />\r\n                      <input type=\"submit\" [disabled]='fileExtensionError' class=\"btn btn-primary\" value=\"SEND\">\r\n                  </form>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -590,7 +590,9 @@ module.exports = ".loader {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScDashboardComponent", function() { return ScDashboardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _services_server_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/server.service */ "./src/app/services/server.service.ts");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -602,18 +604,24 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 var ScDashboardComponent = /** @class */ (function () {
-    function ScDashboardComponent(fb) {
+    function ScDashboardComponent(fb, server, auth) {
         this.fb = fb;
+        this.server = server;
+        this.auth = auth;
+        this.Loading = false;
         this.submitted = false;
         this.track = 0;
     }
     ScDashboardComponent.prototype.ngOnInit = function () {
-        this.fb = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"];
+        this.fileselected = false;
+        this.fb = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"];
         this.form = this.fb.group({
-            domain: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
-            topic: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
-            numberOfMembers: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            domain: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            topic: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            numberOfMembers: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
             members: this.fb.array([])
         });
         this.control = this.form.controls['members'];
@@ -634,12 +642,21 @@ var ScDashboardComponent = /** @class */ (function () {
         configurable: true
     });
     ScDashboardComponent.prototype.onSubmit = function () {
-        console.log(this.form['controls'].members['controls']['0']['controls'].memberType.value = "a");
+        var _this = this;
+        this.Loading = true;
         this.submitted = true;
         // stop here if form is invalid
         if (this.form.invalid) {
             return;
         }
+        this.server.postregisterDetails(this.auth.getToken(), this.form.value)
+            .subscribe(function (res) {
+            _this.Loading = false;
+            console.log(res);
+        }, function (err) {
+            _this.Loading = false;
+            console.log(err);
+        });
         console.log(this.form.value, this.form);
     };
     ScDashboardComponent.prototype.checkFormValid = function () {
@@ -704,16 +721,65 @@ var ScDashboardComponent = /** @class */ (function () {
     };
     ScDashboardComponent.prototype.getmembersFormArr = function (mem) {
         return this.fb.group({
-            name: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
-            course: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
-            year: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
-            college: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
-            studentNumber: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required,]],
-            email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]],
-            mobno: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
-            accomodation: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
-            memberType: [mem, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]
+            name: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            course: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            year: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            college: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            studentNumber: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required,]],
+            email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].email]],
+            mobno: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
+            accomodation: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            memberType: [mem, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            id: ['']
         });
+    };
+    ScDashboardComponent.prototype.onSent = function (form) {
+        var _this = this;
+        this.Loading = true;
+        this.frmData = new FormData();
+        this.frmData.append('foo', this.file, this.file.name);
+        this.frmData.append('foo', this.name);
+        console.log(this.frmData);
+        this.server.sendFile(this.auth.getToken(), this.frmData)
+            .subscribe(function (data) {
+            console.log(data);
+            _this.Loading = false;
+            _this.resData = data;
+            _this.array = Object.keys(_this.resData.anomalies_dict);
+            _this.array2 = Object.values(_this.resData.anomalies_dict);
+        });
+    };
+    ScDashboardComponent.prototype.fileEvent = function (event) {
+        var _this = this;
+        this.file = event.target.files[0];
+        console.log(this.file);
+        this.fileName = this.file.name;
+        this.allowedExtensions =
+            ['pdf', 'jpg'];
+        this.fileExtension = this.fileName.split('.').pop();
+        if (this.isInArray(this.allowedExtensions, this.fileExtension)) {
+            this.fileExtensionError = false;
+            this.fileExtensionMessage = '';
+        }
+        else {
+            this.fileExtensionMessage = 'Only pdf files allowed!!';
+            this.fileExtensionError = true;
+        }
+        if (this.file) {
+            this.reader = new FileReader();
+            this.reader.onloadend = function (e) {
+                _this.contents = e.target.result;
+                _this.fileContent = _this.contents;
+            };
+            this.reader.readAsDataURL(this.file);
+        }
+        else {
+            alert('Failed to load file');
+        }
+    };
+    /*- checks if word exists in array -*/
+    ScDashboardComponent.prototype.isInArray = function (array, word) {
+        return array.indexOf(word.toLowerCase()) > -1;
     };
     ScDashboardComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -721,7 +787,7 @@ var ScDashboardComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./sc-dashboard.component.html */ "./src/app/sc-dashboard/sc-dashboard.component.html"),
             styles: [__webpack_require__(/*! ./sc-dashboard.component.scss */ "./src/app/sc-dashboard/sc-dashboard.component.scss")]
         }),
-        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]])
+        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"], _services_server_service__WEBPACK_IMPORTED_MODULE_1__["ServerService"], _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]])
     ], ScDashboardComponent);
     return ScDashboardComponent;
 }());
@@ -899,7 +965,7 @@ var ScLoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--Navbar-->\r\n<mdb-navbar SideClass=\"navbar navbar-expand-lg navbar-dark indigo\">\r\n\r\n    <!-- Navbar brand -->\r\n    <mdb-navbar-brand>\r\n        <a class=\"navbar-brand\" href=\"#\">\r\n            <img src=\"../../assets/images/akgec.png\" height=\"30\" alt=\"\">\r\n        </a>\r\n    </mdb-navbar-brand>\r\n\r\n    <!-- Collapsible content -->\r\n    <links>\r\n\r\n        <!-- Links -->\r\n        <ul class=\"navbar-nav mr-auto\">\r\n            <li *ngIf = \"homeStatus\" class=\"nav-item active\">\r\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Home<span class=\"sr-only\">(current)</span></a>\r\n            </li>\r\n            <li *ngIf = \"homeStatus\" class=\"nav-item\">\r\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Features</a>\r\n            </li>\r\n            <li *ngIf = \"homeStatus\" class=\"nav-item\">\r\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Pricing</a>\r\n            </li>\r\n        </ul>\r\n        <app-sc-login *ngIf=\"!loginStatus\"></app-sc-login>\r\n        <app-sc-register *ngIf=\"!loginStatus\"></app-sc-register>\r\n        <a *ngIf=\"loginStatus && homeStatus\" routerLink=\"dashboard\"  class=\"btn btn-info btn-sm waves-effect waves-light\" mdbWavesEffect>Dashboard\r\n            <i class=\"fa fa-sign-in ml-2\"></i>\r\n          </a>\r\n        <a *ngIf=\"loginStatus\" (click)=\"logout()\" class=\"btn btn-info btn-sm waves-effect waves-light\" mdbWavesEffect>Logout\r\n            <i class=\"fa fa-sign-in ml-2\"></i>\r\n        </a>\r\n    </links>\r\n</mdb-navbar>\r\n<!--/.Navbar-->\r\n"
+module.exports = "<!--Navbar-->\r\n<mdb-navbar SideClass=\"navbar navbar-expand-lg navbar-dark indigo\">\r\n\r\n    <!-- Navbar brand -->\r\n    <mdb-navbar-brand>\r\n        <a class=\"navbar-brand\" href=\"#\">\r\n            <img src=\"../../assets/images/akgec.png\" height=\"30\" alt=\"\">\r\n        </a>\r\n    </mdb-navbar-brand>\r\n\r\n    <!-- Collapsible content -->\r\n    <links>\r\n\r\n        <!-- Links -->\r\n        <ul class=\"navbar-nav mr-auto\">\r\n            <li *ngIf = \"homeStatus\" class=\"nav-item active\">\r\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Home<span class=\"sr-only\">(current)</span></a>\r\n            </li>\r\n            <li *ngIf = \"homeStatus\" class=\"nav-item\">\r\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Features</a>\r\n            </li>\r\n            <li *ngIf = \"homeStatus\" class=\"nav-item\">\r\n                <a class=\"nav-link waves-light\" mdbWavesEffect>Pricing</a>\r\n            </li>\r\n        </ul>\r\n        <a href=\"\" target=\"_blank\" class=\"btn btn-info btn-sm waves-effect waves-light\" mdbWavesEffect>Download</a>\r\n        <app-sc-login *ngIf=\"!loginStatus && (phaseName?.currentPhase[0].phaseName === 'login-phase')\"></app-sc-login>\r\n        <app-sc-register *ngIf=\"!loginStatus && (phaseName?.currentPhase[0].phaseName === 'register-phase')\"></app-sc-register>\r\n        <a *ngIf=\"loginStatus && homeStatus\" routerLink=\"dashboard\"  class=\"btn btn-info btn-sm waves-effect waves-light\" mdbWavesEffect>Dashboard\r\n            <i class=\"fa fa-sign-in ml-2\"></i>\r\n          </a>\r\n        <a *ngIf=\"loginStatus\" (click)=\"logout()\" class=\"btn btn-info btn-sm waves-effect waves-light\" mdbWavesEffect>Logout\r\n            <i class=\"fa fa-sign-in ml-2\"></i>\r\n        </a>\r\n    </links>\r\n</mdb-navbar>\r\n<!--/.Navbar-->\r\n"
 
 /***/ }),
 
@@ -927,6 +993,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/auth.service */ "./src/app/services/auth.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_server_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/server.service */ "./src/app/services/server.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -939,13 +1006,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ScNavbarComponent = /** @class */ (function () {
-    function ScNavbarComponent(auth, router, activatedRoute) {
+    function ScNavbarComponent(auth, router, activatedRoute, server) {
         this.auth = auth;
         this.router = router;
         this.activatedRoute = activatedRoute;
+        this.server = server;
     }
     ScNavbarComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.loginStatus = this.auth.isLoggedIn();
         if (this.activatedRoute.snapshot.url.length !== 0) {
             if (this.activatedRoute.snapshot.url[0].path === 'dashboard') {
@@ -955,6 +1025,10 @@ var ScNavbarComponent = /** @class */ (function () {
         else {
             this.homeStatus = true;
         }
+        this.server.getPhase()
+            .subscribe(function (res) {
+            _this.phaseName = res;
+        });
     };
     ScNavbarComponent.prototype.logout = function () {
         this.auth.clearToken();
@@ -967,7 +1041,7 @@ var ScNavbarComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./sc-navbar.component.html */ "./src/app/sc-navbar/sc-navbar.component.html"),
             styles: [__webpack_require__(/*! ./sc-navbar.component.scss */ "./src/app/sc-navbar/sc-navbar.component.scss")]
         }),
-        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _services_server_service__WEBPACK_IMPORTED_MODULE_3__["ServerService"]])
     ], ScNavbarComponent);
     return ScNavbarComponent;
 }());
@@ -1199,12 +1273,29 @@ var ServerService = /** @class */ (function () {
     ServerService.prototype.login = function (login_details) {
         return this.http.post(this.URL + "/api/login", login_details);
     };
+    ServerService.prototype.postregisterDetails = function (token, register_details) {
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+            'Content-Type': 'application/json; charset=utf-8',
+            'Authorization': 'Bearer ' + token
+        });
+        return this.http.post(this.URL + "/api/dashboard", register_details, { headers: headers });
+    };
     ServerService.prototype.getDashboardDetails = function (token) {
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
             'Content-Type': 'application/json; charset=utf-8',
             'Authorization': 'Bearer ' + token
         });
         return this.http.get(this.URL + "/api/dashboard/getAllDetails", { headers: headers });
+    };
+    ServerService.prototype.sendFile = function (token, file) {
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+            'Content-Type': 'application/json; charset=utf-8',
+            'Authorization': 'Bearer ' + token
+        });
+        return this.http.post(this.URL + "/api/upload", file, { headers: headers });
+    };
+    ServerService.prototype.getPhase = function () {
+        return this.http.get(this.URL + "/api/getPhase");
     };
     ServerService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
