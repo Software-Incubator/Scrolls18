@@ -1,6 +1,7 @@
 const express = require('express');
 const authController = require('../controllers/auth');
 const dashboardController = require('../controllers/dashboard');
+const homeController = require('../controllers/home');
 let config = require('../config');
 const router = express.Router();
 const path = require('path');
@@ -38,4 +39,15 @@ router.post('/verifyToken', authController.verifyToken);
 //protected routes
 router.post('/dashboard', passport.authenticate('jwt', {session:false}), dashboardController.registerTeam);
 router.get('/dashboard/getAllDetails', passport.authenticate('jwt', {session: false}), dashboardController.getAllDetail);
+router.post('/upload', dashboardController.uploadFile);
+router.get('/upload', function(req, res) {
+    res.sendFile(path.join(__dirname, '/upload.html'));
+});
+
+//admin routes
+router.post('/admin/createPhase', homeController.createPhase);
+router.get('/admin/getCurrentPhase', homeController.getCurrentPhase);
+router.post('/admin/setThisAsCurrentPhase', homeController.setThisPhaseAsCurrent);
+router.post('/admin/createImportantDates', homeController.createImportantDates);
+router.get('/admin/getImportantdates', homeController.getImportantDates);
 module.exports = router;
