@@ -2,7 +2,35 @@
 <!-- fullpage -->
 <div id="fullpage">
     <!-- landing -->
+      <!-- desktop -->
     <div class="section" style="bottom:0;" [ngsReveal]="{ reset: true }">
+        <div class="container desktop">
+        <div class="row no-gutters">
+            <div class="col-md-6">
+                <img src="../../assets/images/scrolls_head_animated (5).svg" alt="Scrolls-2018" class="desktop_landing_img">
+                <!-- <button class="desktop_landing_button">Register</button> -->
+            </div>
+            <div class="col-md-5">
+                 <div class="desktop_landing_back">
+                    <div class="desktop_slide">
+                        <div class="desk_item-1">
+                            <img src="../../assets/images/slide1.svg" alt="">
+                        </div>
+                        <div class="desk_item-2">
+                            <img src="../../assets/images/slide2.svg" alt="">
+                        </div>
+                        <div class="desk_item-3">
+                            <img src="../../assets/images/slide3.svg" alt="">
+                        </div>
+                    </div>
+                 </div>
+                
+            </div>
+        </div>
+        </div>
+    <!-- phone -->
+    
+        <div class="fluid-container mobile">
         <div id="landing" class="landing" >
             <img src="../../assets/images/scrolls_head_animated (5).svg" alt="Scrolls-2018" class="landing_image">
         </div>
@@ -19,6 +47,7 @@
                 </div>
         
         </div>
+    </div>
     </div>
     <!-- about -->
     <div id="about" class="section" [ngsReveal]="{ reset: true }">
