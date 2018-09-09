@@ -1,319 +1,349 @@
 <app-sc-navbar></app-sc-navbar>
-<!-- landing -->
-<div id="landing" class="landing" >
-  <img src="../../assets/scrolls_head.svg" alt="Scrolls-2018" class="landing_image">
-</div>
-<div class="landing_bottom">
-   <img src="../../assets/Header_svg.svg" alt="Scrolss-2018" class="landing_bottom_image" > 
-</div>
-<!-- about -->
-<div id="about" class="section">
-    <div class="heading">
-        <h2 class="heading_text">ABOUT</h2>
-    </div>
-    <div class="row no-gutters">
-        <div class="col-md-6">
-          <img src="../../assets/about.svg" alt="Scrollss-2018" class="about_image">
+<!-- fullpage -->
+<div id="fullpage">
+    <!-- landing -->
+    <div class="section" style="bottom:0;" [ngsReveal]="{ reset: true }">
+        <div id="landing" class="landing" >
+            <img src="../../assets/images/scrolls_head_animated (5).svg" alt="Scrolls-2018" class="landing_image">
         </div>
-        <div class="col-md-6">
-           <div class="about_text">
-             A national level technical paper presentation contest that provides a pedestal to unleash the talent of budding technocrats,
-            SCROLLS-2017 deals with the most thriving and progressive fields of technology and management, bringing Computing, Information
-            Technology, Mechanical Engineering, Electrical Engineering, Electronics and Communication Technologies and Civil Engineering
-            along with major developmental leaps in management and leadership in its fold.The crystal clarity and insight of the unique
-            topics will not only transcend the contestant to glory but will also add to the technological advancement of the era. The
-            share you transcribe to evacuate the sub fuss of unawareness will be in your own hands. Melt the dusk and evolve into the
-            new dawn of prestige with utter confidence and perseverance.<br> We at AJAY KUMAR GARG ENGINEERING COLLEGE believe in the saying
-            “Every human has four endowments - self awareness, conscience, independent will and creative imagination. These give us the
-            ultimate human freedom.The power to choose, to respond, to change”. One has very rightly said that when the seeds of imagination
-            and innovation are nourished in proper soil with every proper care only then they germinate. If one has to strive for zenith
-            then one must be able to think beyond the conventions, lay firm foots ahead with dedication and will. Thus elevating the
-            zeal of creativity and innovation amongst students, we at AKGEC organize the National-level paper presentation event called
-            SCROLLS(Students creative and Oratory Learning Skills) which aims at flourishing the talent of students and giving them a
-            platform to showcase their multidimensional creativity. This event is not only for the engineering field but for Management
-            as well.
-           </div>
-        </div>
-    </div>
-
-</div>
-<!-- topic -->
- <div class="section">
-    <div class="heading">
-    <h2 class="heading_text">TOPIC</h2>
-    </div>
-    <div class="topic_ carousel">
-    <mdb-carousel [isControls]="true" [animation]="'slide'">
-    
-        <mdb-carousel-item>
-            <div class="container">
-         <div class="row justify-content-center no-gutters">
-             <div class="col-md-10 topic_heading"><h3>Computer Science & Information Technology</h3></div>
-             <div class="col-md-6 topics">
-                 <ul>
-                     <li>Embedded Systems</li>
-                     <li>Augmented Reality</li>
-                     <li>Natural Language Processing</li>
-                     <li>Genetic Algorithms and Bio-inspired Computing</li>
-                     <li>Cloud Computing
-                     </li>
-                     <li>Semantic Web</li>
-                     <li>Mobile Computing and Data Intensive Computing</li>
-                     <li> Soft Computing including multi-criteria Analysis</li>
-                     <li>Cybernetics</li>
-                     <li> Nano Computing</li>
-                     <li>Quantum Computing</li>
-                     <li>Big Data Analytics</li>
-                 </ul>
-             </div>
-             <div class="col-md-4">
-                 <img src="../../assets/IT.svg" >
-             </div>
-         </div>
-         </div>
-        </mdb-carousel-item>
-    
-        <mdb-carousel-item>
-            <div class="container">
-                <div class="row justify-content-center no-gutters">
-                    <div class="col-md-10 topic_heading">
-                        <h3>Computer Science & Information Technology</h3>
-                    </div>
-                    <div class="col-md-6 topics">
-                        <ul>
-                            <li>Embedded Systems</li>
-                            <li>Augmented Reality</li>
-                            <li>Natural Language Processing</li>
-                            <li>Genetic Algorithms and Bio-inspired Computing</li>
-                            <li>Cloud Computing
-                            </li>
-                            <li>Semantic Web</li>
-                            <li>Mobile Computing and Data Intensive Computing</li>
-                            <li> Soft Computing including multi-criteria Analysis</li>
-                            <li>Cybernetics</li>
-                            <li> Nano Computing</li>
-                            <li>Quantum Computing</li>
-                            <li>Big Data Analytics</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="../../assets/IT.svg">
-                    </div>
+        <div class="landing_bottom">
+  
+                <div class="item-1">
+                    <img src="../../assets/images/slide1.svg" alt="">
                 </div>
-            </div>
-        </mdb-carousel-item>
+                <div class="item-2">
+                    <img src="../../assets/images/slide2.svg" alt="">
+                </div>
+                <div class="item-3">
+                    <img src="../../assets/images/slide3.svg" alt="">
+                </div>
         
-    
-        <mdb-carousel-item>
-            <div class="container">
-                <div class="row justify-content-center no-gutters">
-                    <div class="col-md-10 topic_heading">
-                        <h3>Computer Science & Information Technology</h3>
-                    </div>
-                    <div class="col-md-6 topics">
-                        <ul>
-                            <li>Embedded Systems</li>
-                            <li>Augmented Reality</li>
-                            <li>Natural Language Processing</li>
-                            <li>Genetic Algorithms and Bio-inspired Computing</li>
-                            <li>Cloud Computing
-                            </li>
-                            <li>Semantic Web</li>
-                            <li>Mobile Computing and Data Intensive Computing</li>
-                            <li> Soft Computing including multi-criteria Analysis</li>
-                            <li>Cybernetics</li>
-                            <li> Nano Computing</li>
-                            <li>Quantum Computing</li>
-                            <li>Big Data Analytics</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="../../assets/IT.svg">
-                    </div>
+        </div>
+    </div>
+    <!-- about -->
+    <div id="about" class="section" [ngsReveal]="{ reset: true }">
+        <div class="heading">
+            <h2 class="heading_text">ABOUT</h2>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-md-6 justify-content-center center">
+                <img src="../../assets/images/about.svg" alt="Scrollss-2018" class="about_image">
+            </div>
+            <div class="col-md-6  justify-content-center center">
+                <div class="about_text">
+                    A national level technical paper presentation contest that provides a pedestal to unleash the talent of budding technocrats,
+                    SCROLLS-2017 deals with the most thriving and progressive fields of technology and management, bringing Computing, Information
+                    Technology, Mechanical Engineering, Electrical Engineering, Electronics and Communication Technologies and Civil Engineering
+                    along with major developmental leaps in management and leadership in its fold.The crystal clarity and insight of the unique
+                    topics will not only transcend the contestant to glory but will also add to the technological advancement of the era. The
+                    share you transcribe to evacuate the sub fuss of unawareness will be in your own hands. Melt the dusk and evolve into the
+                    new dawn of prestige with utter confidence and perseverance.<br> We at AJAY KUMAR GARG ENGINEERING COLLEGE believe in the saying
+                    “Every human has four endowments - self awareness, conscience, independent will and creative imagination. These give us the
+                    ultimate human freedom.The power to choose, to respond, to change”. One has very rightly said that when the seeds of imagination
+                    and innovation are nourished in proper soil with every proper care only then they germinate. If one has to strive for zenith
+                    then one must be able to think beyond the conventions, lay firm foots ahead with dedication and will. Thus elevating the
+                    zeal of creativity and innovation amongst students, we at AKGEC organize the National-level paper presentation event called
+                    SCROLLS(Students creative and Oratory Learning Skills) which aims at flourishing the talent of students and giving them a
+                    platform to showcase their multidimensional creativity. This event is not only for the engineering field but for Management
+                    as well.
                 </div>
             </div>
-        </mdb-carousel-item>
-    
-    </mdb-carousel>
-    </div>
- </div> 
- 
- <!-- RULE -->
-<div class="section rules_section">
-    <div class="heading">
-        <h2 class="heading_text">RULES</h2>
-    </div>
-    <div class="rules">
-    <div class="row justify-content-center no-gutters">
-        <div class="col-md-2 center justify-content-center">
-            <img src="../../assets/rules_left.svg" class="rule_svg">
         </div>
-         <div class="col-md-8">
-           <ul>
-              <li>The competition will be open to all bonafide students of Engineering and Management Colleges</li>
-              <li>A maximum of 3 and a minimum of 2 authors per paper are allowed.</li>\
-              <li>A synopsis of maximum 1000 words is to be sent by the specified date. Based on the synopsis, an expert committee will select
-              the papers for inclusion in the final paper presentation.</li>
-              <li>For presentation, a time slot of 7 minutes + 3 minutes (for Q&A) will be given to each team.</li>
-              <li>A soft copy of the final paper is to be sent via e-mail before the designated date.</li>
-              <li>The paper should be typed in single space, double column format, using Times New Roman font and size 12. The max. number of
-              pages should be 10 and the page should have no numbers. A margin of 1’’ should be left all around .A sample synopsis for
-              reference is available</li>
-             <li>The first page should include Title,Name(s) of authors,their college name,telephone numbers as well as their e-mail addresses.
-              This information is to be included with extended abstract .</li>
-            </ul>
+        
+    </div>
+    <!-- topic -->
+    <div class="section" [ngsReveal]="{ reset: true }">
+        <div class="heading">
+            <h2 class="heading_text">TOPIC</h2>
         </div>
-        <div class="col-md-2 center justify-content-center">
-            <img src="../../assets/rules_right.svg" class="rule_svg">
-        </div>
-    </div>
-    </div>
-</div>
-
-<!-- contact -->
-<div class="section">
-    <div class="heading">
-        <h2 class="heading_text">CONTACT US</h2>
-    </div>
-    <div class="container">
-    <div class="row no-gutters">
-        <div class="col-md-6">
-          <div class="row dates">
-              <div class="col-md-7 event">
-                   <div class="date">8th Oct 2018</div>
-                   <div class="date_detail">
-                     Last date for submission of synopsis
-                   </div>
-              </div>
-              <div class="col-md-7 offset-md-5 event">
-                <div class="date">11th Oct 2018</div>
-                <div class="date_detail">
-                     Notification of acceptance
-                </div>
-              </div>
-            <div class="col-md-7 event">
-                <div class="date">8th Oct 2018</div>
-                <div class="date_detail">
-                    Last date for submission of synopsis
-                </div>
-            </div>
-            <div class="col-md-7 offset-md-5 event">
-                <div class="date">11th Oct 2018</div>
-                <div class="date_detail">
-                    Notification of acceptance
-                </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-
-        </div>
-    </div>
-    </div>
-</div>
-<!-- team -->
-<div class="section">
-    <div class="heading">
-        <h2 class="heading_text">TEAM</h2>
-    </div>
-    <div class="container">
-        <h3 class="team_heading">CONVENOR</h3>
-        <div class="row team_row">
-            <div class="col-md-3 justify-content-center center">
-               <div class="member">
-                   <div class="member_image">
-                     <img src="../../assets/dummy.svg">
-                   </div>
-                   <div class="member_detail">
-                       Name
-                   </div>
-               </div>
-            </div>
-            <div class="col-md-3 justify-content-center center">
+        <div class="topic_ carousel">
+            <mdb-carousel [isControls]="true" [animation]="'slide'" [noPause]="false" class="carousel">
                 
-                    <div class="member">
-                        <div class="member_image">
-                            <img src="../../assets/dummy.svg">
-                        </div>
-                        <div class="member_detail">
-                            Name
+                <mdb-carousel-item>
+                    <div class="container">
+                        <div class="row justify-content-center no-gutters">
+                            <div class="col-md-10 topic_heading"><h3>Computer Science & Information Technology</h3></div>
+                            <div class="col-md-6 topics">
+                                <ul>
+                                    <li>Embedded Systems</li>
+                                    <li>Augmented Reality</li>
+                                    <li>Natural Language Processing</li>
+                                    <li>Genetic Algorithms and Bio-inspired Computing</li>
+                                    <li>Cloud Computing
+                                    </li>
+                                    <li>Semantic Web</li>
+                                    <li>Mobile Computing and Data Intensive Computing</li>
+                                    <li> Soft Computing including multi-criteria Analysis</li>
+                                    <li>Cybernetics</li>
+                                    <li> Nano Computing</li>
+                                    <li>Quantum Computing</li>
+                                    <li>Big Data Analytics</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 justify-content-center center topics_image">
+                                <img src="../../assets/images/IT_animated.svg" >
+                            </div>
+
                         </div>
                     </div>
-            
-            </div>
-            <div class="col-md-3 justify-content-center center">
+                </mdb-carousel-item>
                 
-                    <div class="member">
-                        <div class="member_image">
-                            <img src="../../assets/dummy.svg">
-                        </div>
-                        <div class="member_detail">
-                            Name
+                <mdb-carousel-item>
+                    <div class="container">
+                        <div class="row justify-content-center no-gutters">
+                            <div class="col-md-10 topic_heading">
+                                <h3>Computer Science & Information Technology</h3>
+                            </div>
+                            <div class="col-md-6 topics">
+                                <ul>
+                                    <li>Embedded Systems</li>
+                                    <li>Augmented Reality</li>
+                                    <li>Natural Language Processing</li>
+                                    <li>Genetic Algorithms and Bio-inspired Computing</li>
+                                    <li>Cloud Computing
+                                    </li>
+                                    <li>Semantic Web</li>
+                                    <li>Mobile Computing and Data Intensive Computing</li>
+                                    <li> Soft Computing including multi-criteria Analysis</li>
+                                    <li>Cybernetics</li>
+                                    <li> Nano Computing</li>
+                                    <li>Quantum Computing</li>
+                                    <li>Big Data Analytics</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 justify-content-center center topics_image">
+                                <img src="../../assets/images/IT_animated.svg">
+                            </div>
                         </div>
                     </div>
-            
-            </div>
-            <div class="col-md-3 justify-content-center center">
-            
-                    <div class="member">
-                        <div class="member_image">
-                            <img src="../../assets/dummy.svg">
-                        </div>
-                        <div class="member_detail">
-                            Name
+                </mdb-carousel-item>
+                
+                
+                <mdb-carousel-item>
+                    <div class="container">
+                        <div class="row justify-content-center no-gutters">
+                            <div class="col-md-10 topic_heading">
+                                <h3>Computer Science & Information Technology</h3>
+                            </div>
+                            <div class="col-md-6 topics">
+                                <ul>
+                                    <li>Embedded Systems</li>
+                                    <li>Augmented Reality</li>
+                                    <li>Natural Language Processing</li>
+                                    <li>Genetic Algorithms and Bio-inspired Computing</li>
+                                    <li>Cloud Computing
+                                    </li>
+                                    <li>Semantic Web</li>
+                                    <li>Mobile Computing and Data Intensive Computing</li>
+                                    <li> Soft Computing including multi-criteria Analysis</li>
+                                    <li>Cybernetics</li>
+                                    <li> Nano Computing</li>
+                                    <li>Quantum Computing</li>
+                                    <li>Big Data Analytics</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 justify-content-center center topics_image">
+                                <img src="../../assets/images/electrical_and_electronics_animated.svg">
+                            </div>
                         </div>
                     </div>
-            
-            </div>
+                </mdb-carousel-item>
+                
+            </mdb-carousel>
         </div>
-        <h3 class="team_heading">DEVELOPER TEAM</h3>
-        <div class="row team_row">
-            <div class="col-md-3 justify-content-center center">
-                <div class="member">
-                    <div class="member_image">
-                        <img src="../../assets/dummy.svg">
+    </div> 
+    
+    <!-- RULE -->
+    <div class="section rules_section" [ngsReveal]="{ reset: true }" >
+        <div class="heading">
+            <h2 class="heading_text">RULES</h2>
+        </div>
+        <div class="rules">
+            <div class="row justify-content-center no-gutters">
+                <div class="col-md-2 center justify-content-center">
+                    <img src="../../assets/images/rules_left.svg" class="rule_svg">
+                </div>
+                <div class="col-md-8 justify-content-center center points">
+                    <div class="row">
+                        <div class="col-11">
+                            
+                     <ul>
+                        <li>The competition will be open to all bonafide students of Engineering and Management Colleges</li>
+                        <li>A maximum of 3 and a minimum of 2 authors per paper are allowed.</li>
+                        <li>A synopsis of maximum 1000 words is to be sent by the specified date. Based on the synopsis, an expert committee will select
+                            the papers for inclusion in the final paper presentation.</li>
+                        <li>For presentation, a time slot of 7 minutes + 3 minutes (for Q&A) will be given to each team.</li>
+                        <li>A soft copy of the final paper is to be sent via e-mail before the designated date.</li>
+                        <li>The paper should be typed in single space, double column format, using Times New Roman font and size 12. The max. number of
+                             pages should be 10 and the page should have no numbers. A margin of 1’’ should be left all around .A sample synopsis for
+                            reference is available</li>
+                        <li>The first page should include Title,Name(s) of authors,their college name,telephone numbers as well as their e-mail addresses.
+                            This information is to be included with extended abstract .</li>
+                    </ul>
                     </div>
-                    <div class="member_detail">
-                        Name
+                    <div class="col-11 no-gutters center justify-content-center">
+                    <img src="../../assets/images/rules_mobile.svg" alt="Scrolls-2018" class="rules_mobile">
+                   </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 justify-content-center center">
-        
-                <div class="member">
-                    <div class="member_image">
-                        <img src="../../assets/dummy.svg">
-                    </div>
-                    <div class="member_detail">
-                        Name
-                    </div>
-                </div>
-        
-            </div>
-            <div class="col-md-3 justify-content-center center">
-        
-                <div class="member">
-                    <div class="member_image">
-                        <img src="../../assets/dummy.svg">
-                    </div>
-                    <div class="member_detail">
-                        Name
-                    </div>
-                </div>
-        
-            </div>
-            <div class="col-md-3 justify-content-center center">
-        
-                <div class="member">
-                    <div class="member_image">
-                        <img src="../../assets/dummy.svg">
-                    </div>
-                    <div class="member_detail">
-                        Name
-                    </div>
-                </div>
-        
-            </div>
+                 <div class="col-md-2 center justify-content-center">
+                     <img src="../../assets/images/rules_right.svg" class="rule_svg">
+                 </div>
+             </div>
         </div>
     </div>
-</div>
+                
+                <!-- contact -->
+                <div class="section" [ngsReveal]="{ reset: true }">
+                    <div class="heading">
+                        <h2 class="heading_text">CONTACT US</h2>
+                    </div>
+                    <div class="container">
+                        <div class="row no-gutters">
+                            <div class="col-md-6">
+                                <div class="row dates no-gutters">
+                                    <div class="col-md-7 col-10 offset-1 event">
+                                        <div class="date">8th Oct 2018</div>
+                                        <div class="date_detail">
+                                            Last date for submission of synopsis
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7 col-10 offset-1 offset-md-5 event">
+                                        <div class="date">11th Oct 2018</div>
+                                        <div class="date_detail">
+                                            Notification of acceptance
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7 col-10 offset-1 event">
+                                        <div class="date">8th Oct 2018</div>
+                                        <div class="date_detail">
+                                            Last date for submission of synopsis
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7 col-10 offset-md-5 offset-1 event">
+                                        <div class="date">11th Oct 2018</div>
+                                        <div class="date_detail">
+                                            Notification of acceptance
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 map">
+                                <a href="http://tiny.cc/8rq5xy">
+                                    <div class="view zoom"><img src="../../assets/images/map.png" alt="Scrolls-2018" class="img-fluid"></div></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- team -->
+                    <div class="section" [ngsReveal]="{ reset: true }">
+                        <div class="heading">
+                            <h2 class="heading_text">TEAM</h2>
+                        </div>
+                        <div class="container">
+                            <h4 class="team_heading">CONVENOR</h4>
+                            <div class="row team_row">
+                                <div class="col-md-3 col-xs-6 col-6 justify-content-center center">
+                                    <div class="member">
+                                        <div class="member_image">
+                                            <img src="../../assets/images/dummy.svg">
+                                        </div>
+                                        <div class="member_detail">
+                                            Name
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-xs-6 col-6 justify-content-center center">
+                                    
+                                    <div class="member">
+                                        <div class="member_image">
+                                            <img src="../../assets/images/dummy.svg">
+                                        </div>
+                                        <div class="member_detail">
+                                            Name
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-3 col-xs-6 col-6 justify-content-center center">
+                                    
+                                    <div class="member">
+                                        <div class="member_image">
+                                            <img src="../../assets/images/dummy.svg">
+                                        </div>
+                                        <div class="member_detail">
+                                            Name
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-3 col-xs-6 col-6 justify-content-center center">
+                                    
+                                    <div class="member">
+                                        <div class="member_image">
+                                            <img src="../../assets/images/dummy.svg">
+                                        </div>
+                                        <div class="member_detail">
+                                            Name
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <h3 class="team_heading">DEVELOPER TEAM</h3>
+                            <div class="row team_row">
+                                <div class="col-md-3 col-xs-6 col-6 justify-content-center center">
+                                    <div class="member">
+                                        <div class="member_image">
+                                            <img src="../../assets/images/dummy.svg">
+                                        </div>
+                                        <div class="member_detail">
+                                            Name
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-xs-6 col-6 justify-content-center center">
+                                    
+                                    <div class="member">
+                                        <div class="member_image">
+                                            <img src="../../assets/images/dummy.svg">
+                                        </div>
+                                        <div class="member_detail">
+                                            Name
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-3 col-xs-6 col-6 justify-content-center center">
+                                    
+                                    <div class="member">
+                                        <div class="member_image">
+                                            <img src="../../assets/images/dummy.svg">
+                                        </div>
+                                        <div class="member_detail">
+                                            Name
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-3 col-xs-6 col-6 justify-content-center center">
+                                    
+                                    <div class="member">
+                                        <div class="member_image">
+                                            <img src="../../assets/images/dummy.svg">
+                                        </div>
+                                        <div class="member_detail">
+                                            Name
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <footer>
+                            <div class="footer">
+                              <img src="../../assets/images/logo 2.png"alt="Scrolls-2018" class="footer-image"> Powered by - SOFTWARE INCUBATOR
+                            </div>
+                         </footer>
+                    </div>
+                </div>

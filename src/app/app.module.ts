@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NgsRevealModule } from 'ng-scrollreveal';
 import { AppComponent } from './app.component';
 import { ScHomeComponent } from './sc-home/sc-home.component';
 import { ScRegisterComponent } from './sc-register/sc-register.component';
@@ -34,7 +34,8 @@ import { ServerService } from './services/server.service';
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule,
     MDBBootstrapModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    NgsRevealModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [AuthService, ServerService],

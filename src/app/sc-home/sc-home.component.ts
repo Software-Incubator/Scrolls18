@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import * as $ from 'jquery';
+declare var fullpage: any;
+
+
 
 @Component({
   selector: 'app-sc-home',
@@ -8,16 +10,21 @@ import * as $ from 'jquery';
   styleUrls: ['./sc-home.component.scss'],
 })
 export class ScHomeComponent implements OnInit {
-  title = 'Look jQuery Animation working in action!';
+  x: any;
   constructor() {}
 
   ngOnInit() {
-  /*$(document).ready(function(){
-    $("button").click(function(){
-        var div = $("div");
-        div.animate({left: '100px'}, "slow");
-        div.animate({fontSize: '5em'}, "slow");
+    this.x = new fullpage('#fullpage', {
+      licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+      autoScrolling: true,
+      scrollBar: true,
+      scrollingSpeed: 300,
+      navigation: true,
+      fadingEffect: true
+      // afterLoad: (origin, destination, direction) => {
+      //   this.LocalInteractionService.LinkChange.next(destination.index);
+
+      // }
     });
-});*/
   }
 }
