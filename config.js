@@ -26,7 +26,7 @@ let readHTMLFile = function(path, callback) {
 module.exports = {
     secret: "Qdhyi59BhPZsjRkg",
     connection: 'mongodb://scrolls-admin:5ky2n11@ds133762.mlab.com:33762/scrolls18',
-    captchaKey: '6Led_G0UAAAAANMfYD_VxWMmmN0C1m1-w0rwYSw2',
+    captchaKey: '6Led_G0UAAAAAOFOdrJyTYIk3A6mjsXDlE_4aOjz',
     sendYourMail: function(templatePath, from, to, subject, templateVar, callback) {
         readHTMLFile(templatePath, function(err, html) {
             if (err) throw err;
