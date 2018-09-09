@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NO_ERRORS_SCHEMA, enableProdMode } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NgsRevealModule } from 'ng-scrollreveal';
 import { AppComponent } from './app.component';
 import { ScHomeComponent } from './sc-home/sc-home.component';
 import { ScRegisterComponent } from './sc-register/sc-register.component';
@@ -34,13 +34,12 @@ import { AuthGuard } from './services/authguard.service';
     AppRoutingModule,
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule,
+    MnFullpageModule.forRoot(),
     MDBBootstrapModule.forRoot(),
-    HttpClientModule,
-    ReactiveFormsModule
+    HttpClientModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [AuthService, ServerService, AuthGuard],
-
+  providers: [AuthService, ServerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

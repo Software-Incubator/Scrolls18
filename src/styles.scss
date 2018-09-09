@@ -1,4 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
 *{
     font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    margin:0;
+}
+
+.nav{
+    .navbar{
+        position:fixed;
+        width:100vw;
+        z-index:10;
+        background:url(./assets/images/nav_back.svg) repeat-x;
+
+    }
+}
+.landing_section{
+    .fp-tableCell{
+        bottom:0;
+    }
+}
+
+.carousel{
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #795548 no-repeat center center;
+    background-size: 100% 100%;
+}
+}
+
+ @media only screen and (max-width: 767px){
+     .carousel{
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+        display: none;
+    }
+}
+ }
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content };    //600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content };     //900px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content };    //1200px
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) { @content };    //1800
+    }
+}
+html{
+    font: size 100%; // 1rem=10px, 10/16 = 62.5%
+
+    @include respond(tab-land) {
+        font-size:85%; //1rem = 9px ,
+    }
+
+    @include respond(tab-port) {
+        font-size:85% ; //1rem = 8px
+    }
+
+    @include respond(phone) {
+        font-size:65% ; //1 rem = 4.8px;
+    }
+
+    @include respond(big-desktop) {
+        font-size: 75%; // 1rem = 12px ;
+    }
 }
