@@ -6,6 +6,7 @@ import { RecaptchaModule } from 'ng-recaptcha';
 import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgsRevealModule } from 'ng-scrollreveal';
+
 import { AppComponent } from './app.component';
 import { ScHomeComponent } from './sc-home/sc-home.component';
 import { ScRegisterComponent } from './sc-register/sc-register.component';
@@ -39,7 +40,7 @@ import { AuthGuard } from './services/authguard.service';
     HttpClientModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [AuthService, ServerService],
+  providers: [AuthService, ServerService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
