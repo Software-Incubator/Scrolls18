@@ -7,9 +7,10 @@ const router = express.Router();
 const path = require('path');
 const passport = require('passport');
 const verifyToken = require('../controllers/auth').verifyTokenUtil; 
+const middleware = require('../middlewares/verifyCaptcha');
 
 //auth routes
-router.post('/signUp', authController.signUp);
+router.post('/signUp',middleware.verifyCaptcha ,authController.signUp);
 router.get('/sendEmail', function(req, res){
   const templatePath = path.join(__dirname, '../mail-templates/html.ejs');
   const subject = "Team Registered";
