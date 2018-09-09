@@ -65,9 +65,9 @@ aria-hidden="true">
           </span>
         </div>
         <div class="md-form mt-3">
-          <re-captcha [(ngModel)]="model.captcha" name="captcha" required siteKey="6Led_G0UAAAAANMfYD_VxWMmmN0C1m1-w0rwYSw2" #captcha="ngModel"></re-captcha>
+          <re-captcha [(ngModel)]="model.response" name="response" required siteKey="6Led_G0UAAAAANMfYD_VxWMmmN0C1m1-w0rwYSw2" #response="ngModel"></re-captcha>
         </div>
-        <div [hidden]="captcha.valid || captcha.pristine" class="error">Captcha must be solved</div>
+        <div [hidden]="response.valid || response.pristine" class="error">Captcha must be solved</div>
         <div class="d-flex justify-content-center">
           <button [disabled]="!f.form.valid" (click)="basicModal.hide()" mdbBtn class="btn signupbutton waves-effect waves-light" mdbWavesEffect>Sign up</button>
         </div>

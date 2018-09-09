@@ -431,21 +431,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sc_register_sc_register_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./sc-register/sc-register.component */ "./src/app/sc-register/sc-register.component.ts");
 /* harmony import */ var _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./sc-dashboard/sc-dashboard.component */ "./src/app/sc-dashboard/sc-dashboard.component.ts");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var ngx_fullpage_ngx_fullpage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ngx-fullpage/ngx-fullpage */ "./node_modules/ngx-fullpage/ngx-fullpage.js");
-/* harmony import */ var ngx_fullpage_ngx_fullpage__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(ngx_fullpage_ngx_fullpage__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _sc_navbar_sc_navbar_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./sc-navbar/sc-navbar.component */ "./src/app/sc-navbar/sc-navbar.component.ts");
-/* harmony import */ var _sc_login_sc_login_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./sc-login/sc-login.component */ "./src/app/sc-login/sc-login.component.ts");
-/* harmony import */ var _confirm_equal_validator_directive__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./confirm-equal-validator.directive */ "./src/app/confirm-equal-validator.directive.ts");
-/* harmony import */ var _services_server_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./services/server.service */ "./src/app/services/server.service.ts");
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/services/auth.service.ts");
-/* harmony import */ var _services_authguard_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./services/authguard.service */ "./src/app/services/authguard.service.ts");
+/* harmony import */ var _sc_navbar_sc_navbar_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./sc-navbar/sc-navbar.component */ "./src/app/sc-navbar/sc-navbar.component.ts");
+/* harmony import */ var _sc_login_sc_login_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./sc-login/sc-login.component */ "./src/app/sc-login/sc-login.component.ts");
+/* harmony import */ var _confirm_equal_validator_directive__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./confirm-equal-validator.directive */ "./src/app/confirm-equal-validator.directive.ts");
+/* harmony import */ var _services_server_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./services/server.service */ "./src/app/services/server.service.ts");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _services_authguard_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./services/authguard.service */ "./src/app/services/authguard.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -474,9 +471,9 @@ var AppModule = /** @class */ (function () {
                 _sc_home_sc_home_component__WEBPACK_IMPORTED_MODULE_8__["ScHomeComponent"],
                 _sc_register_sc_register_component__WEBPACK_IMPORTED_MODULE_9__["ScRegisterComponent"],
                 _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_10__["ScDashboardComponent"],
-                _sc_navbar_sc_navbar_component__WEBPACK_IMPORTED_MODULE_13__["ScNavbarComponent"],
-                _sc_login_sc_login_component__WEBPACK_IMPORTED_MODULE_14__["ScLoginComponent"],
-                _confirm_equal_validator_directive__WEBPACK_IMPORTED_MODULE_15__["ConfirmEqualValidatorDirective"]
+                _sc_navbar_sc_navbar_component__WEBPACK_IMPORTED_MODULE_12__["ScNavbarComponent"],
+                _sc_login_sc_login_component__WEBPACK_IMPORTED_MODULE_13__["ScLoginComponent"],
+                _confirm_equal_validator_directive__WEBPACK_IMPORTED_MODULE_14__["ConfirmEqualValidatorDirective"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -484,13 +481,12 @@ var AppModule = /** @class */ (function () {
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_11__["AppRoutingModule"],
                 ng_recaptcha__WEBPACK_IMPORTED_MODULE_4__["RecaptchaModule"].forRoot(),
                 ng_recaptcha_forms__WEBPACK_IMPORTED_MODULE_5__["RecaptchaFormsModule"],
-                ngx_fullpage_ngx_fullpage__WEBPACK_IMPORTED_MODULE_12__["MnFullpageModule"].forRoot(),
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["MDBBootstrapModule"].forRoot(),
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"]
             ],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NO_ERRORS_SCHEMA"]],
-            providers: [_services_auth_service__WEBPACK_IMPORTED_MODULE_17__["AuthService"], _services_server_service__WEBPACK_IMPORTED_MODULE_16__["ServerService"], _services_authguard_service__WEBPACK_IMPORTED_MODULE_18__["AuthGuard"]],
+            providers: [_services_auth_service__WEBPACK_IMPORTED_MODULE_16__["AuthService"], _services_server_service__WEBPACK_IMPORTED_MODULE_15__["ServerService"], _services_authguard_service__WEBPACK_IMPORTED_MODULE_17__["AuthGuard"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
         })
     ], AppModule);
@@ -803,7 +799,7 @@ var ScDashboardComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-sc-navbar></app-sc-navbar>\r\n<div>\r\n    <div class=\"section welcome-section fp-section fp-table\">\r\n        <div class=\"fp-tableCell\">\r\n            <div class=\"heading\">\r\n                <img src=\"../../assets/images/scrolls_head.svg\" alt=\"Scrolls-2018\" class=\"heading_image\">\r\n            </div>\r\n            <div class=\"heading_bottom\">\r\n                <img src=\"../../assets/images/Header_svg.svg\" alt=\"Scrolss-2018\" class=\"heading_bottom_image\" >\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"section welcome-section fp-section fp-table\">\r\n        <div class=\"fp-tableCell\">\r\n            2\r\n        </div>\r\n    </div>\r\n    <div class=\"section welcome-section fp-section fp-table\">\r\n        <div class=\"fp-tableCell\">\r\n            3\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<app-sc-navbar></app-sc-navbar>\r\n"
 
 /***/ }),
 
@@ -841,16 +837,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var ScHomeComponent = /** @class */ (function () {
     function ScHomeComponent() {
-        this.title = 'Look jQuery Animation working in action!';
     }
     ScHomeComponent.prototype.ngOnInit = function () {
-        /*$(document).ready(function(){
-          $("button").click(function(){
-              var div = $("div");
-              div.animate({left: '100px'}, "slow");
-              div.animate({fontSize: '5em'}, "slow");
-          });
-      });*/
     };
     ScHomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1057,7 +1045,7 @@ var ScNavbarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"Loading\" class=\"overlay\">\r\n  <img src=\"../../assets/images/loader.svg\" class=\"loader image-responsive\" alt=\"Loader\">\r\n</div>\r\n<a class=\"btn btn-info btn-sm waves-effect waves-light\" (click)=\"basicModal.show()\" mdbWavesEffect>Register\r\n  <i class=\"fa fa-sign-in ml-2\"></i>\r\n</a>\r\n<div mdbModal #basicModal=\"mdbModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\"\r\naria-hidden=\"true\">\r\n<div class=\"modal-dialog modal-lg\" role=\"document\">\r\n  <div class=\"modal-content\">\r\n    <div class=\"modal-header\">\r\n      <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"basicModal.hide()\">\r\n        <span aria-hidden=\"true\">×</span>\r\n      </button>\r\n    </div>\r\n    <div class=\"modal-body\">\r\n      <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n          <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n            <h1 class=\"text-center Register_heading\">REGISTRATION</h1>\r\n            <img class=\"mt-3 w-100\" src=\"../../assets/images/register.svg\" alt=\"\">\r\n          </div>\r\n          <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n            <h2 class=\"text-center Team_heading mt-2\">ENTER DETAILS</h2>\r\n\r\n            <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\" #f=\"ngForm\" novalidate >\r\n              <div class=\"md-form mb-1\">\r\n                <label for=\"teamName\">Team name</label>\r\n                <input style=\"color: #808080;\" type=\"text\" class=\"form-control\" name=\"teamName\" [(ngModel)]=\"model.teamName\" #teamName=\"ngModel\" [ngClass]=\"{ 'is-invalid': teamName.touched && teamName.invalid }\" required>\r\n                <div *ngIf=\"teamName.touched && teamName.invalid \" class=\"invalid-feedback\">\r\n                  <div *ngIf=\"teamName.errors.required\">Team Name is required</div>\r\n                </div>\r\n              </div>\r\n              <div class=\"md-form mb-1\">\r\n                <label for=\"email\">Email ( Team Leader )</label>\r\n                <input style=\"color: #808080;\" type=\"email\" class=\"form-control\" name=\"email\" [(ngModel)]=\"model.email\" #email=\"ngModel\" [ngClass]=\"{ 'is-invalid': email.touched && email.invalid }\" required email>\r\n                <div *ngIf=\"email.touched && email.invalid\" class=\"invalid-feedback\">\r\n                  <div *ngIf=\"email.errors.required\">Email is required</div>\r\n                  <div *ngIf=\"email.errors.email\">Email a valid email</div>\r\n                </div>\r\n              </div>\r\n              <div class=\"md-form mb-1\">\r\n                <label for=\"password\">Password ( at least 6 characters )</label>\r\n                <input (ngModelChange)=\"confirmPassword.control.updateValueAndValidity()\" style=\"color: #808080;\" type=\"password\" id=\"password\" required  class=\"form-control\"\r\n                name=\"password\" [(ngModel)]=\"model.password\"\r\n                #password=\"ngModel\" [ngClass]=\"{ 'is-invalid': f.submitted && password.invalid }\" minlength=\"6\">\r\n                <div class=\"help-block\"\r\n                *ngIf=\"(password.touched && password.errors?.required) || password.errors?.minlength\">\r\n                Invalid Password\r\n              </div>\r\n            </div>\r\n            <div class=\"md-form mb-1\">\r\n              <label for=\"confirmPassword\">Confirm Password</label>\r\n              <input style=\"color: #808080;\" type=\"password\" name=\"confirmPassword\" appConfirmEqualValidator=\"password\" required\r\n              id=\"confirmPassword\" class=\"form-control\"\r\n              [(ngModel)]=\"model.confirmPassword\" #confirmPassword=\"ngModel\">\r\n              <span class=\"help-block\"\r\n              *ngIf=\"confirmPassword.touched && confirmPassword.errors?.required\">\r\n              Confirm Password is required\r\n            </span>\r\n            <span class=\"help-block\"\r\n            *ngIf=\"confirmPassword.touched && confirmPassword.errors?.notEqual &&\r\n            !confirmPassword.errors?.required\">\r\n            Does'nt match with Password\r\n          </span>\r\n        </div>\r\n        <div class=\"md-form mt-3\">\r\n          <re-captcha [(ngModel)]=\"model.captcha\" name=\"captcha\" required siteKey=\"6Led_G0UAAAAANMfYD_VxWMmmN0C1m1-w0rwYSw2\" #captcha=\"ngModel\"></re-captcha>\r\n        </div>\r\n        <div [hidden]=\"captcha.valid || captcha.pristine\" class=\"error\">Captcha must be solved</div>\r\n        <div class=\"d-flex justify-content-center\">\r\n          <button [disabled]=\"!f.form.valid\" (click)=\"basicModal.hide()\" mdbBtn class=\"btn signupbutton waves-effect waves-light\" mdbWavesEffect>Sign up</button>\r\n        </div>\r\n      </form>\r\n    </div>\r\n  </div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n<!-- Response Modal !-->\r\n<button id=\"openModalButton\" [hidden]=\"true\" (click)=\"successModal.show()\">Open Modal</button>\r\n<div mdbModal #successModal=\"mdbModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\"\r\n  aria-hidden=\"true\">\r\n  <div class=\"modal-dialog\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title w-100\" id=\"myModalLabel\"></h4>\r\n      </div>\r\n      <div class=\"modal-body text-center\">\r\n        <div *ngIf=\"!gotError\">\r\n          <img style=\"width:20%;\" src=\"../../assets/images/success_animated.svg\">\r\n          <div class=\"successText\">{{responseMessage?.msg}}</div>\r\n      </div>\r\n      <div *ngIf=\"gotError\">\r\n          <img style=\"width:20%;\" src=\"../../assets/images/fail_animated.svg\">\r\n          <div class=\"errorText\">{{responseMessage?.error.msg}}</div>\r\n      </div>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" mdbBtn color=\"primary\" class=\"waves-light\" aria-label=\"Close\" (click)=\"successModal.hide()\" mdbWavesEffect>Close</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div *ngIf=\"Loading\" class=\"overlay\">\r\n  <img src=\"../../assets/images/loader.svg\" class=\"loader image-responsive\" alt=\"Loader\">\r\n</div>\r\n<a class=\"btn btn-info btn-sm waves-effect waves-light\" (click)=\"basicModal.show()\" mdbWavesEffect>Register\r\n  <i class=\"fa fa-sign-in ml-2\"></i>\r\n</a>\r\n<div mdbModal #basicModal=\"mdbModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\"\r\naria-hidden=\"true\">\r\n<div class=\"modal-dialog modal-lg\" role=\"document\">\r\n  <div class=\"modal-content\">\r\n    <div class=\"modal-header\">\r\n      <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"basicModal.hide()\">\r\n        <span aria-hidden=\"true\">×</span>\r\n      </button>\r\n    </div>\r\n    <div class=\"modal-body\">\r\n      <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n          <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n            <h1 class=\"text-center Register_heading\">REGISTRATION</h1>\r\n            <img class=\"mt-3 w-100\" src=\"../../assets/images/register.svg\" alt=\"\">\r\n          </div>\r\n          <div class=\"col-sm-12 col-md-6 col-lg-6\">\r\n            <h2 class=\"text-center Team_heading mt-2\">ENTER DETAILS</h2>\r\n\r\n            <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\" #f=\"ngForm\" novalidate >\r\n              <div class=\"md-form mb-1\">\r\n                <label for=\"teamName\">Team name</label>\r\n                <input style=\"color: #808080;\" type=\"text\" class=\"form-control\" name=\"teamName\" [(ngModel)]=\"model.teamName\" #teamName=\"ngModel\" [ngClass]=\"{ 'is-invalid': teamName.touched && teamName.invalid }\" required>\r\n                <div *ngIf=\"teamName.touched && teamName.invalid \" class=\"invalid-feedback\">\r\n                  <div *ngIf=\"teamName.errors.required\">Team Name is required</div>\r\n                </div>\r\n              </div>\r\n              <div class=\"md-form mb-1\">\r\n                <label for=\"email\">Email ( Team Leader )</label>\r\n                <input style=\"color: #808080;\" type=\"email\" class=\"form-control\" name=\"email\" [(ngModel)]=\"model.email\" #email=\"ngModel\" [ngClass]=\"{ 'is-invalid': email.touched && email.invalid }\" required email>\r\n                <div *ngIf=\"email.touched && email.invalid\" class=\"invalid-feedback\">\r\n                  <div *ngIf=\"email.errors.required\">Email is required</div>\r\n                  <div *ngIf=\"email.errors.email\">Email a valid email</div>\r\n                </div>\r\n              </div>\r\n              <div class=\"md-form mb-1\">\r\n                <label for=\"password\">Password ( at least 6 characters )</label>\r\n                <input (ngModelChange)=\"confirmPassword.control.updateValueAndValidity()\" style=\"color: #808080;\" type=\"password\" id=\"password\" required  class=\"form-control\"\r\n                name=\"password\" [(ngModel)]=\"model.password\"\r\n                #password=\"ngModel\" [ngClass]=\"{ 'is-invalid': f.submitted && password.invalid }\" minlength=\"6\">\r\n                <div class=\"help-block\"\r\n                *ngIf=\"(password.touched && password.errors?.required) || password.errors?.minlength\">\r\n                Invalid Password\r\n              </div>\r\n            </div>\r\n            <div class=\"md-form mb-1\">\r\n              <label for=\"confirmPassword\">Confirm Password</label>\r\n              <input style=\"color: #808080;\" type=\"password\" name=\"confirmPassword\" appConfirmEqualValidator=\"password\" required\r\n              id=\"confirmPassword\" class=\"form-control\"\r\n              [(ngModel)]=\"model.confirmPassword\" #confirmPassword=\"ngModel\">\r\n              <span class=\"help-block\"\r\n              *ngIf=\"confirmPassword.touched && confirmPassword.errors?.required\">\r\n              Confirm Password is required\r\n            </span>\r\n            <span class=\"help-block\"\r\n            *ngIf=\"confirmPassword.touched && confirmPassword.errors?.notEqual &&\r\n            !confirmPassword.errors?.required\">\r\n            Does'nt match with Password\r\n          </span>\r\n        </div>\r\n        <div class=\"md-form mt-3\">\r\n          <re-captcha [(ngModel)]=\"model.response\" name=\"response\" required siteKey=\"6Led_G0UAAAAANMfYD_VxWMmmN0C1m1-w0rwYSw2\" #response=\"ngModel\"></re-captcha>\r\n        </div>\r\n        <div [hidden]=\"response.valid || response.pristine\" class=\"error\">Captcha must be solved</div>\r\n        <div class=\"d-flex justify-content-center\">\r\n          <button [disabled]=\"!f.form.valid\" (click)=\"basicModal.hide()\" mdbBtn class=\"btn signupbutton waves-effect waves-light\" mdbWavesEffect>Sign up</button>\r\n        </div>\r\n      </form>\r\n    </div>\r\n  </div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n<!-- Response Modal !-->\r\n<button id=\"openModalButton\" [hidden]=\"true\" (click)=\"successModal.show()\">Open Modal</button>\r\n<div mdbModal #successModal=\"mdbModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\"\r\n  aria-hidden=\"true\">\r\n  <div class=\"modal-dialog\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title w-100\" id=\"myModalLabel\"></h4>\r\n      </div>\r\n      <div class=\"modal-body text-center\">\r\n        <div *ngIf=\"!gotError\">\r\n          <img style=\"width:20%;\" src=\"../../assets/images/success_animated.svg\">\r\n          <div class=\"successText\">{{responseMessage?.msg}}</div>\r\n      </div>\r\n      <div *ngIf=\"gotError\">\r\n          <img style=\"width:20%;\" src=\"../../assets/images/fail_animated.svg\">\r\n          <div class=\"errorText\">{{responseMessage?.error.msg}}</div>\r\n      </div>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" mdbBtn color=\"primary\" class=\"waves-light\" aria-label=\"Close\" (click)=\"successModal.hide()\" mdbWavesEffect>Close</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1113,7 +1101,7 @@ var ScRegisterComponent = /** @class */ (function () {
             _this.responseMessage = res;
             _this.gotError = false;
             document.getElementById('openModalButton').click();
-            console.log(_this.responseMessage.msg);
+            console.log(_this.responseMessage);
         }, function (err) {
             _this.Loading = false;
             _this.gotError = true;
@@ -1295,7 +1283,7 @@ var ServerService = /** @class */ (function () {
         return this.http.post(this.URL + "/api/upload", file, { headers: headers });
     };
     ServerService.prototype.getPhase = function () {
-        return this.http.get(this.URL + "/api/getPhase");
+        return this.http.get(this.URL + "/api/admin/getCurrentPhase");
     };
     ServerService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

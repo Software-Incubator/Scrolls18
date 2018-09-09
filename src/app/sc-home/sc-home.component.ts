@@ -7,7 +7,6 @@ import * as $ from 'jquery';
   styleUrls: ['./sc-home.component.scss']
 })
 export class ScHomeComponent implements OnInit {
-  title = 'Look jQuery Animation working in action!';
   constructor() { }
 
   ngOnInit() {
