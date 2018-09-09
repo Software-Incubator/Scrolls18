@@ -5,6 +5,7 @@ const gapi = require('../googleapis');
 const fs = require('fs');
 const {google} = require('googleapis');
 const path = require('path');
+const Synopsis = require('../models/synopsis');
 
 
 function resgitserTeamUtil(teamInfo, cb) {
@@ -26,13 +27,38 @@ function registerMembersUtil(memberDetails, id,  cb) {
     });
 }
 
+function saveFileInfo(fileId, teamId, cb) {
+    Synopsis.find({teamId: teamId}, function(err, synopsisDoc) {
+        if(err) throw err;
+        else if(synopsisDoc && synopsisDoc.length > 0) {
+            Synopsis.update({teamId: teamId}, {fileId: fileId}, function(err, response) {
+                cb(err, response);
+            });
+        } else {
+            let newSynopsis = new Synopsis({
+                teamId: teamId,
+                fileId: fileId
+            });
+            newSynopsis.save(function(err, newSynopsisDoc) {
+                cb(err, newSynopsisDoc);
+            });
+        }
+    })
+}
+
 module.exports = {
     registerTeam: function(req, res) {
-        req.body.teamInfo.id = req.user._id;
-        resgitserTeamUtil(req.body.teamInfo, function(err, teamInfoDoc) {
+        req.body.id = req.user._id;
+        var teamInfo = {
+            id: req.body.id,
+            numberOfMembers: req.body.numberOfMembers,
+            topic: req.body.topic,
+            domain: req.body.domain
+        }
+        resgitserTeamUtil(teamInfo, function(err, teamInfoDoc) {
             if(err) res.status(500).json({error:{status:true, errorInfo:err}, msg:"Team Details could not be saved"});
             else {
-                registerMembersUtil(req.body.memberDetails, req.user._id, function(err, memberInfoDoc) {
+                registerMembersUtil(req.body.members, req.user._id, function(err, memberInfoDoc) {
                     if(err)  res.status(500).json({error:{status:true, errorInfo:err}, msg:"Member Details could not be saved"});
                     else {
                         res.status(200).json({error: {status: false, errorInfo:null}, msg:"Team and Member details saved"});
@@ -75,15 +101,17 @@ module.exports = {
 
     uploadFile: function(req, res) {
         let sampleFile = req.files.foo;
-        sampleFile.mv(path.join(__dirname, '../temp/file.txt'), function(err) {
+        //filename to be added
+        var fileName = req.body.teamName || 'samplePdf'; 
+        sampleFile.mv(path.join(__dirname, '../temp/file.pdf'), function(err) {
             if(err) throw err;
             else {
                 var fileMetadata = {
-                    'name': 'newFileUpload.txt'
+                    'name': `${fileName}.pdf`
                 };
                 var media = {
-                    mimeType: 'application/octet-stream',
-                    body: fs.createReadStream(path.join(__dirname, '../temp/file.txt'))
+                    mimeType: 'application/pdf',
+                    body: fs.createReadStream(path.join(__dirname, '../temp/file.pdf'))
                 };
                 fs.readFile('credentials.json', (err, content) => {
                     if (err) return console.log('Error loading client secret file:', err);
@@ -96,13 +124,18 @@ module.exports = {
                             fields: 'id'
                           }, function (err, file) {
                                 if (err) {
-                                // Handle error
-                                console.error(err);
+                                    res.status(500).json({error:{status: true, errorInfo: err}, msg:"could not upload file to drive"});
                                 } else {
-                                    res.send("success");
-                                    fs.unlink(path.join(__dirname, '../temp/file.txt'), (err) => {
-                                        if (err) throw err;
-                                        console.log('successfully deleted /tmp/hello');
+                                    fs.unlink(path.join(__dirname, '../temp/file.pdf'), (err) => {
+                                        if (err) 
+                                            res.status(500).json({error:{status: true, errorInfo: err}, msg:"could not upload file to drive"});
+                                        else {
+                                            // replace someId
+                                            saveFileInfo(file.data.id, "5b915de98c21bb138cbd52d1", (err, response) => {
+                                                if (err) throw err;
+                                                res.status(200).json({error:{status: false, errorInfo: null}, msg:"File saved succesfully", response:response});
+                                            });
+                                        }
                                     });
                                 }
                             }
