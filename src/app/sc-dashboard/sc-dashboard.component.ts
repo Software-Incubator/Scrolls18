@@ -124,9 +124,9 @@ export class ScDashboardComponent implements OnInit {
     }
     for (let j = 0; j < n; j++) {
       if (j === 0) {
-        this.control.push(this.getmembersFormArr("leader"));
+        this.control.push(this.getmembersFormArr('leader'));
       } else {
-        this.control.push(this.getmembersFormArr("member"));
+        this.control.push(this.getmembersFormArr('member'));
       }
     }
   }
