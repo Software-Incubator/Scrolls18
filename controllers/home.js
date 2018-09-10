@@ -1,6 +1,18 @@
 const Phase = require('../models/phase');
 const ImpDate = require('../models/impDate');
 
+function getCurrentPhaseUtil(callback) {
+    Phase.findOne({status: true}, function(err, phaseDoc) {
+        callback(err, phaseDoc);
+    })
+}
+
+function getImportantDatesUtil(callback) {
+    ImpDate.find(function(err, response) {
+        callback(err, response);
+    })
+}
+
 module.exports = {
     createPhase: (req, res) => {
         const phase = {
@@ -13,8 +25,8 @@ module.exports = {
         })
     },
     getCurrentPhase: (req, res) => {
-        Phase.find({status: true}, function(err, phaseDoc) {
-            if (err) throw err;
+        getCurrentPhaseUtil(function(err, phaseDoc) {
+            if (err) res.status(500).json({error:{status: true, errorInfo: err}});
             else res.status(200).json({error:{status: false, errorInfo: null}, currentPhase: phaseDoc});
         })
     },
@@ -23,6 +35,7 @@ module.exports = {
         Phase.update({status: true}, {status: false}, function(err, phaseDoc) {
             if(err) throw err;
             Phase.update({phaseName: req.body.phaseName}, {status: true}, function(err, setCurrentPhase) {
+                console.log(setCurrentPhase);
                 if(err) throw err;
                 else res.status(200).json({error:{status: false, errorInfo: null},msg: "current phase set",});
             });
@@ -32,6 +45,8 @@ module.exports = {
     createImportantDates: (req, res) => {
         let impdate = new ImpDate({
             date: req.body.date,
+            month:req.body.month,
+            year:req.body.year,
             description: req.body.description
         });
 
@@ -42,9 +57,12 @@ module.exports = {
     },
 
     getImportantDates: (req, res) => {
-        ImpDate.find(function(err, response) {
-            if (err) throw err;
-            else res.status(200).json({error:{status: false, errorInfo: null}, impDates: response});
-        })
+       getImportantDatesUtil(function(err, impDates) {
+            if(err) res.status(500).json({error:{status: true, errorInfo: err}});;
+            getCurrentPhaseUtil(function(err, phase) {
+                if (err) res.status(500).json({error:{status: true, errorInfo: err}});
+                else res.status(200).json({error:{status: false, errorInfo: null}, impDates, phase});
+            })
+       })
     }
 }

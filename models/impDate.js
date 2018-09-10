@@ -7,6 +7,17 @@ const dateSchema = new Schema({
         required: true
     },
 
+    month: {
+        type:String,
+        required: true
+    },
+
+    year:{
+        type: String,
+        default: '2018',
+        required: true
+    },
+
     description: {
         type: String,
         required: true

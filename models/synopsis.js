@@ -7,6 +7,11 @@ let synopsisSchema = new Schema({
         required: true
     },
 
+    fileName: {
+        type: String,
+        required: true
+    },
+
     fileId: {
         type: String,
         required: true

@@ -27,7 +27,7 @@ function registerMembersUtil(memberDetails, id,  cb) {
     });
 }
 
-function saveFileInfo(fileId, teamId, cb) {
+function saveFileInfo(fileId, teamId, fileName, cb) {
     Synopsis.find({teamId: teamId}, function(err, synopsisDoc) {
         if(err) throw err;
         else if(synopsisDoc && synopsisDoc.length > 0) {
@@ -37,6 +37,7 @@ function saveFileInfo(fileId, teamId, cb) {
         } else {
             let newSynopsis = new Synopsis({
                 teamId: teamId,
+                fileName: fileName,
                 fileId: fileId
             });
             newSynopsis.save(function(err, newSynopsisDoc) {
@@ -131,7 +132,7 @@ module.exports = {
                                             res.status(500).json({error:{status: true, errorInfo: err}, msg:"could not upload file to drive"});
                                         else {
                                             // replace someId
-                                            saveFileInfo(file.data.id, "5b915de98c21bb138cbd52d1", (err, response) => {
+                                            saveFileInfo(file.data.id, "5b915de98c21bb138cbd52d2", fileName, (err, response) => {
                                                 if (err) throw err;
                                                 res.status(200).json({error:{status: false, errorInfo: null}, msg:"File saved succesfully", response:response});
                                             });
@@ -146,5 +147,31 @@ module.exports = {
         });
         // console.log(req.files);
         
+    },
+    
+    downloadFile: function(req, res) {
+        let fileName = req.query.downloadFile;
+        console.log(req.query);
+        Synopsis.findOne({fileName: fileName}, function(err, fileInfo) {
+            let fileId = fileInfo.fileId;
+            let destDir = fs.createWriteStream(path.join(__dirname, `../downloads/${fileName}`));
+            fs.readFile('credentials.json', (err, content) => {
+                if (err) return console.log('Error loading client secret file:', err);
+                // Authorize a client with credentials, then call the Google Drive API.
+                gapi.authorize(JSON.parse(content), function(auth) {
+                    const drive = google.drive({version: 'v3', auth});
+                    drive.files.export({
+                        fileId: fileId,
+                        mimeType: 'application/pdf'
+                    }, {
+                        responseType: 'stream'
+                    },function(err, response){
+                        if(err) throw err;
+                        response.dat.pipe(destDir);
+                   });
+                });
+            });
+
+        });
     }
 }

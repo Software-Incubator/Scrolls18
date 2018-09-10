@@ -44,6 +44,8 @@ router.post('/upload', dashboardController.uploadFile);
 router.get('/upload', function(req, res) {
     res.sendFile(path.join(__dirname, '/upload.html'));
 });
+router.get('/download', dashboardController.downloadFile);
+
 
 //admin routes
 router.post('/admin/createPhase', homeController.createPhase);
@@ -51,4 +53,5 @@ router.get('/admin/getCurrentPhase', homeController.getCurrentPhase);
 router.post('/admin/setThisAsCurrentPhase', homeController.setThisPhaseAsCurrent);
 router.post('/admin/createImportantDates', homeController.createImportantDates);
 router.get('/admin/getImportantdates', homeController.getImportantDates);
+
 module.exports = router;

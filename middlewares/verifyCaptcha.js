@@ -15,7 +15,7 @@ module.exports = {
                 console.log(body);
                 // Success will be true or false depending upon captcha validation.
                     if(body.success !== undefined && !body.success) {
-                        res.send({"responseCode" : 1,"responseDesc" : "Failed captcha verification"});
+                        res.send({"responseCode" : 1,"responseDesc" : "trynna hack bitch, well guess what u cant you sadistic dumbass bitch"});
                     }else{
                         next();
                     }
