@@ -33,8 +33,8 @@
       </li>
     </ul>
     <a href="" target="_blank" class="btn button btn-sm waves-effect waves-light" mdbWavesEffect>Synopsis <i class="fa fa-download" aria-hidden="true"></i></a>
-    <app-sc-login *ngIf="!loginStatus && (phaseName?.currentPhase[0].phaseName === 'login-phase')"></app-sc-login>
-    <app-sc-register *ngIf="!loginStatus && (phaseName?.currentPhase[0].phaseName === 'register-phase')"></app-sc-register>
+    <app-sc-login *ngIf="!loginStatus && (phaseName?.currentPhase.phaseName === 'login-phase')"></app-sc-login>
+    <app-sc-register *ngIf="!loginStatus && (phaseName?.currentPhase.phaseName === 'register-phase')"></app-sc-register>
     <a *ngIf="loginStatus && homeStatus" routerLink="dashboard"  class="btn button btn-sm waves-effect waves-light" mdbWavesEffect>Dashboard
       <i class="fa fa-sign-in ml-2"></i>
     </a>

@@ -11,7 +11,6 @@ export class ServerService {
   signup(signup_details) {
     return this.http.post(`${this.URL}/api/signUp`, signup_details);
   }
-
   login(login_details) {
     return this.http.post(`${this.URL}/api/login`, login_details);
   }
@@ -38,5 +37,8 @@ export class ServerService {
    }
    getPhase() {
      return this.http.get(`${this.URL}/api/admin/getCurrentPhase`);
+   }
+   getDateDetails() {
+     return this.http.get(`${this.URL}/api/admin/getImportantdates`);
    }
 }
