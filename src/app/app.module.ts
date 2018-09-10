@@ -36,6 +36,7 @@ import { AuthGuard } from './services/authguard.service';
     ReactiveFormsModule,
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule,
+    NgsRevealModule.forRoot(),
     MDBBootstrapModule.forRoot(),
     HttpClientModule
   ],

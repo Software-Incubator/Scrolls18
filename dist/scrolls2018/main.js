@@ -426,17 +426,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ng_recaptcha_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ng-recaptcha/forms */ "./node_modules/ng-recaptcha/forms.js");
 /* harmony import */ var ng_recaptcha_forms__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(ng_recaptcha_forms__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _sc_home_sc_home_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./sc-home/sc-home.component */ "./src/app/sc-home/sc-home.component.ts");
-/* harmony import */ var _sc_register_sc_register_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./sc-register/sc-register.component */ "./src/app/sc-register/sc-register.component.ts");
-/* harmony import */ var _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./sc-dashboard/sc-dashboard.component */ "./src/app/sc-dashboard/sc-dashboard.component.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _sc_navbar_sc_navbar_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./sc-navbar/sc-navbar.component */ "./src/app/sc-navbar/sc-navbar.component.ts");
-/* harmony import */ var _sc_login_sc_login_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./sc-login/sc-login.component */ "./src/app/sc-login/sc-login.component.ts");
-/* harmony import */ var _confirm_equal_validator_directive__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./confirm-equal-validator.directive */ "./src/app/confirm-equal-validator.directive.ts");
-/* harmony import */ var _services_server_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./services/server.service */ "./src/app/services/server.service.ts");
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/services/auth.service.ts");
-/* harmony import */ var _services_authguard_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./services/authguard.service */ "./src/app/services/authguard.service.ts");
+/* harmony import */ var ng_scrollreveal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ng-scrollreveal */ "./node_modules/ng-scrollreveal/index.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _sc_home_sc_home_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./sc-home/sc-home.component */ "./src/app/sc-home/sc-home.component.ts");
+/* harmony import */ var _sc_register_sc_register_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./sc-register/sc-register.component */ "./src/app/sc-register/sc-register.component.ts");
+/* harmony import */ var _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./sc-dashboard/sc-dashboard.component */ "./src/app/sc-dashboard/sc-dashboard.component.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _sc_navbar_sc_navbar_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./sc-navbar/sc-navbar.component */ "./src/app/sc-navbar/sc-navbar.component.ts");
+/* harmony import */ var _sc_login_sc_login_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./sc-login/sc-login.component */ "./src/app/sc-login/sc-login.component.ts");
+/* harmony import */ var _confirm_equal_validator_directive__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./confirm-equal-validator.directive */ "./src/app/confirm-equal-validator.directive.ts");
+/* harmony import */ var _services_server_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./services/server.service */ "./src/app/services/server.service.ts");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _services_authguard_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./services/authguard.service */ "./src/app/services/authguard.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -461,33 +462,35 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
-                _sc_home_sc_home_component__WEBPACK_IMPORTED_MODULE_8__["ScHomeComponent"],
-                _sc_register_sc_register_component__WEBPACK_IMPORTED_MODULE_9__["ScRegisterComponent"],
-                _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_10__["ScDashboardComponent"],
-                _sc_navbar_sc_navbar_component__WEBPACK_IMPORTED_MODULE_12__["ScNavbarComponent"],
-                _sc_login_sc_login_component__WEBPACK_IMPORTED_MODULE_13__["ScLoginComponent"],
-                _confirm_equal_validator_directive__WEBPACK_IMPORTED_MODULE_14__["ConfirmEqualValidatorDirective"]
+                _app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"],
+                _sc_home_sc_home_component__WEBPACK_IMPORTED_MODULE_9__["ScHomeComponent"],
+                _sc_register_sc_register_component__WEBPACK_IMPORTED_MODULE_10__["ScRegisterComponent"],
+                _sc_dashboard_sc_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["ScDashboardComponent"],
+                _sc_navbar_sc_navbar_component__WEBPACK_IMPORTED_MODULE_13__["ScNavbarComponent"],
+                _sc_login_sc_login_component__WEBPACK_IMPORTED_MODULE_14__["ScLoginComponent"],
+                _confirm_equal_validator_directive__WEBPACK_IMPORTED_MODULE_15__["ConfirmEqualValidatorDirective"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_11__["AppRoutingModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_12__["AppRoutingModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
                 ng_recaptcha__WEBPACK_IMPORTED_MODULE_4__["RecaptchaModule"].forRoot(),
                 ng_recaptcha_forms__WEBPACK_IMPORTED_MODULE_5__["RecaptchaFormsModule"],
+                ng_scrollreveal__WEBPACK_IMPORTED_MODULE_7__["NgsRevealModule"].forRoot(),
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["MDBBootstrapModule"].forRoot(),
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"]
             ],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NO_ERRORS_SCHEMA"]],
-            providers: [_services_auth_service__WEBPACK_IMPORTED_MODULE_16__["AuthService"], _services_server_service__WEBPACK_IMPORTED_MODULE_15__["ServerService"], _services_authguard_service__WEBPACK_IMPORTED_MODULE_17__["AuthGuard"]],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
+            providers: [_services_auth_service__WEBPACK_IMPORTED_MODULE_17__["AuthService"], _services_server_service__WEBPACK_IMPORTED_MODULE_16__["ServerService"], _services_authguard_service__WEBPACK_IMPORTED_MODULE_18__["AuthGuard"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
