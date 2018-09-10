@@ -10,8 +10,6 @@
         top:35%;
         left:50%;
         transform: translate(-50%,-50%);
-
-
     }
 
     &_bottom{
@@ -42,8 +40,8 @@
 .desktop_landing_back{
     width:300px;
     height:400px;
-    background-color:#fbc02d;
-
+    //background-color:#fbc02d;
+    background: #fbc02d url(../../assets/images/landing_pattern.svg);
     margin-top:2em;
 }
 .desktop_slide{
@@ -77,10 +75,12 @@
     animation-name: anim-3;
 }
 }
-
+#home {
+  margin-top: 4em;
+}
 .heading{
     text-align: center;
-    margin:0.5em;
+    margin-top:1em;
     color:#fbc02d;
 
     &_text{
@@ -153,7 +153,7 @@
             }
         }
         .rules{
-
+            font-size: 1.1em;
             line-height: 1.5em;
             font-weight: 400;
             margin-top:1.5em;
@@ -234,10 +234,11 @@
                             display: inline-block;
                             &_image{
 
-                                height:75px;
-                                width: 75px;
+                                height:100px;
+                                width: 100px;
                                 position: relative;
                                 border-radius: 50%;
+                                transition: all 0.2s ease;
 
                                 & img{
                                     border-radius:50%;
@@ -248,44 +249,45 @@
                                     position:absolute;
                                     content:'';
                                     display:block;
-                                    width:90px;
-                                    height:90px;
+                                    width:110px;
+                                    height:110px;
                                     background-color:#fbc02d;
                                     border-radius:50%;
-                                    top:-7%;
-                                    left:-7%;
+                                    top:50%;
+                                    left:50%;
                                     transform: translate(-50%,-50%);
                                     z-index:-1;
                                     transition: all 0.5s;
-                                    animation:animation2 .8s cubic-bezier(0.77, 0, 0.175, 1)
-                                    alternate infinite;
+                                    box-shadow: 2px 2px 2px #ddd;
+                                    // animation:animation2 .8s cubic-bezier(0.77, 0, 0.175, 1)
+                                    // alternate infinite;
                                 }
-                                &:hover:after{
-                                    position:absolute;
-                                    content:'';
-                                    display:block;
-                                    width:110px;
-                                    height:110px;
-                                    background-color:#87481F;
-                                    border-radius:50%;
-                                    opacity:.5;
-                                    top:-20%;
-                                    left:-20%;
-                                    transform: translate(-50%,-50%);
-                                    z-index:-3;
-                                    transition:all 0.5s;
-                                    animation:animation1 .8s
-                                    cubic-bezier(0.77, 0, 0.175, 1)
-                                    alternate infinite;
+                                // &:hover:after{
+                                //     position:absolute;
+                                //     content:'';
+                                //     display:block;
+                                //     width:110px;
+                                //     height:110px;
+                                //     background-color:#87481F;
+                                //     border-radius:50%;
+                                //     opacity:.5;
+                                //     top:50%;
+                                //     left:50%;
+                                //     transform: translate(-50%,-50%);
+                                //     z-index:-3;
+                                //     transition:all 0.5s;
+                                //     // animation:animation1 .8s
+                                //     // cubic-bezier(0.77, 0, 0.175, 1)
+                                //     // alternate infinite;
 
-                                }
+                                // }
                             }
 
 
                             &_detail{
                                 text-align: center;
-                                padding-top:40px;
                                 font-weight: 600;
+                                padding-top:15px;
                             }
                         }
 
@@ -294,9 +296,8 @@
                             // bottom: 0;
                             text-align: center;
                             margin-bottom:2em;
-
                             padding: 1em;
-                            font-weight: 400;
+                            font-weight: 700;
                             height:6em;
                             &-image{
                                 height:100%;
@@ -384,6 +385,12 @@
                             100% { opacity: 0; }
                         }
                         @media only screen and (max-width: 767px) {
+                          #home {
+                            margin-top: 0;
+                          }
+                          .heading{
+                            margin-top:5em;
+                          }
                             .rule_svg {
                                 display: none;
                             }
@@ -397,26 +404,23 @@
                                 height:50px;
                                 width:50px;
                             }
+                            .member_image:hover::before{
+                              height:60px;
+                              width:60px;
+                            }
+                            .member_detail{
+                              padding-top:10px;
+                            }
                             .img-fluid, .modal-dialog.cascading-modal.modal-avatar .modal-header, .video-fluid {
                                 max-width: 65%;
                             }
-                            .member_image:hover::after{
-                                display: none;
-                            }
-                            .member_image:hover::before{
-                                display: none;
-                            }
-                            .member_detail{
-                                padding-top:20px;
-                            }
+
+
                             .footer{
                                 padding: 0;
                             }
                             .team_row{
                                 padding: 0;
-                            }
-                            .about_text{
-                                padding: 1em 5em 1em 2em;
                             }
                             .desktop{
                                 display:none;

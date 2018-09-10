@@ -19,7 +19,6 @@ export class ScHomeComponent implements OnInit {
       autoScrolling: true,
       scrollBar: true,
       scrollingSpeed: 300,
-      navigation: true,
       fadingEffect: true
       // afterLoad: (origin, destination, direction) => {
       //   this.LocalInteractionService.LinkChange.next(destination.index);

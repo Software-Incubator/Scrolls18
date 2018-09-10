@@ -1,37 +1,46 @@
 <!--Navbar-->
-<mdb-navbar class="nav" SideClass=" navbar navbar-expand-lg">
+<mdb-navbar class="nav" SideClass=" navbar navbar-dark navbar-expand-md">
 
-    <!-- Navbar brand -->
-    <mdb-navbar-brand>
-        <a class="navbar-brand" href="#">
-            <img src="../../assets/images/akgec.png" height="30" alt="">
-        </a>
-    </mdb-navbar-brand>
+  <!-- Navbar brand -->
+  <mdb-navbar-brand>
+    <a class="navbar-brand" target="_blank" href="http://www.akgec.in">
+      <img src="../../assets/images/akgec.png" height="35" alt="">
+    </a>
+  </mdb-navbar-brand>
 
-    <!-- Collapsible content -->
-    <links>
+  <!-- Collapsible content -->
+  <links>
 
-        <!-- Links -->
-        <ul class="navbar-nav mr-auto">
-            <li *ngIf = "homeStatus" class="nav-item active">
-                <a class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
-            </li>
-            <li *ngIf = "homeStatus" class="nav-item">
-                <a class="nav-link waves-light" mdbWavesEffect>Features</a>
-            </li>
-            <li *ngIf = "homeStatus" class="nav-item">
-                <a class="nav-link waves-light" mdbWavesEffect>Pricing</a>
-            </li>
-        </ul>
-        <a href="" target="_blank" class="btn btn-info btn-sm waves-effect waves-light" mdbWavesEffect>Download</a>
-        <app-sc-login *ngIf="!loginStatus && (phaseName?.currentPhase[0].phaseName === 'login-phase')"></app-sc-login>
-        <app-sc-register *ngIf="!loginStatus && (phaseName?.currentPhase[0].phaseName === 'register-phase')"></app-sc-register>
-        <a *ngIf="loginStatus && homeStatus" routerLink="dashboard"  class="btn btn-info btn-sm waves-effect waves-light" mdbWavesEffect>Dashboard
-            <i class="fa fa-sign-in ml-2"></i>
-          </a>
-        <a *ngIf="loginStatus" (click)="logout()" class="btn btn-info btn-sm waves-effect waves-light" mdbWavesEffect>Logout
-            <i class="fa fa-sign-in ml-2"></i>
-        </a>
-    </links>
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li *ngIf = "homeStatus" class="nav-item active">
+        <a  style="text-decoration: none; color: #000;" href="#home" class="nav-link waves-light" mdbWavesEffect>Home</a>
+      </li>
+      <li *ngIf = "homeStatus" class="nav-item">
+        <a style="text-decoration: none; color: #000;" href="#about" class="nav-link waves-light" mdbWavesEffect>About</a>
+      </li>
+      <li *ngIf = "homeStatus" class="nav-item">
+        <a style="text-decoration: none; color: #000;" href="#topics" class="nav-link waves-light" mdbWavesEffect>Topics</a>
+      </li>
+      <li *ngIf = "homeStatus" class="nav-item">
+        <a style="text-decoration: none; color: #000;" href="#rules" class="nav-link waves-light" mdbWavesEffect>Rules</a>
+      </li>
+      <li *ngIf = "homeStatus" class="nav-item">
+        <a style="text-decoration: none; color: #000;" href="#contact" class="nav-link waves-light" mdbWavesEffect>contact Us</a>
+      </li>
+      <li *ngIf = "homeStatus" class="nav-item">
+        <a style="text-decoration: none; color: #000;" href="#team" class="nav-link waves-light" mdbWavesEffect>Team</a>
+      </li>
+    </ul>
+    <a href="" target="_blank" class="btn button btn-sm waves-effect waves-light" mdbWavesEffect>Synopsis <i class="fa fa-download" aria-hidden="true"></i></a>
+    <app-sc-login *ngIf="!loginStatus && (phaseName?.currentPhase[0].phaseName === 'login-phase')"></app-sc-login>
+    <app-sc-register *ngIf="!loginStatus && (phaseName?.currentPhase[0].phaseName === 'register-phase')"></app-sc-register>
+    <a *ngIf="loginStatus && homeStatus" routerLink="dashboard"  class="btn button btn-sm waves-effect waves-light" mdbWavesEffect>Dashboard
+      <i class="fa fa-sign-in ml-2"></i>
+    </a>
+    <a *ngIf="loginStatus" (click)="logout()" class="btn button btn-sm waves-effect waves-light" mdbWavesEffect>Logout
+      <i class="fa fa-sign-in ml-2"></i>
+    </a>
+  </links>
 </mdb-navbar>
 <!--/.Navbar-->
