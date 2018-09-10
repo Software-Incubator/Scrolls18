@@ -4,7 +4,15 @@
     box-sizing: border-box;
     margin:0;
 }
-
+.loading_image{
+  position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 400px;
+   height: 400px;
+   margin-top: -200px; /* Half the height */
+   margin-left: -200px; /* Half the width */
+}
 .nav{
     .navbar{
         position:fixed;
