@@ -45,11 +45,14 @@
     margin-top:2em;
 }
 .desktop_landing_back2{
-  width:400px;
+  position: relative;  
+  width:300px;
   height:100px;
   //background-color:#fbc02d;
-  background: #fbc02d;
-  margin-top:2em;
+  background: #fbc02d url(../../assets/images/landing_pattern.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top:1em;
 }
 .desktop_slide{
     position: absolute;
