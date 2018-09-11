@@ -10,7 +10,8 @@
           <img src="../../assets/images/scrolls_desktop_animated.svg" alt="Scrolls-2018" class="desktop_landing_img">
           <!-- <button class="desktop_landing_button">Register</button> -->
           <div class="status desktop_landing_back2">
-            <h1 style="position:absolute;font-size: 2em; font-weight:510;margin-top:-1em;margin-left:-0.5em; color:rgb(64,64,64)">Registration <br/> Starting Soon...</h1>
+            <h1 *ngIf="response?.phase.phaseName === 'coming-soon'" style="position:absolute;font-size: 2em; font-weight:510;margin-top:-1em;margin-left:-0.5em; color:rgb(64,64,64)">Registration <br/> Starting Soon...</h1>
+            <h1 *ngIf="response?.phase.phaseName === 'register-phase'" style="position:absolute;font-size: 3em; font-weight:510;margin-top:-1em;margin-left:-0.5em; color:rgb(64,64,64)">Register Now...</h1>
           </div>
         </div>
         <div class="col-md-5">
@@ -97,19 +98,16 @@
               <div class="col-md-10 topic_heading"><h3>Computer Science & Information Technology</h3></div>
               <div class="col-md-6 topics">
                 <ul>
+                  <li>3-D Image Technique & Multimedia Application</li>
                   <li>Embedded Systems</li>
-                  <li>Augmented Reality</li>
+                  <li>Neural Networks, Artificial Intelligence and Genetic Algorithm</li>
                   <li>Natural Language Processing</li>
-                  <li>Genetic Algorithms and Bio-inspired Computing</li>
-                  <li>Cloud Computing
-                  </li>
-                  <li>Semantic Web</li>
-                  <li>Mobile Computing and Data Intensive Computing</li>
-                  <li> Soft Computing including multi-criteria Analysis</li>
-                  <li>Cybernetics</li>
-                  <li> Nano Computing</li>
-                  <li>Quantum Computing</li>
-                  <li>Big Data Analytics</li>
+                  <li>Mobile Computing & Data Intensive Computing</li>
+                  <li>Augmented Reality</li>
+                  <li>Big Data and Analytics</li>
+                  <li>Cryptocurrency (Blockchain)</li>
+                  <li>Wireless Sensor Network (WSN)</li>
+                  <li>Semantic Web: Sentament Analysis of Twitter/Facebook.</li>
                 </ul>
               </div>
               <div class="col-md-4 justify-content-center center topics_image">
@@ -124,27 +122,25 @@
           <div class="container">
             <div class="row justify-content-center no-gutters">
               <div class="col-md-10 topic_heading">
-                <h3>Computer Science & Information Technology</h3>
+                <h3>Electrical & Electronics Engineering:</h3>
               </div>
               <div class="col-md-6 topics">
                 <ul>
-                  <li>Embedded Systems</li>
-                  <li>Augmented Reality</li>
-                  <li>Natural Language Processing</li>
-                  <li>Genetic Algorithms and Bio-inspired Computing</li>
-                  <li>Cloud Computing
-                  </li>
-                  <li>Semantic Web</li>
-                  <li>Mobile Computing and Data Intensive Computing</li>
-                  <li> Soft Computing including multi-criteria Analysis</li>
-                  <li>Cybernetics</li>
-                  <li> Nano Computing</li>
-                  <li>Quantum Computing</li>
-                  <li>Big Data Analytics</li>
+                  <li>Wireless Power Transmission</li>
+                  <li>Floating Power Plant: Power Ship</li>
+                  <li>Hybrid Electric Vehicles</li>
+                  <li>Intelligence Substation</li>
+                  <li>Smart Electrical Energy Metering</li>
+                  <li>Humanoid Robotics</li>
+                  <li>Bluetooth Technology</li>
+                  <li>Power Quality Issues with Grid Connected Wind Energy Systems</li>
+                  <li>Renewable Energy and Environment Protection.</li>
+                  <li>Smart Grid Technology</li>
+                  <li>Super Conducting Rotating Machines.</li>
                 </ul>
               </div>
               <div class="col-md-4 justify-content-center center topics_image">
-                <img src="../../assets/images/IT_animated.svg">
+                <img src="../../assets/images/electrical_and_electronics_animated.svg">
               </div>
             </div>
           </div>
@@ -155,32 +151,111 @@
           <div class="container">
             <div class="row justify-content-center no-gutters">
               <div class="col-md-10 topic_heading">
-                <h3>Computer Science & Information Technology</h3>
+                <h3>Electronics & Communication Engineering:</h3>
               </div>
               <div class="col-md-6 topics">
                 <ul>
-                  <li>Embedded Systems</li>
-                  <li>Augmented Reality</li>
-                  <li>Natural Language Processing</li>
-                  <li>Genetic Algorithms and Bio-inspired Computing</li>
-                  <li>Cloud Computing
-                  </li>
-                  <li>Semantic Web</li>
-                  <li>Mobile Computing and Data Intensive Computing</li>
-                  <li> Soft Computing including multi-criteria Analysis</li>
-                  <li>Cybernetics</li>
-                  <li> Nano Computing</li>
-                  <li>Quantum Computing</li>
-                  <li>Big Data Analytics</li>
+                  <li>Femto Technology</li>
+                  <li>Speech Processing</li>
+                  <li>Plasmonics: Vision for Future</li>
+                  <li>RFID Technology</li>
+                  <li>5G Wireless System</li>
+                  <li>Electronic Paper</li>
+                  <li>Li-Fi Technology</li>
+                  <li>Embedded System in Automobiles</li>
+                  <li>Internet of Things</li>
+                  <li>Satellites for Remote Sensing</li>
                 </ul>
               </div>
               <div class="col-md-4 justify-content-center center topics_image">
-                <img src="../../assets/images/electrical_and_electronics_animated.svg">
+                <img src="../../assets/images/electronics_and_communication_animated.svg">
               </div>
             </div>
           </div>
         </mdb-carousel-item>
 
+        <mdb-carousel-item>
+            <div class="container">
+              <div class="row justify-content-center no-gutters">
+                <div class="col-md-10 topic_heading">
+                  <h3>Mechanical Engineering:</h3>
+                </div>
+                <div class="col-md-6 topics">
+                  <ul>
+                    <li>Computer Aided Engineering (CAE)</li>
+                    <li>Smart Materials</li>
+                    <li>Hydraulic & Pneumatic Actuators</li>
+                    <li>Cryogenics</li>
+                    <li>Biomimetics – Innovation among Nature</li>
+                    <li>Rapid Prototyping</li>
+                    <li>MEMS – Micro Electro Mechanical Systems</li>
+                    <li>Power Generation using Nano-Tubes.</li>
+                    <li>Automatic Transmission in Automobiles.</li>
+                    <li>Robotics Application: Present and Future</li>
+                    <li>TQM Concepts for Zero Rejection.</li>
+                    <li>Nano Technology</li>
+                  </ul>
+                </div>
+                <div class="col-md-4 justify-content-center center topics_image">
+                  <img src="../../assets/images/mech_animated.svg">
+                </div>
+              </div>
+            </div>
+          </mdb-carousel-item>
+
+        <mdb-carousel-item>
+            <div class="container">
+              <div class="row justify-content-center no-gutters">
+                <div class="col-md-10 topic_heading">
+                  <h3>Civil Engineering:</h3>
+                </div>
+                <div class="col-md-6 topics">
+                  <ul>
+                    <li>Modern Concepts of Rural Road Development</li>
+                    <li>Underwater Concreting</li>
+                    <li>Marine Pollution</li>
+                    <li>Indian Railways: Ensuring last mile connectivity.</li>
+                    <li>Earthquake Engineering- Seismic risk reduction in NCR Region.</li>
+                    <li>Sanitation and solid waste management   through ICT.</li>
+                    <li>Storage Dams: Need for flood management.</li>
+                    <li>Equity and global climate agreement- A step towards a clean earth.</li>
+                    <li>Futuristic Architecture</li>
+                    <li>Civil Engineering Models for- “Skill India”</li>
+                  </ul>
+                </div>
+                <div class="col-md-4 justify-content-center center topics_image">
+                  <img src="../../assets/images/civil_animated.svg">
+                </div>
+              </div>
+            </div>
+          </mdb-carousel-item>
+
+            <mdb-carousel-item>
+                <div class="container">
+                  <div class="row justify-content-center no-gutters">
+                    <div class="col-md-10 topic_heading">
+                      <h3>Management Sciences:</h3>
+                    </div>
+                    <div class="col-md-6 topics">
+                      <ul>
+                        <li>Has Apple lost its charm after Steve Jobs?</li>
+                        <li>Depreciation of Indian Rupee Has Only Negative Impact on the Economy</li>
+                        <li>Can International Law save the Syrians?</li>
+                        <li>Is GNH More Important than GDP? </li>
+                        <li>BREXIT: Impact on Indian Economy.</li>
+                        <li>Role of Skill Development in winning the war against unemployment.</li>
+                        <li>Social Networking is the prime catalyst in shaping the actions of Indian Youths.</li>
+                        <li>100% FDI in Indian Defense Sector: Boon or Bane.</li>
+                        <li>Rural Development is the right answer to our unemployment problem.</li>
+                        <li>Ethics in business: An integral part or a passing fad?</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4 justify-content-center center topics_image">
+                      <img src="../../assets/images/Management_animated.svg">
+                    </div>
+                  </div>
+                </div>
+              </mdb-carousel-item>
       </mdb-carousel>
     </div>
   </div>
@@ -265,12 +340,12 @@
               <h4 class="team_heading">CONVENOR</h4>
               <div class="row team_row">
                 <div class="col-md-3 col-xs-6 col-6 justify-content-center center">
-                  <div class="member">
+                  <div class="text-center member">
                     <div class="member_image">
-                      <img src="../../assets/images/param2.jpg">
+                      <img src="../../assets/images/convenor1.jpeg">
                     </div>
                     <div class="member_detail">
-                      Name
+                        Pragya Gupta
                     </div>
                   </div>
                 </div>
@@ -278,34 +353,34 @@
 
                   <div class="member">
                     <div class="member_image">
-                      <img src="../../assets/images/param2.jpg">
+                      <img src="../../assets/images/convenor2.jpeg">
                     </div>
                     <div class="member_detail">
-                      Name
+                        Achyut Awasthi
                     </div>
                   </div>
 
                 </div>
                 <div class="col-md-3 col-xs-6 col-6 justify-content-center center">
 
-                  <div class="member">
-                    <div class="member_image">
-                      <img src="../../assets/images/param2.jpg">
+                  <div class=" member">
+                    <div class="member_image"  style="text-align: center;">
+                      <img src="../../assets/images/convenor3.jpeg">
                     </div>
-                    <div class="member_detail">
-                      Name
+                    <div class="member_detail" style="text-align:center">
+                        Madhuram Mehrotra
                     </div>
                   </div>
 
                 </div>
                 <div class="col-md-3 col-xs-6 col-6 justify-content-center center">
 
-                  <div class="member">
+                  <div class="text-center member">
                     <div class="member_image">
-                      <img src="../../assets/images/param2.jpg">
+                      <img src="../../assets/images/convenor4.jpeg">
                     </div>
                     <div class="member_detail">
-                      Name
+                        Shagun Singh
                     </div>
                   </div>
 
@@ -314,47 +389,47 @@
               <h3 class="team_heading">DEVELOPER TEAM</h3>
               <div class="row team_row">
                 <div class="col-md-3 col-xs-6 col-6 justify-content-center center">
-                  <div class="member">
+                  <div class="text-center member">
                     <div class="member_image">
-                      <img src="../../assets/images/param2.jpg">
+                      <img src="../../assets/images/meghna.jpeg">
                     </div>
                     <div class="member_detail">
-                      Name
+                      Meghna Gupta
                     </div>
                   </div>
                 </div>
                 <div class="col-md-3 col-xs-6 col-6 justify-content-center center">
 
-                  <div class="member">
+                  <div class="text-center member">
                     <div class="member_image">
-                      <img src="../../assets/images/param2.jpg">
+                      <img src="../../assets/images/param.jpeg">
                     </div>
                     <div class="member_detail">
-                      Name
-                    </div>
-                  </div>
-
-                </div>
-                <div class="col-md-3 col-xs-6 col-6 justify-content-center center">
-
-                  <div class="member">
-                    <div class="member_image">
-                      <img src="../../assets/images/param2.jpg">
-                    </div>
-                    <div class="member_detail">
-                      Name
+                      Param Mittal
                     </div>
                   </div>
 
                 </div>
                 <div class="col-md-3 col-xs-6 col-6 justify-content-center center">
 
-                  <div class="member">
+                  <div class="text-center member">
                     <div class="member_image">
-                      <img src="../../assets/images/param2.jpg">
+                      <img src="../../assets/images/suyash.jpeg">
                     </div>
                     <div class="member_detail">
-                      Name
+                      Syuash Srivastava
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-md-3 col-xs-6 col-6 justify-content-center center">
+
+                  <div class="text-center member">
+                    <div class="member_image">
+                      <img src="../../assets/images/tyagi.jpg">
+                    </div>
+                    <div class="member_detail">
+                      Deepanshu Tyagi
                     </div>
                   </div>
 
