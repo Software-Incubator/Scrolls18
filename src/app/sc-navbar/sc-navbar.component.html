@@ -31,7 +31,7 @@
       <li *ngIf = "homeStatus" class="nav-item">
         <a style="text-decoration: none; color: #000;" href="#team" class="nav-link waves-light" mdbWavesEffect>Team</a>
       </li>
-    </ul>
+    </ul> 
     <a href="" target="_blank" class="btn button btn-sm waves-effect waves-light" mdbWavesEffect>Synopsis <i class="fa fa-download" aria-hidden="true"></i></a>
     <app-sc-login *ngIf="!loginStatus && (phaseName?.currentPhase.phaseName === 'login-phase')"></app-sc-login>
     <app-sc-register *ngIf="!loginStatus && (phaseName?.currentPhase.phaseName === 'register-phase')"></app-sc-register>
