@@ -31,18 +31,18 @@ export class ScHomeComponent implements OnInit {
     this.server.getDateDetails()
     .subscribe(
       res => {
-        console.log(res);
+        //console.log(res);
         this.response = res;
         this.createRange();
       }
     );
   }
   createRange() {
-    console.log(this.response.impDates.length);
+    //console.log(this.response.impDates.length);
     for ( let i = 0; i < this.response.impDates.length; i++) {
        this.items.push(i);
     }
-    console.log(this.items);
+    //console.log(this.items);
     return this.items;
   }
 }

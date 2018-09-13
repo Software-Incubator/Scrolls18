@@ -19,7 +19,7 @@ export class ScRegisterComponent implements OnInit {
   }
   onSubmit() {
     this.Loading = true;
-    console.log(this.model);
+    //console.log(this.model);
     this.server.signup(this.model)
     .subscribe(
       res => {
@@ -27,15 +27,15 @@ export class ScRegisterComponent implements OnInit {
       this.responseMessage = res;
       this.gotError = false;
       document.getElementById('openModalButton').click();
-      console.log(this.responseMessage);
+      //console.log(this.responseMessage);
     },
     err => {
       this.Loading = false;
       this.gotError = true;
       this.responseMessage = err;
       document.getElementById('openModalButton').click();
-      console.log(this.responseMessage);
-      console.log(this.responseMessage.error.msg);
+      //console.log(this.responseMessage);
+      //console.log(this.responseMessage.error.msg);
     }
   );
   }

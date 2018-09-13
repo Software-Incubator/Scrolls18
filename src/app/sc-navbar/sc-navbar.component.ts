@@ -27,7 +27,7 @@ export class ScNavbarComponent implements OnInit {
     this.server.getPhase()
     .subscribe(
       res => {
-        console.log(res);
+        //console.log(res);
         this.phaseName = res;
       }
     );

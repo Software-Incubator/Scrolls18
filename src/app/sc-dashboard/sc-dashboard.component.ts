@@ -64,14 +64,14 @@ export class ScDashboardComponent implements OnInit {
     .subscribe(
       res => {
         this.Loading = false;
-        console.log(res);
+        //console.log(res);
       },
       err => {
         this.Loading = false;
-        console.log(err);
+        //console.log(err);
       }
     );
-    console.log(this.form.value, this.form);
+    //console.log(this.form.value, this.form);
   }
   checkFormValid() {
     if (this.form.invalid) {
@@ -112,11 +112,11 @@ export class ScDashboardComponent implements OnInit {
   }
   next() {
     this.track++;
-    console.log(this.track);
+    //console.log(this.track);
   }
   previous() {
     this.track--;
-    console.log(this.track);
+    //console.log(this.track);
   }
   getNumberOfMem(n: number) {
     for (let j = +this.form.value.members.length; j >= 0; j--) {
@@ -157,10 +157,10 @@ export class ScDashboardComponent implements OnInit {
     this.frmData = new FormData();
     this.frmData.append('foo', this.file, this.file.name);
     this.frmData.append('foo', this.name);
-    console.log(this.frmData);
+    //console.log(this.frmData);
     this.server.sendFile(this.auth.getToken(), this.frmData)
     .subscribe((data) => {
-      console.log(data);
+      //console.log(data);
       this.Loading = false;
       this.resData = data;
       this.array = Object.keys(this.resData.anomalies_dict);
@@ -169,7 +169,7 @@ export class ScDashboardComponent implements OnInit {
   }
   fileEvent(event) {
     this.file = event.target.files[0];
-    console.log(this.file);
+    //console.log(this.file);
     this.fileName = this.file.name;
     this.allowedExtensions =
     ['pdf', 'jpg'];
