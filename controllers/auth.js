@@ -31,7 +31,7 @@ module.exports = {
             if(doc.length == 0){
                 const teamId = randomString.generate({
                     length: 5,
-                    charset: 'alphanumeric'
+                    charset: 'numeric'
                 });
                 teamId = "SC18" + teamId;
                 bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
