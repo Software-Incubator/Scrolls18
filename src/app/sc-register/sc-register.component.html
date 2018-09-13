@@ -33,10 +33,10 @@ aria-hidden="true">
               </div>
               <div class="md-form mb-1">
                 <label for="email">Email ( Team Leader )</label>
-                <input style="color: #808080;" type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': email.touched && email.invalid }" required email>
+                <input style="color: #808080;" type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': email.touched && email.invalid }" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" required>
                 <div *ngIf="email.touched && email.invalid" class="invalid-feedback">
                   <div *ngIf="email.errors.required">Email is required</div>
-                  <div *ngIf="email.errors.email">Email a valid email</div>
+                  <div *ngIf="email.errors.pattern">Email a valid email</div>
                 </div>
               </div>
               <div class="md-form mb-1">

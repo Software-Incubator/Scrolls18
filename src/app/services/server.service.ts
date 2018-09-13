@@ -5,7 +5,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ServerService {
-  private URL = 'http://localhost:3000';
+  private URL = 'http://www.akgec-scrolls.in';
   constructor(private http: HttpClient) { }
 
   signup(signup_details) {
