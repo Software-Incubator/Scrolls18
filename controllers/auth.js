@@ -29,7 +29,7 @@ module.exports = {
         /* teamName, password, email */
         Teams.find({teamName: req.body.teamName}, function(err, doc) {
             if(doc.length == 0){
-                const teamId = randomString.generate({
+                let teamId = randomString.generate({
                     length: 5,
                     charset: 'alphanumeric'
                 });
@@ -65,7 +65,7 @@ module.exports = {
                                         res.status(500).json({error: {status: true, errorInfo: "Could not send mail"},msg: "Team registered"});
                                     else {
                                         // console.log("success", info);
-                                        res.status(200).json({error: {status: false, errorInfo: null},msg: "Team registered"})
+                                        res.status(200).json({error: {status: false, errorInfo: null},msg: "Congratulations!! Team registered Your Team Id has been sent to your mail !!"})
                                     }
                                 }
                             );
@@ -73,7 +73,7 @@ module.exports = {
                     });
                 });
             } else {
-                res.status(409).json({error: {status: true, errorInfo: "409 conflict"},msg: "Team already registered"})
+                res.status(409).json({error: {status: true, errorInfo: "409 conflict"},msg: "Sorry This Team is already registered"})
 
             }
         });
