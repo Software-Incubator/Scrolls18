@@ -28,9 +28,6 @@
       background-image: url("data:image/svg+xml;charset=utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path stroke='rgba(0, 0, 0, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/></svg>");
     }
     z-index: 10;
-    .nav-link:focus {
-      font-size: 5rem;
-    }
     .button {
       border: 1.5px solid #222;
       color: #222;
@@ -63,6 +60,9 @@
     background: #795548 no-repeat center center;
     background-size: 100% 100%;
 }
+}
+.modal-backdrop{
+  z-index: 5 !important;
 }
 
  @media only screen and (max-width: 767px){

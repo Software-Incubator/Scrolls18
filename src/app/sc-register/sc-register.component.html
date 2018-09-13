@@ -16,9 +16,9 @@ aria-hidden="true">
     <div class="modal-body">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-6">
+          <div style="text-align: center;" class="col-sm-12 col-md-6 col-lg-6">
             <h1 class="text-center Register_heading">REGISTRATION</h1>
-            <img class="mt-3 w-100" src="../../assets/images/register.svg" alt="">
+            <img class="reg_img mt-3" src="../../assets/images/register_animated.svg" alt="">
           </div>
           <div class="col-sm-12 col-md-6 col-lg-6">
             <h2 class="text-center Team_heading mt-2">ENTER DETAILS</h2>
@@ -40,10 +40,10 @@ aria-hidden="true">
                 </div>
               </div>
               <div class="md-form mb-1">
-                <label for="password">Password ( at least 6 characters )</label>
+                <label for="password">Password ( at least 8 characters )</label>
                 <input (ngModelChange)="confirmPassword.control.updateValueAndValidity()" style="color: #808080;" type="password" id="password" required  class="form-control"
                 name="password" [(ngModel)]="model.password"
-                #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" minlength="6">
+                #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" minlength="8">
                 <div class="help-block"
                 *ngIf="(password.touched && password.errors?.required) || password.errors?.minlength">
                 Invalid Password
