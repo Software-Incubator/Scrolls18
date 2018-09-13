@@ -64,11 +64,11 @@ export class ScDashboardComponent implements OnInit {
     .subscribe(
       res => {
         this.Loading = false;
-        //console.log(res);
+        console.log(res);
       },
       err => {
         this.Loading = false;
-        //console.log(err);
+        console.log(err);
       }
     );
     //console.log(this.form.value, this.form);
