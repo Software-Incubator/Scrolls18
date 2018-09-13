@@ -26,13 +26,16 @@
         <a style="text-decoration: none; color: #000;" href="#rules" class="nav-link waves-light" mdbWavesEffect>Rules</a>
       </li>
       <li *ngIf = "homeStatus" class="nav-item">
-        <a style="text-decoration: none; color: #000;" href="#contact" class="nav-link waves-light" mdbWavesEffect>contact Us</a>
+        <a style="text-decoration: none; color: #000;" href="#contact" class="nav-link waves-light" mdbWavesEffect>Contact Us</a>
       </li>
       <li *ngIf = "homeStatus" class="nav-item">
         <a style="text-decoration: none; color: #000;" href="#team" class="nav-link waves-light" mdbWavesEffect>Team</a>
       </li>
+      <li *ngIf = "homeStatus" class="nav-item">
+        <a style="text-decoration: none; color: rgb(255, 179, 57);" class="nav-link waves-light" (click)="caModal.show()" mdbWavesEffect><b>Campus Ambassador</b></a>
+      </li>
     </ul>
-    <a href="" target="_blank" class="btn button btn-sm waves-effect waves-light" mdbWavesEffect>Synopsis <i class="fa fa-download" aria-hidden="true"></i></a>
+    <a *ngIf="phaseName?.currentPhase.phaseName === 'login-phase'" href="" target="_blank" class="btn button btn-sm waves-effect waves-light" mdbWavesEffect>Synopsis <i class="fa fa-download" aria-hidden="true"></i></a>
     <app-sc-login *ngIf="!loginStatus && (phaseName?.currentPhase.phaseName === 'login-phase')"></app-sc-login>
     <app-sc-register *ngIf="!loginStatus && (phaseName?.currentPhase.phaseName === 'register-phase')"></app-sc-register>
     <a *ngIf="loginStatus && homeStatus" routerLink="dashboard"  class="btn button btn-sm waves-effect waves-light" mdbWavesEffect>Dashboard
@@ -44,3 +47,28 @@
   </links>
 </mdb-navbar>
 <!--/.Navbar-->
+
+<div mdbModal #caModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close pull-right" aria-label="Close" (click)="caModal.hide()">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="text-center">
+              <h3 style="font-weight: 700; color: rgb(255, 179, 57);">For More informaton Refer to our facebook page</h3>
+              <h4 target="_blank" style="font-weight: 700;"><a href="https://www.facebook.com/scrolls2018/">here</a></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
