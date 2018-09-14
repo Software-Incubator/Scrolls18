@@ -21,6 +21,9 @@
         z-index:10;
         background: rgba(255, 255, 255, 0.308) url(./assets/images/nav_back.svg) repeat;
     }
+    .navbar-nav{
+      
+    }
     .navbar .nav-item .nav-link{
       font-weight: 700;
     }
@@ -69,6 +72,7 @@
   .nav{
     .navbar{
         background: rgba(255, 255, 255, 0.308);
+        background-color:#fff;
     }
   }
      .carousel{

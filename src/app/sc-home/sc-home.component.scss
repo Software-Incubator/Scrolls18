@@ -96,7 +96,7 @@
 }
 .heading{
   text-align: center;
-  margin-top:1em;
+  margin-top:3em;
   color:#fbc02d;
 
   &_text{
@@ -155,9 +155,9 @@
       width:80%;
     }
     &_text{
-      font-size:.75em;
+      font-size:0.75em;
       font-weight: 400;
-      padding: 4em;
+      padding: 2em;
       // margin-right:5em;
       // margin-top:5%;
       text-align: justify;
@@ -496,6 +496,9 @@
                 .heading{
                   margin-top:5em;
                 }
+                .about_text{
+                  font-size: 0.75em;
+                }
                 .rule_svg {
                   display: none;
                 }
@@ -557,6 +560,10 @@
                     &:before{
                       width:100px;
                       height:100px;
+                    }
+                    &:hover:before{
+                      height:100px;
+                      width:100px;
                     }
                   }
                 }

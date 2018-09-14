@@ -4,10 +4,8 @@
   top: 50%;
   transform: translate(-50%,-50%);
   z-index: 10001;
-  width: 400px;
-  height: 400px;
-  margin-top: -200px; /* Half the height */
-  margin-left: -200px; /* Half the width */
+  width: 300px;
+  height: 300px;
 }
 .overlay {
   position: fixed; /* Sit on top of the page content */

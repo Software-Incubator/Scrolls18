@@ -17,17 +17,19 @@ export class ScHomeComponent implements OnInit {
   constructor(private server: ServerService) {}
 
   ngOnInit() {
-    this.x = new fullpage('#fullpage', {
-      licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
-      autoScrolling: true,
-      scrollBar: true,
-      scrollingSpeed: 300,
-      fadingEffect: true
+    // this.x = new fullpage('#fullpage', {
+    //   licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+    //   autoScrolling: false,
+    //   scrollBar: true,
+    //   scrollingSpeed: 300,
+    //   fadingEffect: true,
+    //   responsiveWidth: 500,
+    //   paddingTop: '3em',
       // afterLoad: (origin, destination, direction) => {
       //   this.LocalInteractionService.LinkChange.next(destination.index);
 
       // }
-    });
+    // });
     this.server.getDateDetails()
     .subscribe(
       res => {

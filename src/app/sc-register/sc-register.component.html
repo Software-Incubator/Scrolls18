@@ -36,7 +36,7 @@ aria-hidden="true">
                 <input style="color: #808080;" type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': email.touched && email.invalid }" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" required>
                 <div *ngIf="email.touched && email.invalid" class="invalid-feedback">
                   <div *ngIf="email.errors.required">Email is required</div>
-                  <div *ngIf="email.errors.pattern">Email a valid email</div>
+                  <div *ngIf="email.errors.pattern">Enter a valid email</div>
                 </div>
               </div>
               <div class="md-form mb-1">
@@ -61,7 +61,7 @@ aria-hidden="true">
             <span class="help-block"
             *ngIf="confirmPassword.touched && confirmPassword.errors?.notEqual &&
             !confirmPassword.errors?.required">
-            Does'nt match with Password
+            Doesn't match with Password
           </span>
         </div>
         <div class="md-form mt-3">
