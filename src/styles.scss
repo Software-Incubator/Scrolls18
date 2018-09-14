@@ -22,7 +22,7 @@
         background: rgba(255, 255, 255, 0.308) url(./assets/images/nav_back.svg) repeat;
     }
     .navbar-nav{
-      
+
     }
     .navbar .nav-item .nav-link{
       font-weight: 700;
@@ -67,7 +67,9 @@
 .modal-backdrop{
   z-index: 5 !important;
 }
-
+.modal-open .modal {
+  overflow-y: auto !important;
+}
  @media only screen and (max-width: 767px){
   .nav{
     .navbar{

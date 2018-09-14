@@ -41,9 +41,9 @@
     <li>
       <app-sc-login *ngIf="!loginStatus && (phaseName?.currentPhase.phaseName === 'login-phase')"></app-sc-login>
     </li>
-    <li>
+    <!-- <li>
       <app-sc-register *ngIf="!loginStatus && (phaseName?.currentPhase.phaseName === 'register-phase')"></app-sc-register>
-    </li>
+    </li> -->
     <li>
       <a *ngIf="loginStatus && homeStatus" routerLink="dashboard"  class="btn button btn-sm waves-effect waves-light" mdbWavesEffect>Dashboard
         <i class="fa fa-sign-in ml-2"></i>

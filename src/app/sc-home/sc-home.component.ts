@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../services/server.service';
 
-declare var fullpage: any;
+//declare var fullpage: any;
 
 
 

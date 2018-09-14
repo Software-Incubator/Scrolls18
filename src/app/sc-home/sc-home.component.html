@@ -1,9 +1,10 @@
 <app-sc-navbar></app-sc-navbar>
 <!-- fullpage -->
-<div id="fullpage">
+<!-- <div id="fullpage"> -->
+  <div>
   <!-- landing -->
   <!-- desktop -->
-  <div id="home" class="section" style="bottom:0;" [ngsReveal]="{ reset: true }">
+  <div id="home" style="bottom:0;">
     <div class="container desktop">
       <div class="row no-gutters">
         <div class="col-md-6">
@@ -11,7 +12,7 @@
           <!-- <button class="desktop_landing_button">Register</button> -->
           <div class="status desktop_landing_back2">
             <h1 *ngIf="response?.phase.phaseName === 'coming-soon'" style="position:absolute;font-size: 2em; font-weight:510;margin-top:-1em;margin-left:-0.5em; color:rgb(64,64,64)">Registration <br/> Starting Soon...</h1>
-            <h1 *ngIf="response?.phase.phaseName === 'register-phase'" style="position:absolute;font-size: 3em; font-weight:510;margin-top:-1em;margin-left:-0.5em; color:rgb(64,64,64)">Register Now...</h1>
+            <h1 *ngIf="response?.phase.phaseName === 'register-phase'"><app-sc-register></app-sc-register></h1>
           </div>
         </div>
         <div class="col-md-5">
@@ -37,6 +38,7 @@
     <div class="fluid-container mobile">
       <div id="landing" class="landing" >
         <img src="../../assets/images/scrolls_head__animated (5).svg" alt="Scrolls-2018" class="landing_image">
+        <h1 style="position:absolute;font-size: 3em; font-weight:510;margin-top:-1em;margin-left:-0.5em; color:rgb(64,64,64);top:50%;left:20%"><app-sc-register></app-sc-register></h1>
       </div>
       <div class="landing_bottom">
 
@@ -54,7 +56,7 @@
     </div>
   </div>
   <!-- about -->
-  <div id="about" class="section" [ngsReveal]="{ reset: true }">
+  <div id="about" [ngsReveal]="{ reset: true }">
     <div class="heading">
       <h2 class="heading_text">ABOUT</h2>
     </div>
@@ -85,7 +87,7 @@
 
   </div>
   <!-- topic -->
-  <div id="topics" class="section" [ngsReveal]="{ reset: true }">
+  <div id="topics" [ngsReveal]="{ reset: true }">
     <div class="heading">
       <h2 class="heading_text">TOPICS</h2>
     </div>
@@ -261,7 +263,7 @@
   </div>
 
   <!-- RULE -->
-  <div id="rules" class="section rules_section" [ngsReveal]="{ reset: true }" >
+  <div id="rules" class="rules_section" [ngsReveal]="{ reset: true }" >
     <div class="heading">
       <h2 class="heading_text">RULES</h2>
     </div>
@@ -302,7 +304,7 @@
         </div>
 
         <!-- contact -->
-        <div id="contact" class="section" [ngsReveal]="{ reset: true }">
+        <div id="contact" [ngsReveal]="{ reset: true }">
           <div class="heading">
             <h2 class="heading_text">CONTACT US</h2>
           </div>
@@ -333,7 +335,7 @@
             </div>
           </div>
           <!-- team -->
-          <div id="team" class="section" [ngsReveal]="{ reset: true }">
+          <div id="team" [ngsReveal]="{ reset: true }">
             <div class="heading">
               <h2 class="heading_text">TEAM</h2>
             </div>
