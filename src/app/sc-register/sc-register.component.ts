@@ -26,13 +26,20 @@ export class ScRegisterComponent implements OnInit {
       this.Loading = false;
       this.responseMessage = res;
       this.gotError = false;
+      //console.log(res);
       document.getElementById('openModalButton').click();
       //console.log(this.responseMessage);
     },
     err => {
       this.Loading = false;
       this.gotError = true;
-      this.responseMessage = err;
+      //console.log(err);
+      if(err.status === 409){
+        this.responseMessage = 'This team has been already registered';
+      }
+      else if(err.status === 500) {
+        this.responseMessage = 'Something went wrong';
+      }
       document.getElementById('openModalButton').click();
       //console.log(this.responseMessage);
       //console.log(this.responseMessage.error.msg);
