@@ -13,6 +13,51 @@ function getImportantDatesUtil(callback) {
     })
 }
 
+function getAllTeamsUtil(callback) {
+    Teams.find({}, function(err, doc) {
+        callback(err, doc);
+    })
+}
+
+function deleteTeamUtil(team, cb) {
+    deleteTeamDetailsUtil(team, function(err, res) {
+        if(err) 
+            cb(err, null);
+        deleteMembersUtil(team, function(err, resp) {
+            if(err)
+                cb(err, null);
+            deleteSynopsisUtil(team, function(err, respo) {
+                if(err)
+                    cb(err, null);
+                Teams.findOneAndRemove({_id: team}, function(err, response) {
+                    if(err)
+                        cb(err, null);
+                    else {
+                        cb(null, response);
+                    }
+                })
+            })
+        })
+    })
+}
+
+function deleteTeamDetailsUtil(team, cb){
+    TeamDetails.findOneAndRemove({teamId: team}, function(err, res) {
+        cb(err, res);
+    })
+}
+
+function deleteMembersUtil(team, cb) {
+    Members.remove({teamId: team}, function(err, res) {
+        cb(err, res);
+    })
+}
+
+function deleteSynopsisUtil(team, cb) {
+    Synopsis.findOneAndRemove({teamId: team}, function(err, res) {
+        cb(err, res);
+    })
+}
 module.exports = {
     createPhase: (req, res) => {
         const phase = {
@@ -24,6 +69,7 @@ module.exports = {
             else res.status(200).json({error:{status: false, errorInfo: null},msg: "New Phase created",});
         })
     },
+    
     getCurrentPhase: (req, res) => {
         getCurrentPhaseUtil(function(err, phaseDoc) {
             if (err) res.status(500).json({error:{status: true, errorInfo: err}});
@@ -64,5 +110,29 @@ module.exports = {
                 else res.status(200).json({error:{status: false, errorInfo: null}, impDates, phase});
             })
        })
+    },
+
+    getAllTeams: (req, res) => {
+        getAllTeamsUtil(function(err, doc) {
+            if(err)
+                res.status(500).json({error:{status:true, errorInfo:err}, msg:"something went wrong"});
+            else {
+                teams = [];
+                for(let k=0; k<doc.length; k++){
+                    doc[k].password = undefined;
+                }
+                res.status(200).json({error:{status:true, errorInfo:null}, teams:doc});
+            }
+        })
+    },
+
+    deleteTeam: (req, res) => {
+        team = req.body.teamId;
+        deleteTeamUtil(team, function(err, response) {
+            if(err)
+                res.status(500).json({error:{status: true, errorInfo: err}});
+            else
+                res.status(200).json({error:{status:false, errorInfo:null}, msg:"Team removed successfully", response:response});
+        })
     }
 }

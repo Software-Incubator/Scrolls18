@@ -27,6 +27,11 @@ const memberSchema = new Schema({
         required: true
     },
 
+    studentNo:{
+        type:String,
+        default:"NA"
+    },
+
     email:{
         type: String,
         required: true

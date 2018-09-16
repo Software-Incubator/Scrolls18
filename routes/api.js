@@ -48,10 +48,8 @@ router.get('/download', dashboardController.downloadFile);
 
 
 //admin routes
-router.post('/admin/createPhase', homeController.createPhase);
-router.get('/admin/getCurrentPhase', homeController.getCurrentPhase);
-router.post('/admin/setThisAsCurrentPhase', homeController.setThisPhaseAsCurrent);
-router.post('/admin/createImportantDates', homeController.createImportantDates);
 router.get('/admin/getImportantdates', homeController.getImportantDates);
+router.get('/admin/getCurrentPhase', homeController.getCurrentPhase);
+
 
 module.exports = router;

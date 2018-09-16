@@ -7,6 +7,7 @@ const helmet = require('helmet');
 const fileUpload = require('express-fileUpload');
 const cors = require('cors');
 const routes = require('./routes/api');
+const adminRoutes = require('./routes/admin');
 const gapi = require('./googleapis');
 const app = express();
 const port = 3000 || process.env.PORT;
@@ -22,6 +23,7 @@ app.use(bodyParser.json());
 app.use(fileUpload());
 app.use(passport.initialize());
 app.use('/api', routes);
+app.use('/admin', adminRoutes);
 
 //authorize google api
 fs.readFile('credentials.json', (err, content) => {

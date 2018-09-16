@@ -90,7 +90,7 @@ module.exports = {
                         details.memberDetails = memberDetails;
                         req.status(200).json({error:{status:false, errorInfo:null }, details:details, filledStatus:'2'});
                     } else {
-                        req.status(200).json({error:{status:true, errorInfo:"Members not found" }, details:details})
+                        req.status(200).json({error:{status:true, errorInfo:"Members not found" }, details:details, filledStatus:'1'})
                     }
                 });
             } else {
@@ -122,11 +122,12 @@ module.exports = {
                         drive.files.create({
                             resource: fileMetadata,
                             media: media,
-                            fields: 'id'
+                            fields: 'id, webViewLink'
                           }, function (err, file) {
                                 if (err) {
                                     res.status(500).json({error:{status: true, errorInfo: err}, msg:"could not upload file to drive"});
                                 } else {
+                                    console.log(file);
                                     fs.unlink(path.join(__dirname, '../temp/file.pdf'), (err) => {
                                         if (err) 
                                             res.status(500).json({error:{status: true, errorInfo: err}, msg:"could not upload file to drive"});
