@@ -29,8 +29,10 @@ export class ServerService {
     return this.http.get(`${this.URL}/api/dashboard/getAllDetails`, {headers: headers});
   }
   sendFile(token: string, file: any) {
+    console.log(file);
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json; charset=utf-8',
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'response': 'application/json',
       'Authorization': 'Bearer ' +  token
      });
      return this.http.post(`${this.URL}/api/upload`, file, {headers: headers});
@@ -41,4 +43,5 @@ export class ServerService {
    getDateDetails() {
      return this.http.get(`${this.URL}/api/admin/getImportantdates`);
    }
+
 }

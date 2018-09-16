@@ -110,14 +110,15 @@ font-weight: 700;
 
 /** Progress bar ***/
 
-$mainColor: #dc3545;
-$baseColor: #fbc02d;
+$mainColor: #004079;
+$baseColor: #1994ff;
 
 .wizard-progress{
   display: table;
   width: 100%;
   table-layout: fixed;
   position:relative;
+  margin-bottom: 4rem;
 
   .step{
     display: table-cell;

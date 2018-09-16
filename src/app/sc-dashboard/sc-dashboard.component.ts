@@ -9,6 +9,8 @@ import { FormBuilder, FormGroup, Validators, FormArray, NgForm } from '@angular/
   styleUrls: ['./sc-dashboard.component.scss']
 })
 export class ScDashboardComponent implements OnInit {
+  product: any;
+  filesToUpload: any;
   reader2: FileReader;
   fileContent: any;
   contents: any;
@@ -31,6 +33,8 @@ export class ScDashboardComponent implements OnInit {
   submitted = false;
   track = 0;
   nof = [];
+  fillStatus: number;
+  initialRes: any;
   public form: FormGroup;
   private control: FormArray;
 
@@ -38,24 +42,39 @@ export class ScDashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fileselected = false;
     this.fb = new FormBuilder;
-    this.form = this.fb.group({
-      domain: ['', Validators.required],
-      topic: ['', Validators.required],
-      numberOfMembers: ['', Validators.required],
-      members: this.fb.array([])
-    });
-    this.control = <FormArray>this.form.controls['members'];
+    this.server.getDashboardDetails(this.auth.getToken()).subscribe(
+      res => {
+        this.initialRes = res;
+        console.log(this.initialRes);
+        console.log(this.initialRes.filledStatus);
+        console.log(typeof(this.initialRes.filledStatus));
+        if ( this.initialRes.filledStatus === '0') {
+
+          this.form = this.fb.group({
+            domain: ['', Validators.required],
+            topic: ['', Validators.required],
+            numberOfMembers: ['', Validators.required],
+            members: this.fb.array([])
+          });
+          this.control = <FormArray>this.form.controls['members'];
+          } else if ( this.initialRes.filledStatus === '1') {
+            this.fileselected = false;
+          }
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
   get f() {
     return this.form.controls;
   }
   get s() {
     if (this.form['controls'].members['controls'][this.track - 1]['controls'].college.value === 'akg') {
-      this.form['controls'].members['controls'][this.track - 1]['controls'].studentNumber.setValidators([Validators.required, Validators.pattern("^[1][5-8][0-3][0-4][0-9]{3}[Dd]{0,1}$")]);
+      this.form['controls'].members['controls'][this.track - 1]['controls'].studentNo.setValidators([Validators.required, Validators.pattern("^[1][5-8][0-3][0-4][0-9]{3}[Dd]{0,1}$")]);
     } else {
-      this.form['controls'].members['controls'][this.track - 1]['controls'].studentNumber.setValidators([Validators.required]);
+      this.form['controls'].members['controls'][this.track - 1]['controls'].studentNo.setValidators([Validators.required]);
     }
     this.submitted = false;
     return this.form['controls'].members['controls'][this.track - 1]['controls'];
@@ -100,7 +119,7 @@ export class ScDashboardComponent implements OnInit {
       && this.form['controls'].members['controls'][this.track - 1]['controls'].course.valid
       && this.form['controls'].members['controls'][this.track - 1]['controls'].email.valid
       && this.form['controls'].members['controls'][this.track - 1]['controls'].college.valid
-      && this.form['controls'].members['controls'][this.track - 1]['controls'].studentNumber.valid
+      && this.form['controls'].members['controls'][this.track - 1]['controls'].studentNo.valid
       && this.form['controls'].members['controls'][this.track - 1]['controls'].mobno.valid
       && this.form['controls'].members['controls'][this.track - 1]['controls'].accomodation.valid
       && this.form['controls'].members['controls'][this.track - 1]['controls'].year.valid) {
@@ -116,8 +135,8 @@ export class ScDashboardComponent implements OnInit {
     this.form['controls'].members['controls'][this.track - 1]['controls'].year.reset();
   }
   resetValue2() {
-    this.form['controls'].members['controls'][this.track - 1]['controls'].studentNumber.reset();
-    this.form['controls'].members['controls'][this.track - 1]['controls'].studentNumber.clearValidators();
+    this.form['controls'].members['controls'][this.track - 1]['controls'].studentNo.reset();
+    this.form['controls'].members['controls'][this.track - 1]['controls'].studentNo.clearValidators();
   }
   checkPre() {
     if (this.track === 0) {
@@ -156,7 +175,7 @@ export class ScDashboardComponent implements OnInit {
       course: ['', Validators.required],
       year: ['', Validators.required],
       college: ['', Validators.required],
-      studentNumber: [''],
+      studentNo: [''],
       email: ['', [Validators.required, Validators.pattern("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")]],
       mobno: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
       accomodation: ['', Validators.required],
@@ -171,11 +190,10 @@ export class ScDashboardComponent implements OnInit {
     this.Loading = true;
     this.frmData = new FormData();
     this.frmData.append('foo', this.file, this.file.name);
-    this.frmData.append('foo', this.name);
     //console.log(this.frmData);
     this.server.sendFile(this.auth.getToken(), this.frmData)
     .subscribe((data) => {
-      //console.log(data);
+      console.log(data);
       this.Loading = false;
       this.resData = data;
       this.array = Object.keys(this.resData.anomalies_dict);
@@ -184,7 +202,7 @@ export class ScDashboardComponent implements OnInit {
   }
   fileEvent(event) {
     this.file = event.target.files[0];
-    //console.log(this.file);
+    console.log(this.file);
     this.fileName = this.file.name;
     this.allowedExtensions =
     ['pdf', 'jpg'];
@@ -214,5 +232,29 @@ export class ScDashboardComponent implements OnInit {
   /*- checks if word exists in array -*/
   isInArray(array, word) {
     return array.indexOf(word.toLowerCase()) > -1;
+  }
+
+  upload() {
+    const formData: any = new FormData();
+    const files: Array<File> = this.filesToUpload;
+    console.log(files);
+    formData.append("foo", files[0], files[0]['name']);
+    console.log(formData.get);
+    var options = { content: formData };
+    for (var key of formData.entries()) {
+			console.log(key[0] + ', ' + key[1])
+		}
+    // this.http.post('http://localhost:3001/upload', formData)
+    //   .map(files => files.json())
+    //   .subscribe(files => console.log('files', files))
+      this.server.sendFile(this.auth.getToken(), formData)
+    .subscribe((data) => {
+      console.log(data);
+    });
+  }
+
+  fileChangeEvent(fileInput: any) {
+    this.filesToUpload = <Array<File>>fileInput.target.files;
+    console.log(this.filesToUpload);
   }
 }
