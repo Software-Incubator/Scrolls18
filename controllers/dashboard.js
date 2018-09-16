@@ -72,9 +72,10 @@ module.exports = {
 
     getAllDetail: function(req, res) {
         let details = {};
-        TeamDetails.findOne({id: req.user._id}, function(err, teamDetailsDoc) {
+        TeamDetails.find({id: req.user._id}, function(err, teamDetailsDoc) {
             if (err) throw err;
-            if(teamDetailsDoc && teamDetails.length > 0){
+            
+            if(teamDetailsDoc && teamDetailsDoc.length > 0){
                 details.teamDetails = {
                     teamName: req.user.teamName,
                     teamId: req.user.teamName,
@@ -108,7 +109,7 @@ module.exports = {
                     }
                 });
             } else {
-                res.status(404).json({error:{status:true, errorInfo:"Team details not found" }, details:null, filledStatus:'0'});
+                res.status(200).json({error:{status:true, errorInfo:"Team details not found" }, details:null, filledStatus:'0'});
             }
 
         });
@@ -116,6 +117,7 @@ module.exports = {
 
     uploadFile: function(req, res) {
         let sampleFile = req.files.foo;
+        console.log(sampleFile);
         //filename to be added to be handled by frontend
         var fileName = `${req.body.teamName}_${req.body.domain}_${req.body.topic}` || 'samplePdf'; 
         sampleFile.mv(path.join(__dirname, '../temp/file.pdf'), function(err) {
@@ -147,7 +149,7 @@ module.exports = {
                                             res.status(500).json({error:{status: true, errorInfo: err}, msg:"could not upload file to drive"});
                                         else {
                                             // replace someId
-                                            saveFileInfo(file.data.id, webViewLink, "5b915de98c21bb138cbd52d2", fileName, (err, response) => {
+                                            saveFileInfo(file.data.id, file.data.webViewLink, "5b915de98c21bb138cbd52d2", fileName, (err, response) => {
                                                 if (err) throw err;
                                                 res.status(200).json({error:{status: false, errorInfo: null}, msg:"File saved succesfully", response:response});
                                             });
