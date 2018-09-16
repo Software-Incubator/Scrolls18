@@ -27,17 +27,18 @@ function registerMembersUtil(memberDetails, id,  cb) {
     });
 }
 
-function saveFileInfo(fileId, teamId, fileName, cb) {
+function saveFileInfo(fileId, webViewLink, teamId, fileName, cb) {
     Synopsis.find({teamId: teamId}, function(err, synopsisDoc) {
         if(err) throw err;
         else if(synopsisDoc && synopsisDoc.length > 0) {
-            Synopsis.update({teamId: teamId}, {fileId: fileId}, function(err, response) {
+            Synopsis.update({teamId: teamId}, {fileId: fileId, webViewLink:webViewLink}, function(err, response) {
                 cb(err, response);
             });
         } else {
             let newSynopsis = new Synopsis({
                 teamId: teamId,
                 fileName: fileName,
+                webViewLink: webViewLink,
                 fileId: fileId
             });
             newSynopsis.save(function(err, newSynopsisDoc) {
@@ -88,9 +89,22 @@ module.exports = {
                             delete memberDetails[k].teamId;
                         }
                         details.memberDetails = memberDetails;
-                        req.status(200).json({error:{status:false, errorInfo:null }, details:details, filledStatus:'2'});
+                        // get synopsis details
+                        Synopsis.find({teamId: req.user_id}, function(err, synopsisDoc){
+                            if(err) throw err;
+                            if(synopsisDoc && synopsisDoc.length > 0){
+                                details.synopsis = {
+                                    name: synopsisDoc.fileName,
+                                    webViewLink: synopsisDoc.webViewLink
+                                }
+                                res.satus(200).json({error:{status: false, errorInfo:null}, details:details, filledStatus:'2'})
+                            } else {
+                                res.status(200).json({error:{status:false, errorInfo:null }, details:details, filledStatus:'1'});
+                            }
+                        });
+                        
                     } else {
-                        req.status(200).json({error:{status:true, errorInfo:"Members not found" }, details:details, filledStatus:'1'})
+                        res.status(200).json({error:{status:true, errorInfo:"Members not found" }, details:details, filledStatus:'0'})
                     }
                 });
             } else {
@@ -102,8 +116,8 @@ module.exports = {
 
     uploadFile: function(req, res) {
         let sampleFile = req.files.foo;
-        //filename to be added
-        var fileName = req.body.teamName || 'samplePdf'; 
+        //filename to be added to be handled by frontend
+        var fileName = `${req.body.teamName}_${req.body.domain}_${req.body.topic}` || 'samplePdf'; 
         sampleFile.mv(path.join(__dirname, '../temp/file.pdf'), function(err) {
             if(err) throw err;
             else {
@@ -133,7 +147,7 @@ module.exports = {
                                             res.status(500).json({error:{status: true, errorInfo: err}, msg:"could not upload file to drive"});
                                         else {
                                             // replace someId
-                                            saveFileInfo(file.data.id, "5b915de98c21bb138cbd52d2", fileName, (err, response) => {
+                                            saveFileInfo(file.data.id, webViewLink, "5b915de98c21bb138cbd52d2", fileName, (err, response) => {
                                                 if (err) throw err;
                                                 res.status(200).json({error:{status: false, errorInfo: null}, msg:"File saved succesfully", response:response});
                                             });

@@ -11,6 +11,10 @@ let synopsisSchema = new Schema({
         type: String,
         required: true
     },
+    webViewLink: {
+        type: String,
+        required: true
+    },
 
     fileId: {
         type: String,
