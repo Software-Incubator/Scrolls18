@@ -1,7 +1,8 @@
+
 <div *ngIf="Loading" class="overlay">
     <img src="../../assets/images/loader.svg" class="loader image-responsive" alt="Loader">
 </div>
-<a class="btn button btn-sm waves-effect waves-light" (click)="basicModal.show()" mdbWavesEffect>Login
+<a class="btn button_logout btn-sm waves-effect waves-light" (click)="basicModal.show()" mdbWavesEffect>Login
     <i class="fa fa-sign-in ml-2"></i>
 </a>
 <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
@@ -31,7 +32,7 @@ aria-hidden="true">
                             </div>
                             <div class="md-form mb-1">
                                 <label for="password">Password</label>
-                                <input style="color: #808080;margin:0;" type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': password.touched && password.invalid }" required minlength="6">
+                                <input style="color: #808080;margin:0;" type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': password.touched && password.invalid }" required minlength="8">
                                 <div *ngIf="password.touched && password.invalid" class="invalid-feedback">
                                     <div *ngIf="password.errors.required">password is required</div>
                                     <div *ngIf="password.errors.minlength">Enter a valid password</div>

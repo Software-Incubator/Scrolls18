@@ -24,8 +24,9 @@
 }
 .dash_heading{
   text-align: center;
-  color: #FFC973;
+  color:#fbc02d;
   font-weight: 700;
+  margin-top: 10vh;
 }
 .just_few_heading {
   color:#59B8E8;
@@ -41,10 +42,12 @@
   height:25px !important;
   font-weight: 400;
 }
+
 .md-form label{
   font-weight: 700;
   color:#808080;
 }
+
 .navbar.navbar-dark form .md-form .form-control{
   color:#808080 !important;
 }
@@ -88,8 +91,97 @@ font-weight: 700;
 .modal-body{
   padding: 0;
 }
-
-.custom-select {
-  border-radius: 0;
+.button {
+  background-color: #222;
+  border: 1.5px solid #222;
+  color: #fff;
+  border-radius: 40px;
+  font-weight: 700;
+}
+.custom-select[_ngcontent-c1]{
+  background-color: #f0f0f0;
+  border: none !important;
+}
+.member_heading {
+  font-weight: 700;
+  color: #59B8E8;
 }
 
+
+/** Progress bar ***/
+
+$mainColor: #dc3545;
+$baseColor: #fbc02d;
+
+.wizard-progress{
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  position:relative;
+
+  .step{
+    display: table-cell;
+    text-align: center;
+    vertical-align: top;
+    overflow: visible;
+    position:relative;
+    font-size: 14px;
+    color: $baseColor;
+    font-weight: bold;
+
+    &:not(:last-child):before{
+      content: '';
+      display:block;
+      position: absolute;
+      left: 50%;
+      top: 37px;
+      background-color: $baseColor;
+      height: 6px;
+      width: 100%;
+    }
+
+    .node{
+      display: inline-block;
+      border: 6px solid $baseColor;
+      background-color: $baseColor;
+      border-radius: 18px;
+      height: 18px;
+      width: 18px;
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      margin-left: -18px;
+    }
+
+    &.complete{
+      &:before{
+        background-color: $mainColor;
+      }
+      .node{
+        border-color: $mainColor;
+        background-color: $mainColor;
+
+        &:before{
+          font-family: FontAwesome;
+          content: "\f00c";
+          position : relative;
+          bottom: 6px;
+          left: -4px;
+        }
+      }
+    }
+
+    &.in-progress{
+      &:before{
+        background: $mainColor;
+        background: -moz-linear-gradient(left,  $mainColor 0%, $baseColor 100%);
+        background: -webkit-linear-gradient(left,  $mainColor 0%, $baseColor 100%);
+        background: linear-gradient(to right,  $mainColor 0%, $baseColor 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(     startColorstr='#{$mainColor}', endColorstr='#{$baseColor}',GradientType=1 );
+      }
+      .node{
+        border-color: $mainColor;
+      }
+    }
+  }
+}

@@ -24,11 +24,13 @@ export class ScDashboardComponent implements OnInit {
   name: string;
   data: any;
   file: any;
+  emailPattern = 'fds@sdfsd.com';
   frmData: FormData;
   fileselected: boolean;
   Loading = false;
   submitted = false;
   track = 0;
+  nof = [];
   public form: FormGroup;
   private control: FormArray;
 
@@ -50,8 +52,14 @@ export class ScDashboardComponent implements OnInit {
     return this.form.controls;
   }
   get s() {
+    if (this.form['controls'].members['controls'][this.track - 1]['controls'].college.value === 'akg') {
+      this.form['controls'].members['controls'][this.track - 1]['controls'].studentNumber.setValidators([Validators.required, Validators.pattern("^[1][5-8][0-3][0-4][0-9]{3}[Dd]{0,1}$")]);
+    } else {
+      this.form['controls'].members['controls'][this.track - 1]['controls'].studentNumber.setValidators([Validators.required]);
+    }
     this.submitted = false;
     return this.form['controls'].members['controls'][this.track - 1]['controls'];
+
   }
   onSubmit() {
     this.Loading = true;
@@ -104,6 +112,13 @@ export class ScDashboardComponent implements OnInit {
     }
 
   }
+  resetValue() {
+    this.form['controls'].members['controls'][this.track - 1]['controls'].year.reset();
+  }
+  resetValue2() {
+    this.form['controls'].members['controls'][this.track - 1]['controls'].studentNumber.reset();
+    this.form['controls'].members['controls'][this.track - 1]['controls'].studentNumber.clearValidators();
+  }
   checkPre() {
     if (this.track === 0) {
       return 0;
@@ -122,6 +137,10 @@ export class ScDashboardComponent implements OnInit {
     for (let j = +this.form.value.members.length; j >= 0; j--) {
       this.control.removeAt(j);
     }
+    this.nof = [];
+    for (let k = 0; k < n; k++ ) {
+      this.nof.push(k);
+    }
     for (let j = 0; j < n; j++) {
       if (j === 0) {
         this.control.push(this.getmembersFormArr('leader'));
@@ -137,18 +156,14 @@ export class ScDashboardComponent implements OnInit {
       course: ['', Validators.required],
       year: ['', Validators.required],
       college: ['', Validators.required],
-      studentNumber: ['', [Validators.required, /*Validators.pattern('^[1][5-8]\d{5}[Dd]{0,1}$')*/]],
-      email: ['', [Validators.required, Validators.email]],
+      studentNumber: [''],
+      email: ['', [Validators.required, Validators.pattern("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")]],
       mobno: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
       accomodation: ['', Validators.required],
       memberType: [mem, Validators.required],
       id: ['']
     });
   }
-
-
-
-
 
 
   onSent(form: NgForm) {

@@ -36,7 +36,7 @@
   height:25px !important;
   font-weight: 400;
 }
-.md-form label{
+.md-form > label{
   font-weight: 700;
   color:#808080;
 }
@@ -76,16 +76,15 @@ input{
   color: #dc3545;
   font-weight: 700;
 }
-.button {
+.button_logout {
   border: 1.5px solid #222;
   color: #222;
   border-radius: 40px;
   font-weight: 700;
 }
-.button:hover, .button:active{
+.button_logout:hover, .button_logout:active{
   border: 1.5px solid #222;
   color: #fff !important;
   background-color: #222;
-  border-radius: 40px;
   font-weight: 700;
 }

@@ -2,15 +2,29 @@
 <div *ngIf="Loading" class="overlay">
   <img src="../../assets/images/loader.svg" class="loader image-responsive" alt="Loader">
 </div>
-<h1 class="dash_heading mt-1">WELCOME TO DASHBOARD</h1>
+<h1 class="dash_heading">WELCOME TO DASHBOARD</h1>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-6">
+    <div class="col-sm-12 col-md-6 col-lg-6 justify-content-center center">
       <div class="text-center my-auto">
         <h1 class="just_few_heading">Just few more details</h1>
       </div>
+      <div class="wizard-progress">
+          <div class="step" [ngClass]="{'complete' : track > 0 , 'in-progress' : track == 0}">
+            Step 1
+            <div class="node"></div>
+          </div>
+          <div *ngFor="let j of nof" class="step" [ngClass]="{'complete' : track > j+1, 'in-progress' : track == j+1}">
+            Step {{j + 2}}
+            <div class="node"></div>
+          </div>
+          <div class="step">
+           Synopsis
+            <div class="node"></div>
+          </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-md-6 col-lg-6">
+    <div class="col-sm-12 col-md-6 col-lg-6 justify-content-center center">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body">
@@ -22,10 +36,13 @@
                       <div class="md-form mb-1">
                         <label>Domain</label>
                         <select class="custom-select" formControlName="domain" [ngClass]="{ 'is-invalid': (submitted || f.domain.touched) && f.domain.errors }">
-                          <option selected>Open this select menu</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+
+                          <option value="CSIT">Computer Science & Information Technology</option>
+                          <option value="EEE">Electrical & Electronics Engineering</option>
+                          <option value="ECE">Electronics & Communication Engineering</option>
+                          <option value="ME">Mechanical Engineering:</option>
+                          <option value="CE">Civil Engineering</option>
+                          <option value="MSc">Management Sciences</option>
                         </select>
                         <div *ngIf="(submitted || f.domain.touched) && f.domain.invalid " class="invalid-feedback">
                           <div *ngIf="f.domain.errors.required">Domain is invalid</div>
@@ -33,11 +50,78 @@
                       </div>
                       <div class="md-form mb-1">
                         <label>Topic</label>
-                        <select class="custom-select" formControlName="topic" [ngClass]="{ 'is-invalid': (submitted || f.topic.touched) && f.topic.errors }">
-                          <option selected>Open this select menu</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                        <select class="custom-select" [ngSwitch]="f.domain.value" formControlName="topic" [ngClass]="{ 'is-invalid': (submitted || f.topic.touched) && f.topic.errors }">
+
+                          <option *ngSwitchCase="'CSIT'" value="01">3-D Image Technique & Multimedia Application</option>
+                          <option *ngSwitchCase="'CSIT'" value="02">Embedded Systems</option>
+                          <option *ngSwitchCase="'CSIT'" value="03">Neural Networks, Artificial Intelligence and Genetic Algorithm</option>
+                          <option *ngSwitchCase="'CSIT'" value="04">Natural Language Processing</option>
+                          <option *ngSwitchCase="'CSIT'" value="05">Mobile Computing & Data Intensive Computing</option>
+                          <option *ngSwitchCase="'CSIT'" value="06">Augmented Reality</option>
+                          <option *ngSwitchCase="'CSIT'" value="07">Big Data and Analytics</option>
+                          <option *ngSwitchCase="'CSIT'" value="08">Cryptocurrency (Blockchain)</option>
+                          <option *ngSwitchCase="'CSIT'" value="09">Wireless Sensor Network (WSN)</option>
+                          <option *ngSwitchCase="'CSIT'" value="10">Semantic Web: Sentament Analysis of Twitter/Facebook.)</option>
+
+                          <option *ngSwitchCase="'EEE'" value="01">Wireless Power Transmission</option>
+                          <option *ngSwitchCase="'EEE'" value="02">Floating Power Plant: Power Ship</option>
+                          <option *ngSwitchCase="'EEE'" value="03">Hybrid Electric Vehicles</option>
+                          <option *ngSwitchCase="'EEE'" value="04">Intelligence Substation</option>
+                          <option *ngSwitchCase="'EEE'" value="05">Smart Electrical Energy Metering</option>
+                          <option *ngSwitchCase="'EEE'" value="06">Humanoid Robotics</option>
+                          <option *ngSwitchCase="'EEE'" value="07">Bluetooth Technology</option>
+                          <option *ngSwitchCase="'EEE'" value="08">Power Quality Issues with Grid Connected Wind Energy Systems</option>
+                          <option *ngSwitchCase="'EEE'" value="09">Renewable Energy and Environment Protection.</option>
+                          <option *ngSwitchCase="'EEE'" value="10">Smart Grid Technology</option>
+                          <option *ngSwitchCase="'EEE'" value="11">Super Conducting Rotating Machines.</option>
+
+                          <option *ngSwitchCase="'ECE'" value="01">Femto Technology</option>
+                          <option *ngSwitchCase="'ECE'" value="02">Speech Processing</option>
+                          <option *ngSwitchCase="'ECE'" value="03">Plasmonics: Vision for Future</option>
+                          <option *ngSwitchCase="'ECE'" value="04">RFID Technology</option>
+                          <option *ngSwitchCase="'ECE'" value="05">5G Wireless System</option>
+                          <option *ngSwitchCase="'ECE'" value="06">Electronic Paper</option>
+                          <option *ngSwitchCase="'ECE'" value="07">Li-Fi Technology</option>
+                          <option *ngSwitchCase="'ECE'" value="08">Embedded System in Automobiles</option>
+                          <option *ngSwitchCase="'ECE'" value="09">Internet of Things</option>
+                          <option *ngSwitchCase="'ECE'" value="10">Satellites for Remote Sensing</option>
+
+                          <option *ngSwitchCase="'ME'" value="01">Computer Aided Engineering (CAE)</option>
+                          <option *ngSwitchCase="'ME'" value="02">Smart Materials</option>
+                          <option *ngSwitchCase="'ME'" value="03">Hydraulic & Pneumatic Actuators</option>
+                          <option *ngSwitchCase="'ME'" value="04">Cryogenics</option>
+                          <option *ngSwitchCase="'ME'" value="05">Biomimetics – Innovation among Nature</option>
+                          <option *ngSwitchCase="'ME'" value="06">Rapid Prototyping</option>
+                          <option *ngSwitchCase="'ME'" value="07">MEMS – Micro Electro Mechanical Systems</option>
+                          <option *ngSwitchCase="'ME'" value="08">Power Generation using Nano-Tubes.</option>
+                          <option *ngSwitchCase="'ME'" value="09">Automatic Transmission in Automobiles.</option>
+                          <option *ngSwitchCase="'ME'" value="10">Robotics Application: Present and Future</option>
+                          <option *ngSwitchCase="'ME'" value="11">TQM Concepts for Zero Rejection.</option>
+                          <option *ngSwitchCase="'ME'" value="12">Nano Technology</option>
+
+                          <option *ngSwitchCase="'CE'" value="01">Modern Concepts of Rural Road Development</option>
+                          <option *ngSwitchCase="'CE'" value="02">Underwater Concreting</option>
+                          <option *ngSwitchCase="'CE'" value="03">Marine Pollution</option>
+                          <option *ngSwitchCase="'CE'" value="04">Indian Railways: Ensuring last mile connectivity.</option>
+                          <option *ngSwitchCase="'CE'" value="05">Earthquake Engineering- Seismic risk reduction in NCR Region.</option>
+                          <option *ngSwitchCase="'CE'" value="06">Sanitation and solid waste management   through ICT.</option>
+                          <option *ngSwitchCase="'CE'" value="07">Storage Dams: Need for flood management.</option>
+                          <option *ngSwitchCase="'CE'" value="08">Equity and global climate agreement- A step towards a clean earth.</option>
+                          <option *ngSwitchCase="'CE'" value="09">Futuristic Architecture</option>
+                          <option *ngSwitchCase="'CE'" value="10">Civil Engineering Models for- “Skill India”</option>
+
+                          <option *ngSwitchCase="'MSc'" value="01">Has Apple lost its charm after Steve Jobs?</option>
+                          <option *ngSwitchCase="'MSc'" value="02">Depreciation of Indian Rupee Has Only Negative Impact on the Economy</option>
+                          <option *ngSwitchCase="'MSc'" value="03">Can International Law save the Syrians?</option>
+                          <option *ngSwitchCase="'MSc'" value="04">Is GNH More Important than GDP?</option>
+                          <option *ngSwitchCase="'MSc'" value="05">BREXIT: Impact on Indian Economy.</option>
+                          <option *ngSwitchCase="'MSc'" value="06">Role of Skill Development in winning the war against unemployment.</option>
+                          <option *ngSwitchCase="'MSc'" value="07">Social Networking is the prime catalyst in shaping the actions of Indian Youths.</option>
+                          <option *ngSwitchCase="'MSc'" value="08">100% FDI in Indian Defense Sector: Boon or Bane.</option>
+                          <option *ngSwitchCase="'MSc'" value="09">Rural Development is the right answer to our unemployment problem.</option>
+                          <option *ngSwitchCase="'MSc'" value="10">Ethics in business: An integral part or a passing fad?</option>
+
+
                         </select>
                         <div *ngIf="(submitted || f.topic.touched) && f.topic.invalid " class="invalid-feedback">
                           <div *ngIf="f.topic.errors.required">Topic is invalid</div>
@@ -63,16 +147,28 @@
                     <div formArrayName="members">
                       <div *ngFor="let child of form['controls'].members['controls']; let i=index">
                         <div  *ngIf = "track === (i+1)" class="form-group" formGroupName="{{i}}">
-                          {{i+1}}
+                          <div *ngIf="i === 0" class="text-center member_heading">
+                            Enter Team Leader Details
+                          </div>
+                          <div *ngIf="i !== 0" class="text-center member_heading">
+                            Enter Member {{i}} Details
+                          </div>
                           <div class="md-form mb-1">
-                            <lable>Name</lable>
+                            <label>Name</label>
                             <input formControlName="name" class="form-control" type="text" [ngClass]="{ 'is-invalid': (s.name.touched) && s.name.invalid }">
                             <div *ngIf="(s.name.touched) && s.name.invalid" class="invalid-feedback">
                               <div *ngIf="s.name.errors">Name is invalid</div>
                             </div>
                           </div>
-                          <div class="md-form mb-1">
-                            <lable>Email</lable>
+                          <div *ngIf="i === 0" class="md-form mb-1">
+                            <label>Email</label>
+                            <input [readonly]="1" [(ngModel)]="emailPattern" formControlName="email" class="form-control" type="text" [ngClass]="{ 'is-invalid': (s.email.touched) && s.email.invalid }">
+                            <div *ngIf="(s.email.touched) && s.email.invalid" class="invalid-feedback">
+                              <div *ngIf="s.email.errors">Email is invalid</div>
+                            </div>
+                          </div>
+                          <div *ngIf="i !== 0" class="md-form mb-1">
+                            <label>Email</label>
                             <input formControlName="email" class="form-control" type="text" [ngClass]="{ 'is-invalid': (s.email.touched) && s.email.invalid }">
                             <div *ngIf="(s.email.touched) && s.email.invalid" class="invalid-feedback">
                               <div *ngIf="s.email.errors">Email is invalid</div>
@@ -80,11 +176,13 @@
                           </div>
                           <div class="md-form mb-1">
                             <label>Course</label>
-                            <select class="custom-select" formControlName="course" [ngClass]="{ 'is-invalid': (s.course.touched) && s.course.errors }">
-                              <option selected>Open this select menu</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
+                            <select class="custom-select" formControlName="course" (click)="resetValue()" [ngClass]="{ 'is-invalid': (s.course.touched) && s.course.errors }">
+                              <option value="B.Tech">B.Tech</option>
+                              <option value="M.Tech">M.Tech</option>
+                              <option value="MBA">MBA</option>
+                              <option value="MCA">MCA</option>
+                              <option value="PGDM">PGDM</option>
+                              <option value="B. Sc">B. Sc</option>
                             </select>
                             <div *ngIf="(s.course.touched) && s.course.invalid " class="invalid-feedback">
                               <div *ngIf="s.course.errors">Course is invalid</div>
@@ -93,39 +191,50 @@
 
                           <div class="md-form mb-1">
                             <label>Year</label>
-                            <select class="custom-select" formControlName="year" [ngClass]="{ 'is-invalid': (s.year.touched) && s.year.errors }">
-                              <option selected>Open this select menu</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
+                            <select class="custom-select" [ngSwitch]="s.course.value" formControlName="year" [ngClass]="{ 'is-invalid': (s.year.touched) && s.year.errors }">
+
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option *ngSwitchCase="'MCA'" value="3">3</option>
+                              <option *ngSwitchCase="'B.Tech'" value="3">3</option>
+                              <option *ngSwitchCase="'B. Sc'" value="3">3</option>
+                              <option *ngSwitchCase="'B.Tech'" value="4">4</option>
                             </select>
-                            <div *ngIf="(s.year.touched) && s.year.invalid " class="invalid-feedback">
+                            <div *ngIf="(s.year.touched) && s.year.invalid" class="invalid-feedback">
                               <div *ngIf="s.year.errors">Year is invalid</div>
                             </div>
                           </div>
 
                           <div class="md-form mb-1">
                             <label>College</label>
-                            <select class="custom-select" formControlName="college" [ngClass]="{ 'is-invalid': (s.college.touched) && s.college.errors }">
-                              <option selected>Open this select menu</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
+                            <select class="custom-select" (click)="resetValue2()" formControlName="college" [ngClass]="{ 'is-invalid': (s.college.touched) && s.college.errors }">
+
+                              <option value="akg">AjayKumar Garg Engineering College</option>
+                              <option value="oth">Other ...</option>
                             </select>
                             <div *ngIf="(s.college.touched) && s.college.invalid " class="invalid-feedback">
                               <div *ngIf="s.college.errors">College is invalid</div>
                             </div>
                           </div>
 
-                          <div class="md-form mb-1">
-                            <lable>Student Number</lable>
+                          <div *ngIf="s.college.value === 'akg'" class="md-form mb-1">
+                            <label>Student Number</label>
                             <input formControlName="studentNumber" class="form-control" type="text" [ngClass]="{ 'is-invalid': (s.studentNumber.touched) && s.studentNumber.invalid }">
                             <div *ngIf="(s.studentNumber.touched) && s.studentNumber.invalid" class="invalid-feedback">
                               <div *ngIf="s.studentNumber.errors">Student Number is invalid</div>
                             </div>
                           </div>
+
+                          <div *ngIf="s.college.value === 'oth'" class="md-form mb-1">
+                              <label>College Name</label>
+                              <input formControlName="studentNumber" class="form-control" type="text" [ngClass]="{ 'is-invalid': (s.studentNumber.touched) && s.studentNumber.invalid }">
+                            <div *ngIf="(s.studentNumber.touched) && s.studentNumber.invalid" class="invalid-feedback">
+                              <div *ngIf="s.studentNumber.errors">College Name is invalid</div>
+                            </div>
+                            </div>
+
                           <div class="md-form mb-1">
-                            <lable>Mobile Number</lable>
+                            <label>Mobile Number</label>
                             <input formControlName="mobno" class="form-control" type="text" [ngClass]="{ 'is-invalid': (s.mobno.touched) && s.mobno.invalid }">
                             <div *ngIf="(s.mobno.touched) && s.mobno.invalid" class="invalid-feedback">
                               <div *ngIf="s.mobno.errors">Mobile Number is invalid</div>
@@ -150,25 +259,11 @@
                         </div>
                       </div>
                     </div>
-                    <div class="form-group">
-                      <button [disabled]="!checkPre()" (click)="previous()" class="btn btn-primary">Previous</button>
-                      <button [disabled]="!checkNext()" (click)="next()" class="btn btn-primary">Next</button>
-                      <button [disabled]="checkFormValid()" class="btn btn-primary">Register</button>
+                    <div class="form-group text-center">
+                      <button [disabled]="!checkPre()" (click)="previous()" class="btn button btn-sm waves-effect waves-light">Previous</button>
+                      <button [disabled]="!checkNext()" (click)="next()" class="btn button btn-sm waves-effect waves-light">Next</button>
+                      <button [disabled]="checkFormValid()" class="btn button btn-sm waves-effect waves-light">Register</button>
                     </div>
-                  </form>
-                  <form (ngSubmit)="onSent(fileForm)" #fileForm="ngForm">
-                      <div class="form-group">
-                        <label for="exampleFormControlFile1"><h3>Upload your File</h3></label>
-                        <input type="file" (change)="fileEvent($event)" id="filedata" name="filedata" required class="form-control-file"  ngModel>
-                      </div>
-                      <p class="warning">{{fileExtensionMessage}}</p>
-                      <div *ngIf="fileselected">
-                      <select class="custom-select" name="inputGroupSelect" [(ngModel)]="name">
-                          <option *ngFor="let list of dropdown;" [value]="list">{{list}}</option>
-                        </select>
-                        </div>
-                        <br />
-                      <input type="submit" [disabled]='fileExtensionError' class="btn btn-primary" value="SEND">
                   </form>
                 </div>
               </div>
@@ -176,6 +271,20 @@
           </div>
         </div>
       </div>
+      <form (ngSubmit)="onSent(fileForm)" #fileForm="ngForm">
+        <div class="form-group">
+          <label for="exampleFormControlFile1"><h3>Upload your File</h3></label>
+          <input type="file" (change)="fileEvent($event)" id="filedata" name="filedata" required class="form-control-file"  ngModel>
+        </div>
+        <p class="warning">{{fileExtensionMessage}}</p>
+        <div *ngIf="fileselected">
+          <select class="custom-select" name="inputGroupSelect" [(ngModel)]="name">
+            <option *ngFor="let list of dropdown;" [value]="list">{{list}}</option>
+          </select>
+        </div>
+        <br />
+        <input type="submit" [disabled]='fileExtensionError' class="btn btn-primary" value="SEND">
+      </form>
     </div>
   </div>
 </div>
