@@ -8,7 +8,10 @@ const path = require('path');
 const passport = require('passport');
 const verifyToken = require('../controllers/auth').verifyTokenUtil; 
 const middleware = require('../middlewares/verifyCaptcha');
-
+const multer = require('multer');
+const upload = multer({
+    dest: '../files'
+})
 //auth routes
 router.post('/signUp',middleware.verifyCaptcha ,authController.signUp);
 router.get('/sendEmail', function(req, res){
@@ -41,9 +44,9 @@ router.post('/verifyToken', authController.verifyToken);
 router.post('/dashboard', passport.authenticate('jwt', {session:false}), dashboardController.registerTeam);
 router.get('/dashboard/getAllDetails', passport.authenticate('jwt', {session: false}), dashboardController.getAllDetail);
 router.post('/upload', dashboardController.uploadFile);
+router.post('/uploadFile',[passport.authenticate('jwt', {session:false}), upload.single('file')], dashboardController.uploadFile);
 router.get('/upload', function(req, res) {
-    res.sendFile(path.join(__dirname, '/upload.html'));
-});
+    res.sendFile(path.join(__dirname, '/upload.html'));});
 router.get('/download', dashboardController.downloadFile);
 
 

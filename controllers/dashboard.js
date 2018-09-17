@@ -7,6 +7,20 @@ const {google} = require('googleapis');
 const path = require('path');
 const Synopsis = require('../models/synopsis');
 
+function verifyTokenUtil(token , cb) {
+    jwt.verify(token, config.secret, function(err, decoded) {
+        console.log(decoded);
+        if(err) {
+            cb(false);
+        } else {
+            if(decoded) {
+                cb(true)
+            } else {
+                cb(true);
+            }
+        }
+    })
+}
 
 function resgitserTeamUtil(teamInfo, cb) {
     let newTeamDetails = new TeamDetails(teamInfo);
@@ -58,12 +72,15 @@ module.exports = {
             domain: req.body.domain
         }
         resgitserTeamUtil(teamInfo, function(err, teamInfoDoc) {
+            details = {};
+            details.topic = req.body.topic;
+            details.domain = req.body.domain;
             if(err) res.status(500).json({error:{status:true, errorInfo:err}, msg:"Team Details could not be saved"});
             else {
                 registerMembersUtil(req.body.members, req.user._id, function(err, memberInfoDoc) {
                     if(err)  res.status(500).json({error:{status:true, errorInfo:err}, msg:"Member Details could not be saved"});
                     else {
-                        res.status(200).json({error: {status: false, errorInfo:null}, msg:"Team and Member details saved"});
+                        res.status(200).json({error: {status: false, errorInfo:null},details:details, msg:"Team and Member details saved"});
                     }
                 });
             }
@@ -75,10 +92,10 @@ module.exports = {
         TeamDetails.find({id: req.user._id}, function(err, teamDetailsDoc) {
             if (err) throw err;
             
-            if(teamDetailsDoc && teamDetailsDoc.length > 0){
+            if(teamDetailsDoc){
                 details.teamDetails = {
                     teamName: req.user.teamName,
-                    teamId: req.user.teamName,
+                    teamId: req.user.teamId,
                     numberOfMembers: teamDetailsDoc.numberOfMembers,
                     domain: teamDetailsDoc.domain,
                     topic: teamDetailsDoc.topic 
@@ -91,35 +108,35 @@ module.exports = {
                         }
                         details.memberDetails = memberDetails;
                         // get synopsis details
-                        Synopsis.find({teamId: req.user_id}, function(err, synopsisDoc){
+                        Synopsis.find({teamId: req.user._id}, function(err, synopsisDoc){
                             if(err) throw err;
                             if(synopsisDoc && synopsisDoc.length > 0){
                                 details.synopsis = {
                                     name: synopsisDoc.fileName,
                                     webViewLink: synopsisDoc.webViewLink
                                 }
-                                res.satus(200).json({error:{status: false, errorInfo:null}, details:details, filledStatus:'2'})
-                            } else {
-                                res.status(200).json({error:{status:false, errorInfo:null }, details:details, filledStatus:'1'});
+                                res.status(200).json({error:{status: false, errorInfo:null}, details:{email:req.user.email,details}, filledStatus:'2'})
+                            } else { 
+                                res.status(200).json({error:{status:false, errorInfo:null }, details:{email:req.user.email, details}, filledStatus:'1'});
                             }
                         });
                         
                     } else {
-                        res.status(200).json({error:{status:true, errorInfo:"Members not found" }, details:details, filledStatus:'0'})
+                        res.status(200).json({error:{status:true, errorInfo:"Members not found" }, details:{email:req.user.email, details}, filledStatus:'0'})
                     }
                 });
             } else {
-                res.status(200).json({error:{status:true, errorInfo:"Team details not found" }, details:null, filledStatus:'0'});
+                res.status(200).json({error:{status:true, errorInfo:"Team details not found" }, details:{email: req.user.email}, filledStatus:'0'});
             }
 
         });
     },
 
     uploadFile: function(req, res) {
-        let sampleFile = req.files.foo;
+        let sampleFile = req.files.file;
         console.log(sampleFile);
         //filename to be added to be handled by frontend
-        var fileName = `${req.body.teamName}_${req.body.domain}_${req.body.topic}` || 'samplePdf'; 
+        var fileName = req.files.file.name || 'samplePdf'; 
         sampleFile.mv(path.join(__dirname, '../temp/file.pdf'), function(err) {
             if(err) throw err;
             else {
@@ -149,7 +166,7 @@ module.exports = {
                                             res.status(500).json({error:{status: true, errorInfo: err}, msg:"could not upload file to drive"});
                                         else {
                                             // replace someId
-                                            saveFileInfo(file.data.id, file.data.webViewLink, "5b915de98c21bb138cbd52d2", fileName, (err, response) => {
+                                            saveFileInfo(file.data.id, file.data.webViewLink, req.user.id, fileName, (err, response) => {
                                                 if (err) throw err;
                                                 res.status(200).json({error:{status: false, errorInfo: null}, msg:"File saved succesfully", response:response});
                                             });

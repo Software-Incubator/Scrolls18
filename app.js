@@ -18,8 +18,9 @@ require('./googleapis.js');
 
 app.use(helmet());
 app.use(cors());
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true }));
 app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }))
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true }));
 app.use(fileUpload());
 app.use(passport.initialize());
 app.use('/api', routes);
