@@ -34,9 +34,9 @@ export class ScDashboardComponent implements OnInit {
       res => {
         this.Loading = false;
         this.initialRes = res;
-        console.log(this.initialRes);
-        console.log(this.initialRes.filledStatus);
-        console.log(typeof(this.initialRes.filledStatus));
+        // console.log(this.initialRes);
+        // console.log(this.initialRes.filledStatus);
+        // console.log(typeof(this.initialRes.filledStatus));
         if ( this.initialRes.filledStatus === '0') {
           this.emailPattern = this.initialRes.details.email;
           this.form = this.fb.group({
@@ -51,11 +51,16 @@ export class ScDashboardComponent implements OnInit {
               this.nof.push(k);
             }
             this.track = this.initialRes.details.details.memberDetails.length + 1;
+          } else if (this.initialRes.filledStatus === '2'){
+            this.nof = [];
+            for (let k = 0; k < this.initialRes.details.details.memberDetails.length; k++ ) {
+              this.nof.push(k);
+            }
           }
       },
       err => {
         this.Loading = false  ;
-        console.log(err);
+        // console.log(err);
       }
     );
   }
@@ -83,7 +88,7 @@ export class ScDashboardComponent implements OnInit {
     .subscribe(
       res => {
         this.Loading = false;
-        console.log(res);
+        // console.log(res);
         this.teamDetailsRes = res;
         this.initialRes.filledStatus = '1';
         this.track++;
@@ -92,11 +97,13 @@ export class ScDashboardComponent implements OnInit {
     this.responseFileMsg = this.teamDetailsRes;
       },
       err => {
+        this.gotErrorInFileUpload = true;
+        document.getElementById('openModalButton').click();
         this.Loading = false;
-        console.log(err);
+        // console.log(err);
       }
     );
-    //console.log(this.form.value, this.form);
+    //// console.log(this.form.value, this.form);
   }
   checkFormValid() {
     if (this.form.invalid) {
@@ -144,11 +151,11 @@ export class ScDashboardComponent implements OnInit {
   }
   next() {
     this.track++;
-    //console.log(this.track);
+    //// console.log(this.track);
   }
   previous() {
     this.track--;
-    //console.log(this.track);
+    //// console.log(this.track);
   }
   getNumberOfMem(n: number) {
     for (let j = +this.form.value.members.length; j >= 0; j--) {
@@ -187,13 +194,22 @@ export class ScDashboardComponent implements OnInit {
     return array.indexOf(word.toLowerCase()) > -1;
   }
   onUploadError(e) {
-    console.log(e);
+    // console.log(e);
   }
   onUploadSuccess(e2) {
     this.gotErrorInFileUpload = false;
     this.initialRes.filledStatus = '2';
     document.getElementById('openModalButton').click();
     this.responseFileMsg = e2[1];
-    console.log(e2);
+    // this.server.getDashboardDetails(this.auth.getToken()).subscribe(
+    //   res => {
+    //     // console.log(res);
+    //   },
+    //   err => {
+    //     // console.log(err);
+    //   }
+    // );
+    // console.log(this.initialRes);
+    // console.log(e2);
   }
 }

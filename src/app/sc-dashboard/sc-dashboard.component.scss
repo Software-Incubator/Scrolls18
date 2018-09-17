@@ -117,12 +117,22 @@ font-weight: 700;
   font-weight: 700;
   color: #59B8E8;
 }
+.details_heading {
+  font-weight: 700;
+  color: #59B8E8;
+}
 .synopsis_heading {
   font-weight: 700;
   color: #59B8E8;
   font-size: 3rem;
 }
-
+span{
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+p{
+  font-weight: 400;
+}
 /** Progress bar ***/
 
 $mainColor: #004079;

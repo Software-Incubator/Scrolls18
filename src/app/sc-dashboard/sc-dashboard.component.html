@@ -286,10 +286,34 @@
       </div>
     </div>
   </div>
+  <div class="container">
   <div *ngIf="initialRes?.filledStatus == '2'" class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
-      <h3 class="congrats_heading">You have completed All Steps</h3>
+      <h3 class="congrats_heading">You have completed All Steps! Here are your Details</h3>
     </div>
+    <div class="col-sm-12 col-md-12 col-lg-12 mt-5">
+      <h2 class="details_heading">Team Details</h2>
+      <p><span>Team Name:</span> {{initialRes?.details.details.teamDetails.teamName}}</p>
+      <p><span>Team Id:</span> {{initialRes?.details.details.teamDetails.teamId}}</p>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-12 mt-5">
+        <h2 class="details_heading">Members Details</h2>
+        <div class="row">
+        <div *ngFor="let mem of nof" class="col-sm-12 col-md-{{nof.length == 3 ? 4 : 3}} col-lg-{{nof.length == 3 ? 4 : 3}}">
+          <div class="my-3">
+          <span style="color:#59B8E8; text-transform: capitalize;">{{initialRes?.details.details.memberDetails[mem].memberType}}</span>
+          </div>
+             <p><span>Name:</span> {{initialRes?.details.details.memberDetails[mem].name}}</p>
+            <p><span>Email: </span>{{initialRes?.details.details.memberDetails[mem].email}}</p>
+            <p><span>Course:</span> {{initialRes?.details.details.memberDetails[mem].course}}</p>
+            <p><span>Year:</span> {{initialRes?.details.details.memberDetails[mem].year}}</p>
+            <p *ngIf="initialRes?.details.details.memberDetails[mem].college == 'akg'"><span>College:</span> {{initialRes?.details.details.memberDetails[mem].college}}</p>
+            <p *ngIf="initialRes?.details.details.memberDetails[mem].college == 'akg'"><span>Student No: </span> {{initialRes?.details.details.memberDetails[mem].studentNo}}</p>
+            <p *ngIf="initialRes?.details.details.memberDetails[mem].college == 'oth'"><span>College:</span> {{initialRes?.details.details.memberDetails[mem].studentNo}}</p>
+        </div>
+        </div>
+      </div>
+  </div>
   </div>
 </div>
 <button id="openModalButton" [hidden]="true" (click)="successModal.show()">Open Modal</button>
@@ -309,7 +333,7 @@
       <div *ngIf="gotErrorInFileUpload">
           <img style="width:20%;" src="../../assets/images/fail_animated.svg">
           <!-- <div class="errorText">{{responseMessage?.error.msg}}</div> -->
-          <div class="errorText">{{responseMessage}}</div>
+          <div class="errorText">Error! somthing went wrong !</div>
       </div>
       </div>
       <div class="modal-footer">
