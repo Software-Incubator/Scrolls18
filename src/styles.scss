@@ -51,7 +51,22 @@
         bottom:0;
     }
 }
-
+.dz-wrapper .dz-multiple .dz-clickable .dropzone .dz-started {
+  overflow: visible !important;
+}
+.dropzone .dz-preview {
+  z-index: 1000 !important;
+}
+.dropzone .dz-preview.dz-error .dz-error-message {
+  opacity: 1;
+  pointer-events: auto;
+}
+dropzone > .dropzone.dz-wrapper {
+  overflow: visible !important;
+}
+dropzone > .dropzone.dz-wrapper .dz-message {
+  min-height: 100px !important;
+}
 .carousel{
   .carousel-control-prev, .carousel-control-next{
     position: fixed;

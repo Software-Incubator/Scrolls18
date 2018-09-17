@@ -6,6 +6,10 @@ import { RecaptchaModule } from 'ng-recaptcha';
 import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgsRevealModule } from 'ng-scrollreveal';
+import { DropzoneModule } from 'ngx-dropzone-wrapper';
+import { DROPZONE_CONFIG } from 'ngx-dropzone-wrapper';
+import { DropzoneConfigInterface } from 'ngx-dropzone-wrapper';
+
 
 import { AppComponent } from './app.component';
 import { ScHomeComponent } from './sc-home/sc-home.component';
@@ -18,6 +22,16 @@ import { ConfirmEqualValidatorDirective } from './confirm-equal-validator.direct
 import { ServerService } from './services/server.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/authguard.service';
+
+
+const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
+  // Change this to your upload POST address:
+   url: 'http://localhost:3000/api/uploadFile',
+   maxFilesize: 3,
+   headers : {'Authorization': 'Bearer ' +  localStorage.getItem('currentUser')},
+   acceptedFiles: 'application/pdf'
+ };
+
 
 @NgModule({
   declarations: [
@@ -34,6 +48,7 @@ import { AuthGuard } from './services/authguard.service';
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    DropzoneModule,
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule,
     NgsRevealModule.forRoot(),
@@ -41,7 +56,10 @@ import { AuthGuard } from './services/authguard.service';
     HttpClientModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [AuthService, ServerService, AuthGuard],
+  providers: [AuthService, ServerService, AuthGuard, {
+    provide: DROPZONE_CONFIG,
+    useValue: DEFAULT_DROPZONE_CONFIG
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

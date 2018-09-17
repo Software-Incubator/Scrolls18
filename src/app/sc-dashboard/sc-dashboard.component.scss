@@ -28,6 +28,12 @@
   font-weight: 700;
   margin-top: 10vh;
 }
+.congrats_heading{
+  text-align: center;
+  color: #14ad14;
+  font-weight: 700 !important;
+  margin-top: 4vh;
+}
 .just_few_heading {
   color:#59B8E8;
   font-weight: 400;
@@ -90,6 +96,11 @@ font-weight: 700;
 }
 .modal-body{
   padding: 0;
+}
+.successText {
+  color: #14ad14;
+  font-weight: 700;
+  font-size: 1rem;
 }
 .button {
   background-color: #222;

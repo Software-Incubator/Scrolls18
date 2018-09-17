@@ -30,6 +30,7 @@
     "jquery": "^3.3.1",
     "ng-recaptcha": "^4.0.0-beta.1",
     "ng-scrollreveal": "^2.2.0",
+    "ngx-dropzone-wrapper": "^6.2.0",
     "rxjs": "^6.3.1",
     "rxjs-compat": "^6.3.1",
     "scrollreveal": "^4.0.0",

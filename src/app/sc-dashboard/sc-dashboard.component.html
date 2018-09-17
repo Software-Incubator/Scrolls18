@@ -4,13 +4,13 @@
 </div>
 <h1 class="dash_heading">WELCOME TO DASHBOARD</h1>
 <div class="container-fluid">
-  <div class="row">
+  <div *ngIf="initialRes?.filledStatus == '0' || initialRes?.filledStatus == '1'" class="row">
     <div class="col-sm-12 col-md-6 col-lg-6 justify-content-center center">
       <div class="text-center my-auto">
         <h1 class="just_few_heading">Just few more details</h1>
         <img style="width: 35%;" src="../../assets/images/register_steps_image.svg" alt="">
       </div>
-      <div *ngIf = "initialRes?.filledStatus == '0'" class="wizard-progress">
+      <div *ngIf = "initialRes?.filledStatus != '2'" class="wizard-progress">
         <div class="step" [ngClass]="{'complete' : track > 0 , 'in-progress' : track == 0}">
           Step 1
           <div class="node"></div>
@@ -271,36 +271,49 @@
                     </form>
                   </div>
                   <div *ngIf = "initialRes?.filledStatus == '1'">
-                    <!-- <form (ngSubmit)="onSent(fileForm)" #fileForm="ngForm" enctype="multipart/form-data" >
-                      <div class="form-group">
-                        <label for="exampleFormControlFile1"><h3>Upload your File</h3></label>
-                        <input type="file" (change)="fileEvent($event)" id="filedata" name="filedata" required class="form-control-file"  ngModel>
-                      </div>
-                      <p class="warning">{{fileExtensionMessage}}</p>
-                      <div *ngIf="fileselected">
-                        <select class="custom-select" name="inputGroupSelect" [(ngModel)]="name">
-                          <option *ngFor="let list of dropdown;" [value]="list">{{list}}</option>
-                        </select>
-                      </div>
-                      <br />
-
-                      <input type="submit" [disabled]='fileExtensionError' class="btn btn-primary" value="SEND">
-                    </form> -->
                     <div class="text-center synopsis_heading">
                       UPLOAD SYNOPSIS
                     </div>
-                    <div lass="text-center">
-                    <input type="file" (change)="fileChangeEvent($event)" placeholder="Upload file..." />
-                    </div>
-                    <div style="text-align: center;" class="mt-3">
-                    <button class="btn button" type="button" (click)="upload()">Upload</button>
-                    </div>
+                    <center>
+                    <dropzone [message]="'Click or drag your Synopsis pdf'" (error)="onUploadError($event)" (success)="onUploadSuccess($event)"></dropzone>
+                    </center>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="initialRes?.filledStatus == '2'" class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <h3 class="congrats_heading">You have completed All Steps</h3>
+    </div>
+  </div>
+</div>
+<button id="openModalButton" [hidden]="true" (click)="successModal.show()">Open Modal</button>
+<div mdbModal #successModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel"></h4>
+      </div>
+      <div class="modal-body text-center">
+        <div *ngIf="!gotErrorInFileUpload">
+          <img style="width:20%;" src="../../assets/images/success_animated.svg">
+          <br />
+          <div class="successText">{{responseFileMsg?.msg}}</div>
+      </div>
+      <div *ngIf="gotErrorInFileUpload">
+          <img style="width:20%;" src="../../assets/images/fail_animated.svg">
+          <!-- <div class="errorText">{{responseMessage?.error.msg}}</div> -->
+          <div class="errorText">{{responseMessage}}</div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="successModal.hide()" mdbWavesEffect>Close</button>
       </div>
     </div>
   </div>

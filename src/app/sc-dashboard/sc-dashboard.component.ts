@@ -9,48 +9,36 @@ import { FormBuilder, FormGroup, Validators, FormArray, NgForm } from '@angular/
   styleUrls: ['./sc-dashboard.component.scss']
 })
 export class ScDashboardComponent implements OnInit {
-  product: any;
-  filesToUpload: any;
-  reader2: FileReader;
-  fileContent: any;
-  contents: any;
-  reader: FileReader;
-  fileExtensionMessage: string;
-  fileExtensionError: boolean;
-  allowedExtensions: string[];
-  fileExtension: string;
-  fileName: string;
-  array2: {}[];
-  array: string[];
-  resData: any;
-  name: string;
-  data: any;
-  file: any;
-  emailPattern = 'fds@sdfsd.com';
-  frmData: FormData;
-  fileselected: boolean;
+  emailPattern = '';
   Loading = false;
   submitted = false;
+  gotErrorInFileUpload: boolean;
+  gotErrorInForm: boolean;
   track = 0;
   nof = [];
   fillStatus: number;
   initialRes: any;
+  teamDetailsRes: any;
+  responseFileMsg: any;
   public form: FormGroup;
+
   private control: FormArray;
 
   constructor( private fb: FormBuilder, private server: ServerService, private auth: AuthService) {
   }
 
   ngOnInit() {
+    this.Loading = true;
     this.fb = new FormBuilder;
     this.server.getDashboardDetails(this.auth.getToken()).subscribe(
       res => {
+        this.Loading = false;
         this.initialRes = res;
         console.log(this.initialRes);
         console.log(this.initialRes.filledStatus);
         console.log(typeof(this.initialRes.filledStatus));
         if ( this.initialRes.filledStatus === '0') {
-
+          this.emailPattern = this.initialRes.details.email;
           this.form = this.fb.group({
             domain: ['', Validators.required],
             topic: ['', Validators.required],
@@ -59,10 +47,14 @@ export class ScDashboardComponent implements OnInit {
           });
           this.control = <FormArray>this.form.controls['members'];
           } else if ( this.initialRes.filledStatus === '1') {
-            this.fileselected = false;
+            for (let k = 0; k < this.initialRes.details.details.memberDetails.length; k++ ) {
+              this.nof.push(k);
+            }
+            this.track = this.initialRes.details.details.memberDetails.length + 1;
           }
       },
       err => {
+        this.Loading = false  ;
         console.log(err);
       }
     );
@@ -92,6 +84,12 @@ export class ScDashboardComponent implements OnInit {
       res => {
         this.Loading = false;
         console.log(res);
+        this.teamDetailsRes = res;
+        this.initialRes.filledStatus = '1';
+        this.track++;
+        this.gotErrorInFileUpload = false;
+    document.getElementById('openModalButton').click();
+    this.responseFileMsg = this.teamDetailsRes;
       },
       err => {
         this.Loading = false;
@@ -184,78 +182,18 @@ export class ScDashboardComponent implements OnInit {
     });
   }
 
-
-  onSent(form: NgForm) {
-
-    this.Loading = true;
-    this.frmData = new FormData();
-    this.frmData.append('foo', this.file, this.file.name);
-    //console.log(this.frmData);
-    this.server.sendFile(this.auth.getToken(), this.frmData)
-    .subscribe((data) => {
-      console.log(data);
-      this.Loading = false;
-      this.resData = data;
-      this.array = Object.keys(this.resData.anomalies_dict);
-      this.array2 = Object.values(this.resData.anomalies_dict);
-    });
-  }
-  fileEvent(event) {
-    this.file = event.target.files[0];
-    console.log(this.file);
-    this.fileName = this.file.name;
-    this.allowedExtensions =
-    ['pdf', 'jpg'];
-    this.fileExtension = this.fileName.split('.').pop();
-
-    if (this.isInArray(this.allowedExtensions, this.fileExtension)) {
-      this.fileExtensionError = false;
-      this.fileExtensionMessage = '';
-    } else {
-      this.fileExtensionMessage = 'Only pdf files allowed!!';
-      this.fileExtensionError = true;
-    }
-
-    if (this.file) {
-      this.reader = new FileReader();
-      this.reader.onloadend = (e: any) => {
-        this.contents = e.target.result;
-        this.fileContent = this.contents;
-      };
-      this.reader.readAsDataURL(this.file);
-    } else {
-      alert('Failed to load file');
-    }
-
-  }
-
   /*- checks if word exists in array -*/
   isInArray(array, word) {
     return array.indexOf(word.toLowerCase()) > -1;
   }
-
-  upload() {
-    const formData: any = new FormData();
-    const files: Array<File> = this.filesToUpload;
-    console.log(files);
-    formData.append("foo", files[0], files[0]['name']);
-    console.log(formData.get);
-    var options = { content: formData };
-    for (var key of formData.entries()) {
-			console.log(key[0] + ', ' + key[1])
-		}
-    // this.http.post('http://localhost:3001/upload', formData)
-    //   .map(files => files.json())
-    //   .subscribe(files => console.log('files', files))
-      this.server.sendFile(this.auth.getToken(), formData)
-    .subscribe((data) => {
-      console.log(data);
-    });
+  onUploadError(e) {
+    console.log(e);
   }
-
-  
-  fileChangeEvent(fileInput: any) {
-    this.filesToUpload = <Array<File>>fileInput.target.files;
-    console.log(this.filesToUpload);
+  onUploadSuccess(e2) {
+    this.gotErrorInFileUpload = false;
+    this.initialRes.filledStatus = '2';
+    document.getElementById('openModalButton').click();
+    this.responseFileMsg = e2[1];
+    console.log(e2);
   }
 }
