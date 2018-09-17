@@ -80,7 +80,7 @@ module.exports = {
                 registerMembersUtil(req.body.members, req.user._id, function(err, memberInfoDoc) {
                     if(err)  res.status(500).json({error:{status:true, errorInfo:err}, msg:"Member Details could not be saved"});
                     else {
-                        res.status(200).json({error: {status: false, errorInfo:null},details:details, msg:"Team and Member details saved"});
+                        res.status(200).json({error: {status: false, errorInfo:null},details:details, msg:"Team and Member details saved !! Last Step To Go"});
                     }
                 });
             }
@@ -100,6 +100,8 @@ module.exports = {
                     domain: teamDetailsDoc.domain,
                     topic: teamDetailsDoc.topic 
                 };
+                let topic = teamDetailsDoc.topic;
+                let domain = teamDetailsDoc.domain;
                 Members.find({teamId: req.user._id}, function(err, memberDetails) {
                     if(err) throw err;
                     if(memberDetails.length > 0){
@@ -135,50 +137,54 @@ module.exports = {
     uploadFile: function(req, res) {
         let sampleFile = req.files.file;
         console.log(sampleFile);
-        //filename to be added to be handled by frontend
-        var fileName = req.files.file.name || 'samplePdf'; 
-        sampleFile.mv(path.join(__dirname, '../temp/file.pdf'), function(err) {
-            if(err) throw err;
-            else {
-                var fileMetadata = {
-                    'name': `${fileName}.pdf`
-                };
-                var media = {
-                    mimeType: 'application/pdf',
-                    body: fs.createReadStream(path.join(__dirname, '../temp/file.pdf'))
-                };
-                fs.readFile('credentials.json', (err, content) => {
-                    if (err) return console.log('Error loading client secret file:', err);
-                    // Authorize a client with credentials, then call the Google Drive API.
-                    gapi.authorize(JSON.parse(content), function(auth) {
-                        const drive = google.drive({version: 'v3', auth});
-                        drive.files.create({
-                            resource: fileMetadata,
-                            media: media,
-                            fields: 'id, webViewLink'
-                          }, function (err, file) {
-                                if (err) {
-                                    res.status(500).json({error:{status: true, errorInfo: err}, msg:"could not upload file to drive"});
-                                } else {
-                                    console.log(file);
-                                    fs.unlink(path.join(__dirname, '../temp/file.pdf'), (err) => {
-                                        if (err) 
-                                            res.status(500).json({error:{status: true, errorInfo: err}, msg:"could not upload file to drive"});
-                                        else {
-                                            // replace someId
-                                            saveFileInfo(file.data.id, file.data.webViewLink, req.user.id, fileName, (err, response) => {
-                                                if (err) throw err;
-                                                res.status(200).json({error:{status: false, errorInfo: null}, msg:"File saved succesfully", response:response});
-                                            });
-                                        }
-                                    });
+        TeamDetails.findOne({id: req.user._id}, function(err, doc){
+            console.log(doc);
+            var fileName = `${doc.domain}_${doc.topic}_${req.user.teamId}` || 'samplePdf'; 
+            sampleFile.mv(path.join(__dirname, '../temp/file.pdf'), function(err) {
+                if(err) throw err;
+                else {
+                    var fileMetadata = {
+                        'name': `${fileName}.pdf`
+                    };
+                    var media = {
+                        mimeType: 'application/pdf',
+                        body: fs.createReadStream(path.join(__dirname, '../temp/file.pdf'))
+                    };
+                    fs.readFile('credentials.json', (err, content) => {
+                        if (err) return console.log('Error loading client secret file:', err);
+                        // Authorize a client with credentials, then call the Google Drive API.
+                        gapi.authorize(JSON.parse(content), function(auth) {
+                            const drive = google.drive({version: 'v3', auth});
+                            drive.files.create({
+                                resource: fileMetadata,
+                                media: media,
+                                fields: 'id, webViewLink'
+                              }, function (err, file) {
+                                    if (err) {
+                                        res.status(500).json({error:{status: true, errorInfo: err}, msg:"could not upload file to drive"});
+                                    } else {
+                                        // console.log(file);
+                                        fs.unlink(path.join(__dirname, '../temp/file.pdf'), (err) => {
+                                            if (err) 
+                                                res.status(500).json({error:{status: true, errorInfo: err}, msg:"could not upload file to drive"});
+                                            else {
+                                                // replace someId
+                                                saveFileInfo(file.data.id, file.data.webViewLink, req.user.id, fileName, (err, response) => {
+                                                    if (err) throw err;
+                                                    res.status(200).json({error:{status: false, errorInfo: null}, msg:"Congratulations You have Uploaded All your Details Successfully !!", response:response});
+                                                });
+                                            }
+                                        });
+                                    }
                                 }
-                            }
-                        );
+                            );
+                        });
                     });
-                });
-            }
-        });
+                }
+            });
+        })
+        //filename to be added to be handled by frontend
+       
         // console.log(req.files);
         
     },
