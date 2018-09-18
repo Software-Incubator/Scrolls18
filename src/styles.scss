@@ -40,11 +40,13 @@
     }
     .button:hover, .button:active{
       border: 1.5px solid #222;
-      color: #fff;
+      color: #fff !important;
       background-color: #222;
       border-radius: 40px;
       font-weight: 700;
     }
+
+
 }
 .landing_section{
     .fp-tableCell{

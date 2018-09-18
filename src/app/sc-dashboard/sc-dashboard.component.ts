@@ -197,19 +197,23 @@ export class ScDashboardComponent implements OnInit {
     // console.log(e);
   }
   onUploadSuccess(e2) {
-    this.gotErrorInFileUpload = false;
-    this.initialRes.filledStatus = '2';
-    document.getElementById('openModalButton').click();
     this.responseFileMsg = e2[1];
-    // this.server.getDashboardDetails(this.auth.getToken()).subscribe(
-    //   res => {
-    //     // console.log(res);
-    //   },
-    //   err => {
-    //     // console.log(err);
-    //   }
-    // );
-    // console.log(this.initialRes);
-    // console.log(e2);
+    this.gotErrorInFileUpload = false;
+    document.getElementById('openModalButton').click();
+     this.server.getDashboardDetails(this.auth.getToken()).subscribe(
+       res => {
+         this.initialRes = res;
+        this.nof = [];
+        for (let k = 0; k < this.initialRes.details.details.memberDetails.length; k++ ) {
+          this.nof.push(k);
+        }
+          //console.log(res);
+       },
+       err => {
+        // console.log(err);
+       }
+    );
+     //console.log(this.initialRes);
+     //console.log(e2);
   }
 }
