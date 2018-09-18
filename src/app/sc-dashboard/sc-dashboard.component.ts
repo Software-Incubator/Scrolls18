@@ -34,7 +34,7 @@ export class ScDashboardComponent implements OnInit {
       res => {
         this.Loading = false;
         this.initialRes = res;
-        // console.log(this.initialRes);
+         // console.log(this.initialRes);
         // console.log(this.initialRes.filledStatus);
         // console.log(typeof(this.initialRes.filledStatus));
         if ( this.initialRes.filledStatus === '0') {
@@ -51,7 +51,7 @@ export class ScDashboardComponent implements OnInit {
               this.nof.push(k);
             }
             this.track = this.initialRes.details.details.memberDetails.length + 1;
-          } else if (this.initialRes.filledStatus === '2'){
+          } else if (this.initialRes.filledStatus === '2') {
             this.nof = [];
             for (let k = 0; k < this.initialRes.details.details.memberDetails.length; k++ ) {
               this.nof.push(k);

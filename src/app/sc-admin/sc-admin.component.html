@@ -1,0 +1,33 @@
+<div *ngIf="Loading" class="overlay">
+    <img src="../../assets/images/loader.svg" class="loader image-responsive" alt="Loader">
+  </div>
+<div class="container">
+  <div class="row">
+    <div *ngIf="!isAdminLoggedIn" class="col-sm-12 col-md-12 col-lg-12 justify-content-center center">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate >
+              <div class="md-form mb-1">
+                <label for="username">username</label>
+                <input style="color: #808080;margin:0;" type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" [ngClass]="{ 'is-invalid': username.touched && username.invalid }" required>
+              </div>
+              <div class="md-form mb-1">
+                <label for="password">Password</label>
+                <input style="color: #808080;margin:0;" type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': password.touched && password.invalid }" required >
+              </div>
+              <div class="text-center help-block">{{ responseError?.error.error.errorInfo }}</div>
+              <div class="d-flex justify-content-center">
+                <button mdbBtn class="btn signupbutton waves-effect waves-light my-3" mdbWavesEffect>Login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="isAdminLoggedIn">
+     <button class="btn button_logout" (click)="onLogOut()">Logout</button>
+    <app-sc-admin-dashboard></app-sc-admin-dashboard>
+</div>

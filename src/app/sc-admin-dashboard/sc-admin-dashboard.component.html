@@ -1,0 +1,72 @@
+<div class="container" *ngIf="isAdminLoggedIn">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 content-justtify-center center my-2">
+      <h1 class="dash_heading">Here are all registered Teams</h1>
+      <h3 class="number_of_reg">Total Registrations : {{data?.teams.length}}</h3>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <table class="table table-striped">
+        <thead class="black white-text">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Team Id</th>
+            <th scope="col">Team Name</th>
+            <th scope="col">Email (Leader)</th>
+            <th scope="col">View Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team of not;">
+            <th scope="row">{{team+1}}</th>
+            <td>{{data?.teams[team].teamId}}</td>
+            <td>{{data?.teams[team].teamName}}</td>
+            <td>{{data?.teams[team].email}}</td>
+            <td><button (click)="viewDetails(data?.teams[team]._id)" class="btn btn-primary">View</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<button id="openModalButton" [hidden]="true" (click)="successModal.show()">Open Modal</button>
+<div mdbModal #successModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title w-100" id="myModalLabel"></h4>
+    </div>
+    <div class="modal-body">
+      <div *ngIf="status === false">
+        <span>No Details Filled Yet</span>
+      </div>
+      <div *ngIf="status === true">
+      <h2 class="heading">Team Details</h2>
+      <p><span>Domain:</span> {{detailsRes?.details.teamDetails[0].domain}}</p>
+      <p><span>Topic:</span> {{detailsRes?.details.teamDetails[0].topic}}</p>
+      <p><span>Members Numbers:</span> {{detailsRes?.details.teamDetails[0].numberOfMembers}}</p>
+      <h2 class="heading">Members Details</h2>
+      <div class="row">
+        <div *ngFor="let mem of nof" class="col-sm-12 col-md-{{nof.length == 2 ? 6 : 4}} col-lg-{{nof.length == 2 ? 6 : 4}}">
+          <div class="my-3">
+            <span style="color:#59B8E8; text-transform: capitalize;">{{detailsRes?.details.members[mem].memberType}}</span>
+          </div>
+          <p><span>Name:</span> {{detailsRes?.details.members[mem].name}}</p>
+          <p><span>Email: </span>{{detailsRes?.details.members[mem].email}}</p>
+          <p><span>Course:</span> {{detailsRes?.details.members[mem].course}}</p>
+          <p><span>Year:</span> {{detailsRes?.details.members[mem].year}}</p>
+          <p *ngIf="detailsRes?.details.members[mem].college == 'akg'"><span>College:</span> {{detailsRes?.details.members[mem].college}}</p>
+          <p *ngIf="detailsRes?.details.members[mem].college == 'akg'"><span>Student No: </span> {{detailsRes?.details.members[mem].studentNo}}</p>
+          <p *ngIf="detailsRes?.details.members[mem].college == 'oth'"><span>College:</span> {{detailsRes?.details.members[mem].studentNo}}</p>
+        </div>
+      </div>
+      <p *ngIf="detailsRes?.details.synopsis != null"><span>Synopsis</span><a href="{{detailsRes?.details.synopsis.webViewLink}}"> here</a></p>
+      <p *ngIf="detailsRes?.details.synopsis == null"><span>Synopsis Not Uploaded Yet</span></p>
+    </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="successModal.hide()" mdbWavesEffect>Close</button>
+    </div>
+  </div>
+</div>
+</div>

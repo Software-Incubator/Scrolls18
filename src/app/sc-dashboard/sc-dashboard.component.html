@@ -275,7 +275,7 @@
                       UPLOAD SYNOPSIS
                     </div>
                     <center>
-                    <dropzone [message]="'Click or drag your Synopsis pdf'" (error)="onUploadError($event)" (success)="onUploadSuccess($event)"></dropzone>
+                      <dropzone [message]="'Click or drag your Synopsis pdf'" (error)="onUploadError($event)" (success)="onUploadSuccess($event)"></dropzone>
                     </center>
                   </div>
                 </div>
@@ -287,58 +287,64 @@
     </div>
   </div>
   <div class="container">
-  <div *ngIf="initialRes?.filledStatus == '2'" class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <h3 class="congrats_heading">You have completed All Steps! Here are your Details</h3>
-    </div>
-    <div class="col-sm-12 col-md-12 col-lg-12 mt-5">
-      <h2 class="details_heading">Team Details</h2>
-      <p><span>Team Name:</span> {{initialRes?.details.details.teamDetails.teamName}}</p>
-      <p><span>Team Id:</span> {{initialRes?.details.details.teamDetails.teamId}}</p>
-    </div>
-    <div class="col-sm-12 col-md-12 col-lg-12 mt-5">
+    <div *ngIf="initialRes?.filledStatus == '2'" class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <h3 class="congrats_heading">You have completed All Steps! Here are your Details</h3>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-12 mt-5">
+        <h2 class="details_heading">Team Details</h2>
+        <p><span>Team Name:</span> {{initialRes?.details.details.teamDetails.teamName}}</p>
+        <p><span>Team Id:</span> {{initialRes?.details.details.teamDetails.teamId}}</p>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-12">
+          <p><span>Synopsis</span><a target="_blank" href="{{initialRes?.details.details.synopsis.webViewLink}}"> here</a></p>
+        </div>
+      <div class="col-sm-12 col-md-12 col-lg-12 mt-5">
         <h2 class="details_heading">Members Details</h2>
         <div class="row">
-        <div *ngFor="let mem of nof" class="col-sm-12 col-md-{{nof.length == 2 ? 6 : 4}} col-lg-{{nof.length == 2 ? 6 : 4}}">
-          <div class="my-3">
-          <span style="color:#59B8E8; text-transform: capitalize;">{{initialRes?.details.details.memberDetails[mem].memberType}}</span>
-          </div>
-             <p><span>Name:</span> {{initialRes?.details.details.memberDetails[mem].name}}</p>
+          <div *ngFor="let mem of nof" class="col-sm-12 col-md-{{nof.length == 2 ? 6 : 4}} col-lg-{{nof.length == 2 ? 6 : 4}}">
+            <div class="my-3">
+              <span style="color:#59B8E8; text-transform: capitalize;">{{initialRes?.details.details.memberDetails[mem].memberType}}</span>
+            </div>
+            <p><span>Name:</span> {{initialRes?.details.details.memberDetails[mem].name}}</p>
             <p><span>Email: </span>{{initialRes?.details.details.memberDetails[mem].email}}</p>
             <p><span>Course:</span> {{initialRes?.details.details.memberDetails[mem].course}}</p>
             <p><span>Year:</span> {{initialRes?.details.details.memberDetails[mem].year}}</p>
-            <p *ngIf="initialRes?.details.details.memberDetails[mem].college == 'akg'"><span>College:</span> {{initialRes?.details.details.memberDetails[mem].college}}</p>
+            <p><span>Mob:</span> {{initialRes?.details.details.memberDetails[mem].mobno}}</p>
+            <p *ngIf="initialRes?.details.details.memberDetails[mem].college == 'akg'"><span>College:</span> Ajay Kumar Garg Engineering College</p>
             <p *ngIf="initialRes?.details.details.memberDetails[mem].college == 'akg'"><span>Student No: </span> {{initialRes?.details.details.memberDetails[mem].studentNo}}</p>
             <p *ngIf="initialRes?.details.details.memberDetails[mem].college == 'oth'"><span>College:</span> {{initialRes?.details.details.memberDetails[mem].studentNo}}</p>
-        </div>
+            <p *ngIf="initialRes?.details.details.memberDetails[mem].accomodation == '0'"><span>Accomodation:</span> No</p>
+            <p *ngIf="initialRes?.details.details.memberDetails[mem].accomodation == '1'"><span>Accomodation:</span> YES</p>
+          </div>
         </div>
       </div>
-  </div>
+    </div>
   </div>
 </div>
 <button id="openModalButton" [hidden]="true" (click)="successModal.show()">Open Modal</button>
 <div mdbModal #successModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel"></h4>
-      </div>
-      <div class="modal-body text-center">
-        <div *ngIf="!gotErrorInFileUpload">
-          <img style="width:20%;" src="../../assets/images/success_animated.svg">
-          <br />
-          <div class="successText">{{responseFileMsg?.msg}}</div>
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title w-100" id="myModalLabel"></h4>
+    </div>
+    <div class="modal-body text-center">
+      <div *ngIf="!gotErrorInFileUpload">
+        <img style="width:20%;" src="../../assets/images/success_animated.svg">
+        <br />
+        <div class="successText">{{responseFileMsg?.msg}}</div>
       </div>
       <div *ngIf="gotErrorInFileUpload">
-          <img style="width:20%;" src="../../assets/images/fail_animated.svg">
-          <!-- <div class="errorText">{{responseMessage?.error.msg}}</div> -->
-          <div class="errorText">Error! somthing went wrong !</div>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="successModal.hide()" mdbWavesEffect>Close</button>
+        <img style="width:20%;" src="../../assets/images/fail_animated.svg">
+        <!-- <div class="errorText">{{responseMessage?.error.msg}}</div> -->
+        <div class="errorText">Error! somthing went wrong !</div>
       </div>
     </div>
+    <div class="modal-footer">
+      <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close" (click)="successModal.hide()" mdbWavesEffect>Close</button>
+    </div>
   </div>
+</div>
 </div>

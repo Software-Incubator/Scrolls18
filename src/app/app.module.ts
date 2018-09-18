@@ -22,11 +22,13 @@ import { ConfirmEqualValidatorDirective } from './confirm-equal-validator.direct
 import { ServerService } from './services/server.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/authguard.service';
+import { ScAdminComponent } from './sc-admin/sc-admin.component';
+import { ScAdminDashboardComponent } from './sc-admin-dashboard/sc-admin-dashboard.component';
 
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
-   url: 'http://localhost:3000/api/uploadFile',
+   url: 'http://www.akgec-scrolls.com/api/uploadFile',
    maxFilesize: 3,
    headers : {'Authorization': 'Bearer ' +  localStorage.getItem('currentUser')},
    acceptedFiles: 'application/pdf'
@@ -41,7 +43,9 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     ScDashboardComponent,
     ScNavbarComponent,
     ScLoginComponent,
-    ConfirmEqualValidatorDirective
+    ConfirmEqualValidatorDirective,
+    ScAdminComponent,
+    ScAdminDashboardComponent
   ],
   imports: [
     BrowserModule,

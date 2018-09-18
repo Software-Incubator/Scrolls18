@@ -5,7 +5,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ServerService {
-  private URL = 'http://localhost:3000';
+  private URL = 'http://www.akgec-scrolls.com';
   constructor(private http: HttpClient) { }
 
   signup(signup_details) {
@@ -13,6 +13,9 @@ export class ServerService {
   }
   login(login_details) {
     return this.http.post(`${this.URL}/api/login`, login_details);
+  }
+  loginAdmin(login_admin_details) {
+    return this.http.post(`${this.URL}/api/adminLogin`, login_admin_details);
   }
   postregisterDetails(token: string, register_details) {
     const headers = new HttpHeaders({
@@ -29,7 +32,6 @@ export class ServerService {
     return this.http.get(`${this.URL}/api/dashboard/getAllDetails`, {headers: headers});
   }
   sendFile(token: string, file: any) {
-    console.log(file);
     const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
       'response': 'application/json',
@@ -43,5 +45,20 @@ export class ServerService {
    getDateDetails() {
      return this.http.get(`${this.URL}/api/admin/getImportantdates`);
    }
-
+   getAllTeams(token) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'response': 'application/json',
+      'Authorization': 'Bearer ' +  token
+     });
+     return this.http.get(`${this.URL}/api/admin/getAllTeams`, {headers: headers});
+   }
+   getTeamDetails(token, id) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'response': 'application/json',
+      'Authorization': 'Bearer ' +  token
+     });
+     return this.http.get(`${this.URL}/api/admin/getTeamDetails?id=${id}`, {headers: headers});
+   }
 }
