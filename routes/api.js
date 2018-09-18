@@ -48,7 +48,8 @@ router.post('/uploadFile',[passport.authenticate('jwt', {session:false}), upload
 router.get('/upload', function(req, res) {
     res.sendFile(path.join(__dirname, '/upload.html'));});
 router.get('/download', dashboardController.downloadFile);
-
+// router.post('/forgotPassword', dashboardController.forgotPassword);
+// router.post('/resetPassword', dashboardController.resetPassword);
 
 //admin routes
 router.post('/adminLogin', authController.adminLogin);

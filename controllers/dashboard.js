@@ -6,6 +6,9 @@ const fs = require('fs');
 const {google} = require('googleapis');
 const path = require('path');
 const Synopsis = require('../models/synopsis');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+
 
 function verifyTokenUtil(token , cb) {
     jwt.verify(token, config.secret, function(err, decoded) {
@@ -187,6 +190,75 @@ module.exports = {
        
         // console.log(req.files);
         
+    },
+
+    forgotPassword: (req, res) => {
+        let teamId = req.body.teamId;
+        let resetlink = "some linlk";
+        Teams.findOne({teamId: teamId}, function(err, team) {
+            jwt.sign({sub: team._id}, config.secret, {expiresIn: '24h'}, function(err, token){
+                 resetlink = token; ///change this 
+                 //edit mailoptions from, to, subject, html
+                 const templatePath = path.join(__dirname, '../mail-templates/resetPassword.ejs');
+                 const subject = "Password Reset";
+                 const templates = {
+                     resetlink: resetlink
+                 };
+                 const from = 'akgecscrolls18@gmail.com';
+                 config.sendYourMail(
+                     templatePath, 
+                     from, 
+                     newDoc.email,
+                     subject,
+                     templates,
+                     function(err, info) {
+                         if (err)
+                             res.status(500).json({error: {status: true, errorInfo: "Could not send mail"},msg: "Team registered"});
+                         else {
+                             // console.log("success", info);
+                             Teams.updateOne({teamId: teamId}, {resetPasswordToken: token}, function(err, response) {
+                                 if(err) throw err;
+                                 res.status(200).json({error: {status: false, errorInfo: null},msg: "Link to reset your password has been sent to you"})
+
+                             })
+                            
+                         }
+                     }
+                 );
+            });
+           
+        })
+        
+    },
+
+    resetPassword: (req, res) => {
+        let newPaswword = req.body.password;
+        let token = req.param(token);
+        jwt.verify(token, config.secret, function(err, decoded) {
+            if(err) throw err;
+            if(decoded && decoded != undefined) {
+                let teamId = decoded.sub;
+                Teams.findOne({teamId:teamId}, function(err, team) {
+                    if(err) throw err;
+                    if(team && team.resetPasswordToken == token) {
+                        bcrypt.hash(newPaswword, 10, function(err, hash) {
+                            Teams.updateOne({teamId:teamId}, {password:hash, resetPasswordToken:null}, function(err, response) {
+                                if(err) throw err;
+                                if(response){
+                                    res.status(200).json({error:{status:false, errorInfo:null}, msg:"Password has been reset"});
+                                } else {
+                                    res.status(200).json({error:{status:false, errorInfo:null}, msg:"Something went wrong please try again"});
+                                }
+                            })
+                        })
+                    } else {
+                        res.status(400).json({error:{status:true, errorInfo:"Bad request"}, msg:"Link expired"});
+                    }
+                })
+            } else {
+                res.status(400).json({error:{status:true, errorInfo:"Bad request"}, msg:"Link expired"});
+            }
+        })
     },
     
     downloadFile: function(req, res) {
