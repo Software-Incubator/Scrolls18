@@ -1,5 +1,7 @@
 const Phase = require('../models/phase');
 const ImpDate = require('../models/impDate');
+const Admin = require('../models/admin');
+const bcrypt = require('bcrypt');
 
 function getCurrentPhaseUtil(callback) {
     Phase.findOne({status: true}, function(err, phaseDoc) {
@@ -59,6 +61,21 @@ function deleteSynopsisUtil(team, cb) {
     })
 }
 module.exports = {
+    createAdmin : (req, res) => {
+        const username = req.body.username;
+        const password = req.body.password;
+        bcrypt.hash(password, 10, function(err, hash) {
+            if (err) throw err;
+            let newAdmin = new Admin({
+                username: username,
+                password: hash
+            });
+            newAdmin.save(function(err, newAdminDoc) {
+                console.log(newAdminDoc);
+            });
+        })
+    },
+
     createPhase: (req, res) => {
         const phase = {
             phaseName: req.body.phaseName

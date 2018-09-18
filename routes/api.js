@@ -51,6 +51,7 @@ router.get('/download', dashboardController.downloadFile);
 
 
 //admin routes
+router.post('/adminLogin', authController.adminLogin);
 router.get('/admin/getImportantdates', homeController.getImportantDates);
 router.get('/admin/getCurrentPhase', homeController.getCurrentPhase);
 

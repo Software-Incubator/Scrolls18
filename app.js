@@ -12,6 +12,7 @@ const gapi = require('./googleapis');
 const app = express();
 const port = 3000 || process.env.PORT;
 const fs = require('fs');
+const adminGaurd = require('./middlewares/adminGaurd').adminGaurd;
 
 require('./passport');
 require('./googleapis.js');
@@ -24,7 +25,7 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: true }));
 app.use(fileUpload());
 app.use(passport.initialize());
 app.use('/api', routes);
-app.use('/admin', adminRoutes);
+app.use('/admin', adminGaurd, adminRoutes);
 
 //authorize google api
 fs.readFile('credentials.json', (err, content) => {
