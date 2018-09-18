@@ -140,25 +140,34 @@ module.exports = {
     adminLogin: (req, res) => {
         let username = req.body.username;
         let password = req.body.password;
+        console.log(username, password);
         Admin.findOne({username:username}, function(err, admin) {
-            if (err) throw err;
-            bcrypt.compare(password, admin.password).then(function(same) {
-                if(same){
-                    jwt.sign({sub: admin._id}, config.secret, {expiresIn: '24h'}, function(err, token){
+            console.log(admin);
+            if(admin) {
+                if (err) throw err;
+                bcrypt.compare(password, admin.password).then(function(same) {
+                    if(same){
+                        jwt.sign({sub: admin._id}, config.secret, {expiresIn: '24h'}, function(err, token){
+                            res.status(200).json({error:{
+                                status: false,
+                                errorInfo: null
+                            }, token: token});
+                        });
+                    } else {
                         res.status(200).json({error:{
-                            status: false,
-                            errorInfo: null
-                        }, token: token});
-                    });
-                } else {
-                    res.status(401).json({error:{
-                        status: true,
-                        errorInfo: "unauthorized"
-                    }, token: null});
-                }
-            }).catch(function(err) {
-                throw err;
-            });
+                            status: true,
+                            errorInfo: "unauthorized"
+                        }, token: null});
+                    }
+                }).catch(function(err) {
+                    throw err;
+                });
+            } else {
+                res.status(200).json({error:{
+                    status: true,
+                    errorInfo: "unauthorized"
+                }, token: null});
+            }
         })
 
     }

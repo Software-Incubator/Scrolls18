@@ -54,6 +54,8 @@ router.get('/download', dashboardController.downloadFile);
 router.post('/adminLogin', authController.adminLogin);
 router.get('/admin/getImportantdates', homeController.getImportantDates);
 router.get('/admin/getCurrentPhase', homeController.getCurrentPhase);
+router.get('/admin/getAllTeams', homeController.getAllTeams);
+router.get('/admin/getTeamDetails', homeController.getTeamDetails);
 
 
 module.exports = router;
