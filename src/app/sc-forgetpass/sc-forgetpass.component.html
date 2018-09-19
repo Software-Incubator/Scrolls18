@@ -1,0 +1,51 @@
+<div *ngIf="Loading" class="overlay">
+    <img src="../../assets/images/loader.svg" class="loader image-responsive" alt="Loader">
+  </div>
+<div class="container">
+  <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 content-justtify-center text-center">
+          <h1 class="dash_heading">Please Enter New Password</h1>
+          <img style="width:20%;" class="mt-1 image-responsive" src="../../assets/images/fp.svg" alt="">
+        </div>
+    <div class="col-sm-12 col-md-12 col-lg-12 justify-content-center center">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate >
+                <div class="md-form mb-1">
+                    <label for="password">Password ( at least 8 characters )</label>
+                    <input (ngModelChange)="confirmPassword.control.updateValueAndValidity()" style="color: #808080;" type="password" id="password" required  class="form-control"
+                    name="password" [(ngModel)]="model.password"
+                    #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" minlength="8">
+                    <div class="help-block"
+                    *ngIf="(password.touched && password.errors?.required) || password.errors?.minlength">
+                    Invalid Password
+                  </div>
+                </div>
+                <div class="md-form mb-1">
+                  <label for="confirmPassword">Confirm Password</label>
+                  <input style="color: #808080;" type="password" name="confirmPassword" appConfirmEqualValidator="password" required
+                  id="confirmPassword" class="form-control"
+                  [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel">
+                  <span class="help-block"
+                  *ngIf="confirmPassword.touched && confirmPassword.errors?.required">
+                  Confirm Password is required
+                </span>
+                <span class="help-block"
+                *ngIf="confirmPassword.touched && confirmPassword.errors?.notEqual &&
+                !confirmPassword.errors?.required">
+                Doesn't match with Password
+              </span>
+            </div>
+              <div *ngIf="responseError?.error.status == true" class="text-center help-block">{{ responseError?.msg }}</div>
+              <div *ngIf="responseError?.error.status == false" class="text-center successText">{{ responseError?.msg }}</div>
+              <div class="d-flex justify-content-center">
+                <button [disabled]="!f.form.valid" mdbBtn class="btn signupbutton waves-effect waves-light my-3" mdbWavesEffect>Set</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

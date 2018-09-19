@@ -23,7 +23,7 @@ export class ScAdminComponent implements OnInit {
     this.isAdminLoggedIn = this.auth.isAdminLoggedIn();
     // console.log(this.isAdminLoggedIn);
   }
-  onSubmit() {
+  onSubmit(f) {
     this.Loading = true;
     // console.log(this.model);
     this.server.loginAdmin(this.model)
@@ -34,6 +34,7 @@ export class ScAdminComponent implements OnInit {
       if ( this.data.token ) {
       this.auth.storeAdminToken(this.data.token);
       this.isAdminLoggedIn = this.auth.isAdminLoggedIn();
+      f.resetForm();
       }
     },
   err => {

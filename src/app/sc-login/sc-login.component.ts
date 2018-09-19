@@ -11,9 +11,11 @@ import { Router } from '@angular/router';
 })
 export class ScLoginComponent implements OnInit {
   model: any = {};
+  model2: any = {};
   Loading = false;
   data: any;
   responseError: any;
+  responseError2: any;
   constructor(private server: ServerService, private auth: AuthService, private router: Router) {
 
   }
@@ -36,5 +38,31 @@ export class ScLoginComponent implements OnInit {
     this.responseError = err;
     //console.log(err);
   });
+  }
+  openForgetPass() {
+    document.getElementById('closeLogin').click();
+  }
+  onsubmitForget(f2_form: any) {
+    this.Loading = true;
+    // console.log(this.model2);
+    this.server.forgotPassword(this.model2).subscribe(
+      res => {
+        this.Loading = false;
+        // console.log(res);
+        this.responseError2 = res;
+        if (this.responseError2.error.status === false) {
+          setTimeout(() => {
+            document.getElementById('closeForget').click();
+            this.responseError2.error.status = "oth";
+            f2_form.resetForm();
+          }, 5000);
+
+        }
+      },
+      err => {
+        this.Loading = false;
+        this.responseError2 = { msg : "Something went wrong" };
+      }
+    );
   }
 }

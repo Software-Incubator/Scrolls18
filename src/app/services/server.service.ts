@@ -5,7 +5,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ServerService {
-  private URL = 'http://www.akgec-scrolls.com';
+  private URL = 'http://localhost:3000';
   constructor(private http: HttpClient) { }
 
   signup(signup_details) {
@@ -60,5 +60,11 @@ export class ServerService {
       'Authorization': 'Bearer ' +  token
      });
      return this.http.get(`${this.URL}/api/admin/getTeamDetails?id=${id}`, {headers: headers});
+   }
+   forgotPassword(details) {
+     return this.http.post(`${this.URL}/api/forgotPassword`, details);
+   }
+   resetPassword(details) {
+     return this.http.post(`${this.URL}/api/resetPassword`, details);
    }
 }

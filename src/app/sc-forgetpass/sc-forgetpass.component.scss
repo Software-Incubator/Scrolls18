@@ -19,17 +19,6 @@
   z-index: 10000; /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer; /* Add a pointer on hover */
 }
-.modal-header{
-  border-bottom: none;
-}
-.Register_heading{
-  color:#EC555A;
-  font-weight: 700;
-}
-.Team_heading{
-  color:#FFC973;
-  font-weight: 700;
-}
 .md-form input[type=text], .md-form input[type=password], .md-form input[type=email], .md-form input[type=url], .md-form input[type=time], .md-form input[type=date], .md-form input[type=datetime-local], .md-form input[type=tel], .md-form input[type=number], .md-form input[type=search-md], .md-form input[type=search], .md-form textarea.md-textarea{
   background-color:#f0f0f0;
   border-radius: 3px;
@@ -39,9 +28,6 @@
 .md-form > label{
   font-weight: 700;
   color:#808080;
-}
-.navbar.navbar-dark form .md-form .form-control{
-  color:#808080 !important;
 }
 input{
   color: #808080;
@@ -63,7 +49,7 @@ input{
   padding: 0.54rem 2.14rem;
 }
 .md-form label{
-  position: static
+  position: static;
 }
 .md-form {
   margin-top: 0px
@@ -77,6 +63,9 @@ input{
   font-weight: 700;
 }
 .button_logout {
+  position: absolute;
+  top:10px;
+  right: 40px;
   border: 1.5px solid #222;
   color: #222;
   border-radius: 40px;
@@ -91,10 +80,11 @@ input{
 .successText {
   color: #14ad14;
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
-.fpass {
-  text-decoration: none;
-  color: #59B8E8 !important;
-  font-weight:700;
+.dash_heading{
+  text-align: center;
+  color:#fbc02d;
+  font-weight: 700;
+  margin-top: 2vh;
 }

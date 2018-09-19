@@ -24,6 +24,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/authguard.service';
 import { ScAdminComponent } from './sc-admin/sc-admin.component';
 import { ScAdminDashboardComponent } from './sc-admin-dashboard/sc-admin-dashboard.component';
+import { ScForgetpassComponent } from './sc-forgetpass/sc-forgetpass.component';
 
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -45,7 +46,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     ScLoginComponent,
     ConfirmEqualValidatorDirective,
     ScAdminComponent,
-    ScAdminDashboardComponent
+    ScAdminDashboardComponent,
+    ScForgetpassComponent
   ],
   imports: [
     BrowserModule,
