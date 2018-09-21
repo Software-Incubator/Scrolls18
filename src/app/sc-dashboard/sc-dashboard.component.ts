@@ -69,7 +69,7 @@ export class ScDashboardComponent implements OnInit {
   }
   get s() {
     if (this.form['controls'].members['controls'][this.track - 1]['controls'].college.value === 'akg') {
-      this.form['controls'].members['controls'][this.track - 1]['controls'].studentNo.setValidators([Validators.required, Validators.pattern("^[1][5-8][0-3][0-4][0-9]{3}[Dd]{0,1}$")]);
+      this.form['controls'].members['controls'][this.track - 1]['controls'].studentNo.setValidators([Validators.required, Validators.pattern("^[1][5-8][0-9]{5}[Dd]{0,1}$")]);
     } else {
       this.form['controls'].members['controls'][this.track - 1]['controls'].studentNo.setValidators([Validators.required]);
     }
