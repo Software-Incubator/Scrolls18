@@ -14,6 +14,7 @@ const upload = multer({
 })
 //auth routes
 router.post('/signUp',middleware.verifyCaptcha ,authController.signUp);
+router.post('/signUpv2',middleware.verifyCaptchav2 ,authController.signUp);
 router.get('/sendEmail', function(req, res){
   const templatePath = path.join(__dirname, '../mail-templates/html.ejs');
   const subject = "Team Registered";

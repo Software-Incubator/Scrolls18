@@ -27,6 +27,7 @@ module.exports = {
     secret: "Qdhyi59BhPZsjRkg",
     connection: 'mongodb://scrolls-admin:5ky2n11@ds133762.mlab.com:33762/scrolls18',
     captchaKey: '6Led_G0UAAAAAOFOdrJyTYIk3A6mjsXDlE_4aOjz',
+    captchaKeyv2: '6LeVY3EUAAAAAFVVVDsQZuf6hCTasmifzEU71-7c',
     sendYourMail: function(templatePath, from, to, subject, templateVar, callback) {
         readHTMLFile(templatePath, function(err, html) {
             if (err) throw err;
