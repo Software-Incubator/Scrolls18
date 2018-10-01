@@ -34,7 +34,7 @@ export class ScDashboardComponent implements OnInit {
       res => {
         this.Loading = false;
         this.initialRes = res;
-         // console.log(this.initialRes);
+          //console.log(this.initialRes);
         // console.log(this.initialRes.filledStatus);
         // console.log(typeof(this.initialRes.filledStatus));
         if ( this.initialRes.filledStatus === '0') {

@@ -29,14 +29,18 @@ export class ScLoginComponent implements OnInit {
       res => {
       this.Loading = false;
       this.data = res;
-      //console.log(this.data.token);
+      // console.log(this.data);
+      if(this.data.error.status === false){
       this.auth.storeToken(this.data.token);
       this.router.navigate(['/dashboard']);
+      } else {
+        this.responseError = res;
+      }
     },
   err => {
     this.Loading = false;
     this.responseError = err;
-    //console.log(err);
+    // console.log(err);
   });
   }
   openForgetPass() {

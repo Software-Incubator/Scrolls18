@@ -4,7 +4,7 @@
       <h1 class="dash_heading">Here are all registered Teams</h1>
       <h3 class="number_of_reg">Total Registrations : {{data?.teams.length}}</h3>
     </div>
-    <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="table-responsive text-nowrap col-sm-12 col-md-12 col-lg-12">
       <table class="table table-striped">
         <thead class="black white-text">
           <tr>
@@ -55,6 +55,7 @@ aria-hidden="true">
           <p><span>Email: </span>{{detailsRes?.details.members[mem].email}}</p>
           <p><span>Course:</span> {{detailsRes?.details.members[mem].course}}</p>
           <p><span>Year:</span> {{detailsRes?.details.members[mem].year}}</p>
+          <p><span>Mob:</span> {{detailsRes?.details.members[mem].mobno}}</p>
           <p *ngIf="detailsRes?.details.members[mem].college == 'akg'"><span>College:</span> {{detailsRes?.details.members[mem].college}}</p>
           <p *ngIf="detailsRes?.details.members[mem].college == 'akg'"><span>Student No: </span> {{detailsRes?.details.members[mem].studentNo}}</p>
           <p *ngIf="detailsRes?.details.members[mem].college == 'oth'"><span>College:</span> {{detailsRes?.details.members[mem].studentNo}}</p>

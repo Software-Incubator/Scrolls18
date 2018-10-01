@@ -31,7 +31,12 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
    url: 'http://www.akgec-scrolls.com/api/uploadFile',
    maxFilesize: 3,
-   headers : {'Authorization': 'Bearer ' +  localStorage.getItem('currentUser')},
+   maxFiles: 1,
+   headers : {
+     'Authorization': 'Bearer ' +  localStorage.getItem('currentUser'),
+     'Cache-Control': '',
+     'X-Requested-With': ''
+    },
    acceptedFiles: 'application/pdf'
  };
 

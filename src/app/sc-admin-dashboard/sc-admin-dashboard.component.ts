@@ -36,9 +36,9 @@ export class ScAdminDashboardComponent implements OnInit {
     this.server.getTeamDetails(this.auth.getAdminToken(), id).subscribe(
       res => {
         this.detailsRes = res;
-        // console.log(res);
+       // console.log(res);
         // console.log(typeof(this.detailsRes.details));
-        if (this.detailsRes.details === 0) {
+        if (this.detailsRes.details === null) {
           // console.log('hi');
           this.status = false;
         } else {
