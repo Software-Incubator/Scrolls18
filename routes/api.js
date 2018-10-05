@@ -58,6 +58,6 @@ router.get('/admin/getImportantdates', homeController.getImportantDates);
 router.get('/admin/getCurrentPhase', homeController.getCurrentPhase);
 router.get('/admin/getAllTeams', homeController.getAllTeams);
 router.get('/admin/getTeamDetails', homeController.getTeamDetails);
-
+router.get('/generateExcel', homeController.generateExcel);
 
 module.exports = router;

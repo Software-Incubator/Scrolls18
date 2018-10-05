@@ -6,6 +6,9 @@ const Teams = require('../models/team');
 const TeamDetails = require('../models/team_details');
 const Members = require('../models/members');
 const Synopsis = require('../models/synopsis');
+const excel = require('excel4node');
+const fs = require('fs');
+const path = require('path');
 
 function getCurrentPhaseUtil(callback) {
     Phase.findOne({status: true}, function(err, phaseDoc) {
@@ -188,5 +191,34 @@ module.exports = {
             else
                 res.status(200).json({error:{status:false, errorInfo:null}, msg:"Team removed successfully", response:response});
         })
+    },
+
+    generateExcel: (req, res) => {
+        var wb = new excel.Workbook();
+        var ws = wb.addWorksheet('Sheet 1'); 
+        var style = wb.createStyle({
+            font: {
+            color: '#000000',
+            size: 12,
+            },
+            numberFormat: '$#,##0.00; ($#,##0.00); -',
+        });  
+        getAllTeamsUtil(function(err, teamDoc) {
+            var i = 1;
+            var a = [[]];
+            ar = gen(i, a, teamDoc);
+            console.log(ar);
+        });
+    }
+    
+}
+
+function gen(i, a, teamDoc) {
+    if(i > teamDoc.length)
+        return a;
+    else {
+        a[i-1][0] = teamDoc[i-1].teamName;
+        a[i-1][1] = teamDoc[i-1].teamId;
+        return gen(i+1, a, teamDoc);
     }
 }
