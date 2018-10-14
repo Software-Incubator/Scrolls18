@@ -38,7 +38,7 @@
     <div class="fluid-container mobile">
       <div id="landing" class="landing" >
         <img src="../../assets/images/scrolls_head__animated (5).svg" alt="Scrolls-2018" class="landing_image">
-        <h1 style="position:absolute;font-size: 3em; font-weight:510;margin-top:-1em;margin-left:-0.5em; color:rgb(64,64,64);top:50%;left:20%"><app-sc-register></app-sc-register></h1>
+        <h1 style="position:absolute;font-size: 3em; font-weight:510;margin-top:-1em;margin-left:-0.5em; color:rgb(64,64,64);top:50%;left:20%"><app-sc-register *ngIf="response?.phase.phaseName === 'register-phase'"></app-sc-register></h1>
       </div>
       <div class="landing_bottom">
 
@@ -110,7 +110,7 @@
                   <li>Big Data and Analytics</li>
                   <li>Cryptocurrency (Blockchain)</li>
                   <li>Wireless Sensor Network (WSN)</li>
-                  <li>Semantic Web: Sentament Analysis of Twitter/Facebook.</li>
+                  <li>Semantic Web: Sentiment Analysis of Twitter/Facebook.</li>
                 </ul>
               </div>
               <div class="col-md-4 justify-content-center center topics_image">
