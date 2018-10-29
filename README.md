@@ -1,5 +1,7 @@
 # Scrolls18
 
+Link - http://www.akgec-scrolls.com/
+
 # About
 
 A national level technical paper presentation contest that provides a pedestal to unleash the talent of budding technocrats, SCROLLS-2018 deals with the most thriving and progressive fields of technology and management, bringing Computing, Information Technology, Mechanical Engineering, Electrical Engineering, Electronics and Communication Technologies and Civil Engineering along with major developmental leaps in management and leadership in its fold.The crystal clarity and insight of the unique topics will not only transcend the contestant to glory but will also add to the technological advancement of the era. The share you transcribe to evacuate the sub fuss of unawareness will be in your own hands. Melt the dusk and evolve into the new dawn of prestige with utter confidence and perseverance.
